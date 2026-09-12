@@ -10,6 +10,11 @@
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 11:28 · agent/data · READY
+- what: `.env` `GROK_MODEL` is now a real model id (`grok-*`, not a doubled `GROK_MODEL=` prefix). USDA and xAI keys still set. Grok drafts can load from dotenv without a shell workaround.
+- for: data
+- action: none
+
 ## 11:30 · agent/data · READY
 - what: H3-5 USDA + Grok fill done. USDA `--all` matches were reviewed; only 72 verified FDC hits promoted. Grok aroma/mouthfeel drafted for all 153, then promoted **only missing dims** (77 ingredients) as `grok_reviewed` so USDA/literature/scoville/team values were not overwritten. Engine REQUEST: added `water` (empty profile, ice/tap aliases).
 - for: engine | web
