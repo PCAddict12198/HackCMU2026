@@ -19,6 +19,11 @@ aroma, mouthfeel). With that map you can:
 The flavor space itself (aggregation, similarity, twins, shift, explanations) is computed by our engine
 ([`docs/MODEL.md`](docs/MODEL.md)). Remove Grok and everything except Ask keeps working.
 
+## Photo credits
+Dish photos in `web/public/dishes/` are freely licensed (CC0, public domain, CC BY, CC BY-SA) from Wikimedia
+Commons, Flickr and Openverse. They are not our photography. Each photo's author, license and source page are
+listed in [`web/public/dishes/sources.json`](web/public/dishes/sources.json) and credited on the card in the app.
+
 ## Quick start
 Prerequisites: macOS or Linux (use WSL on Windows), `brew install uv node`, and Node ≥ 20.
 
