@@ -40,12 +40,13 @@ DESCRIPTORS = {
     "roughly", "thinly", "grated", "crushed", "peeled", "dried", "about", "optional", "for", "serving",
     "garnish", "to", "taste", "of", "a", "an", "the", "good", "quality", "extra", "virgin", "packed",
     "ripe", "cold", "warm", "hot", "boneless", "skinless", "raw", "cooked", "halved", "quartered", "whole",
+    "can", "cans", "tin", "tins", "jar", "jars", "package", "packet", "bottle",  # containers
 }
 DEFAULT_TO_TASTE_G = 1.0
 DEFAULT_UNKNOWN_G = 10.0
 DEFAULT_PIECE_G = 50.0
 
-_NUM = r"(?:\d+\s+\d+/\d+|\d+/\d+|\d+(?:\.\d+)?|[½⅓⅔¼¾⅛⅜⅝⅞])"
+_NUM = r"(?:\d+\s+\d+/\d+|\d+\s*[½⅓⅔¼¾⅛⅜⅝⅞]|\d+/\d+|\d+(?:\.\d+)?|[½⅓⅔¼¾⅛⅜⅝⅞])"
 _QTY_RE = re.compile(rf"^\s*(?P<a>{_NUM})(?:\s*(?:-|–|to)\s*(?P<b>{_NUM}))?\s*")
 
 
@@ -89,17 +90,25 @@ def parse_line(line: str, unit_index: dict[str, str]) -> ParsedLine | None:
     s = re.sub(r"\([^)]*\)", " ", s)
     to_taste = bool(re.search(r"\bto taste\b|\bpinch\b|\bdash\b", s, re.I))
     s = s.split(",")[0]
+    s = re.sub(r"^\s*(?:the\s+)?juice of\s+", "", s, flags=re.I)  # "juice of 2 limes" -> "2 limes"
+    mult = 1.0
+    if mm := re.match(r"^\s*(\d+)\s*[x×]\s+", s):  # "2 x 400g can ..." -> 2 packs of 400 g
+        mult, s = float(mm[1]), s[mm.end():]
     qty = None
-    mq = _QTY_RE.match(s)
-    if mq:
+    if mq := _QTY_RE.match(s):
         a = _num(mq["a"])
         qty = (a + _num(mq["b"])) / 2 if mq["b"] else a
         s = s[mq.end():]
-    tokens = s.strip().split()
+    elif ma := re.match(r"^\s*(?:a|an)\s+", s, re.I):  # "a handful of ..." -> 1 handful
+        qty, s = 1.0, s[ma.end():]
+    s = re.sub(r"^(\S+?)\s*/\s*[\d.]+\s*[a-zA-Z]+", r"\1", s.strip())  # "g/7oz" -> "g" (drop alt unit)
+    tokens = s.split()
     unit = None
     if tokens and tokens[0].lower().rstrip(".") in unit_index:
         unit = unit_index[tokens[0].lower().rstrip(".")]
         tokens = tokens[1:]
+    if qty is not None:
+        qty *= mult
     words = [w.lower().strip(".;:") for w in tokens]
     if words and words[0] == "of":
         words = words[1:]
@@ -108,6 +117,17 @@ def parse_line(line: str, unit_index: dict[str, str]) -> ParsedLine | None:
     if not name:
         return None
     return ParsedLine(raw=raw, qty=qty, unit=unit, name=name, processes=procs, to_taste=to_taste)
+
+
+def parse_lines(line: str, unit_index: dict[str, str]) -> list[ParsedLine]:
+    """parse_line, but "salt and pepper to taste" becomes one line per ingredient."""
+    if (re.search(r"\bto taste\b", line, re.I) and re.search(r"\s(?:and|&)\s", line)
+            and not _QTY_RE.match(line.lstrip("-*•·– "))):
+        base = re.sub(r"\bto taste\b", "", line, flags=re.I)
+        parts = [p.strip(" ,") for p in re.split(r"\s(?:and|&)\s|,", base) if p.strip(" ,")]
+        return [p for part in parts if (p := parse_line(f"{part} to taste", unit_index))]
+    p = parse_line(line, unit_index)
+    return [p] if p else []
 
 
 class IngredientMatcher:
@@ -176,7 +196,7 @@ def estimate_grams(p: ParsedLine, ing: Ingredient, units: dict[str, UnitDef]) ->
 def analyze_recipe(state: EngineState, ds: Dataset, req: RecipeRequest, mapper: Mapper | None = None) -> RecipeResponse:
     unit_index = build_unit_index(ds.units)
     matcher = IngredientMatcher(ds.ingredients, ds.aliases)
-    parsed = [p for line in req.text.splitlines() if (p := parse_line(line, unit_index))]
+    parsed = [p for line in req.text.splitlines() for p in parse_lines(line, unit_index)]
     if not parsed:
         raise TasteSpaceError("validation_error", "no ingredient lines found in the recipe text")
 
