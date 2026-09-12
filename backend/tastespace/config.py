@@ -18,6 +18,9 @@ class Settings:
     data_tier: str
     xai_api_key: str | None
     grok_model: str | None
+    # "low" halves Ask latency on grok-4.6 (9.5 s -> 4.7 s) with the same tool choices;
+    # GROK_REASONING_EFFORT=default sends no setting. grok-4.6 rejects "none".
+    grok_reasoning_effort: str | None = "low"
 
     @property
     def artifact_path(self) -> Path:
@@ -39,4 +42,11 @@ def get_settings() -> Settings:
         data_tier=os.environ.get("DATA_TIER") or "core",
         xai_api_key=os.environ.get("XAI_API_KEY") or None,
         grok_model=os.environ.get("GROK_MODEL") or None,
+        grok_reasoning_effort=_effort(os.environ.get("GROK_REASONING_EFFORT")),
     )
+
+
+def _effort(value: str | None) -> str | None:
+    if not value:
+        return "low"
+    return None if value.strip().lower() == "default" else value.strip().lower()

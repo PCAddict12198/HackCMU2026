@@ -1,6 +1,7 @@
 // Mock-only approximations so every dish is clickable before the real API exists. Results are
 // FAKE except projectDelta, which is the engine's real linear projection of a shift in sigma units.
 import type {
+  Contribution,
   Deltas,
   DimId,
   DishPoint,
@@ -80,17 +81,28 @@ export function mockShift(space: SpaceResponse, req: ShiftRequest): ShiftRespons
   };
 }
 
+function mockAttribs(dish: DishPoint | undefined): Record<string, Contribution[]> {
+  if (!dish) return {};
+  const out: Record<string, Contribution[]> = {};
+  for (const [dim, value] of Object.entries(dish.vector)) {
+    if (value < 0.12) continue;
+    out[dim] = [{ kind: "ingredient", id: dish.id, value, src: "fixture", process: [] }];
+  }
+  return out;
+}
+
 export function mockExplain(space: SpaceResponse, a: string, b: string): ExplainResponse {
   const A = find(space, a);
   const B = find(space, b);
   const dims = space.meta.dim_order.map((dim) => ({ dim, a: A?.vector[dim] ?? 0, b: B?.vector[dim] ?? 0 }));
   const total = dims.reduce((s, x) => s + (x.a - x.b) ** 2, 0) || 1;
+  const rank = Math.max(0, space.dishes.findIndex((d) => d.id === b));
   return {
     a,
     b,
-    similarity_pct: 50,
+    similarity_pct: pct(rank, space.dishes.length),
     distance: Math.sqrt(total),
     dims: dims.map((x) => ({ ...x, distance_share: (x.a - x.b) ** 2 / total })),
-    attributions: { a: {}, b: {} },
+    attributions: { a: mockAttribs(A), b: mockAttribs(B) },
   };
 }

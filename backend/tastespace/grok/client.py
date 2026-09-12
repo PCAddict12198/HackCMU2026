@@ -54,10 +54,11 @@ ChatFactory = Callable[[str, list[ToolSpec] | None], GrokChat]
 class XaiChat:
     """GrokChat backed by xai_sdk (Client.chat.create / append / sample / parse)."""
 
-    def __init__(self, client: Any, model: str, system_prompt: str, tools: list[ToolSpec] | None):
+    def __init__(self, client: Any, model: str, system_prompt: str, tools: list[ToolSpec] | None,
+                 reasoning_effort: str | None = None):
         from xai_sdk.chat import system, tool
 
-        kwargs: dict[str, Any] = {}
+        kwargs: dict[str, Any] = {"reasoning_effort": reasoning_effort} if reasoning_effort else {}
         if tools:
             kwargs["tools"] = [tool(name=t.name, description=t.description, parameters=t.parameters) for t in tools]
             kwargs["tool_choice"] = "auto"
@@ -102,6 +103,6 @@ def xai_chat_factory(settings: Settings | None = None) -> ChatFactory:
     model = s.grok_model or ""
 
     def factory(system_prompt: str, tools: list[ToolSpec] | None = None) -> GrokChat:
-        return XaiChat(client, model, system_prompt, tools)
+        return XaiChat(client, model, system_prompt, tools, s.grok_reasoning_effort)
 
     return factory

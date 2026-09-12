@@ -28,9 +28,11 @@ diluted. Every value has provenance (`src`):
 ## 4. Aggregation (`backend/tastespace/engine/aggregate.py`)
 ```
 raw_k = sum_i share_i * potency_i * r'_ik      share_i = grams_i / total grams
-ing_k = 1 - exp(-raw_k / s_k)                  s_k: the 90th-percentile core dish scores 0.9
+ing_k = 1 - exp(-raw_k / s_k)                  s_k: the 90th-percentile core dish that HAS dim k scores 0.9
 D_k   = ing_k + f_k * (1 - ing_k)
 ```
+Calibration uses only the dishes that have a dim. Over all dishes, a sparse dim (smoky in 4 of 16 seed
+dishes) would put its 90th percentile on a barely-smoky dish and push every smoky dish to ~1.
 Bland bulk (water, noodles) has `r ~ 0`, so it doesn't dilute potent ingredients the way a weighted average would.
 **Attribution is exact:** ingredient i contributes `ing_k * term_ik / raw_k` and the format contributes
 `f_k * (1 - ing_k)`. They sum to `D_k`, which the build report checks to within 1e-6.

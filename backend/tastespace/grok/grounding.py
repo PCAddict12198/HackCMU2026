@@ -104,8 +104,8 @@ def validate_ui_actions(actions: list, trace: list[ToolCallTrace], state: Engine
     out = []
     for a in actions:
         a = _UI_ACTION.validate_python(a.model_dump() if hasattr(a, "model_dump") else a)
-        if all(d in state.dishes and d in seen for d in referenced_dish_ids(a)):
-            out.append(a)
+        if all(d in state.dishes and d in seen for d in referenced_dish_ids(a)) and (not out or out[-1] != a):
+            out.append(a)  # (consecutive duplicates, e.g. search's select_dish then twins', are dropped)
     panels = [i for i, a in enumerate(out) if isinstance(a, OpenPanel)]
     return [a for i, a in enumerate(out) if not isinstance(a, OpenPanel) or i == panels[-1]]
 
