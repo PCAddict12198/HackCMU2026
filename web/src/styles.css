@@ -14,7 +14,8 @@ body { margin: 0; background: var(--bg); color: var(--text); }
 .app { display: flex; flex-direction: column; height: 100vh; }
 header { display: flex; gap: 12px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
 main { flex: 1; display: grid; grid-template-columns: 1fr minmax(320px, 400px); min-height: 0; }
-.galaxy { position: relative; min-height: 0; }
+.galaxy { position: relative; min-height: 0; height: 100%; background: #05060a; }
+.galaxy canvas { display: block; width: 100% !important; height: 100% !important; }
 .galaxy-empty { display: grid; place-items: center; height: 100%; color: var(--muted); }
 .dish-card { position: absolute; left: 16px; bottom: 16px; max-width: 420px; background: #10131ccc; border: 1px solid var(--line); padding: 10px 12px; border-radius: 10px; }
 .legend { position: absolute; left: 16px; top: 16px; display: flex; flex-wrap: wrap; gap: 6px; max-width: 52%; }

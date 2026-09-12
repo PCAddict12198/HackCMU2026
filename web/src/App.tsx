@@ -1,4 +1,4 @@
-import { type ComponentType, useEffect } from "react";
+import { type ComponentType, useEffect, useState } from "react";
 import { API_MODE } from "./api/client";
 import type { Panel } from "./contract";
 import { AskPanel } from "./features/ask/AskPanel";
@@ -19,17 +19,36 @@ const PANELS: Record<Panel, { label: string; View: ComponentType }> = {
   ask: { label: "Ask (Grok)", View: AskPanel },
 };
 
-const debugError = () =>
-  typeof location !== "undefined" ? new URLSearchParams(location.search).get("mockError") : null;
+const search = () => (typeof location === "undefined" ? "" : location.search);
+
+const debugError = (q: string) => new URLSearchParams(q).get("mockError");
+
+function setMockQuery(mutate: (params: URLSearchParams) => void) {
+  const u = new URL(window.location.href);
+  mutate(u.searchParams);
+  history.pushState({}, "", u);
+  window.dispatchEvent(new Event("tastespace:query"));
+}
 
 export default function App() {
   const { load, loadError, space, health, panel, setPanel, selectedId, resetView, highlightIds, bumpPlaceRecipe, setExplainPair, twinHighlight } =
     useStore();
   const selected = useDish(selectedId);
-  const forced = debugError();
+  const [query, setQuery] = useState(search);
+  const forced = debugError(query);
+  const mockLarge = new URLSearchParams(query).get("mockLarge") === "1";
+  useEffect(() => {
+    const sync = () => setQuery(search());
+    window.addEventListener("popstate", sync);
+    window.addEventListener("tastespace:query", sync);
+    return () => {
+      window.removeEventListener("popstate", sync);
+      window.removeEventListener("tastespace:query", sync);
+    };
+  }, []);
   useEffect(() => {
     void load();
-  }, [load]);
+  }, [load, query]);
 
   useEffect(() => {
     if (panel === "ask" && health && !health.grok_configured) setPanel("twins");
@@ -93,8 +112,25 @@ export default function App() {
         {health && !health.grok_configured && <span className="badge mock">Ask hidden</span>}
         {space && (
           <span className="muted small">
-            build {space.meta.build_id} · {space.meta.n_dishes} dishes
+            build {space.meta.build_id} · {space.dishes.length} dishes
           </span>
+        )}
+        {API_MODE === "mock" && (
+          <button
+            type="button"
+            className={mockLarge ? "active" : "ghost"}
+            onClick={() =>
+              setMockQuery((p) => {
+                if (p.get("mockLarge") === "1") p.delete("mockLarge");
+                else {
+                  p.set("mockLarge", "1");
+                  p.delete("mockError");
+                }
+              })
+            }
+          >
+            {mockLarge ? "80-dish mock on" : "Load 80-dish mock"}
+          </button>
         )}
         <button type="button" className="ghost" onClick={resetView}>
           Reset view

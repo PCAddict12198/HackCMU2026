@@ -51,6 +51,7 @@ function StarField({
   return (
     <>
       <instancedMesh
+        key={dishes.length}
         ref={mesh}
         args={[undefined, undefined, dishes.length]}
         onClick={(e) => {
@@ -186,7 +187,7 @@ function CameraRig({ focus, homeTick }: { focus: Vec3 | null; homeTick: number }
   const { camera } = useThree();
   const controls = useThree((s) => s.controls) as { target: THREE.Vector3; update?: () => void } | null;
   const lastHome = useRef(homeTick);
-  const homeCam = useMemo(() => new THREE.Vector3(0, 0, 26), []);
+  const homeCam = useMemo(() => new THREE.Vector3(0, 0, 34), []);
   const origin = useMemo(() => new THREE.Vector3(0, 0, 0), []);
   const goal = useRef(new THREE.Vector3());
   const camGoal = useRef(new THREE.Vector3());
@@ -231,7 +232,7 @@ export function Galaxy() {
 
   return (
     <Canvas
-      camera={{ position: [0, 0, 26], fov: 50 }}
+      camera={{ position: [0, 0, large ? 34 : 26], fov: 50 }}
       dpr={large ? 1 : [1, 1.5]}
       gl={{ antialias: !large, powerPreference: "high-performance" }}
       flat

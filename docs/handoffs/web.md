@@ -11,6 +11,11 @@
 | ask | demo | hidden if grok off; skeleton while asking |
 
 ## Log
+## 11:46 · READY
+- what: 80-dish mock actually loads (header toggle, ignore stale fetches, camera stays wide)
+- for: web
+- action: click "Load 80-dish mock" on http://localhost:5173/ (or ?mockLarge=1 with a full reload)
+
 ## 10:50 · READY
 - what: pre-h8 polish — panel errors/latency, mockLarge orbit, demo keys 0–5
 - for: integrator
