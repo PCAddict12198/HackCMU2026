@@ -1,14 +1,14 @@
 export const CUISINE_COLORS: Record<string, string> = {
-  japanese: "#ff6b6b",
-  chinese: "#f59f00",
-  korean: "#e64980",
-  thai: "#51cf66",
-  vietnamese: "#20c997",
-  indian: "#fab005",
-  levantine: "#94d82d",
-  italian: "#4dabf7",
-  french: "#9775fa",
-  mexican: "#ff922b",
+  japanese: "#e07a78",
+  chinese: "#e0a15a",
+  korean: "#d46a92",
+  thai: "#6cbc7a",
+  vietnamese: "#4db8a4",
+  indian: "#d9ae4a",
+  levantine: "#9bc45a",
+  italian: "#6aa8e0",
+  french: "#9b86d9",
+  mexican: "#e08a4a",
 };
 
-export const cuisineColor = (c: string) => CUISINE_COLORS[c] ?? "#ced4da";
+export const cuisineColor = (c: string) => CUISINE_COLORS[c] ?? "#c8c0b6";

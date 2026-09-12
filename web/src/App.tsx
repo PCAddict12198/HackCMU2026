@@ -108,9 +108,12 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <strong>TasteSpace</strong>
-        <span className="muted small">search by flavor, not by name</span>
-        <span className={`badge ${API_MODE}`}>{API_MODE === "mock" ? "MOCK DATA" : "LIVE ENGINE"}</span>
+        <div className="brand">
+          <strong>TasteSpace</strong>
+          <span className="muted small tagline">search by flavor, not by name</span>
+        </div>
+        <div className="header-actions">
+        <span className={`badge ${API_MODE}`}>{API_MODE === "mock" ? "Mock" : "Live"}</span>
         {forced && (
           <a className="badge mock" href="/">
             debug ?mockError={forced} — clear
@@ -119,7 +122,7 @@ export default function App() {
         {health && !health.grok_configured && <span className="badge mock">Ask hidden</span>}
         {space && (
           <span className="muted small">
-            build {space.meta.build_id} · {space.dishes.length} dishes
+            {space.dishes.length} dishes
           </span>
         )}
         {API_MODE === "mock" && (
@@ -142,7 +145,8 @@ export default function App() {
         <button type="button" className="ghost" onClick={resetView}>
           Reset view
         </button>
-        <span className="muted small hide-narrow">0 reset · 1 twins · 2 fly · 3/L shift · 4 why · 5 recipe</span>
+        <span className="kbd hide-narrow">0 · 1 · L · 4 · 6</span>
+        </div>
       </header>
       {loadError != null && (
         <div className="banner">
@@ -155,8 +159,9 @@ export default function App() {
           <CuisineLegend />
           {selected && (
             <div className="dish-card">
-              <strong>{selected.name}</strong> <span className="muted">{selected.cuisine}</span>
-              <div className="small">{selected.blurb}</div>
+              <strong>{selected.name}</strong>
+              <span className="cuisine">{selected.cuisine}</span>
+              <div className="small muted">{selected.blurb}</div>
             </div>
           )}
         </section>

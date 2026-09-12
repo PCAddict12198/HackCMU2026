@@ -3,7 +3,7 @@
 ## Panel readiness (placeholder = wired to contract, baseline = usable, demo = polished)
 | feature | status | notes |
 |---|---|---|
-| galaxy | demo | cuisine colors in real+mock (no vertexColors); 80-star mockLarge |
+| galaxy | demo | lit 3D orbs (not faceted dots); Fraunces/Outfit chrome |
 | twins | demo | stale-while-revalidate + skeleton; 4 seeds explain pair |
 | shift | demo | sliders stay up during latency/errors; L/S/M |
 | explain | demo | key 4 / tab seeds pair so no empty state |
@@ -11,6 +11,11 @@
 | ask | demo | hidden if grok off; skeleton while asking |
 
 ## Log
+## 12:46 · READY
+- what: visual polish — smooth lit dish orbs, Fraunces + Outfit, glass panel chrome
+- for: integrator
+- action: `make dev` for live 70-dish data (not `make web`)
+
 ## 12:30 · READY
 - what: demo keys follow `docs/demo/demo_script.md` — default/1 = pho_bo twins, 3/L = lighter shift, 4 = pho vs pozole (when both in the catalog), Ask placeholder "like pho bo but spicier". Mock 16-dish has pho but not pozole; key 4 falls back to the loaded twin.
 - for: integrator
