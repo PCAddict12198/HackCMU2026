@@ -84,11 +84,19 @@ def raw_dish(dish: Dish, ingredients: dict[str, Ingredient], processes: dict[str
 
 
 def calibrate(raws: np.ndarray, quantile: float = 0.9, target: float = 0.9) -> np.ndarray:
-    """Pick s_k so a dish at the `quantile` of raw_k scores `target` (before the format term)."""
+    """Pick s_k so the dish at the `quantile` of raw_k scores `target` (before the format term).
+
+    The quantile is taken over the dishes that HAVE dim k (raw_k > 0). Over all dishes, a sparse dim
+    (e.g. smoky in 4 of 16) puts its 90th percentile on a barely-smoky dish, which saturates every
+    smoky dish to ~1 and erases the differences between them.
+    """
     raws = np.atleast_2d(np.asarray(raws, dtype=float))
-    q = np.quantile(raws, quantile, axis=0)
-    s = q / -np.log(1.0 - target)
-    return np.where(s > 1e-9, s, 1.0)  # a dim no dish has: any positive scale works
+    s = np.ones(raws.shape[1])  # a dim no dish has: any positive scale works
+    for k in range(raws.shape[1]):
+        present = raws[:, k][raws[:, k] > 0]
+        if len(present):
+            s[k] = np.quantile(present, quantile) / -np.log(1.0 - target)
+    return s
 
 
 def finalize(rd: RawDish, s: np.ndarray) -> DishVector:
