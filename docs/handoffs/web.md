@@ -3,7 +3,7 @@
 ## Panel readiness (placeholder = wired to contract, baseline = usable, demo = polished)
 | feature | status | notes |
 |---|---|---|
-| galaxy | demo | 80-star mockLarge, dpr cap, no trail hitch, fly-to |
+| galaxy | demo | cuisine colors in real+mock (no vertexColors); 80-star mockLarge |
 | twins | demo | stale-while-revalidate + skeleton; 4 seeds explain pair |
 | shift | demo | sliders stay up during latency/errors; L/S/M |
 | explain | demo | key 4 / tab seeds pair so no empty state |
@@ -11,6 +11,16 @@
 | ask | demo | hidden if grok off; skeleton while asking |
 
 ## Log
+## 12:30 · READY
+- what: demo keys follow `docs/demo/demo_script.md` — default/1 = pho_bo twins, 3/L = lighter shift, 4 = pho vs pozole (when both in the catalog), Ask placeholder "like pho bo but spicier". Mock 16-dish has pho but not pozole; key 4 falls back to the loaded twin.
+- for: integrator
+- action: `make dev`; 0/1/L/4/6 walkthrough. Real build `3eaa61b000dc`: twin pozole 98.1, L tom yum 87.7, S mapo 99.2.
+
+## 12:08 · f0e7239 · READY
+- what: instanced stars use instanceColor only (dropped `vertexColors`); real-mode 70-dish galaxy matches cuisine legend
+- for: engine | integrator
+- action: none; verified `make dev` LIVE ENGINE + mock 16/80
+
 ## 11:46 · READY
 - what: 80-dish mock actually loads (header toggle, ignore stale fetches, camera stays wide)
 - for: web

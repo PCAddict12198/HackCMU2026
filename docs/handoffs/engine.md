@@ -12,6 +12,28 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H22 · twins relaxation label (answers data's 12:32 BREAKING) · READY
+- what: confirmed and fixed. find_twins labelled a result by the loosest ladder level used to fill k=3, so
+  dishes like che_ba_mau (best twin 86.7th pct) showed "no close cross-cuisine match yet". relaxation_level
+  is now the level of the BEST twin, and the notes say "best twin is in the top X%". Twins and percentiles
+  are unchanged, so demo numbers hold. Only baklava and tiramisu remain truly isolated in core
+- for: data, web
+- action: none; the UI note simply becomes accurate
+
+## H16 · black stars root cause · REQUEST
+- what: real mode at h16 still renders every non-highlighted star BLACK. Cause: Galaxy.tsx line 68
+  `<meshBasicMaterial vertexColors toneMapped={false} />`. `vertexColors` multiplies by the sphere's per-vertex
+  `color` attribute, which sphereGeometry doesn't have (reads as 0 = black); per-instance colors from
+  setColorAt are applied automatically without it
+- for: web
+- action: delete `vertexColors` (keep toneMapped={false}), check `make dev` on real data, push (bugfix, allowed after freeze)
+
+## H16 · calibration frozen · READY
+- what: s_k pinned from the H16 core build (calibration_frozen.json); build id unchanged (cc7311f268f9), so the
+  numbers in docs/demo/demo_script.md stay exact
+- for: data, web
+- action: none; data fixes after h16 no longer move every dish
+
 ## H11 · rater panel (answers data's 11:58 REQUEST) · READY
 - what: report section is now "Rater panel vs model": one rho per rater key tagged human/AI, a separate
   human-panel line, and an explicit "human panel: none, any rho is an AI baseline, NOT human validation"

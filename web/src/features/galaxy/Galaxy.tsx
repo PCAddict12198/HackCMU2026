@@ -65,7 +65,7 @@ function StarField({
         onPointerOut={() => setHover(null)}
       >
         <sphereGeometry args={[0.24, 8, 8]} />
-        <meshBasicMaterial vertexColors toneMapped={false} />
+        <meshBasicMaterial toneMapped={false} />
       </instancedMesh>
       {label && (
         <Html position={asTriple(label.xyz)} center distanceFactor={14} style={{ pointerEvents: "none" }}>
