@@ -28,11 +28,13 @@ ingredients:
   name: Pork shoulder
   category: protein
   profile:
-    rich: {v: 0.13, src: usda, note: 'fat 3.4 g/100g (fdc 169187: Pork, Shoulder breast, boneless, separable lean and fat, raw)'}
+    rich: {v: 0.39, src: usda, note: 'fat 12.4 g/100g (fdc 167849: Pork, fresh, shoulder, (Boston butt), blade
+      (steaks), separable lean and fat, raw) - re-matched from the lean "Shoulder breast" row, which is not the
+      braising cut any of these dishes use'}
     umami: {v: 0.5, src: team}
     chewy: {v: 0.3, src: team}
-    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 169187: Pork, Shoulder breast, boneless, separable lean and fat, raw)'}
-    salty: {v: 0.04, src: usda, note: 'sodium 54.0 mg/100g (fdc 169187: Pork, Shoulder breast, boneless, separable lean and fat, raw)'}
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 167849: Pork, fresh, shoulder, (Boston butt), raw)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 61.0 mg/100g (fdc 167849: Pork, fresh, shoulder, (Boston butt), raw)'}
     creamy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: guanciale
