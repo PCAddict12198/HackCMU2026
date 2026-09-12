@@ -3,7 +3,7 @@
 ## Panel readiness (placeholder = wired to contract, baseline = usable, demo = polished)
 | feature | status | notes |
 |---|---|---|
-| galaxy | demo | 80-star mockLarge, dpr cap, no trail hitch, fly-to |
+| galaxy | demo | cuisine colors in real+mock (no vertexColors); 80-star mockLarge |
 | twins | demo | stale-while-revalidate + skeleton; 4 seeds explain pair |
 | shift | demo | sliders stay up during latency/errors; L/S/M |
 | explain | demo | key 4 / tab seeds pair so no empty state |
@@ -11,6 +11,11 @@
 | ask | demo | hidden if grok off; skeleton while asking |
 
 ## Log
+## 12:08 · f0e7239 · READY
+- what: instanced stars use instanceColor only (dropped `vertexColors`); real-mode 70-dish galaxy matches cuisine legend
+- for: engine | integrator
+- action: none; verified `make dev` LIVE ENGINE + mock 16/80
+
 ## 11:46 · READY
 - what: 80-dish mock actually loads (header toggle, ignore stale fetches, camera stays wide)
 - for: web
