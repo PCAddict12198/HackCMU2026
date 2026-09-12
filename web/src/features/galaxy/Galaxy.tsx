@@ -48,10 +48,11 @@ function StarField({
   const labelIdx = hover ?? dishes.findIndex((d) => d.id === selectedId);
   const label = labelIdx >= 0 ? dishes[labelIdx] : null;
 
+  const segs = dishes.length > 40 ? 24 : 36;
   return (
     <>
       <instancedMesh
-        key={dishes.length}
+        key={`${dishes.length}-${segs}`}
         ref={mesh}
         args={[undefined, undefined, dishes.length]}
         onClick={(e) => {
@@ -64,8 +65,8 @@ function StarField({
         }}
         onPointerOut={() => setHover(null)}
       >
-        <sphereGeometry args={[0.24, 8, 8]} />
-        <meshBasicMaterial toneMapped={false} />
+        <sphereGeometry args={[0.3, segs, segs]} />
+        <meshStandardMaterial roughness={0.22} metalness={0.28} envMapIntensity={0.9} />
       </instancedMesh>
       {label && (
         <Html position={asTriple(label.xyz)} center distanceFactor={14} style={{ pointerEvents: "none" }}>
@@ -84,8 +85,8 @@ function Halos({ dishes, ids }: { dishes: DishPoint[]; ids: string[] }) {
     if (!d) return null;
     return (
       <mesh key={id} position={asTriple(d.xyz)}>
-        <sphereGeometry args={[0.48, 12, 12]} />
-        <meshBasicMaterial color="#ffd166" transparent opacity={0.22} />
+        <sphereGeometry args={[0.52, 32, 32]} />
+        <meshBasicMaterial color="#e4c08a" transparent opacity={0.16} depthWrite={false} />
       </mesh>
     );
   });
@@ -100,8 +101,8 @@ function RecipeStar({ recipe }: { recipe: RecipeResponse }) {
   });
   return (
     <mesh ref={pulse} position={asTriple(recipe.xyz)}>
-      <sphereGeometry args={[0.38, 18, 18]} />
-      <meshStandardMaterial color="#ffe8a3" emissive="#ffd166" emissiveIntensity={1.4} />
+      <sphereGeometry args={[0.4, 36, 36]} />
+      <meshStandardMaterial color="#ffe8a3" emissive="#e4c08a" emissiveIntensity={0.85} roughness={0.18} metalness={0.35} />
       <Html center distanceFactor={14} style={{ pointerEvents: "none" }}>
         <div className="star-label recipe">{recipe.name}</div>
       </Html>
@@ -120,7 +121,7 @@ function TargetGlide({ from, to, trail }: { from: Vec3; to: Vec3; trail: boolean
     g.setDrawRange(0, 2);
     return g;
   }, []);
-  const trailLine = useMemo(() => new THREE.Line(geo, new THREE.LineBasicMaterial({ color: 0xffd166 })), [geo]);
+  const trailLine = useMemo(() => new THREE.Line(geo, new THREE.LineBasicMaterial({ color: 0xe4c08a })), [geo]);
   const goal = useMemo(() => new THREE.Vector3(to[0], to[1], to[2]), [to[0], to[1], to[2]]);
   const dashPts = useMemo(
     () => [new THREE.Vector3(from[0], from[1], from[2]), new THREE.Vector3(to[0], to[1], to[2])],
@@ -153,10 +154,10 @@ function TargetGlide({ from, to, trail }: { from: Vec3; to: Vec3; trail: boolean
   return (
     <>
       {trail && <primitive object={trailLine} />}
-      <Line points={dashPts} color="#ffd166" lineWidth={1} dashed dashSize={0.28} gapSize={0.18} />
+      <Line points={dashPts} color="#e4c08a" lineWidth={1.4} dashed dashSize={0.28} gapSize={0.18} />
       <mesh ref={marker} position={asTriple(to)}>
-        <sphereGeometry args={[0.3, 12, 12]} />
-        <meshBasicMaterial color="#ffd166" wireframe />
+        <sphereGeometry args={[0.26, 32, 32]} />
+        <meshStandardMaterial color="#e4c08a" emissive="#e4c08a" emissiveIntensity={0.55} roughness={0.2} metalness={0.4} wireframe={false} />
       </mesh>
     </>
   );
@@ -173,7 +174,7 @@ function Axes({ labels }: { labels: string[] }) {
     <group>
       {ends.map((p, i) => (
         <group key={labels[i] ?? i}>
-          <Line points={[[0, 0, 0], p]} color="#2a3146" lineWidth={1} />
+          <Line points={[[0, 0, 0], p]} color="#3a342c" lineWidth={1} />
           <Html position={p} center style={{ pointerEvents: "none" }}>
             <div className="axis-label">{labels[i]}</div>
           </Html>
@@ -232,14 +233,16 @@ export function Galaxy() {
 
   return (
     <Canvas
-      camera={{ position: [0, 0, large ? 34 : 26], fov: 50 }}
-      dpr={large ? 1 : [1, 1.5]}
-      gl={{ antialias: !large, powerPreference: "high-performance" }}
-      flat
+      camera={{ position: [0, 0, large ? 34 : 26], fov: 46 }}
+      dpr={[1, 2]}
+      gl={{ antialias: true, powerPreference: "high-performance", alpha: false }}
     >
-      <color attach="background" args={["#05060a"]} />
-      <ambientLight intensity={0.55} />
-      <pointLight position={[18, 18, 22]} intensity={1.15} />
+      <color attach="background" args={["#05040a"]} />
+      <fog attach="fog" args={["#05040a", 22, 58]} />
+      <hemisphereLight args={["#f0e6d4", "#1a1210", 0.55]} />
+      <directionalLight position={[10, 14, 8]} intensity={1.35} color="#fff6ea" />
+      <pointLight position={[-12, -4, 10]} intensity={0.55} color="#c4a0ff" />
+      <pointLight position={[4, 8, -10]} intensity={0.28} color="#e4c08a" />
       <StarField
         dishes={space.dishes}
         selectedId={selectedId}
