@@ -3,13 +3,18 @@
 ## Status
 | item | value |
 |---|---|
-| core dishes written / manifest | 44 / 70 (H0-3 first 35 JP–VN written; plus 9 later-cuisine seeds) |
+| core dishes written / manifest | 70 / 70 (all skeletons `confidence: draft`) |
 | dishes `confidence: reviewed` | 0 |
-| ingredients | 114 (73 with seed profiles; 41 new often `profile: {}`) |
+| ingredients | 152 (73 with seed_placeholder profiles; ~79 new mostly `profile: {}`) |
 | grounded (non-seed) value share | 0% |
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 10:50 · agent/data · READY
+- what: remaining 26 skeletons (indian, levantine, italian, french, mexican) — full 70-dish core present
+- for: engine
+- action: none; next is USDA fill + grok drafts for empty-profile ingredients (H3-5)
+
 ## 10:35 · agent/data · READY
 - what: first 35 manifest skeletons done (japanese through vietnamese); remaining 35 are IN/LEV/IT/FR/MX
 - for: engine

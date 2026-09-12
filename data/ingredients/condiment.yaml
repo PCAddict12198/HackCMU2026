@@ -24,3 +24,10 @@ ingredients:
   - {id: massaman_curry_paste, name: Massaman curry paste, category: condiment, potency: 5.0, profile: {}}
   - {id: tamarind, name: Tamarind, category: condiment, potency: 4.0, aliases: [tamarind paste, tamarind water], profile: {}}
   - {id: shrimp_paste, name: Shrimp paste, category: condiment, potency: 8.0, aliases: [belacan, mam tom], profile: {}}
+  - {id: tahini, name: Tahini, category: condiment, potency: 3.0, aliases: [sesame tahini], profile: {}}
+  - {id: pomegranate_molasses, name: Pomegranate molasses, category: condiment, potency: 4.0, profile: {}}
+  - {id: rose_water, name: Rose water, category: condiment, potency: 6.0, profile: {}}
+  - {id: red_wine, name: Red wine, category: liquid, potency: 2.0, aliases: [burgundy wine], profile: {}}
+  - {id: white_wine, name: White wine, category: liquid, potency: 2.0, profile: {}}
+  - {id: lentils, name: Lentils, category: legume, potency: 0.8, aliases: [brown lentils, green lentils], profile: {}}
+  - {id: urad_dal, name: Urad dal, category: legume, potency: 0.8, aliases: [black gram], profile: {}}

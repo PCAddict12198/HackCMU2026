@@ -5,3 +5,5 @@ ingredients:
   - {id: salmon, name: Salmon, category: seafood, aliases: [salmon fillet], profile: {}}
   - {id: fish_cake, name: Fish cake, category: seafood, potency: 1.2, aliases: [eomuk, odeng], profile: {}}
   - {id: catfish, name: Catfish, category: seafood, aliases: [ca tre], profile: {}}
+  - {id: mussels, name: Mussels, category: seafood, profile: {}}
+  - {id: white_fish, name: White fish, category: seafood, aliases: [cod, snapper, rockfish], profile: {}}

@@ -8,3 +8,5 @@ ingredients:
   - {id: coconut_milk, name: Coconut milk, category: fat_oil, potency: 1.5, profile: {creamy: 0.9, rich: 0.7, sweet: 0.3, fruity: 0.3}}
   - {id: peanuts, name: Peanuts, category: nut_seed, potency: 1.5, aliases: [roasted peanuts, peanut], profile: {}}
   - {id: sesame_seeds, name: Sesame seeds, category: nut_seed, potency: 3.0, aliases: [toasted sesame], profile: {}}
+  - {id: walnuts, name: Walnuts, category: nut_seed, potency: 1.5, aliases: [walnut], profile: {}}
+  - {id: almonds, name: Almonds, category: nut_seed, potency: 1.5, aliases: [almond], profile: {}}

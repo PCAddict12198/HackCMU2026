@@ -28,3 +28,10 @@ ingredients:
   - {id: potato, name: Potato, category: vegetable, potency: 0.5, aliases: [potatoes, yukon gold], profile: {}}
   - {id: lettuce, name: Lettuce, category: vegetable, potency: 0.5, aliases: [leaf lettuce, romaine], profile: {}}
   - {id: daikon, name: Daikon, category: vegetable, potency: 0.6, aliases: [daikon radish, pickled daikon], profile: {}}
+  - {id: celery, name: Celery, category: vegetable, potency: 0.7, profile: {}}
+  - {id: zucchini, name: Zucchini, category: vegetable, potency: 0.6, aliases: [courgette], profile: {}}
+  - {id: bell_pepper, name: Bell pepper, category: vegetable, potency: 0.8, aliases: [red pepper, capsicum], profile: {}}
+  - {id: fennel, name: Fennel, category: vegetable, potency: 1.2, profile: {}}
+  - {id: avocado, name: Avocado, category: fruit, potency: 1.2, profile: {}}
+  - {id: orange_juice, name: Orange juice, category: fruit, potency: 2.0, aliases: [orange, sour orange], profile: {}}
+  - {id: radish, name: Radish, category: vegetable, potency: 0.8, profile: {}}

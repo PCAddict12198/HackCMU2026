@@ -17,3 +17,8 @@ ingredients:
   - {id: rice_cake, name: Rice cake, category: starch, potency: 0.8, aliases: [tteok, garaetteok], profile: {}}
   - {id: rice_paper, name: Rice paper, category: starch, potency: 0.5, aliases: [banh trang], profile: {}}
   - {id: sweet_potato_noodles, name: Sweet potato noodles, category: starch, potency: 0.6, aliases: [dangmyeon, glass noodles], profile: {}}
+  - {id: pita, name: Pita, category: starch, potency: 0.8, aliases: [pita bread], profile: {}}
+  - {id: phyllo, name: Phyllo, category: starch, potency: 0.6, aliases: [filo, phyllo dough], profile: {}}
+  - {id: pizza_dough, name: Pizza dough, category: starch, potency: 0.6, profile: {}}
+  - {id: hominy, name: Hominy, category: starch, potency: 0.6, aliases: [nixtamal, pozole corn], profile: {}}
+  - {id: masa, name: Masa, category: starch, potency: 0.6, aliases: [masa harina], profile: {}}

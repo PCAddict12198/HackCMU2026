@@ -12,7 +12,11 @@ ingredients:
   - {id: beef_sirloin, name: Beef sirloin, category: protein, aliases: [beef, steak], profile: {umami: 0.6, rich: 0.4, chewy: 0.3}}
   - {id: tofu, name: Tofu, category: legume, potency: 0.6, profile: {creamy: 0.5, earthy: 0.2}}
   - {id: egg, name: Egg, category: protein, unit_weight_g: 50, aliases: [eggs, egg yolk, egg yolks], profile: {rich: 0.5, creamy: 0.5, umami: 0.3}}
+  - {id: lamb, name: Lamb, category: protein, aliases: [lamb shoulder, mutton], profile: {}}
+  - {id: veal_shank, name: Veal shank, category: protein, aliases: [osso buco, beef shank], profile: {}}
+  - {id: ham, name: Ham, category: protein, potency: 1.5, aliases: [jambon, cooked ham], profile: {}}
   - {id: chickpeas, name: Chickpeas, category: legume, potency: 0.8, aliases: [chickpea, garbanzo beans], profile: {earthy: 0.6, creamy: 0.4, chewy: 0.2}}
   - {id: duck, name: Duck, category: protein, aliases: [peking duck, duck breast], profile: {}}
   - {id: mung_bean, name: Mung bean, category: legume, potency: 0.8, aliases: [mung beans, yellow bean], profile: {}}
   - {id: red_bean, name: Red bean, category: legume, potency: 0.8, aliases: [azuki, adzuki, kidney bean], profile: {}}
+  - {id: cannellini_bean, name: Cannellini bean, category: legume, potency: 0.8, aliases: [white beans], profile: {}}

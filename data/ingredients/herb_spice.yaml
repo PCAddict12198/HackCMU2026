@@ -19,3 +19,10 @@ ingredients:
   - {id: matcha, name: Matcha, category: spice, potency: 6.0, aliases: [green tea powder], profile: {}}
   - {id: five_spice, name: Five-spice powder, category: spice, potency: 8.0, aliases: [chinese five spice], profile: {}}
   - {id: white_pepper, name: White pepper, category: spice, potency: 8.0, profile: {}}
+  - {id: turmeric, name: Turmeric, category: spice, potency: 6.0, profile: {}}
+  - {id: cardamom, name: Cardamom, category: spice, potency: 8.0, aliases: [green cardamom], profile: {}}
+  - {id: mustard_seeds, name: Mustard seeds, category: spice, potency: 6.0, profile: {}}
+  - {id: sweet_basil, name: Sweet basil, category: herb, potency: 3.0, aliases: [italian basil], profile: {}}
+  - {id: oregano, name: Oregano, category: herb, potency: 5.0, aliases: [mexican oregano], profile: {}}
+  - {id: sumac, name: Sumac, category: spice, potency: 5.0, profile: {}}
+  - {id: achiote, name: Achiote, category: spice, potency: 4.0, aliases: [annatto], profile: {}}

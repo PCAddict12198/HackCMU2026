@@ -21,3 +21,129 @@ dishes:
       - {ing: neutral_oil, g: 20}
       - {ing: cilantro, g: 5}
       - {ing: salt, g: 4}
+  - id: butter_chicken
+    name: Butter chicken
+    cuisine: indian
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Tandoori-style chicken in a buttery tomato-cream sauce.
+    recipe_basis: team estimate of one restaurant serving
+    ingredients:
+      - {ing: chicken_thigh, g: 220, process: [roasted]}
+      - {ing: tomato, g: 180, process: [simmered]}
+      - {ing: heavy_cream, g: 80}
+      - {ing: butter, g: 30}
+      - {ing: yogurt, g: 40}
+      - {ing: garlic, g: 10}
+      - {ing: ginger, g: 10}
+      - {ing: garam_masala, g: 5, process: [toasted]}
+      - {ing: cumin, g: 3, process: [toasted]}
+      - {ing: turmeric, g: 2}
+      - {ing: fresh_chili, g: 4}
+      - {ing: salt, g: 3}
+  - id: palak_paneer
+    name: Palak paneer
+    cuisine: indian
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Spinach gravy with cubes of fresh paneer.
+    recipe_basis: team estimate of one serving
+    ingredients:
+      - {ing: spinach, g: 250, process: [boiled]}
+      - {ing: paneer, g: 150, process: [fried]}
+      - {ing: onion, g: 80, process: [fried]}
+      - {ing: tomato, g: 60}
+      - {ing: garlic, g: 8}
+      - {ing: ginger, g: 8}
+      - {ing: cumin, g: 3, process: [toasted]}
+      - {ing: garam_masala, g: 3}
+      - {ing: heavy_cream, g: 30}
+      - {ing: butter, g: 15}
+      - {ing: salt, g: 3}
+  - id: lamb_rogan_josh
+    name: Lamb rogan josh
+    cuisine: indian
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Kashmiri-style lamb braised with yogurt and warm spices.
+    recipe_basis: team estimate of one serving
+    ingredients:
+      - {ing: lamb, g: 250, process: [braised]}
+      - {ing: yogurt, g: 80}
+      - {ing: onion, g: 120, process: [fried]}
+      - {ing: garlic, g: 10}
+      - {ing: ginger, g: 10}
+      - {ing: garam_masala, g: 5, process: [toasted]}
+      - {ing: cumin, g: 3}
+      - {ing: cardamom, g: 2}
+      - {ing: chili_flakes, g: 4}
+      - {ing: tomato, g: 80}
+      - {ing: neutral_oil, g: 20}
+      - {ing: salt, g: 4}
+  - id: masala_dosa
+    name: Masala dosa
+    cuisine: indian
+    course: savory
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Fermented rice-and-lentil crepe filled with spiced potato.
+    recipe_basis: team estimate of one dosa
+    ingredients:
+      - {ing: rice, g: 80, process: [fermented]}
+      - {ing: urad_dal, g: 30, process: [fermented]}
+      - {ing: potato, g: 180, process: [boiled]}
+      - {ing: onion, g: 50, process: [fried]}
+      - {ing: mustard_seeds, g: 2, process: [fried]}
+      - {ing: turmeric, g: 1}
+      - {ing: fresh_chili, g: 4}
+      - {ing: cilantro, g: 5}
+      - {ing: neutral_oil, g: 10, process: [fried]}
+      - {ing: salt, g: 3}
+  - id: chicken_biryani
+    name: Chicken biryani
+    cuisine: indian
+    course: savory
+    format: rice_dish
+    tier: core
+    confidence: draft
+    blurb: Layered spiced rice and marinated chicken steamed together.
+    recipe_basis: team estimate of one plated serving
+    ingredients:
+      - {ing: rice, g: 200, process: [steamed]}
+      - {ing: chicken_thigh, g: 180, process: [braised]}
+      - {ing: yogurt, g: 50}
+      - {ing: onion, g: 80, process: [caramelized]}
+      - {ing: tomato, g: 40}
+      - {ing: garlic, g: 8}
+      - {ing: ginger, g: 8}
+      - {ing: garam_masala, g: 5}
+      - {ing: cumin, g: 3}
+      - {ing: cardamom, g: 2}
+      - {ing: mint, g: 8}
+      - {ing: cilantro, g: 8}
+      - {ing: butter, g: 15}
+      - {ing: salt, g: 4}
+  - id: gulab_jamun
+    name: Gulab jamun
+    cuisine: indian
+    course: dessert
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Fried milk dumplings soaked in rose-cardamom syrup.
+    recipe_basis: team estimate of four balls
+    ingredients:
+      - {ing: whole_milk, g: 80}
+      - {ing: wheat_flour, g: 40}
+      - {ing: sugar, g: 100, process: [simmered]}
+      - {ing: rose_water, g: 5}
+      - {ing: cardamom, g: 2}
+      - {ing: butter, g: 10}
+      - {ing: neutral_oil, g: 15, process: [deep_fried]}
