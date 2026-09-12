@@ -11,3 +11,8 @@ ingredients:
   - {id: beef_bone_broth, name: Beef bone broth, category: liquid, aliases: [beef broth, beef stock], profile: {umami: 0.6, rich: 0.5, salty: 0.2, roasted: 0.3, brothy: 0.8}}
   - {id: chicken_stock, name: Chicken stock, category: liquid, aliases: [chicken broth], profile: {umami: 0.4, salty: 0.2, rich: 0.2, brothy: 0.8}}
   - {id: espresso, name: Espresso, category: liquid, potency: 3.0, aliases: [coffee, strong coffee], profile: {bitter: 0.9, roasted: 0.9, sour: 0.2}}
+  - {id: dashi, name: Dashi, category: liquid, potency: 2.0, aliases: [kombu dashi], profile: {}}
+  - {id: miso, name: Miso, category: condiment, potency: 5.0, aliases: [white miso, red miso, miso paste], profile: {}}
+  - {id: mirin, name: Mirin, category: condiment, potency: 3.0, aliases: [hon mirin], profile: {}}
+  - {id: mayonnaise, name: Mayonnaise, category: condiment, potency: 2.0, aliases: [mayo, japanese mayo], profile: {}}
+  - {id: okonomiyaki_sauce, name: Okonomiyaki sauce, category: condiment, potency: 4.0, profile: {}}

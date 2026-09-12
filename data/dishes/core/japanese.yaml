@@ -37,3 +37,88 @@ dishes:
       - {ing: cabbage, g: 60, process: [raw]}
       - {ing: soy_sauce, g: 10}
       - {ing: sugar, g: 3}
+  - id: shoyu_ramen
+    name: Shoyu ramen
+    cuisine: japanese
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Clear soy-seasoned broth with curly noodles, chashu and menma.
+    recipe_basis: team estimate of one restaurant bowl
+    ingredients:
+      - {ing: chicken_stock, g: 450, process: [simmered]}
+      - {ing: ramen_noodles, g: 140, process: [boiled]}
+      - {ing: soy_sauce, g: 30}
+      - {ing: pork_belly, g: 50, process: [braised]}
+      - {ing: egg, g: 50, process: [boiled]}
+      - {ing: bamboo_shoots, g: 30, process: [simmered]}
+      - {ing: scallion, g: 10}
+      - {ing: nori, g: 3, process: [toasted]}
+      - {ing: garlic, g: 4}
+  - id: miso_soup
+    name: Miso soup
+    cuisine: japanese
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Dashi and miso with silken tofu, wakame and scallion.
+    recipe_basis: team estimate of one home bowl
+    ingredients:
+      - {ing: dashi, g: 300, process: [simmered]}
+      - {ing: miso, g: 20}
+      - {ing: tofu, g: 80}
+      - {ing: wakame, g: 8}
+      - {ing: scallion, g: 8}
+  - id: teriyaki_salmon
+    name: Teriyaki salmon
+    cuisine: japanese
+    course: savory
+    format: grilled_roasted
+    tier: core
+    confidence: draft
+    blurb: Pan-glazed salmon in soy, mirin and sugar.
+    recipe_basis: team estimate of one fillet serving
+    ingredients:
+      - {ing: salmon, g: 180, process: [grilled]}
+      - {ing: soy_sauce, g: 20}
+      - {ing: mirin, g: 15}
+      - {ing: sugar, g: 10}
+      - {ing: ginger, g: 6}
+      - {ing: garlic, g: 4}
+      - {ing: sesame_oil, g: 5}
+  - id: okonomiyaki
+    name: Okonomiyaki
+    cuisine: japanese
+    course: savory
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Savory cabbage pancake with pork, sauce and mayo.
+    recipe_basis: team estimate of one Osaka-style pancake
+    ingredients:
+      - {ing: cabbage, g: 180}
+      - {ing: wheat_flour, g: 70}
+      - {ing: egg, g: 50}
+      - {ing: dashi, g: 80}
+      - {ing: pork_belly, g: 50, process: [fried]}
+      - {ing: scallion, g: 15}
+      - {ing: okonomiyaki_sauce, g: 20}
+      - {ing: mayonnaise, g: 15}
+      - {ing: neutral_oil, g: 10, process: [fried]}
+  - id: matcha_ice_cream
+    name: Matcha ice cream
+    cuisine: japanese
+    course: dessert
+    format: frozen
+    tier: core
+    confidence: draft
+    blurb: Custard ice cream flavored with green tea powder.
+    recipe_basis: team estimate of a small pint batch share
+    ingredients:
+      - {ing: heavy_cream, g: 200}
+      - {ing: whole_milk, g: 150}
+      - {ing: sugar, g: 80}
+      - {ing: egg, g: 60}
+      - {ing: matcha, g: 12}

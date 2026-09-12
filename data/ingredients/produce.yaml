@@ -17,3 +17,6 @@ ingredients:
   - {id: pineapple, name: Pineapple, category: fruit, profile: {sweet: 0.7, fruity: 0.9, sour: 0.5}}
   - {id: lime_juice, name: Lime juice, category: fruit, potency: 4.0, unit_weight_g: 30, aliases: [lime, limes], profile: {sour: 0.95, fruity: 0.6, bitter: 0.1}}
   - {id: lemon_juice, name: Lemon juice, category: fruit, potency: 4.0, unit_weight_g: 40, aliases: [lemon, lemons], profile: {sour: 0.95, fruity: 0.6}}
+  - {id: bamboo_shoots, name: Bamboo shoots, category: vegetable, potency: 0.6, aliases: [menma], profile: {}}
+  - {id: nori, name: Nori, category: vegetable, potency: 3.0, aliases: [seaweed, toasted seaweed], profile: {}}
+  - {id: wakame, name: Wakame, category: vegetable, potency: 1.5, profile: {}}
