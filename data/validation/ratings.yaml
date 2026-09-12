@@ -1,35 +1,43 @@
-# OWNER: data (P1). Mini human-rating study (H15): each teammate rates these 20 core pairs 1-5 for
-# "how similar do these taste?" WITHOUT looking at the engine. The build report computes Spearman rho.
+# OWNER: data (P1). Pair-similarity study (H15): 20 core pairs rated 1-5 for "how similar do these taste?"
+# The build report computes Spearman rho against the engine's percentile for each pair.
 #
-# HOW TO FILL THIS IN
-#   Add yourself to each pair's `ratings` map, 1 (nothing alike) to 5 (very similar):
-#     - {a: shoyu_ramen, b: pho_bo, ratings: {p1: 4, p2: 3, p3: 4}}
-#   Rate alone, top to bottom, before opening the app. Go on first instinct; don't revise earlier rows to
-#   be consistent. Any rater key works (p1/p2/p3 or names) as long as each person uses one key throughout.
+# ===> THE RATINGS BELOW ARE NOT HUMAN. The single rater key `claude` is an AI (Claude, the coding agent
+# ===> that authored much of this corpus). The team chose this knowingly because no human study was run.
+# ===> The report section is titled "Human ratings vs model" and averages every rater key, so until engine
+# ===> adds a separate AI-baseline line (REQUEST filed in docs/handoffs/data.md) any rho it prints is an
+# ===> AI baseline, NOT human validation. Label it that way on the validation slide.
 #
-# The 20 pairs were chosen by P1 from the 70 core dishes before looking at any model score, as a mix of
-# likely-similar, likely-different and genuinely-uncertain pairs. None of them is a `data/sanity` pair,
-# whose scores P1 had already seen — so this set is independent of both the frozen sanity set and the
-# engine's output. The intended mix is recorded in docs/handoffs/data.md, deliberately NOT here, so that
-# reading this file cannot bias a rater.
+# Two caveats that bound what this rho can mean:
+#   1. NOT independent of the model. The rater authored or reviewed most of the ingredient profiles and
+#      dish recipes the engine's scores are computed from, so agreement is partly self-agreement. A human
+#      panel would be a genuinely independent test; this is not.
+#   2. It IS blind to the output. The 20 pairs were chosen, and all 20 values below were fixed, before
+#      anyone looked at a single model score for these pairs. No rating was revised afterwards.
+# No published dataset could supply real ratings for these pairs: the public food-similarity sets
+# (Yummly-10k triplets, FoodSense) rate images, not named dish pairs. Deriving them from the Ahn et al.
+# flavor network was rejected on purpose — that is ingredient-compound overlap, so scoring our
+# ingredient-based engine against it would inflate rho by construction.
+#
+# TO RUN THIS PROPERLY LATER: add one key per person (`ratings: {claude: 4, ishan: 3, ...}`) and the rho
+# becomes a real mixed panel. Rate top to bottom on instinct, without opening the app first.
 pairs:
-  - {a: shoyu_ramen, b: pho_bo}
-  - {a: bulgogi, b: char_siu}
-  - {a: hummus, b: falafel}
-  - {a: coq_au_vin, b: beef_bourguignon}
-  - {a: cacio_e_pepe, b: dan_dan_noodles}
-  - {a: teriyaki_salmon, b: ca_kho_to}
-  - {a: matcha_ice_cream, b: creme_brulee}
-  - {a: miso_soup, b: baklava}
-  - {a: aguachile, b: croque_monsieur}
-  - {a: som_tam, b: osso_buco}
-  - {a: gulab_jamun, b: bun_bo_hue}
-  - {a: hotteok, b: bouillabaisse}
-  - {a: hummus, b: matcha_ice_cream}
-  - {a: kimchi_jjigae, b: tres_leches}
-  - {a: mole_poblano, b: massaman_curry}
-  - {a: okonomiyaki, b: croque_monsieur}
-  - {a: pozole_rojo, b: bun_bo_hue}
-  - {a: chiles_rellenos, b: palak_paneer}
-  - {a: mujaddara, b: chicken_biryani}
-  - {a: japchae, b: pad_thai}
+  - {a: shoyu_ramen, b: pho_bo, ratings: {claude: 4}}
+  - {a: bulgogi, b: char_siu, ratings: {claude: 4}}
+  - {a: hummus, b: falafel, ratings: {claude: 4}}
+  - {a: coq_au_vin, b: beef_bourguignon, ratings: {claude: 5}}
+  - {a: cacio_e_pepe, b: dan_dan_noodles, ratings: {claude: 3}}
+  - {a: teriyaki_salmon, b: ca_kho_to, ratings: {claude: 4}}
+  - {a: matcha_ice_cream, b: creme_brulee, ratings: {claude: 3}}
+  - {a: miso_soup, b: baklava, ratings: {claude: 1}}
+  - {a: aguachile, b: croque_monsieur, ratings: {claude: 1}}
+  - {a: som_tam, b: osso_buco, ratings: {claude: 1}}
+  - {a: gulab_jamun, b: bun_bo_hue, ratings: {claude: 1}}
+  - {a: hotteok, b: bouillabaisse, ratings: {claude: 1}}
+  - {a: hummus, b: matcha_ice_cream, ratings: {claude: 1}}
+  - {a: kimchi_jjigae, b: tres_leches, ratings: {claude: 1}}
+  - {a: mole_poblano, b: massaman_curry, ratings: {claude: 4}}
+  - {a: okonomiyaki, b: croque_monsieur, ratings: {claude: 3}}
+  - {a: pozole_rojo, b: bun_bo_hue, ratings: {claude: 4}}
+  - {a: chiles_rellenos, b: palak_paneer, ratings: {claude: 3}}
+  - {a: mujaddara, b: chicken_biryani, ratings: {claude: 4}}
+  - {a: japchae, b: pad_thai, ratings: {claude: 4}}

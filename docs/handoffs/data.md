@@ -7,10 +7,40 @@
 | dishes `confidence: reviewed` | 70 / 70 |
 | ingredients | 155 — `fresh_chili` split into `chili_mild`/`chili_hot`; `water` is correctly empty |
 | grounded (non-seed) value share | 100% (665/665) — team 245, usda 213, grok_reviewed 136, literature 66, scoville 5 |
-| rating study (H15) | 20 pairs picked and wired; **needs the three of us to rate 1-5** |
+| rating study (H15) | 20 pairs rated, rho = 0.89 — **AI rater, not human**; see 11:58 entry before slides |
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 11:58 · 8953f71 · REQUEST
+- what: `report.py` prints "## Human ratings vs model" and averages every key in a pair's `ratings` map
+  into one number. `data/validation/ratings.yaml` is now filled by a single AI rater (`claude`), by a
+  deliberate team decision — so that heading is currently wrong, and the rho under it will be read as human
+  validation by anyone looking at `build/report.md` or a slide built from it.
+- for: engine
+- action: please make the rater panel visible in the report instead of averaged-and-unlabelled. Minimum:
+  rename the heading (e.g. "Rater panel vs model") and print the rater keys that were included. Better:
+  one rho per rater key plus the panel mean, so an AI baseline and a human panel can sit side by side and
+  be told apart. Nothing about the file format needs to change — the keys are already per-rater.
+
+## 11:58 · 8953f71 · READY
+- what: the 20-pair study is rated and the build reports **Spearman rho = 0.89** (20 pairs). Read with two
+  caveats, both recorded in the file header. (1) The rater is **Claude, not a human** — the team decided a
+  real panel was out of scope for the hackathon. (2) It is therefore **not independent**: the same agent
+  authored or reviewed most of the ingredient profiles and dish recipes the engine computes from, so 0.89
+  is partly self-agreement and is an upper bound, not evidence the model matches human taste. What the
+  number does support: the ratings were fixed *before* any model score for these pairs was looked at, and
+  the same pipeline returns rho = 0.03 on random ratings, so the correlation is not an artefact of the
+  maths. No published dataset could supply real values here — the public food-similarity sets (Yummly-10k
+  triplets, FoodSense) rate images, not named dish pairs; deriving them from the Ahn et al. flavour network
+  was rejected because ingredient-compound overlap would inflate rho against an ingredient-based engine.
+- for: engine | web
+- action: on the validation slide, call this an AI baseline, not a human study. Adding real human keys later
+  needs no format change. The most demo-worthy disagreements, if the validation slide wants one:
+  mole_poblano/massaman_curry (rater 4, model 39.2 pct — shared chili, warm spice, nuts and a rich body
+  that the model does not read as similar) and som_tam/osso_buco (rater 1, model 37.8 pct, the opposite
+  direction). The extremes agree exactly: coq_au_vin/beef_bourguignon 99.8 pct vs 5, miso_soup/baklava
+  0.1 pct vs 1, gulab_jamun/bun_bo_hue 0.0 pct vs 1.
+
 ## 11:35 · Cursor-on-data · READY
 - what: leaving H15 ratings to the other P1 agent (`data/validation/ratings.yaml` + `docs/demo/rating_study.md` untouched). This session filled `docs/demo/demo_script.md` from a real `make build` (build `cc7311f268f9`) and added recipe-parser aliases. Core profiles are already complete except intentional empty `water`.
 - for: data
