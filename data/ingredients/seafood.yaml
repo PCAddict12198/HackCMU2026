@@ -17,13 +17,24 @@ ingredients:
   name: Salmon
   category: seafood
   aliases: [salmon fillet]
-  profile: {}
+  profile:
+    rich: {v: 0.41, src: usda, note: 'fat 13.4 g/100g (fdc 175167: Fish, salmon, Atlantic, farmed, raw)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 59 mg/100g (fdc 175167: Fish, salmon, Atlantic, farmed, raw)'}
+    umami: {v: 0.5, src: literature, note: inosinate in fish muscle}
+    chewy: {v: 0.25, src: team}
+  reviewed_by: ishan
 - id: fish_cake
   name: Fish cake
   category: seafood
   potency: 1.2
   aliases: [eomuk, odeng]
-  profile: {}
+  profile:
+    salty: {v: 0.45, src: team, note: commercial eomuk label sodium ~800 mg/100g; USDA lists only the unseasoned surimi base at 143 mg (fdc 173702)}
+    sweet: {v: 0.3, src: team, note: added sugar ~5 g/100g}
+    umami: {v: 0.5, src: team}
+    chewy: {v: 0.6, src: team}
+    rich: {v: 0.2, src: team, note: pan-fried cake carries some frying oil}
+  reviewed_by: ishan
 - id: catfish
   name: Catfish
   category: seafood
@@ -45,4 +56,10 @@ ingredients:
   name: White fish
   category: seafood
   aliases: [cod, snapper, rockfish]
-  profile: {}
+  profile:
+    rich: {v: 0.03, src: usda, note: 'fat 0.67 g/100g (fdc 171955: Fish, cod, Atlantic, raw)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 54 mg/100g (fdc 171955: Fish, cod, Atlantic, raw)'}
+    umami: {v: 0.4, src: literature, note: free amino acids and nucleotides in lean white fish}
+    sweet: {v: 0.15, src: team, note: 'perceived sweetness from free amino acids, not sugar'}
+    chewy: {v: 0.2, src: team}
+  reviewed_by: ishan

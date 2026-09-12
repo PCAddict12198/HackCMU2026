@@ -82,19 +82,37 @@ ingredients:
   name: Paneer
   category: dairy
   potency: 1.2
-  profile: {}
+  profile:
+    rich: {v: 0.57, src: team, note: no USDA entry; whole-milk paneer label fat ~21 g/100g}
+    creamy: {v: 0.5, src: team}
+    chewy: {v: 0.3, src: team, note: 'firm squeaky curd, holds its shape in curry'}
+    sweet: {v: 0.1, src: team, note: residual lactose ~1 g/100g}
+  reviewed_by: ishan
 - id: yogurt
   name: Yogurt
   category: dairy
   potency: 1.2
   aliases: [plain yogurt, greek yogurt]
-  profile: {}
+  profile:
+    sweet: {v: 0.32, src: usda, note: 'sugar 4.66 g/100g (fdc 171284: Yogurt, plain, whole milk)'}
+    rich: {v: 0.12, src: usda, note: 'fat 3.25 g/100g (fdc 171284: Yogurt, plain, whole milk)'}
+    salty: {v: 0.03, src: usda, note: 'sodium 46 mg/100g (fdc 171284: Yogurt, plain, whole milk)'}
+    sour: {v: 0.6, src: literature, note: 'lactic acid, pH ~4.4'}
+    fermented: {v: 0.8, src: literature, note: live lactic acid bacteria}
+    creamy: {v: 0.7, src: team}
+  reviewed_by: ishan
 - id: mozzarella
   name: Mozzarella
   category: dairy
   potency: 1.2
   aliases: [fresh mozzarella]
-  profile: {}
+  profile:
+    rich: {v: 0.59, src: usda, note: 'fat 22.1 g/100g (fdc 170845: Cheese, mozzarella, whole milk)'}
+    salty: {v: 0.28, src: usda, note: 'sodium 486 mg/100g (fdc 170845: Cheese, mozzarella, whole milk)'}
+    creamy: {v: 0.55, src: team}
+    chewy: {v: 0.45, src: team, note: pasta filata stretch}
+    umami: {v: 0.3, src: team, note: young cheese; far lower free glutamate than an aged hard cheese}
+  reviewed_by: ishan
 - id: queso_fresco
   name: Queso fresco
   category: dairy

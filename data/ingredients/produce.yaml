@@ -192,7 +192,13 @@ ingredients:
   category: vegetable
   potency: 3.0
   aliases: [seaweed, toasted seaweed]
-  profile: {}
+  profile:
+    umami: {v: 0.75, src: literature, note: 'laver free glutamate, among the highest of any plant food'}
+    salty: {v: 0.03, src: usda, note: 'sodium 48 mg/100g (fdc 168458: Seaweed, laver, raw)'}
+    earthy: {v: 0.3, src: team}
+    crispy: {v: 0.4, src: team, note: toasted sheet; the raw-laver row above is the nutrient basis}
+    brothy: {v: 0.2, src: team}
+  reviewed_by: ishan
 - id: wakame
   name: Wakame
   category: vegetable
@@ -206,38 +212,71 @@ ingredients:
   name: Spinach
   category: vegetable
   potency: 0.8
-  profile: {}
+  profile:
+    sweet: {v: 0.03, src: usda, note: 'sugar 0.42 g/100g (fdc 168462: Spinach, raw)'}
+    salty: {v: 0.05, src: usda, note: 'sodium 79 mg/100g (fdc 168462: Spinach, raw)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.39 g/100g (fdc 168462: Spinach, raw)'}
+    bitter: {v: 0.3, src: literature, note: oxalic acid astringency}
+    earthy: {v: 0.4, src: team}
+    herbal: {v: 0.3, src: team}
+  reviewed_by: ishan
 - id: carrot
   name: Carrot
   category: vegetable
   potency: 0.8
   unit_weight_g: 70
   aliases: [carrots]
-  profile: {}
+  profile:
+    sweet: {v: 0.33, src: usda, note: 'sugar 4.74 g/100g (fdc 170393: Carrots, raw)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 69 mg/100g (fdc 170393: Carrots, raw)'}
+    earthy: {v: 0.4, src: team}
+    crispy: {v: 0.7, src: team}
+  reviewed_by: ishan
 - id: eggplant
   name: Eggplant
   category: vegetable
   potency: 0.8
   aliases: [aubergine, thai eggplant]
-  profile: {}
+  profile:
+    sweet: {v: 0.25, src: usda, note: 'sugar 3.53 g/100g (fdc 169228: Eggplant, raw)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 2 mg/100g (fdc 169228: Eggplant, raw)'}
+    bitter: {v: 0.25, src: literature, note: 'phenolics and glycoalkaloids in raw flesh, falls with cooking'}
+    earthy: {v: 0.3, src: team}
+    creamy: {v: 0.3, src: team, note: raw flesh is spongy; it turns silky once cooked (see processes)}
+  reviewed_by: ishan
 - id: green_papaya
   name: Green papaya
   category: fruit
   potency: 0.7
   aliases: [unripe papaya]
-  profile: {}
+  profile:
+    sweet: {v: 0.18, src: team, note: 'unripe fruit, ~2-3 g sugar/100g; USDA lists only ripe papaya at 7.82 g (fdc 169926)'}
+    crispy: {v: 0.8, src: team, note: shredded green papaya is the texture of som tam}
+    herbal: {v: 0.2, src: team}
+  reviewed_by: ishan
 - id: long_bean
   name: Long bean
   category: vegetable
   potency: 0.7
   aliases: [yardlong bean, snake bean]
-  profile: {}
+  profile:
+    salty: {v: 0.0, src: usda, note: 'sodium 4 mg/100g (fdc 169222: Yardlong bean, raw)'}
+    sweet: {v: 0.15, src: team, note: the USDA yardlong row carries no sugar figure; green-bean analogue ~2 g/100g}
+    crispy: {v: 0.6, src: team}
+    herbal: {v: 0.3, src: team}
+  reviewed_by: ishan
 - id: potato
   name: Potato
   category: vegetable
   potency: 0.5
   aliases: [potatoes, yukon gold]
-  profile: {}
+  profile:
+    sweet: {v: 0.07, src: usda, note: 'sugar 0.82 g/100g (fdc 170026: Potatoes, flesh and skin, raw)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 6 mg/100g (fdc 170026: Potatoes, flesh and skin, raw)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.09 g/100g (fdc 170026: Potatoes, flesh and skin, raw)'}
+    earthy: {v: 0.5, src: team}
+    creamy: {v: 0.35, src: team, note: cooked flesh}
+  reviewed_by: ishan
 - id: lettuce
   name: Lettuce
   category: vegetable
@@ -252,7 +291,13 @@ ingredients:
   category: vegetable
   potency: 0.6
   aliases: [daikon radish, pickled daikon]
-  profile: {}
+  profile:
+    sweet: {v: 0.19, src: usda, note: 'sugar 2.5 g/100g (fdc 168451: Radishes, oriental, raw)'}
+    salty: {v: 0.01, src: usda, note: 'sodium 21 mg/100g (fdc 168451: Radishes, oriental, raw)'}
+    crispy: {v: 0.7, src: team}
+    spicy: {v: 0.25, src: team, note: 'isothiocyanate pungency, milder than red radish'}
+    herbal: {v: 0.2, src: team}
+  reviewed_by: ishan
 - id: celery
   name: Celery
   category: vegetable
@@ -291,13 +336,25 @@ ingredients:
   name: Avocado
   category: fruit
   potency: 1.2
-  profile: {}
+  profile:
+    rich: {v: 0.44, src: usda, note: 'fat 14.7 g/100g (fdc 171705: Avocados, raw, all commercial varieties)'}
+    sweet: {v: 0.05, src: usda, note: 'sugar 0.66 g/100g (fdc 171705: Avocados, raw, all commercial varieties)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 7.0 mg/100g (fdc 171705: Avocados, raw, all commercial varieties)'}
+    creamy: {v: 0.7, src: grok_reviewed, note: the creamiest whole food in the corpus}
+    earthy: {v: 0.15, src: grok_reviewed}
+    fruity: {v: 0.1, src: grok_reviewed}
+  reviewed_by: ishan
 - id: orange_juice
   name: Orange juice
   category: fruit
   potency: 2.0
   aliases: [orange, sour orange]
-  profile: {}
+  profile:
+    sweet: {v: 0.5, src: usda, note: 'sugar 8.31 g/100g (fdc 169100: Orange juice, chilled, includes from concentrate)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 2 mg/100g (fdc 169100: Orange juice, chilled, includes from concentrate)'}
+    sour: {v: 0.5, src: literature, note: 'citric acid ~1 g/100g, pH 3.3-4.2'}
+    fruity: {v: 0.85, src: team}
+  reviewed_by: ishan
 - id: radish
   name: Radish
   category: vegetable

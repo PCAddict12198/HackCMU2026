@@ -155,13 +155,23 @@ ingredients:
   category: spice
   potency: 6.0
   aliases: [green tea powder]
-  profile: {}
+  profile:
+    bitter: {v: 0.7, src: literature, note: 'catechins, chiefly EGCG'}
+    umami: {v: 0.45, src: literature, note: 'L-theanine and free glutamate, raised by shade-growing'}
+    earthy: {v: 0.6, src: team}
+    herbal: {v: 0.4, src: team}
+  reviewed_by: ishan
 - id: five_spice
   name: Five-spice powder
   category: spice
   potency: 8.0
   aliases: [chinese five spice]
-  profile: {}
+  profile:
+    sweet: {v: 0.35, src: literature, note: 'anethole (star anise, fennel) plus cinnamaldehyde read as sweet-aromatic'}
+    earthy: {v: 0.5, src: team}
+    spicy: {v: 0.3, src: team, note: 'clove eugenol and Sichuan pepper, blend-dependent'}
+    herbal: {v: 0.3, src: team}
+  reviewed_by: ishan
 - id: white_pepper
   name: White pepper
   category: spice
@@ -221,10 +231,17 @@ ingredients:
   name: Sumac
   category: spice
   potency: 5.0
-  profile: {}
+  profile:
+    sour: {v: 0.7, src: literature, note: 'malic acid, the dominant acid in Rhus coriaria drupes'}
+    fruity: {v: 0.45, src: team}
+    earthy: {v: 0.3, src: team, note: unsalted ground sumac; some commercial blends add salt}
+  reviewed_by: ishan
 - id: achiote
   name: Achiote
   category: spice
   potency: 4.0
   aliases: [annatto]
-  profile: {}
+  profile:
+    earthy: {v: 0.35, src: grok_reviewed, note: 'annatto seed: mild peppery-earthy; used mostly for colour. No USDA entry'}
+    bitter: {v: 0.15, src: team}
+  reviewed_by: ishan

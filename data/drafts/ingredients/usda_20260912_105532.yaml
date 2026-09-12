@@ -1,0 +1,512 @@
+# DRAFT from USDA FoodData Central. Check every match, then:
+#   uv run python tools/data/promote_draft.py data/drafts/ingredients/usda_20260912_105532.yaml --reviewer <you>
+source: usda
+generated: '20260912_105532'
+ingredients:
+- id: water
+  note: 'USDA match: fdc 169301: Water convolvulus,raw - CHECK this is the right food'
+  profile:
+    salty:
+      v: 0.07
+      src: usda
+      note: 'sodium 113 mg/100g (fdc 169301: Water convolvulus,raw)'
+    rich:
+      v: 0.01
+      src: usda
+      note: 'fat 0.2 g/100g (fdc 169301: Water convolvulus,raw)'
+- id: mayonnaise
+  note: 'USDA match: fdc 2758986: Mayonnaise, Regular - CHECK this is the right food'
+  profile: {}
+- id: okonomiyaki_sauce
+  note: 'USDA match: fdc 171584: Sauce, cheese sauce mix, dry - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.58
+      src: usda
+      note: 'sugar 10.3 g/100g (fdc 171584: Sauce, cheese sauce mix, dry)'
+    salty:
+      v: 0.88
+      src: usda
+      note: 'sodium 3200.0 mg/100g (fdc 171584: Sauce, cheese sauce mix, dry)'
+    rich:
+      v: 0.52
+      src: usda
+      note: 'fat 18.3 g/100g (fdc 171584: Sauce, cheese sauce mix, dry)'
+- id: rice_vinegar
+  note: 'USDA match: fdc 172241: Vinegar, balsamic - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.71
+      src: usda
+      note: 'sugar 15.0 g/100g (fdc 172241: Vinegar, balsamic)'
+    salty:
+      v: 0.02
+      src: usda
+      note: 'sodium 23.0 mg/100g (fdc 172241: Vinegar, balsamic)'
+    rich:
+      v: 0.0
+      src: usda
+      note: 'fat 0.0 g/100g (fdc 172241: Vinegar, balsamic)'
+- id: green_curry_paste
+  note: 'USDA match: fdc 170160: Nuts, almond paste - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.95
+      src: usda
+      note: 'sugar 36.2 g/100g (fdc 170160: Nuts, almond paste)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 9.0 mg/100g (fdc 170160: Nuts, almond paste)'
+    rich:
+      v: 0.67
+      src: usda
+      note: 'fat 27.7 g/100g (fdc 170160: Nuts, almond paste)'
+- id: massaman_curry_paste
+  note: 'USDA match: fdc 170160: Nuts, almond paste - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.95
+      src: usda
+      note: 'sugar 36.2 g/100g (fdc 170160: Nuts, almond paste)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 9.0 mg/100g (fdc 170160: Nuts, almond paste)'
+    rich:
+      v: 0.67
+      src: usda
+      note: 'fat 27.7 g/100g (fdc 170160: Nuts, almond paste)'
+- id: tamarind
+  note: 'USDA match: fdc 170281: Candies, Tamarind - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 1.0
+      src: usda
+      note: 'sugar 78.6 g/100g (fdc 170281: Candies, Tamarind)'
+    salty:
+      v: 0.66
+      src: usda
+      note: 'sodium 1640.0 mg/100g (fdc 170281: Candies, Tamarind)'
+    rich:
+      v: 0.0
+      src: usda
+      note: 'fat 0.0 g/100g (fdc 170281: Candies, Tamarind)'
+- id: shrimp_paste
+  note: 'USDA match: fdc 170160: Nuts, almond paste - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.95
+      src: usda
+      note: 'sugar 36.2 g/100g (fdc 170160: Nuts, almond paste)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 9.0 mg/100g (fdc 170160: Nuts, almond paste)'
+    rich:
+      v: 0.67
+      src: usda
+      note: 'fat 27.7 g/100g (fdc 170160: Nuts, almond paste)'
+- id: pomegranate_molasses
+  note: 'USDA match: fdc 168820: Molasses - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 1.0
+      src: usda
+      note: 'sugar 74.7 g/100g (fdc 168820: Molasses)'
+    salty:
+      v: 0.02
+      src: usda
+      note: 'sodium 37.0 mg/100g (fdc 168820: Molasses)'
+    rich:
+      v: 0.0
+      src: usda
+      note: 'fat 0.1 g/100g (fdc 168820: Molasses)'
+- id: rose_water
+  note: 'USDA match: fdc 168171: Rose-apples, raw - CHECK this is the right food'
+  profile:
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 0.0 mg/100g (fdc 168171: Rose-apples, raw)'
+    rich:
+      v: 0.01
+      src: usda
+      note: 'fat 0.3 g/100g (fdc 168171: Rose-apples, raw)'
+- id: red_wine
+  note: 'USDA match: fdc 172240: Vinegar, red wine - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.0
+      src: usda
+      note: 'sugar 0.0 g/100g (fdc 172240: Vinegar, red wine)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 8.0 mg/100g (fdc 172240: Vinegar, red wine)'
+    rich:
+      v: 0.0
+      src: usda
+      note: 'fat 0.0 g/100g (fdc 172240: Vinegar, red wine)'
+- id: lentils
+  note: 'USDA match: fdc 2644283: Lentils, dry - CHECK this is the right food'
+  profile:
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 0.0 mg/100g (fdc 2644283: Lentils, dry)'
+    rich:
+      v: 0.07
+      src: usda
+      note: 'fat 1.92 g/100g (fdc 2644283: Lentils, dry)'
+- id: yogurt
+  note: 'USDA match: fdc 167722: Tofu yogurt - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.1
+      src: usda
+      note: 'sugar 1.24 g/100g (fdc 167722: Tofu yogurt)'
+    salty:
+      v: 0.02
+      src: usda
+      note: 'sodium 35.0 mg/100g (fdc 167722: Tofu yogurt)'
+    rich:
+      v: 0.07
+      src: usda
+      note: 'fat 1.8 g/100g (fdc 167722: Tofu yogurt)'
+- id: mozzarella
+  note: 'USDA match: fdc 169011: APPLEBEE''S, mozzarella sticks - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.21
+      src: usda
+      note: 'sugar 2.8 g/100g (fdc 169011: APPLEBEE''S, mozzarella sticks)'
+    salty:
+      v: 0.43
+      src: usda
+      note: 'sodium 838 mg/100g (fdc 169011: APPLEBEE''S, mozzarella sticks)'
+    rich:
+      v: 0.52
+      src: usda
+      note: 'fat 18.4 g/100g (fdc 169011: APPLEBEE''S, mozzarella sticks)'
+- id: five_spice
+  note: 'USDA match: fdc 171319: Spices, chili powder - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.45
+      src: usda
+      note: 'sugar 7.19 g/100g (fdc 171319: Spices, chili powder)'
+    salty:
+      v: 0.85
+      src: usda
+      note: 'sodium 2870.0 mg/100g (fdc 171319: Spices, chili powder)'
+    rich:
+      v: 0.44
+      src: usda
+      note: 'fat 14.3 g/100g (fdc 171319: Spices, chili powder)'
+- id: spinach
+  note: 'USDA match: fdc 170494: Spinach souffle - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.14
+      src: usda
+      note: 'sugar 1.85 g/100g (fdc 170494: Spinach souffle)'
+    salty:
+      v: 0.31
+      src: usda
+      note: 'sodium 566 mg/100g (fdc 170494: Spinach souffle)'
+    rich:
+      v: 0.41
+      src: usda
+      note: 'fat 13.0 g/100g (fdc 170494: Spinach souffle)'
+- id: carrot
+  note: 'USDA match: fdc 170500: Carrot, dehydrated - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.96
+      src: usda
+      note: 'sugar 38.8 g/100g (fdc 170500: Carrot, dehydrated)'
+    salty:
+      v: 0.17
+      src: usda
+      note: 'sodium 275 mg/100g (fdc 170500: Carrot, dehydrated)'
+    rich:
+      v: 0.06
+      src: usda
+      note: 'fat 1.49 g/100g (fdc 170500: Carrot, dehydrated)'
+- id: eggplant
+  note: 'USDA match: fdc 169892: Eggplant, pickled - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.33
+      src: usda
+      note: 'sugar 4.8 g/100g (fdc 169892: Eggplant, pickled)'
+    salty:
+      v: 0.67
+      src: usda
+      note: 'sodium 1670.0 mg/100g (fdc 169892: Eggplant, pickled)'
+    rich:
+      v: 0.03
+      src: usda
+      note: 'fat 0.7 g/100g (fdc 169892: Eggplant, pickled)'
+- id: green_papaya
+  note: 'USDA match: fdc 169926: Papayas, raw - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.48
+      src: usda
+      note: 'sugar 7.82 g/100g (fdc 169926: Papayas, raw)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 8.0 mg/100g (fdc 169926: Papayas, raw)'
+    rich:
+      v: 0.01
+      src: usda
+      note: 'fat 0.26 g/100g (fdc 169926: Papayas, raw)'
+- id: long_bean
+  note: 'USDA match: fdc 174258: Noodles, chinese, cellophane or long rice (mung beans), dehydrated - CHECK this is the right
+    food'
+  profile:
+    sweet:
+      v: 0.0
+      src: usda
+      note: 'sugar 0.0 g/100g (fdc 174258: Noodles, chinese, cellophane or long rice (mung beans), dehydrated)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 10.0 mg/100g (fdc 174258: Noodles, chinese, cellophane or long rice (mung beans), dehydrated)'
+    rich:
+      v: 0.0
+      src: usda
+      note: 'fat 0.06 g/100g (fdc 174258: Noodles, chinese, cellophane or long rice (mung beans), dehydrated)'
+- id: potato
+  note: 'USDA match: fdc 167943: Bread, potato - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.54
+      src: usda
+      note: 'sugar 9.38 g/100g (fdc 167943: Bread, potato)'
+    salty:
+      v: 0.22
+      src: usda
+      note: 'sodium 375 mg/100g (fdc 167943: Bread, potato)'
+    rich:
+      v: 0.12
+      src: usda
+      note: 'fat 3.13 g/100g (fdc 167943: Bread, potato)'
+- id: orange_juice
+  note: 'USDA match: fdc 171354: Babyfood, juice, orange - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.5
+      src: usda
+      note: 'sugar 8.26 g/100g (fdc 171354: Babyfood, juice, orange)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 0.0 mg/100g (fdc 171354: Babyfood, juice, orange)'
+    rich:
+      v: 0.01
+      src: usda
+      note: 'fat 0.3 g/100g (fdc 171354: Babyfood, juice, orange)'
+- id: duck
+  note: 'USDA match: fdc 174467: Duck, domesticated, liver, raw - CHECK this is the right food'
+  profile:
+    salty:
+      v: 0.09
+      src: usda
+      note: 'sodium 140 mg/100g (fdc 174467: Duck, domesticated, liver, raw)'
+    rich:
+      v: 0.17
+      src: usda
+      note: 'fat 4.64 g/100g (fdc 174467: Duck, domesticated, liver, raw)'
+- id: mung_bean
+  note: 'USDA match: fdc 174256: Mung beans, mature seeds, raw - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.42
+      src: usda
+      note: 'sugar 6.6 g/100g (fdc 174256: Mung beans, mature seeds, raw)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 15.0 mg/100g (fdc 174256: Mung beans, mature seeds, raw)'
+    rich:
+      v: 0.04
+      src: usda
+      note: 'fat 1.15 g/100g (fdc 174256: Mung beans, mature seeds, raw)'
+- id: red_bean
+  note: 'USDA match: fdc 747431: Beans, Dry, Red (0% moisture) - CHECK this is the right food'
+  profile:
+    rich:
+      v: 0.05
+      src: usda
+      note: 'fat 1.16 g/100g (fdc 747431: Beans, Dry, Red (0% moisture))'
+- id: cannellini_bean
+  note: 'USDA match: fdc 2644281: Beans, cannellini, dry - CHECK this is the right food'
+  profile:
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 0.0 mg/100g (fdc 2644281: Beans, cannellini, dry)'
+    rich:
+      v: 0.08
+      src: usda
+      note: 'fat 2.2 g/100g (fdc 2644281: Beans, cannellini, dry)'
+- id: salmon
+  note: 'USDA match: fdc 172343: Fish oil, salmon - CHECK this is the right food'
+  profile:
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 0.0 mg/100g (fdc 172343: Fish oil, salmon)'
+    rich:
+      v: 0.98
+      src: usda
+      note: 'fat 100 g/100g (fdc 172343: Fish oil, salmon)'
+- id: fish_cake
+  note: 'USDA match: fdc 174195: Fish, fish sticks, frozen, prepared - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.13
+      src: usda
+      note: 'sugar 1.65 g/100g (fdc 174195: Fish, fish sticks, frozen, prepared)'
+    salty:
+      v: 0.24
+      src: usda
+      note: 'sodium 402 mg/100g (fdc 174195: Fish, fish sticks, frozen, prepared)'
+    rich:
+      v: 0.48
+      src: usda
+      note: 'fat 16.2 g/100g (fdc 174195: Fish, fish sticks, frozen, prepared)'
+- id: white_fish
+  note: 'USDA match: fdc 175150: Fish, sucker, white, raw - CHECK this is the right food'
+  profile:
+    salty:
+      v: 0.03
+      src: usda
+      note: 'sodium 40.0 mg/100g (fdc 175150: Fish, sucker, white, raw)'
+    rich:
+      v: 0.09
+      src: usda
+      note: 'fat 2.32 g/100g (fdc 175150: Fish, sucker, white, raw)'
+- id: wheat_noodles
+  note: 'USDA match: fdc 168914: Rice noodles, cooked - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.0
+      src: usda
+      note: 'sugar 0.03 g/100g (fdc 168914: Rice noodles, cooked)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 19.0 mg/100g (fdc 168914: Rice noodles, cooked)'
+    rich:
+      v: 0.01
+      src: usda
+      note: 'fat 0.2 g/100g (fdc 168914: Rice noodles, cooked)'
+- id: mandarin_pancake
+  note: 'USDA match: fdc 170092: Potato pancakes - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.14
+      src: usda
+      note: 'sugar 1.79 g/100g (fdc 170092: Potato pancakes)'
+    salty:
+      v: 0.4
+      src: usda
+      note: 'sodium 764 mg/100g (fdc 170092: Potato pancakes)'
+    rich:
+      v: 0.45
+      src: usda
+      note: 'fat 14.8 g/100g (fdc 170092: Potato pancakes)'
+- id: rice
+  note: 'USDA match: fdc 168914: Rice noodles, cooked - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.0
+      src: usda
+      note: 'sugar 0.03 g/100g (fdc 168914: Rice noodles, cooked)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 19.0 mg/100g (fdc 168914: Rice noodles, cooked)'
+    rich:
+      v: 0.01
+      src: usda
+      note: 'fat 0.2 g/100g (fdc 168914: Rice noodles, cooked)'
+- id: rice_cake
+  note: 'USDA match: fdc 168107: Rice cake, cracker (include hain mini rice cakes) - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.07
+      src: usda
+      note: 'sugar 0.88 g/100g (fdc 168107: Rice cake, cracker (include hain mini rice cakes))'
+    salty:
+      v: 0.05
+      src: usda
+      note: 'sodium 71.0 mg/100g (fdc 168107: Rice cake, cracker (include hain mini rice cakes))'
+    rich:
+      v: 0.16
+      src: usda
+      note: 'fat 4.3 g/100g (fdc 168107: Rice cake, cracker (include hain mini rice cakes))'
+- id: rice_paper
+  note: 'USDA match: fdc 173161: Rice crackers - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.0
+      src: usda
+      note: 'sugar 0.0 g/100g (fdc 173161: Rice crackers)'
+    salty:
+      v: 0.14
+      src: usda
+      note: 'sodium 233 mg/100g (fdc 173161: Rice crackers)'
+    rich:
+      v: 0.18
+      src: usda
+      note: 'fat 5.0 g/100g (fdc 173161: Rice crackers)'
+- id: sweet_potato_noodles
+  note: 'USDA match: fdc 169303: Sweet potato leaves, raw - CHECK this is the right food'
+  profile:
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 6.0 mg/100g (fdc 169303: Sweet potato leaves, raw)'
+    rich:
+      v: 0.02
+      src: usda
+      note: 'fat 0.51 g/100g (fdc 169303: Sweet potato leaves, raw)'
+- id: pizza_dough
+  note: 'USDA match: fdc 172791: Phyllo dough - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.01
+      src: usda
+      note: 'sugar 0.18 g/100g (fdc 172791: Phyllo dough)'
+    salty:
+      v: 0.28
+      src: usda
+      note: 'sodium 483 mg/100g (fdc 172791: Phyllo dough)'
+    rich:
+      v: 0.21
+      src: usda
+      note: 'fat 6.0 g/100g (fdc 172791: Phyllo dough)'
+- id: peanuts
+  note: 'USDA match: fdc 1750348: Oil, peanut - CHECK this is the right food'
+  profile: {}
+- id: walnuts
+  note: 'USDA match: fdc 171030: Oil, walnut - CHECK this is the right food'
+  profile:
+    sweet:
+      v: 0.0
+      src: usda
+      note: 'sugar 0.0 g/100g (fdc 171030: Oil, walnut)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 0.0 mg/100g (fdc 171030: Oil, walnut)'
+    rich:
+      v: 0.98
+      src: usda
+      note: 'fat 100 g/100g (fdc 171030: Oil, walnut)'

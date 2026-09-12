@@ -117,22 +117,46 @@ ingredients:
   name: Duck
   category: protein
   aliases: [peking duck, duck breast]
-  profile: {}
+  profile:
+    rich: {v: 0.68, src: usda, note: 'fat 28.4 g/100g (fdc 172409: Duck, domesticated, meat and skin, cooked, roasted)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 59 mg/100g (fdc 172409: Duck, domesticated, meat and skin, cooked, roasted)'}
+    umami: {v: 0.55, src: literature, note: inosinate-rich dark poultry meat}
+    chewy: {v: 0.3, src: team}
+  reviewed_by: ishan
 - id: mung_bean
   name: Mung bean
   category: legume
   potency: 0.8
   aliases: [mung beans, yellow bean]
-  profile: {}
+  profile:
+    sweet: {v: 0.15, src: usda, note: 'sugar 2.0 g/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 2 mg/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.38 g/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'}
+    earthy: {v: 0.5, src: team}
+    creamy: {v: 0.3, src: team}
+  reviewed_by: ishan
 - id: red_bean
   name: Red bean
   category: legume
   potency: 0.8
   aliases: [azuki, adzuki, kidney bean]
-  profile: {}
+  profile:
+    salty: {v: 0.01, src: usda, note: 'sodium 8 mg/100g (fdc 173728: Beans, adzuki, mature seeds, cooked, boiled, without salt)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.1 g/100g (fdc 173728: Beans, adzuki, mature seeds, cooked, boiled, without salt)'}
+    sweet: {v: 0.12, src: team, note: the USDA adzuki row carries no sugar figure; unsweetened cooked bean. Sweet red bean paste is a separate prepared form}
+    earthy: {v: 0.5, src: team}
+    creamy: {v: 0.4, src: team}
+    chewy: {v: 0.2, src: team}
+  reviewed_by: ishan
 - id: cannellini_bean
   name: Cannellini bean
   category: legume
   potency: 0.8
   aliases: [white beans]
-  profile: {}
+  profile:
+    sweet: {v: 0.03, src: usda, note: 'sugar 0.34 g/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 6 mg/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.35 g/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'}
+    earthy: {v: 0.45, src: team}
+    creamy: {v: 0.5, src: team}
+  reviewed_by: ishan

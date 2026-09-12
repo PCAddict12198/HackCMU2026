@@ -1,0 +1,69 @@
+# REVIEWED draft: the last three ingredients left at `profile: {}`.
+# Macro dims: verified FDC rows (id in the note) through the MODEL.md maps. Texture/aroma dims
+# carried over from grok_20260912_105317.yaml after review -> src: grok_reviewed.
+# Overridden on review: grok rated almonds rich 0.4 by feel; the USDA row (fat 49.9 g/100g) gives
+# 0.86, and peanuts/walnuts on this axis are 0.86/0.93, so grok's value was rejected as off-scale.
+# Potency left alone: grok proposed 2.0/1.3/5.0, but potency is a modelling choice already set.
+#   uv run python tools/data/promote_draft.py data/drafts/ingredients/team_20260912_110419.yaml --reviewer ishan
+source: team
+generated: '20260912_110419'
+ingredients:
+- id: achiote
+  profile:
+    earthy:
+      v: 0.35
+      src: grok_reviewed
+      note: 'annatto seed: mild peppery-earthy; used mostly for colour. No USDA entry'
+    bitter:
+      v: 0.15
+      src: team
+- id: almonds
+  profile:
+    rich:
+      v: 0.86
+      src: usda
+      note: 'fat 49.9 g/100g (fdc 170567: Nuts, almonds)'
+    sweet:
+      v: 0.3
+      src: usda
+      note: 'sugar 4.35 g/100g (fdc 170567: Nuts, almonds)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 1.0 mg/100g (fdc 170567: Nuts, almonds)'
+    earthy:
+      v: 0.35
+      src: grok_reviewed
+    creamy:
+      v: 0.25
+      src: grok_reviewed
+    crispy:
+      v: 0.5
+      src: grok_reviewed
+    chewy:
+      v: 0.15
+      src: grok_reviewed
+- id: avocado
+  profile:
+    rich:
+      v: 0.44
+      src: usda
+      note: 'fat 14.7 g/100g (fdc 171705: Avocados, raw, all commercial varieties)'
+    sweet:
+      v: 0.05
+      src: usda
+      note: 'sugar 0.66 g/100g (fdc 171705: Avocados, raw, all commercial varieties)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 7.0 mg/100g (fdc 171705: Avocados, raw, all commercial varieties)'
+    creamy:
+      v: 0.7
+      src: grok_reviewed
+      note: the creamiest whole food in the corpus
+    earthy:
+      v: 0.15
+      src: grok_reviewed
+    fruity:
+      v: 0.1
+      src: grok_reviewed

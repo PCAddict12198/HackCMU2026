@@ -58,7 +58,14 @@ ingredients:
   category: nut_seed
   potency: 1.5
   aliases: [roasted peanuts, peanut]
-  profile: {}
+  profile:
+    rich: {v: 0.86, src: usda, note: 'fat 49.7 g/100g (fdc 173806: Peanuts, all types, dry-roasted, without salt)'}
+    sweet: {v: 0.34, src: usda, note: 'sugar 4.9 g/100g (fdc 173806: Peanuts, all types, dry-roasted, without salt)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 6 mg/100g (fdc 173806: Peanuts, all types, dry-roasted, without salt)'}
+    roasted: {v: 0.6, src: team}
+    earthy: {v: 0.45, src: team}
+    crispy: {v: 0.5, src: team}
+  reviewed_by: ishan
 - id: sesame_seeds
   name: Sesame seeds
   category: nut_seed
@@ -74,10 +81,25 @@ ingredients:
   category: nut_seed
   potency: 1.5
   aliases: [walnut]
-  profile: {}
+  profile:
+    rich: {v: 0.93, src: usda, note: 'fat 65.2 g/100g (fdc 170187: Nuts, walnuts, english)'}
+    sweet: {v: 0.2, src: usda, note: 'sugar 2.61 g/100g (fdc 170187: Nuts, walnuts, english)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 2 mg/100g (fdc 170187: Nuts, walnuts, english)'}
+    bitter: {v: 0.3, src: literature, note: tannins in the pellicle}
+    earthy: {v: 0.5, src: team}
+    crispy: {v: 0.45, src: team}
+  reviewed_by: ishan
 - id: almonds
   name: Almonds
   category: nut_seed
   potency: 1.5
   aliases: [almond]
-  profile: {}
+  profile:
+    rich: {v: 0.86, src: usda, note: 'fat 49.9 g/100g (fdc 170567: Nuts, almonds)'}
+    sweet: {v: 0.3, src: usda, note: 'sugar 4.35 g/100g (fdc 170567: Nuts, almonds)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 1.0 mg/100g (fdc 170567: Nuts, almonds)'}
+    earthy: {v: 0.35, src: grok_reviewed}
+    creamy: {v: 0.25, src: grok_reviewed}
+    crispy: {v: 0.5, src: grok_reviewed}
+    chewy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
