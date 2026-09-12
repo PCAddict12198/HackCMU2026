@@ -1,4 +1,4 @@
-# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+# OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: tacos_al_pastor
     name: Tacos al pastor
@@ -91,7 +91,7 @@ dishes:
       - {ing: onion, g: 50}
       - {ing: garlic, g: 10}
       - {ing: oregano, g: 3}
-      - {ing: chicken_stock, g: 400, process: [simmered]}
+      - {ing: pork_bone_broth, g: 400, process: [simmered]}
       - {ing: cabbage, g: 40}
       - {ing: radish, g: 20}
       - {ing: lime_juice, g: 15}

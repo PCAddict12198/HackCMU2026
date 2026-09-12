@@ -1,8 +1,10 @@
-# Mini human-rating study (H15, ~15 min). OWNER: data (P1)
+# Pair-rating study (H15). OWNER: data (P1)
 
-1. P1 picks 20 core pairs **before** looking at their model scores: a mix of likely-similar, likely-different and surprising pairs.
-2. Each teammate rates every pair 1-5 ("how similar would these taste?") alone, without looking at the app.
-3. P1 enters the ratings in `data/validation/ratings.yaml`:
-   `- {a: tonkotsu_ramen, b: pho_bo, ratings: {p1: 4, p2: 3, p3: 4}}`
-4. `make build` -> `build/report.md` -> "Human ratings vs model" shows Spearman rho. Report it honestly on the
-   validation slide, whatever it is.
+What actually shipped for the hackathon:
+
+1. P1 picked 20 core pairs **before** looking at model scores (mix of likely-similar, likely-different, and uncertain). None of them is a frozen sanity pair.
+2. A real human panel was not run. The file `data/validation/ratings.yaml` has one rater key, `claude` (AI). Treat Spearman rho as an **AI baseline / upper bound**, not human validation.
+3. `make build` -> `build/report.md` -> "Rater panel vs model" tags that key as AI. Engine will not use AI keys to retune weights.
+4. To run this properly later: each person rates 1-5 alone, without the app, and adds a human key (`p1`, `ishan`, …) on every pair.
+
+Do not invent human scores. Do not revise ratings after looking at engine percentiles in order to raise rho.

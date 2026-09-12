@@ -1,4 +1,4 @@
-# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+# OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: pho_bo
     name: Pho bo

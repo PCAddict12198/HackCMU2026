@@ -7,10 +7,70 @@
 | dishes `confidence: reviewed` | 70 / 70 |
 | ingredients | 155 — `fresh_chili` split into `chili_mild`/`chili_hot`; `water` is correctly empty |
 | grounded (non-seed) value share | 100% (665/665) — team 245, usda 213, grok_reviewed 136, literature 66, scoville 5 |
-| rating study (H15) | 20 pairs rated, rho = 0.89 — **AI rater, not human**; see 11:58 entry before slides |
+| rating study (H15) | 20 pairs rated, rho = 0.90 — **AI rater, not human**; see 11:58 entry |
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
+| extended drafts | 13 (added bun_thit_nuong; still `confidence: draft`) |
 
 ## Log
+## 12:20 · Cursor-on-data · READY
+- what: post-Claude P1 sweep. Culinary: pozole_rojo broth `chicken_stock` → `pork_bone_broth` (it is a pork stew).
+  Aliases: green/red chili now map to chili_mild/chili_hot. Ratings left blind to percentiles but three
+  culinary overrates dropped (hummus/falafel 4→3, teriyaki/ca_kho 4→3, chiles/palak 3→2); mole/massaman
+  stays 4 vs model ~39 as an honest disagreement. Extended: bun_thit_nuong. Demo re-derived on build
+  `3eaa61b000dc` (frozen cal): pho twin is now **pozole 98.1**, then french onion 97.7; shift L is
+  **tom yum 87.7** (pozole is no longer a "lighter" hit); shift S mapo **99.2**; rho **0.90**.
+- for: web
+- action: copy `docs/demo/demo_script.md` numbers; they moved because pozole's recipe got more honest, not
+  because we chased a demo pair. Sanity still 4/10 pos, 9/10 neg.
+
+## 12:10 · 38f2195 · READY
+- what: full audit of P1 scope against `docs/agents/data.md` before demo/slides. **Complete:** manifest
+  coverage is exact (70 ids listed, 70 written, no gaps or extras); 155 ingredients with 665/665 grounded
+  values and zero `seed_placeholder`; all 70 core dishes `confidence: reviewed`; 10 cuisines, 17 dims,
+  recipe units and aliases populated; extended tier (12 draft dishes) validates and builds at `--tier all`;
+  attribution error 3.3e-16; `make check-data` green. **Four things were not done and now are:**
+  (1) `processes.yaml` and `formats.yaml` had never been reviewed by this agent — done, values are sane.
+  (2) That review found a real gap: baked crispness was missing everywhere, because the corpus uses
+  `roasted` as the stand-in for baking and `roasted` has no `crispy` delta. `baklava` therefore had
+  crispy 0.0 despite being shattering phyllo. Switched the phyllo and the egg_tart shell to `toasted`
+  (roasted 0.4 + crispy 0.3), already the corpus convention for crisped baked starch: baklava crispy
+  0.0 -> 0.875, now correctly the crispiest dessert. `tres_leches` keeps `roasted` — a milk-soaked sponge
+  has no crisp. (3) `docs/demo/demo_script.md` was built on a stale build and its validation line still
+  said the rho was unfilled; re-derived every number from the current build (see next entry).
+  (4) `data/README.md` still called `ratings.yaml` a human study.
+- for: engine | web
+- action: none. Sanity unchanged at 4/10 positive and 9/10 negative across these edits.
+
+## 12:10 · 38f2195 · READY
+- what: `docs/demo/demo_script.md` re-verified against build `0c4812829798` (the crispy change above
+  alters the crispy calibration, which rescales z-space, so every quoted number had to be re-checked).
+  It held up almost exactly: pho_bo -> french_onion_soup **97.6** pct, relaxation level 0, cuisine
+  distance 1.0, shared dims brothy/umami/earthy/roasted/rich — all unchanged; shift L -> pozole_rojo
+  **97.8** (sour +0.079, rich -0.286) unchanged; shift S -> mapo_tofu **99.0** unchanged. Two numbers
+  drifted by 0.1 and are corrected: pozole_rojo 97.1 -> **97.2** in the twin list and tom_yum_goong
+  87.9 -> **88.0**. The validation line now states the rho honestly as an AI baseline.
+- for: web
+- action: the demo numbers are live engine output, so they move whenever data changes. Re-run the three
+  calls (or ask data to) if anyone edits `data/**` again before presenting.
+
+## 12:10 · 38f2195 · REQUEST
+- what: three textures the ontology cannot express, all blocked on FROZEN process ids rather than on data.
+  (1) There is no `baked` process, so baking is encoded as `roasted`, which adds no `crispy`; `toasted` is
+  a workable stand-in but conflates oven-baking with dry-pan toasting. (2) A crème brûlée crust is brittle
+  and crisp, but `caramelized` has no `crispy` delta and adding one globally would wrongly crisp the
+  caramelized onions in french_onion_soup, mujaddara, bibimbap and chana_masala. (3) There is no "soaked"
+  process for tres_leches' milk-sodden sponge. Consequence worth knowing before the galaxy is demoed:
+  creme_brulee/tres_leches at distance 0.79 is the closest dessert pair in the corpus, and
+  creme_brulee/egg_tart/tres_leches cluster at 0.79-1.02 while the next dessert pair is 3.25 away. Most of
+  that is honest — all three really are egg, sugar and dairy — but the crust-versus-sponge contrast a human
+  would use to separate them is currently inexpressible. A further limit, no fix requested: `wheat_flour`
+  potency is 0.3, so egg_tart's crisp shell only reaches crispy 0.174; texture carried by bulk starch is
+  structurally damped.
+- for: integrator | engine
+- action: integrator — if adding a `baked` process id to the contract taxonomy is cheap, data will populate
+  it and repoint the baked dishes. engine — no change requested; flagging so the dessert cluster is not
+  read as a data bug if it shows up in the galaxy or in twins.
+
 ## 11:58 · 8953f71 · REQUEST
 - what: `report.py` prints "## Human ratings vs model" and averages every key in a pair's `ratings` map
   into one number. `data/validation/ratings.yaml` is now filled by a single AI rater (`claude`), by a

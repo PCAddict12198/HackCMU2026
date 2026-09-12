@@ -11,6 +11,6 @@
 | `lexicon/` | recipe-parser units + aliases |
 | `drafts/` | Grok/USDA drafts awaiting review (never loaded by the engine) |
 | `sanity/sanity_pairs.yaml` | frozen at h0-freeze |
-| `validation/ratings.yaml` | human rating study (H15) |
+| `validation/ratings.yaml` | H15 pair-rating study — currently an **AI** rater, not a human panel (see its header) |
 
 Validate: `make check-data`. Workflow and rules: `docs/agents/data.md`. Math: `docs/MODEL.md`.

@@ -167,7 +167,7 @@ dishes:
     blurb: Egg-cream tart with ham and gruyere.
     recipe_basis: team estimate of one slice
     ingredients:
-      - {ing: wheat_flour, g: 80, process: [roasted]}
+      - {ing: wheat_flour, g: 80, process: [toasted]}
       - {ing: butter, g: 40}
       - {ing: egg, g: 100}
       - {ing: heavy_cream, g: 100}
@@ -206,3 +206,24 @@ dishes:
       - {ing: egg, g: 100}
       - {ing: sugar, g: 40, process: [caramelized]}
       - {ing: vanilla, g: 3}
+  - id: bun_thit_nuong
+    name: Bun thit nuong
+    cuisine: vietnamese
+    course: savory
+    format: noodles
+    tier: extended
+    confidence: draft
+    blurb: Cold rice noodles with grilled pork, herbs and nuoc cham.
+    recipe_basis: team estimate of one bowl
+    ingredients:
+      - {ing: rice_noodles, g: 150, process: [boiled]}
+      - {ing: pork_shoulder, g: 120, process: [grilled]}
+      - {ing: fish_sauce, g: 20}
+      - {ing: lime_juice, g: 15}
+      - {ing: sugar, g: 8}
+      - {ing: garlic, g: 6}
+      - {ing: chili_mild, g: 4}
+      - {ing: lettuce, g: 40}
+      - {ing: mint, g: 8}
+      - {ing: cilantro, g: 8}
+      - {ing: peanuts, g: 15, process: [toasted]}

@@ -1,4 +1,4 @@
-# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+# OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: french_onion_soup
     name: French onion soup
@@ -41,7 +41,7 @@ dishes:
     blurb: Beef braised in red wine with mushrooms, onion and bacon.
     recipe_basis: team estimate of one serving
     ingredients:
-      - {ing: beef_sirloin, g: 250, process: [braised]}
+      - {ing: beef_sirloin, g: 250, process: [braised], note: "stewing beef approximated as sirloin"}
       - {ing: red_wine, g: 200}
       - {ing: beef_bone_broth, g: 150, process: [simmered]}
       - {ing: mushroom, g: 80, process: [fried]}
@@ -110,7 +110,7 @@ dishes:
       - {ing: onion, g: 50}
       - {ing: garlic, g: 8}
       - {ing: white_wine, g: 80}
-      - {ing: chicken_stock, g: 300, process: [simmered]}
+      - {ing: chicken_stock, g: 300, process: [simmered], note: "fish fumet approximated as chicken stock"}
       - {ing: olive_oil, g: 15}
       - {ing: thyme, g: 2}
       - {ing: orange_juice, g: 10, note: "strip of orange peel approximated as juice"}
