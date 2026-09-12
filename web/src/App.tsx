@@ -5,7 +5,7 @@ import { AskPanel } from "./features/ask/AskPanel";
 import { ExplainPanel } from "./features/explain/ExplainPanel";
 import { CuisineLegend, Galaxy } from "./features/galaxy/Galaxy";
 import { RecipePanel } from "./features/recipe/RecipePanel";
-import { partnerId } from "./features/shared/demo";
+import { DEMO_SOURCE_ID, explainPairForDemo, partnerId } from "./features/shared/demo";
 import { ErrorState } from "./features/shared/Status";
 import { ShiftPanel } from "./features/shift/ShiftPanel";
 import { TwinsPanel } from "./features/twins/TwinsPanel";
@@ -61,11 +61,17 @@ export default function App() {
       const s = useStore.getState();
       if (e.key === "Escape" || e.key === "0" || e.key === "r" || e.key === "R") {
         e.preventDefault();
+        const ids = new Set(s.space?.dishes.map((d) => d.id) ?? []);
+        if (ids.has(DEMO_SOURCE_ID)) s.select(DEMO_SOURCE_ID);
         s.resetView();
         s.setPanel("twins");
         return;
       }
-      if (e.key === "1") s.setPanel("twins");
+      if (e.key === "1") {
+        const ids = new Set(s.space?.dishes.map((d) => d.id) ?? []);
+        if (ids.has(DEMO_SOURCE_ID)) s.select(DEMO_SOURCE_ID);
+        s.setPanel("twins");
+      }
       if (e.key === "2") {
         s.setPanel("twins");
         const id = partnerId(s.selectedId, s.twinHighlight, s.highlightIds);
@@ -76,8 +82,9 @@ export default function App() {
         s.setShiftDeltas({ rich: -0.8, sour: 1.2 });
       }
       if (e.key === "4") {
-        const b = partnerId(s.selectedId, s.twinHighlight, s.highlightIds);
-        if (s.selectedId && b) s.setExplainPair(s.selectedId, b);
+        const ids = new Set(s.space?.dishes.map((d) => d.id) ?? []);
+        const pair = explainPairForDemo(ids, s.selectedId, s.twinHighlight, s.highlightIds);
+        if (pair) s.setExplainPair(pair[0], pair[1]);
         else s.setPanel("explain");
       }
       if (e.key === "5") s.bumpPlaceRecipe();
@@ -162,8 +169,9 @@ export default function App() {
                 className={p === active ? "active" : ""}
                 onClick={() => {
                   if (p === "explain") {
-                    const b = partnerId(selectedId, twinHighlight, highlightIds);
-                    if (selectedId && b) setExplainPair(selectedId, b);
+                    const ids = new Set(useStore.getState().space?.dishes.map((d) => d.id) ?? []);
+                    const pair = explainPairForDemo(ids, selectedId, twinHighlight, highlightIds);
+                    if (pair) setExplainPair(pair[0], pair[1]);
                     else setPanel(p);
                   } else if (p === "recipe") {
                     if (!useStore.getState().recipeStar) bumpPlaceRecipe();

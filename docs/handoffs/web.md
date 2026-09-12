@@ -11,6 +11,11 @@
 | ask | demo | hidden if grok off; skeleton while asking |
 
 ## Log
+## 12:30 · READY
+- what: demo keys follow `docs/demo/demo_script.md` — default/1 = pho_bo twins, 3/L = lighter shift, 4 = pho vs pozole (when both in the catalog), Ask placeholder "like pho bo but spicier". Mock 16-dish has pho but not pozole; key 4 falls back to the loaded twin.
+- for: integrator
+- action: `make dev`; 0/1/L/4/6 walkthrough. Real build `3eaa61b000dc`: twin pozole 98.1, L tom yum 87.7, S mapo 99.2.
+
 ## 12:08 · f0e7239 · READY
 - what: instanced stars use instanceColor only (dropped `vertexColors`); real-mode 70-dish galaxy matches cuisine legend
 - for: engine | integrator

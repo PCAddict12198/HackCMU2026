@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { api } from "../api/client";
 import type { ChatMessage, Deltas, DimId, HealthResponse, Panel, RecipeResponse, ShiftResponse, SpaceResponse, UiAction, Vec3 } from "../contract";
+import { startDishId } from "../features/shared/demo";
 import { initialUi, reduceUiActions, type UiSlice } from "./uiActions";
 
 interface Store extends UiSlice {
@@ -65,7 +66,7 @@ export const useStore = create<Store>()((set, get) => ({
     if (space.status === "rejected") return set({ loadError: space.reason });
     const ids = new Set(space.value.dishes.map((d) => d.id));
     const keep = get().selectedId && ids.has(get().selectedId!) ? get().selectedId : null;
-    const first = keep ?? (ids.has("tonkotsu_ramen") ? "tonkotsu_ramen" : space.value.dishes[0]?.id) ?? null;
+    const first = keep ?? startDishId(ids) ?? space.value.dishes[0]?.id ?? null;
     const large = space.value.dishes.length > 40;
     set({
       space: space.value,

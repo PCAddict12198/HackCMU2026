@@ -8,14 +8,14 @@ import { ErrorState, Loading } from "../shared/Status";
 export function AskPanel() {
   const { chat, pushChat, applyUiActions, selectedId, panel } = useStore();
   const selected = useDish(selectedId);
-  const [input, setInput] = useState("Like tonkotsu ramen but lighter and more acidic?");
+  const [input, setInput] = useState("like pho bo but spicier");
   const [last, setLast] = useState<AskResponse | null>(null);
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
 
   const suggestions = useMemo(() => {
     const n = selected?.name ?? "this dish";
-    return [`flavor twin of ${n}`, `like ${n} but lighter`, `why is ${n} so rich?`];
+    return [`like pho bo but spicier`, `flavor twin of ${n}`, `like ${n} but lighter`];
   }, [selected?.name]);
 
   const send = async (text = input) => {
