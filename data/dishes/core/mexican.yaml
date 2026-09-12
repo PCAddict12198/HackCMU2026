@@ -31,7 +31,7 @@ dishes:
     ingredients:
       - {ing: shrimp, g: 200, process: [cured]}
       - {ing: lime_juice, g: 80}
-      - {ing: fresh_chili, g: 15}
+      - {ing: chili_hot, g: 15}
       - {ing: cucumber, g: 80}
       - {ing: onion, g: 30}
       - {ing: cilantro, g: 10}

@@ -39,7 +39,7 @@ dishes:
       - {ing: lime_juice, g: 20}
       - {ing: sugar, g: 12}
       - {ing: garlic, g: 6}
-      - {ing: fresh_chili, g: 5}
+      - {ing: chili_mild, g: 5}
       - {ing: lettuce, g: 40}
       - {ing: mint, g: 8}
       - {ing: cilantro, g: 8}
@@ -60,7 +60,7 @@ dishes:
       - {ing: cucumber, g: 30}
       - {ing: carrot, g: 25, process: [pickled]}
       - {ing: daikon, g: 25, process: [pickled]}
-      - {ing: fresh_chili, g: 5}
+      - {ing: chili_mild, g: 5}
       - {ing: soy_sauce, g: 5}
   - id: goi_cuon
     name: Goi cuon

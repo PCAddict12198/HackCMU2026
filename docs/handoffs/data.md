@@ -5,11 +5,62 @@
 |---|---|
 | core dishes written / manifest | 70 / 70 |
 | dishes `confidence: reviewed` | 70 / 70 |
-| ingredients | 153 — `water` is correctly empty (all dims 0) |
-| grounded (non-seed) value share | 100% (662/662) — team 236, usda 213, grok_reviewed 145, literature 66, scoville 2 |
+| ingredients | 155 — `fresh_chili` split into `chili_mild`/`chili_hot`; `water` is correctly empty |
+| grounded (non-seed) value share | 100% (665/665) — team 245, usda 213, grok_reviewed 136, literature 66, scoville 5 |
+| rating study (H15) | 20 pairs picked and wired; **needs the three of us to rate 1-5** |
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 11:42 · 6d1b4e6 · BLOCKED
+- what: the H15 rating study is set up but cannot be finished by the data agent. `data/validation/ratings.yaml`
+  now holds 20 core pairs, picked from the 70 dishes before looking at any model score and deliberately
+  avoiding all 20 `data/sanity` pairs (whose scores P1 had already seen), so the set is independent of both
+  the frozen sanity set and the engine. Step 2 of `docs/demo/rating_study.md` is "each teammate rates every
+  pair 1-5 **alone, without looking at the app**" — those are three humans' judgements and inventing them
+  would make the validation slide a measurement of P1's taste against the engine, which is circular. The
+  pipeline is verified end to end: synthetic ratings in a throwaway copy produced "20 rated pairs ·
+  Spearman rho = 0.03" (random input -> rho ~ 0, the negative control we want), so the maths works and only
+  the numbers are missing.
+- for: data | engine | web
+- action: each of the three of us opens `data/validation/ratings.yaml`, rates all 20 pairs top to bottom on
+  instinct without opening the app, and adds one `ratings` key per person. Then `make build` prints the real
+  rho under "Human ratings vs model". The intended mix was 7 likely-similar, 7 likely-different and 6
+  genuinely-uncertain pairs — recorded here rather than in the file so reading the file cannot bias a rater.
+
+## 11:42 · 6d1b4e6 · DATA-ISSUE
+- what: the additive Grok promotion in 932beae moved two frozen sanity pairs the wrong way, and it is worth
+  knowing why before H16. Isolated by building HEAD's data on its own (`--data-dir` on a `git archive`
+  export) and comparing: tiramisu/tres_leches 33.3 -> 13.3 pct, and beef_bourguignon/mole_poblano
+  91.7 PASS -> 78.5 FAIL. The mechanism is narrow — of the 11 ingredients in those two desserts, Grok
+  touched exactly two dims: `espresso` gained `smoky 0.2` + `earthy 0.15`, `cinnamon` gained `fruity 0.15`.
+  `smoky` is one of the sparse dims MODEL.md section 4 warns about (calibration uses only dishes that have
+  the dim), so giving espresso any smoky value makes tiramisu one of the only smoky desserts and pushes it
+  to the edge of that axis, away from tres_leches.
+- for: engine
+- action: your call, not ours — we are deliberately NOT deleting espresso's smoky value to rescue a frozen
+  pair (dark-roast coffee genuinely does read a little smoky). Please judge whether sparse-dim calibration
+  should damp a single-dish dim like this. If you want the value gone on modelling grounds, say so in your
+  handoff and we will remove it as a modelling decision rather than a score fix.
+
+## 11:42 · 6d1b4e6 · READY
+- what: the three gaps this agent had flagged are fixed. (1) `fresh_chili` is split into `chili_mild`
+  (jalapeño 2.5k-8k / serrano 10k-23k SHU, spicy 0.45, unit 12 g) and `chili_hot` (Thai bird's eye
+  50k-100k SHU, spicy 0.85, unit 2 g); 10 dishes were repointed on culinary grounds — hot for
+  chana_masala, masala_dosa, aguachile, tom_yum_goong, green_curry, som_tam, larb; mild for
+  butter_chicken, bun_cha, banh_mi. `fresh_chili` stays as the generic fallback so a pasted recipe saying
+  only "chili" still maps. (2) `pork_shoulder` re-matched to the Boston butt row (rich 0.13 -> 0.39).
+  (3) Reviewed the 145 new `grok_reviewed` values and corrected 9 of them: Grok had put `rich` on
+  fat-free condiments (shrimp_paste 0.6, pomegranate_molasses 0.4, okonomiyaki_sauce 0.4, gochujang 0.35 —
+  `rich` is the fat map in MODEL.md) and `brothy` on thin seasonings (soy_sauce 0.5, fish_sauce 0.55 at
+  potency 6-7), which made 19 non-soup dishes including two raw salads and a sandwich read brothy. Brothy
+  is liquid body: it belongs to stocks and to the soup format vector. Each corrected value says so in its
+  note. Deliberately left alone: macro dims are not claimed for any chili, because potency multiplies every
+  dim (section 4) and the USDA sugar figure would let a 5 g garnish sweeten a dish like a sweetener.
+- for: engine
+- action: none. My own earlier prediction was wrong and the record should show it: I expected raising
+  som_tam's heat to push tabbouleh/som_tam further apart, but my changes moved it 62.1 -> 67.2 (closer),
+  because som_tam's fish sauce also stopped contributing brothy. No pair flipped either way on my changes;
+  net stayed 4/10 positive and 9/10 negative.
 ## 11:28 · agent/data · READY
 - what: `.env` `GROK_MODEL` is now a real model id (`grok-*`, not a doubled `GROK_MODEL=` prefix). USDA and xAI keys still set. Grok drafts can load from dotenv without a shell workaround.
 - for: data

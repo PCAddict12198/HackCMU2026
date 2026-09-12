@@ -1,5 +1,35 @@
-# OWNER: data (P1). Mini human-rating study (H15): each teammate rates ~20 core pairs 1-5 for
+# OWNER: data (P1). Mini human-rating study (H15): each teammate rates these 20 core pairs 1-5 for
 # "how similar do these taste?" WITHOUT looking at the engine. The build report computes Spearman rho.
-# Example:
-#   - {a: tonkotsu_ramen, b: pho_bo, ratings: {p1: 4, p2: 3, p3: 4}}
-pairs: []
+#
+# HOW TO FILL THIS IN
+#   Add yourself to each pair's `ratings` map, 1 (nothing alike) to 5 (very similar):
+#     - {a: shoyu_ramen, b: pho_bo, ratings: {p1: 4, p2: 3, p3: 4}}
+#   Rate alone, top to bottom, before opening the app. Go on first instinct; don't revise earlier rows to
+#   be consistent. Any rater key works (p1/p2/p3 or names) as long as each person uses one key throughout.
+#
+# The 20 pairs were chosen by P1 from the 70 core dishes before looking at any model score, as a mix of
+# likely-similar, likely-different and genuinely-uncertain pairs. None of them is a `data/sanity` pair,
+# whose scores P1 had already seen — so this set is independent of both the frozen sanity set and the
+# engine's output. The intended mix is recorded in docs/handoffs/data.md, deliberately NOT here, so that
+# reading this file cannot bias a rater.
+pairs:
+  - {a: shoyu_ramen, b: pho_bo}
+  - {a: bulgogi, b: char_siu}
+  - {a: hummus, b: falafel}
+  - {a: coq_au_vin, b: beef_bourguignon}
+  - {a: cacio_e_pepe, b: dan_dan_noodles}
+  - {a: teriyaki_salmon, b: ca_kho_to}
+  - {a: matcha_ice_cream, b: creme_brulee}
+  - {a: miso_soup, b: baklava}
+  - {a: aguachile, b: croque_monsieur}
+  - {a: som_tam, b: osso_buco}
+  - {a: gulab_jamun, b: bun_bo_hue}
+  - {a: hotteok, b: bouillabaisse}
+  - {a: hummus, b: matcha_ice_cream}
+  - {a: kimchi_jjigae, b: tres_leches}
+  - {a: mole_poblano, b: massaman_curry}
+  - {a: okonomiyaki, b: croque_monsieur}
+  - {a: pozole_rojo, b: bun_bo_hue}
+  - {a: chiles_rellenos, b: palak_paneer}
+  - {a: mujaddara, b: chicken_biryani}
+  - {a: japchae, b: pad_thai}

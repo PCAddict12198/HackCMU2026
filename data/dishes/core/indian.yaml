@@ -17,7 +17,7 @@ dishes:
       - {ing: ginger, g: 10}
       - {ing: garam_masala, g: 5, process: [toasted]}
       - {ing: cumin, g: 3, process: [toasted]}
-      - {ing: fresh_chili, g: 5}
+      - {ing: chili_hot, g: 5}
       - {ing: neutral_oil, g: 20}
       - {ing: cilantro, g: 5}
       - {ing: salt, g: 4}
@@ -41,7 +41,7 @@ dishes:
       - {ing: garam_masala, g: 5, process: [toasted]}
       - {ing: cumin, g: 3, process: [toasted]}
       - {ing: turmeric, g: 2}
-      - {ing: fresh_chili, g: 4}
+      - {ing: chili_mild, g: 4}
       - {ing: salt, g: 3}
   - id: palak_paneer
     name: Palak paneer
@@ -102,7 +102,7 @@ dishes:
       - {ing: onion, g: 50, process: [fried]}
       - {ing: mustard_seeds, g: 2, process: [fried]}
       - {ing: turmeric, g: 1}
-      - {ing: fresh_chili, g: 4}
+      - {ing: chili_hot, g: 4}
       - {ing: cilantro, g: 5}
       - {ing: neutral_oil, g: 10, process: [fried]}
       - {ing: salt, g: 3}
