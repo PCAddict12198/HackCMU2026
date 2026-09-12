@@ -1,0 +1,5 @@
+# IMMUTABLE engine test fixture (append-only).
+positive:
+  - {a: fx_noodle_soup, b: fx_spicy_soup, why: "both brothy soups"}
+negative:
+  - {a: fx_cream_noodles, b: fx_lime_salad, why: "creamy vs acidic"}

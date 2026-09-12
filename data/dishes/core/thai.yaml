@@ -1,0 +1,37 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: tom_yum_goong
+    name: Tom yum goong
+    cuisine: thai
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Hot-and-sour shrimp soup with lemongrass, galangal and lime.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: chicken_stock, g: 500}
+      - {ing: shrimp, g: 150, process: [boiled]}
+      - {ing: lemongrass, g: 20}
+      - {ing: galangal, g: 15}
+      - {ing: kaffir_lime_leaf, g: 3}
+      - {ing: lime_juice, g: 30}
+      - {ing: fish_sauce, g: 25}
+      - {ing: fresh_chili, g: 8}
+      - {ing: mushroom, g: 80}
+      - {ing: cilantro, g: 5}
+  - id: mango_sticky_rice
+    name: Mango sticky rice
+    cuisine: thai
+    course: dessert
+    format: rice_dish
+    tier: core
+    confidence: draft
+    blurb: Sweet coconut sticky rice with ripe mango.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: sticky_rice, g: 150, process: [steamed]}
+      - {ing: coconut_milk, g: 120}
+      - {ing: sugar, g: 30}
+      - {ing: salt, g: 2}
+      - {ing: mango, g: 150}

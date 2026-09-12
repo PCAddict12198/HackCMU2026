@@ -1,0 +1,26 @@
+# FROZEN at h0-freeze (tag `sanity-lock`). DRAFT until then: the team edits this together at H0,
+# BEFORE looking at engine results. After the tag, no branch may change this file (hooks + CI enforce).
+# positive: the model should place b in a's top 10% of same-course pairs.
+# negative: the pair should be less similar than the median pair. Core (manifest) dishes only.
+positive:
+  - {a: mapo_tofu, b: kimchi_jjigae, why: "spicy fermented tofu-and-pork stews"}
+  - {a: tonkotsu_ramen, b: shoyu_ramen, why: "same family of rich noodle soups"}
+  - {a: pho_bo, b: bun_bo_hue, why: "Vietnamese beef noodle soups"}
+  - {a: tom_yum_goong, b: hot_and_sour_soup, why: "sour-spicy brothy soups"}
+  - {a: spaghetti_carbonara, b: cacio_e_pepe, why: "cheese-and-pepper pasta"}
+  - {a: butter_chicken, b: massaman_curry, why: "rich, creamy, gently sweet curries"}
+  - {a: tabbouleh, b: fattoush, why: "herby, acidic Levantine salads"}
+  - {a: beef_bourguignon, b: osso_buco, why: "wine-braised meat stews"}
+  - {a: tiramisu, b: tres_leches, why: "creamy soaked cakes"}
+  - {a: creme_brulee, b: egg_tart, why: "sweet egg custards"}
+negative:
+  - {a: tonkotsu_ramen, b: tabbouleh, why: "rich hot broth vs bright raw salad"}
+  - {a: spaghetti_carbonara, b: aguachile, why: "rich cheesy pasta vs acidic raw seafood"}
+  - {a: french_onion_soup, b: som_tam, why: "sweet-rich soup vs sour-spicy crunchy salad"}
+  - {a: butter_chicken, b: goi_cuon, why: "creamy curry vs fresh herb rolls"}
+  - {a: mapo_tofu, b: fattoush, why: "fermented chili stew vs lemony salad"}
+  - {a: chicken_katsu, b: miso_soup, why: "crispy fried vs light broth"}
+  - {a: pho_bo, b: margherita_pizza, why: "herby broth vs baked cheese bread"}
+  - {a: tacos_al_pastor, b: mushroom_risotto, why: "smoky chili pork vs creamy rice"}
+  - {a: korean_fried_chicken, b: tabbouleh, why: "crispy fried vs raw herb salad"}
+  - {a: chana_masala, b: aguachile, why: "earthy spiced legumes vs raw citrus seafood"}

@@ -1,0 +1,53 @@
+{
+  "$defs": {
+    "UnitDef": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "factor": {
+          "description": "grams (mass), millilitres (volume), pieces (count)",
+          "exclusiveMinimum": 0,
+          "title": "Factor",
+          "type": "number"
+        },
+        "kind": {
+          "enum": [
+            "mass",
+            "volume",
+            "count"
+          ],
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "factor"
+      ],
+      "title": "UnitDef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "units": {
+      "additionalProperties": {
+        "$ref": "#/$defs/UnitDef"
+      },
+      "title": "Units",
+      "type": "object"
+    }
+  },
+  "required": [
+    "units"
+  ],
+  "title": "UnitsFile",
+  "type": "object"
+}

@@ -1,0 +1,73 @@
+{
+  "$defs": {
+    "CuisineInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "enum": [
+            "japanese",
+            "chinese",
+            "korean",
+            "thai",
+            "vietnamese",
+            "indian",
+            "levantine",
+            "italian",
+            "french",
+            "mexican"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "macro": {
+          "enum": [
+            "asia",
+            "europe_mena",
+            "americas"
+          ],
+          "title": "Macro",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "region": {
+          "enum": [
+            "east_asia",
+            "southeast_asia",
+            "south_asia",
+            "middle_east",
+            "europe",
+            "americas"
+          ],
+          "title": "Region",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "region",
+        "macro"
+      ],
+      "title": "CuisineInfo",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cuisines": {
+      "items": {
+        "$ref": "#/$defs/CuisineInfo"
+      },
+      "title": "Cuisines",
+      "type": "array"
+    }
+  },
+  "required": [
+    "cuisines"
+  ],
+  "title": "CuisinesFile",
+  "type": "object"
+}

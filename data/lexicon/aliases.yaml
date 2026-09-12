@@ -1,0 +1,38 @@
+# OWNER: data (P1). Extra recipe names -> ingredient id (approximations are fine; the recipe panel shows them).
+# A name may point at only one ingredient (the validator enforces this).
+aliases:
+  bacon: guanciale
+  parmigiano reggiano: pecorino
+  green chili: fresh_chili
+  red chili: fresh_chili
+  chile: fresh_chili
+  thai chilies: fresh_chili
+  cilantro leaves: cilantro
+  italian parsley: parsley
+  flat-leaf parsley: parsley
+  spearmint: mint
+  ground cumin: cumin
+  cumin seeds: cumin
+  cinnamon stick: cinnamon
+  star anise pods: star_anise
+  sichuan pepper: sichuan_peppercorn
+  garlic cloves: garlic
+  pork: pork_shoulder
+  minced pork: ground_pork
+  chicken breast: chicken_thigh
+  firm tofu: tofu
+  silken tofu: tofu
+  egg noodles: ramen_noodles
+  linguine: spaghetti
+  fettuccine: spaghetti
+  penne: spaghetti
+  honey: sugar
+  maple syrup: sugar
+  ghee: butter
+  sour cream: heavy_cream
+  cheddar: gruyere
+  light soy sauce: soy_sauce
+  dark soy sauce: soy_sauce
+  tamari: soy_sauce
+  nam pla: fish_sauce
+  dark chocolate: cocoa_powder

@@ -1,0 +1,4 @@
+# IMMUTABLE engine test fixture (append-only).
+aliases:
+  sea salt: salt
+  green onions: onion

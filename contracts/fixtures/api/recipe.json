@@ -1,0 +1,248 @@
+{
+  "name": "My carbonara",
+  "course": "savory",
+  "lines": [
+    {
+      "raw": "200 g spaghetti",
+      "status": "matched",
+      "ingredient_id": "spaghetti",
+      "grams": 200.0,
+      "confidence": 1.0,
+      "process": [],
+      "note": null
+    },
+    {
+      "raw": "100 g guanciale",
+      "status": "matched",
+      "ingredient_id": "guanciale",
+      "grams": 100.0,
+      "confidence": 1.0,
+      "process": [],
+      "note": null
+    },
+    {
+      "raw": "2 eggs",
+      "status": "matched",
+      "ingredient_id": "egg",
+      "grams": 100.0,
+      "confidence": 1.0,
+      "process": [],
+      "note": null
+    },
+    {
+      "raw": "50 g pecorino",
+      "status": "matched",
+      "ingredient_id": "pecorino",
+      "grams": 50.0,
+      "confidence": 1.0,
+      "process": [],
+      "note": null
+    },
+    {
+      "raw": "1 tsp black pepper",
+      "status": "matched",
+      "ingredient_id": "black_pepper",
+      "grams": 5.0,
+      "confidence": 1.0,
+      "process": [],
+      "note": null
+    },
+    {
+      "raw": "1 pinch saffron",
+      "status": "unmatched",
+      "ingredient_id": null,
+      "grams": null,
+      "confidence": 0.0,
+      "process": [],
+      "note": null
+    }
+  ],
+  "coverage": {
+    "matched": 5,
+    "total": 6
+  },
+  "used_grok": false,
+  "vector": {
+    "sweet": 0.0,
+    "salty": 0.983473,
+    "sour": 0.0,
+    "bitter": 0.0,
+    "umami": 0.904767,
+    "spicy": 0.439775,
+    "smoky": 0.0,
+    "roasted": 0.0,
+    "fermented": 0.913567,
+    "herbal": 0.0,
+    "fruity": 0.0,
+    "earthy": 0.560368,
+    "rich": 0.895146,
+    "creamy": 0.301779,
+    "crispy": 0.0,
+    "chewy": 0.905824,
+    "brothy": 0.0
+  },
+  "xyz": [
+    -1.0541,
+    -4.9725,
+    -4.5329
+  ],
+  "neighbors": [
+    {
+      "dish_id": "spaghetti_carbonara",
+      "similarity_pct": 98.5,
+      "distance": 2.9073
+    },
+    {
+      "dish_id": "tonkotsu_ramen",
+      "similarity_pct": 98.5,
+      "distance": 2.9675
+    },
+    {
+      "dish_id": "chicken_katsu",
+      "similarity_pct": 80.3,
+      "distance": 4.2377
+    },
+    {
+      "dish_id": "mapo_tofu",
+      "similarity_pct": 53.0,
+      "distance": 4.9587
+    },
+    {
+      "dish_id": "kimchi_jjigae",
+      "similarity_pct": 53.0,
+      "distance": 4.9739
+    }
+  ],
+  "attributions": {
+    "sweet": [],
+    "salty": [
+      {
+        "kind": "ingredient",
+        "id": "guanciale",
+        "value": 0.5473242083694748,
+        "src": "seed_placeholder",
+        "process": []
+      },
+      {
+        "kind": "ingredient",
+        "id": "pecorino",
+        "value": 0.43614897854442514,
+        "src": "seed_placeholder",
+        "process": []
+      }
+    ],
+    "sour": [],
+    "bitter": [],
+    "umami": [
+      {
+        "kind": "ingredient",
+        "id": "guanciale",
+        "value": 0.40211875120815505,
+        "src": "seed_placeholder",
+        "process": []
+      },
+      {
+        "kind": "ingredient",
+        "id": "pecorino",
+        "value": 0.40211875120815505,
+        "src": "seed_placeholder",
+        "process": []
+      },
+      {
+        "kind": "ingredient",
+        "id": "egg",
+        "value": 0.10052968780203876,
+        "src": "seed_placeholder",
+        "process": []
+      }
+    ],
+    "spicy": [
+      {
+        "kind": "ingredient",
+        "id": "black_pepper",
+        "value": 0.43977513908700006,
+        "src": "seed_placeholder",
+        "process": []
+      }
+    ],
+    "smoky": [],
+    "roasted": [],
+    "fermented": [
+      {
+        "kind": "ingredient",
+        "id": "pecorino",
+        "value": 0.5958046996160051,
+        "src": "seed_placeholder",
+        "process": []
+      },
+      {
+        "kind": "ingredient",
+        "id": "guanciale",
+        "value": 0.31776250646186943,
+        "src": "seed_placeholder",
+        "process": []
+      }
+    ],
+    "herbal": [],
+    "fruity": [],
+    "earthy": [
+      {
+        "kind": "ingredient",
+        "id": "black_pepper",
+        "value": 0.5603683497128631,
+        "src": "seed_placeholder",
+        "process": []
+      }
+    ],
+    "rich": [
+      {
+        "kind": "ingredient",
+        "id": "guanciale",
+        "value": 0.5035195100705954,
+        "src": "seed_placeholder",
+        "process": []
+      },
+      {
+        "kind": "ingredient",
+        "id": "pecorino",
+        "value": 0.2517597550352977,
+        "src": "seed_placeholder",
+        "process": []
+      },
+      {
+        "kind": "ingredient",
+        "id": "egg",
+        "value": 0.1398665305751654,
+        "src": "seed_placeholder",
+        "process": []
+      }
+    ],
+    "creamy": [
+      {
+        "kind": "ingredient",
+        "id": "egg",
+        "value": 0.3017793224312797,
+        "src": "seed_placeholder",
+        "process": []
+      }
+    ],
+    "crispy": [],
+    "chewy": [
+      {
+        "kind": "ingredient",
+        "id": "spaghetti",
+        "value": 0.8551130865962703,
+        "src": "seed_placeholder",
+        "process": []
+      },
+      {
+        "kind": "format",
+        "id": "noodles",
+        "value": 0.05071041969130536,
+        "src": null,
+        "process": []
+      }
+    ],
+    "brothy": []
+  }
+}

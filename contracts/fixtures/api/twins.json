@@ -1,0 +1,88 @@
+{
+  "source_id": "tonkotsu_ramen",
+  "relaxation_level": 1,
+  "relaxation_note": "relaxed to the top 20% of similar pairs",
+  "twins": [
+    {
+      "dish_id": "spaghetti_carbonara",
+      "similarity_pct": 95.5,
+      "distance": 3.3796,
+      "cuisine_distance": 1.0,
+      "shared_dims": [
+        "umami",
+        "rich",
+        "salty",
+        "chewy",
+        "fermented"
+      ],
+      "diffs": [
+        {
+          "dim": "brothy",
+          "delta": -0.9859
+        },
+        {
+          "dim": "crispy",
+          "delta": 0.6851
+        },
+        {
+          "dim": "creamy",
+          "delta": -0.2879
+        }
+      ]
+    },
+    {
+      "dish_id": "french_onion_soup",
+      "similarity_pct": 83.3,
+      "distance": 3.8868,
+      "cuisine_distance": 1.0,
+      "shared_dims": [
+        "brothy",
+        "umami",
+        "rich",
+        "salty",
+        "fermented"
+      ],
+      "diffs": [
+        {
+          "dim": "roasted",
+          "delta": 0.766
+        },
+        {
+          "dim": "crispy",
+          "delta": 0.6156
+        },
+        {
+          "dim": "chewy",
+          "delta": -0.5265
+        }
+      ]
+    },
+    {
+      "dish_id": "pho_bo",
+      "similarity_pct": 80.3,
+      "distance": 4.1654,
+      "cuisine_distance": 0.7,
+      "shared_dims": [
+        "brothy",
+        "umami",
+        "salty",
+        "fermented",
+        "rich"
+      ],
+      "diffs": [
+        {
+          "dim": "smoky",
+          "delta": 0.9641
+        },
+        {
+          "dim": "roasted",
+          "delta": 0.6153
+        },
+        {
+          "dim": "creamy",
+          "delta": -0.5908
+        }
+      ]
+    }
+  ]
+}

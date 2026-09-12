@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "build_ready": true,
+  "data_ready": true,
+  "grok_configured": true,
+  "contract_version": "1.0.0",
+  "build_id": "a3fa4cd4e4b2"
+}

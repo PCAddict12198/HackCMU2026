@@ -1,0 +1,14 @@
+# IMMUTABLE engine test fixture (append-only). 6 dishes, 3 cuisines, both courses.
+dishes:
+  - {id: fx_noodle_soup, name: Noodle soup, cuisine: japanese, course: savory, format: soup, confidence: reviewed,
+     ingredients: [{ing: broth, g: 400}, {ing: noodles, g: 150}, {ing: salt, g: 5}, {ing: onion, g: 20}]}
+  - {id: fx_spicy_soup, name: Spicy soup, cuisine: thai, course: savory, format: soup, confidence: reviewed,
+     ingredients: [{ing: broth, g: 400}, {ing: chili, g: 10}, {ing: lime, g: 30}, {ing: salt, g: 5}]}
+  - {id: fx_lime_salad, name: Lime salad, cuisine: thai, course: savory, format: raw_salad, confidence: reviewed,
+     ingredients: [{ing: onion, g: 100}, {ing: lime, g: 40}, {ing: chili, g: 5}, {ing: salt, g: 3}]}
+  - {id: fx_cream_noodles, name: Cream noodles, cuisine: italian, course: savory, format: noodles, confidence: reviewed,
+     ingredients: [{ing: noodles, g: 200}, {ing: cream, g: 100}, {ing: salt, g: 3}]}
+  - {id: fx_sweet_cream, name: Sweet cream, cuisine: italian, course: dessert, format: custard_creamy, confidence: reviewed,
+     ingredients: [{ing: cream, g: 200}, {ing: sugar, g: 50}]}
+  - {id: fx_sweet_lime, name: Sweet lime ice, cuisine: thai, course: dessert, format: frozen, confidence: reviewed,
+     ingredients: [{ing: sugar, g: 60}, {ing: lime, g: 30, process: [raw]}, {ing: cream, g: 100}]}

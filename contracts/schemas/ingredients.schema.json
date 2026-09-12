@@ -1,0 +1,219 @@
+{
+  "$defs": {
+    "Ingredient": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "category": {
+          "enum": [
+            "protein",
+            "seafood",
+            "dairy",
+            "vegetable",
+            "fruit",
+            "starch",
+            "legume",
+            "nut_seed",
+            "herb",
+            "spice",
+            "condiment",
+            "fat_oil",
+            "sweetener",
+            "liquid"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "density_g_per_ml": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "For volume units; default 1.0.",
+          "title": "Density G Per Ml"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9_]{1,40}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "potency": {
+          "default": 1.0,
+          "description": "How strongly it carries when diluted.",
+          "maximum": 10.0,
+          "minimum": 0.1,
+          "title": "Potency",
+          "type": "number"
+        },
+        "profile": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ProfileValue"
+              },
+              {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            ]
+          },
+          "description": "Neat intensity per dim in [0,1]; omitted dims are 0.",
+          "propertyNames": {
+            "enum": [
+              "sweet",
+              "salty",
+              "sour",
+              "bitter",
+              "umami",
+              "spicy",
+              "smoky",
+              "roasted",
+              "fermented",
+              "herbal",
+              "fruity",
+              "earthy",
+              "rich",
+              "creamy",
+              "crispy",
+              "chewy",
+              "brothy"
+            ]
+          },
+          "title": "Profile",
+          "type": "object"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        },
+        "unit_weight_g": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Grams per piece, for '2 eggs'.",
+          "title": "Unit Weight G"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "category"
+      ],
+      "title": "Ingredient",
+      "type": "object"
+    },
+    "ProfileValue": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        },
+        "src": {
+          "enum": [
+            "usda",
+            "scoville",
+            "literature",
+            "team",
+            "grok_reviewed",
+            "grok_draft",
+            "seed_placeholder",
+            "fixture"
+          ],
+          "title": "Src",
+          "type": "string"
+        },
+        "v": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "V",
+          "type": "number"
+        }
+      },
+      "required": [
+        "v",
+        "src"
+      ],
+      "title": "ProfileValue",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "default_src": {
+      "anyOf": [
+        {
+          "enum": [
+            "usda",
+            "scoville",
+            "literature",
+            "team",
+            "grok_reviewed",
+            "grok_draft",
+            "seed_placeholder",
+            "fixture"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Default Src"
+    },
+    "ingredients": {
+      "items": {
+        "$ref": "#/$defs/Ingredient"
+      },
+      "title": "Ingredients",
+      "type": "array"
+    }
+  },
+  "required": [
+    "ingredients"
+  ],
+  "title": "IngredientFile",
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+# uv workspace root. OWNER: integrator (main only). Do not edit on agent/* branches.
+# Python deps for every member are pre-provisioned here at H0; request new ones in your handoff file.
+[project]
+name = "tastespace-workspace"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = ["tastespace-contracts", "tastespace"]
+
+[tool.uv.sources]
+tastespace-contracts = { workspace = true }
+tastespace = { workspace = true }
+
+[tool.uv.workspace]
+members = ["contracts", "backend"]
+
+[dependency-groups]
+dev = ["pytest>=8.3", "ruff>=0.6"]
+
+[tool.pytest.ini_options]
+testpaths = ["contracts/tests", "backend/tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+extend-exclude = ["web", "build"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["E501"]

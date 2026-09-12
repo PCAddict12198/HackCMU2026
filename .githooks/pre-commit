@@ -1,0 +1,3 @@
+#!/bin/sh
+# OWNER: integrator. Blocks commits that touch files outside your role (see OWNERS.json).
+exec python3 "$(git rev-parse --show-toplevel)/tools/ci/check_ownership.py" --staged

@@ -1,0 +1,5 @@
+# OWNER: data (P1). Mini human-rating study (H15): each teammate rates ~20 core pairs 1-5 for
+# "how similar do these taste?" WITHOUT looking at the engine. The build report computes Spearman rho.
+# Example:
+#   - {a: tonkotsu_ramen, b: pho_bo, ratings: {p1: 4, p2: 3, p3: 4}}
+pairs: []

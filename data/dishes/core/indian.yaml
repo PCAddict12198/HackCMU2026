@@ -1,0 +1,23 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: chana_masala
+    name: Chana masala
+    cuisine: indian
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Chickpeas simmered in a spiced tomato-onion gravy.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: chickpeas, g: 250, process: [simmered]}
+      - {ing: onion, g: 120, process: [caramelized]}
+      - {ing: tomato, g: 150, process: [simmered]}
+      - {ing: garlic, g: 10}
+      - {ing: ginger, g: 10}
+      - {ing: garam_masala, g: 5, process: [toasted]}
+      - {ing: cumin, g: 3, process: [toasted]}
+      - {ing: fresh_chili, g: 5}
+      - {ing: neutral_oil, g: 20}
+      - {ing: cilantro, g: 5}
+      - {ing: salt, g: 4}

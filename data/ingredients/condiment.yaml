@@ -1,0 +1,13 @@
+# OWNER: data (P1). Condiments, broths and other liquids. See protein.yaml for the format.
+default_src: seed_placeholder
+ingredients:
+  - {id: soy_sauce, name: Soy sauce, category: condiment, potency: 6.0, density_g_per_ml: 1.2, aliases: [soy], profile: {salty: 0.95, umami: 0.8, fermented: 0.7, sweet: 0.1}}
+  - {id: fish_sauce, name: Fish sauce, category: condiment, potency: 7.0, density_g_per_ml: 1.2, profile: {salty: 0.95, umami: 0.9, fermented: 0.8}}
+  - {id: doubanjiang, name: Doubanjiang, category: condiment, potency: 5.0, aliases: [chili bean paste], profile: {salty: 0.8, spicy: 0.6, fermented: 0.8, umami: 0.7}}
+  - {id: gochujang, name: Gochujang, category: condiment, potency: 4.0, profile: {spicy: 0.6, sweet: 0.5, fermented: 0.7, umami: 0.5, salty: 0.5}}
+  - {id: kimchi, name: Kimchi, category: condiment, potency: 2.0, profile: {sour: 0.7, spicy: 0.5, fermented: 0.9, salty: 0.5, crispy: 0.4, umami: 0.3}}
+  - {id: salt, name: Salt, category: condiment, potency: 10.0, density_g_per_ml: 1.2, aliases: [kosher salt, sea salt], profile: {salty: 1.0}}
+  - {id: pork_bone_broth, name: Pork bone broth, category: liquid, aliases: [pork broth, tonkotsu broth], profile: {umami: 0.6, rich: 0.7, salty: 0.2, creamy: 0.4, brothy: 0.8}}
+  - {id: beef_bone_broth, name: Beef bone broth, category: liquid, aliases: [beef broth, beef stock], profile: {umami: 0.6, rich: 0.5, salty: 0.2, roasted: 0.3, brothy: 0.8}}
+  - {id: chicken_stock, name: Chicken stock, category: liquid, aliases: [chicken broth], profile: {umami: 0.4, salty: 0.2, rich: 0.2, brothy: 0.8}}
+  - {id: espresso, name: Espresso, category: liquid, potency: 3.0, aliases: [coffee, strong coffee], profile: {bitter: 0.9, roasted: 0.9, sour: 0.2}}

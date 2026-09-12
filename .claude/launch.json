@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "tastespace-dev",
+      "runtimeExecutable": "make",
+      "runtimeArgs": ["dev"],
+      "port": 5173
+    },
+    {
+      "name": "tastespace-web-mock",
+      "runtimeExecutable": "make",
+      "runtimeArgs": ["web", "WEB_PORT=5180"],
+      "port": 5180
+    }
+  ]
+}

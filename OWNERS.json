@@ -1,0 +1,31 @@
+{
+  "_comment": "Machine-readable folder ownership. OWNER: integrator (main only). Read by tools/ci/check_ownership.py (git pre-commit hook + CI) and tools/ci/agent_guard.py (Claude Code PreToolUse hook). Globs: ** = any depth, * = within one folder.",
+  "branches": {
+    "agent/data": "data",
+    "agent/engine": "engine",
+    "agent/web": "web",
+    "main": "integrator"
+  },
+  "roles": {
+    "data": ["data/**", "tools/data/**", "docs/demo/**", "docs/handoffs/data.md"],
+    "engine": ["backend/tastespace/**", "backend/tests/**", "docs/MODEL.md", "docs/handoffs/engine.md"],
+    "web": ["web/**", "docs/handoffs/web.md"],
+    "integrator": ["**"]
+  },
+  "exclude": {
+    "data": ["data/sanity/**"],
+    "engine": [],
+    "web": [],
+    "integrator": []
+  },
+  "append_only": {
+    "engine": ["backend/tests/fixtures/data/**"]
+  },
+  "locked": {
+    "_comment": "After the lock tag exists, these paths may not change on ANY branch unless ALLOW_LOCKED=1 (integrator, with team agreement; then move the tag: git tag -f sanity-lock).",
+    "tag": "sanity-lock",
+    "paths": ["data/sanity/**"]
+  },
+  "python_dep_files": ["pyproject.toml", "uv.lock", "backend/pyproject.toml", "contracts/pyproject.toml"],
+  "js_dep_files": ["web/package.json", "web/package-lock.json"]
+}

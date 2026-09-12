@@ -1,0 +1,33 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: french_onion_soup
+    name: French onion soup
+    cuisine: french
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Deeply caramelized onions in beef broth under a gruyere crouton.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: onion, g: 400, process: [caramelized]}
+      - {ing: beef_bone_broth, g: 600, process: [simmered]}
+      - {ing: butter, g: 30}
+      - {ing: baguette, g: 60, process: [toasted]}
+      - {ing: gruyere, g: 80, process: [roasted]}
+      - {ing: thyme, g: 2}
+  - id: creme_brulee
+    name: Creme brulee
+    cuisine: french
+    course: dessert
+    format: custard_creamy
+    tier: core
+    confidence: draft
+    blurb: Vanilla custard under a burnt-sugar crust.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: heavy_cream, g: 250}
+      - {ing: egg, g: 80}
+      - {ing: sugar, g: 50}
+      - {ing: sugar, g: 15, process: [caramelized], note: the brulee crust}
+      - {ing: vanilla, g: 3}

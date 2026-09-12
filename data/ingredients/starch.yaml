@@ -1,0 +1,13 @@
+# OWNER: data (P1). See protein.yaml for the format. Seed values are placeholders.
+default_src: seed_placeholder
+ingredients:
+  - {id: ramen_noodles, name: Ramen noodles, category: starch, potency: 0.6, profile: {chewy: 0.7, salty: 0.1}}
+  - {id: rice_noodles, name: Rice noodles, category: starch, potency: 0.5, aliases: [rice noodle, pho noodles], profile: {chewy: 0.5}}
+  - {id: spaghetti, name: Spaghetti, category: starch, potency: 0.6, aliases: [pasta], profile: {chewy: 0.6}}
+  - {id: sticky_rice, name: Sticky rice, category: starch, potency: 0.7, aliases: [glutinous rice], profile: {chewy: 0.8, sweet: 0.1}}
+  - {id: bulgur, name: Bulgur, category: starch, potency: 0.7, profile: {chewy: 0.4, earthy: 0.3, roasted: 0.1}}
+  - {id: wheat_flour, name: Wheat flour, category: starch, potency: 0.3, density_g_per_ml: 0.53, aliases: [flour, all-purpose flour], profile: {earthy: 0.1}}
+  - {id: panko, name: Panko, category: starch, potency: 0.8, aliases: [breadcrumbs], profile: {crispy: 0.6, roasted: 0.2}}
+  - {id: baguette, name: Baguette, category: starch, potency: 0.8, aliases: [bread], profile: {chewy: 0.5, crispy: 0.4, roasted: 0.3}}
+  - {id: ladyfingers, name: Ladyfingers, category: starch, potency: 0.8, aliases: [savoiardi], profile: {sweet: 0.5, crispy: 0.3}}
+  - {id: corn_tortilla, name: Corn tortilla, category: starch, potency: 0.8, unit_weight_g: 30, aliases: [tortilla, tortillas], profile: {earthy: 0.4, chewy: 0.4, roasted: 0.2}}

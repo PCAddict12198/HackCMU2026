@@ -1,0 +1,3 @@
+#!/bin/sh
+# OWNER: integrator. Agents may not push main; nobody force-pushes.
+exec python3 "$(git rev-parse --show-toplevel)/tools/ci/pre_push.py" "$@"

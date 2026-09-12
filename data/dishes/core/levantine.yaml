@@ -1,0 +1,20 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: tabbouleh
+    name: Tabbouleh
+    cuisine: levantine
+    course: savory
+    format: raw_salad
+    tier: core
+    confidence: draft
+    blurb: Parsley-forward bulgur salad with lemon, mint and tomato.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: parsley, g: 100}
+      - {ing: bulgur, g: 40, process: [boiled]}
+      - {ing: tomato, g: 100}
+      - {ing: mint, g: 15}
+      - {ing: lemon_juice, g: 30}
+      - {ing: olive_oil, g: 25}
+      - {ing: onion, g: 20}
+      - {ing: salt, g: 3}

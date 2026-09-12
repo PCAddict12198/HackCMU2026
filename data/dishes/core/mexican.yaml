@@ -1,0 +1,54 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: tacos_al_pastor
+    name: Tacos al pastor
+    cuisine: mexican
+    course: savory
+    format: grilled_roasted
+    tier: core
+    confidence: draft
+    blurb: Chili-marinated spit-roasted pork with pineapple on corn tortillas.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: pork_shoulder, g: 200, process: [grilled]}
+      - {ing: pineapple, g: 60, process: [grilled]}
+      - {ing: corn_tortilla, g: 90, process: [toasted]}
+      - {ing: chili_flakes, g: 8}
+      - {ing: onion, g: 30}
+      - {ing: cilantro, g: 8}
+      - {ing: lime_juice, g: 15}
+      - {ing: garlic, g: 5}
+  - id: aguachile
+    name: Aguachile
+    cuisine: mexican
+    course: savory
+    format: raw_salad
+    tier: core
+    confidence: draft
+    blurb: Raw shrimp "cooked" in lime and chili with cucumber and onion.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: shrimp, g: 200, process: [cured]}
+      - {ing: lime_juice, g: 80}
+      - {ing: fresh_chili, g: 15}
+      - {ing: cucumber, g: 80}
+      - {ing: onion, g: 30}
+      - {ing: cilantro, g: 10}
+      - {ing: salt, g: 3}
+  - id: tres_leches
+    name: Tres leches
+    cuisine: mexican
+    course: dessert
+    format: baked_sweet
+    tier: core
+    confidence: draft
+    blurb: Sponge cake soaked in three milks.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: wheat_flour, g: 100, process: [roasted]}
+      - {ing: egg, g: 150}
+      - {ing: sugar, g: 120}
+      - {ing: whole_milk, g: 150}
+      - {ing: condensed_milk, g: 150}
+      - {ing: heavy_cream, g: 120}
+      - {ing: cinnamon, g: 2}

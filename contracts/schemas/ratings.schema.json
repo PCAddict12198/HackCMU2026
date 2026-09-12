@@ -1,0 +1,48 @@
+{
+  "$defs": {
+    "RatingPair": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "pattern": "^[a-z][a-z0-9_]{1,40}$",
+          "title": "A",
+          "type": "string"
+        },
+        "b": {
+          "pattern": "^[a-z][a-z0-9_]{1,40}$",
+          "title": "B",
+          "type": "string"
+        },
+        "ratings": {
+          "additionalProperties": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "description": "rater -> 1..5",
+          "title": "Ratings",
+          "type": "object"
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "title": "RatingPair",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "pairs": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/RatingPair"
+      },
+      "title": "Pairs",
+      "type": "array"
+    }
+  },
+  "title": "RatingsFile",
+  "type": "object"
+}

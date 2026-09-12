@@ -1,0 +1,23 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: mapo_tofu
+    name: Mapo tofu
+    cuisine: chinese
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Silky tofu in a numbing, spicy, fermented chili-bean sauce.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: tofu, g: 300, process: [simmered]}
+      - {ing: ground_pork, g: 100, process: [fried]}
+      - {ing: doubanjiang, g: 25}
+      - {ing: chili_flakes, g: 5}
+      - {ing: sichuan_peppercorn, g: 3, process: [toasted]}
+      - {ing: garlic, g: 10}
+      - {ing: ginger, g: 8}
+      - {ing: scallion, g: 10}
+      - {ing: chicken_stock, g: 150}
+      - {ing: soy_sauce, g: 10}
+      - {ing: neutral_oil, g: 20}

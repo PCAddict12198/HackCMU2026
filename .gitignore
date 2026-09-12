@@ -1,0 +1,20 @@
+# OWNER: integrator
+# generated engine output (regenerate with `make build`)
+/build/
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+# node / web
+node_modules/
+web/dist/
+web/.vite/
+# secrets + per-worktree config
+.env
+.env.local
+.claude/settings.local.json
+# caches
+tools/data/.cache/
+.DS_Store

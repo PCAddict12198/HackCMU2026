@@ -1,0 +1,12 @@
+# IMMUTABLE engine test fixture (append-only). Copied from data/ at H0.
+cuisines:
+  - {id: japanese, name: Japanese, region: east_asia, macro: asia}
+  - {id: chinese, name: Chinese, region: east_asia, macro: asia}
+  - {id: korean, name: Korean, region: east_asia, macro: asia}
+  - {id: thai, name: Thai, region: southeast_asia, macro: asia}
+  - {id: vietnamese, name: Vietnamese, region: southeast_asia, macro: asia}
+  - {id: indian, name: Indian, region: south_asia, macro: asia}
+  - {id: levantine, name: Levantine, region: middle_east, macro: europe_mena}
+  - {id: italian, name: Italian, region: europe, macro: europe_mena}
+  - {id: french, name: French, region: europe, macro: europe_mena}
+  - {id: mexican, name: Mexican, region: americas, macro: americas}

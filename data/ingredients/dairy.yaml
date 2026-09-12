@@ -1,0 +1,10 @@
+# OWNER: data (P1). See protein.yaml for the format. Seed values are placeholders.
+default_src: seed_placeholder
+ingredients:
+  - {id: butter, name: Butter, category: dairy, potency: 2.5, density_g_per_ml: 0.91, profile: {rich: 0.95, creamy: 0.7, sweet: 0.1}}
+  - {id: heavy_cream, name: Heavy cream, category: dairy, potency: 1.5, aliases: [cream, heavy whipping cream, double cream], profile: {creamy: 0.95, rich: 0.9, sweet: 0.15}}
+  - {id: whole_milk, name: Whole milk, category: dairy, potency: 0.8, density_g_per_ml: 1.03, aliases: [milk], profile: {creamy: 0.6, sweet: 0.3, rich: 0.3}}
+  - {id: condensed_milk, name: Sweetened condensed milk, category: dairy, potency: 3.0, density_g_per_ml: 1.3, aliases: [condensed milk], profile: {sweet: 0.95, creamy: 0.8, rich: 0.6}}
+  - {id: mascarpone, name: Mascarpone, category: dairy, potency: 1.5, profile: {creamy: 0.95, rich: 0.9, sweet: 0.2}}
+  - {id: pecorino, name: Pecorino Romano, category: dairy, potency: 3.0, aliases: [pecorino cheese, parmesan, parmigiano], profile: {salty: 0.85, umami: 0.8, rich: 0.6, fermented: 0.5}}
+  - {id: gruyere, name: Gruyere, category: dairy, potency: 2.0, aliases: [gruyère, swiss cheese], profile: {salty: 0.6, umami: 0.7, rich: 0.7, fermented: 0.4, creamy: 0.4, earthy: 0.2}}

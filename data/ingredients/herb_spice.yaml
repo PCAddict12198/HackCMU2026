@@ -1,0 +1,18 @@
+# OWNER: data (P1). See protein.yaml for the format. Seed values are placeholders.
+default_src: seed_placeholder
+ingredients:
+  - {id: cilantro, name: Cilantro, category: herb, potency: 3.0, aliases: [coriander leaves, coriander], profile: {herbal: 0.95, fruity: 0.2}}
+  - {id: parsley, name: Parsley, category: herb, potency: 1.5, profile: {herbal: 0.9, bitter: 0.2}}
+  - {id: mint, name: Mint, category: herb, potency: 3.0, profile: {herbal: 0.95}}
+  - {id: thai_basil, name: Thai basil, category: herb, potency: 3.0, aliases: [basil], profile: {herbal: 0.95, spicy: 0.2}}
+  - {id: thyme, name: Thyme, category: herb, potency: 5.0, profile: {herbal: 0.9, earthy: 0.4}}
+  - {id: chili_flakes, name: Dried chili flakes, category: spice, potency: 6.0, aliases: [gochugaru, red pepper flakes, dried chili, guajillo], profile: {spicy: 0.9, smoky: 0.3, fruity: 0.2, roasted: 0.2}}
+  - {id: fresh_chili, name: Fresh chili, category: spice, potency: 6.0, unit_weight_g: 5, aliases: [chili, chilli, jalapeno, serrano, "bird's eye chili", thai chili], profile: {spicy: 0.95, fruity: 0.3, herbal: 0.2}}
+  - {id: sichuan_peppercorn, name: Sichuan peppercorn, category: spice, potency: 8.0, profile: {spicy: 0.7, herbal: 0.4, fruity: 0.4}}
+  - {id: black_pepper, name: Black pepper, category: spice, potency: 8.0, aliases: [pepper], profile: {spicy: 0.7, earthy: 0.4}}
+  - {id: cumin, name: Cumin, category: spice, potency: 8.0, profile: {earthy: 0.9, roasted: 0.3, bitter: 0.2}}
+  - {id: garam_masala, name: Garam masala, category: spice, potency: 8.0, profile: {earthy: 0.7, spicy: 0.4, sweet: 0.2, roasted: 0.3}}
+  - {id: star_anise, name: Star anise, category: spice, potency: 8.0, profile: {sweet: 0.4, herbal: 0.6, earthy: 0.2}}
+  - {id: cinnamon, name: Cinnamon, category: spice, potency: 8.0, profile: {sweet: 0.5, earthy: 0.4, spicy: 0.2}}
+  - {id: vanilla, name: Vanilla, category: spice, potency: 10.0, aliases: [vanilla extract], profile: {sweet: 0.5, creamy: 0.3, fruity: 0.2}}
+  - {id: cocoa_powder, name: Cocoa powder, category: spice, potency: 5.0, aliases: [cocoa], profile: {bitter: 0.8, roasted: 0.6, earthy: 0.5}}

@@ -1,0 +1,11 @@
+# IMMUTABLE engine test fixture (append-only). Golden numbers in tests/unit/test_engine.py depend on it.
+default_src: fixture
+ingredients:
+  - {id: salt, name: Salt, category: condiment, potency: 10.0, profile: {salty: 1.0}}
+  - {id: sugar, name: Sugar, category: sweetener, potency: 3.0, profile: {sweet: 1.0}}
+  - {id: lime, name: Lime, category: fruit, potency: 4.0, unit_weight_g: 30, profile: {sour: 0.9, fruity: 0.5}}
+  - {id: broth, name: Broth, category: liquid, profile: {umami: 0.6, brothy: 0.8, rich: 0.3}}
+  - {id: noodles, name: Noodles, category: starch, potency: 0.5, profile: {chewy: 0.8}}
+  - {id: chili, name: Chili, category: spice, potency: 6.0, unit_weight_g: 5, profile: {spicy: 0.9}}
+  - {id: cream, name: Cream, category: dairy, potency: 1.5, profile: {creamy: 0.9, rich: 0.8}}
+  - {id: onion, name: Onion, category: vegetable, unit_weight_g: 150, profile: {sweet: 0.3, spicy: 0.4}}

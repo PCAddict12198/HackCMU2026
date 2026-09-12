@@ -1,0 +1,33 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: spaghetti_carbonara
+    name: Spaghetti carbonara
+    cuisine: italian
+    course: savory
+    format: noodles
+    tier: core
+    confidence: draft
+    blurb: Pasta with guanciale, egg, pecorino and black pepper.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: spaghetti, g: 200, process: [boiled]}
+      - {ing: guanciale, g: 100, process: [fried]}
+      - {ing: egg, g: 100}
+      - {ing: pecorino, g: 50}
+      - {ing: black_pepper, g: 3}
+  - id: tiramisu
+    name: Tiramisu
+    cuisine: italian
+    course: dessert
+    format: custard_creamy
+    tier: core
+    confidence: draft
+    blurb: Espresso-soaked ladyfingers layered with mascarpone cream and cocoa.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: mascarpone, g: 250}
+      - {ing: espresso, g: 150}
+      - {ing: ladyfingers, g: 150}
+      - {ing: sugar, g: 75}
+      - {ing: egg, g: 100}
+      - {ing: cocoa_powder, g: 10}

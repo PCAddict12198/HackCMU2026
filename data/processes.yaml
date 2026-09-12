@@ -1,0 +1,18 @@
+# OWNER: data (P1). Per-ingredient transform: r' = clip(r * scale + delta, 0, 1), applied in the order
+# listed on the dish ingredient. Omitted scale = 1, omitted delta = 0. Process IDs are FROZEN.
+processes:
+  - {id: raw, note: identity}
+  - {id: boiled, scale: {crispy: 0.5}}
+  - {id: simmered, scale: {crispy: 0.3}}
+  - {id: braised, scale: {crispy: 0.2}, delta: {rich: 0.1, umami: 0.05}}
+  - {id: steamed, scale: {crispy: 0.5}}
+  - {id: grilled, delta: {smoky: 0.35, roasted: 0.4}}
+  - {id: roasted, delta: {roasted: 0.45, sweet: 0.05}}
+  - {id: fried, delta: {crispy: 0.4, rich: 0.2, roasted: 0.15}}
+  - {id: deep_fried, delta: {crispy: 0.7, rich: 0.35, roasted: 0.2}}
+  - {id: smoked, delta: {smoky: 0.7}}
+  - {id: caramelized, scale: {spicy: 0.3, herbal: 0.7}, delta: {sweet: 0.3, roasted: 0.45}, note: "onion loses pungency and gains sweetness"}
+  - {id: toasted, delta: {roasted: 0.4, crispy: 0.3}}
+  - {id: fermented, scale: {sweet: 0.6}, delta: {fermented: 0.6, sour: 0.3, umami: 0.2}}
+  - {id: pickled, scale: {sweet: 0.8}, delta: {sour: 0.6}}
+  - {id: cured, delta: {salty: 0.3}, note: salt- or acid-cured}

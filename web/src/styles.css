@@ -1,0 +1,40 @@
+:root {
+  color-scheme: dark;
+  --bg: #07080d;
+  --panel: #10131c;
+  --line: #232838;
+  --text: #e9ecf5;
+  --muted: #8d94a8;
+  --accent: #ffd166;
+  --bad: #ff6b6b;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+.app { display: flex; flex-direction: column; height: 100vh; }
+header { display: flex; gap: 12px; align-items: baseline; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+main { flex: 1; display: grid; grid-template-columns: 1fr 380px; min-height: 0; }
+.galaxy { position: relative; min-height: 0; }
+.galaxy-empty { display: grid; place-items: center; height: 100%; color: var(--muted); }
+.dish-card { position: absolute; left: 16px; bottom: 16px; max-width: 420px; background: #10131ccc; border: 1px solid var(--line); padding: 10px 12px; border-radius: 10px; }
+aside { border-left: 1px solid var(--line); background: var(--panel); padding: 12px; overflow-y: auto; }
+nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+button { background: #1b2030; color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+button.active, button:hover { border-color: var(--accent); }
+input, textarea { width: 100%; background: #0b0d14; color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 8px; font: inherit; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+td, th { border-bottom: 1px solid var(--line); padding: 4px; text-align: left; }
+.card { border: 1px solid var(--line); border-radius: 10px; padding: 10px; margin: 8px 0; }
+.row { display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.slider { display: grid; grid-template-columns: 90px 1fr 90px; gap: 8px; align-items: center; margin: 6px 0; }
+.pill, .chip { font-size: 11px; border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; color: var(--muted); }
+.badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; }
+.badge.mock { background: #5c3d00; color: var(--accent); }
+.badge.real { background: #0b3d2e; color: #63e6be; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.error { color: var(--bad); }
+.banner { padding: 8px 16px; border-bottom: 1px solid var(--line); }
+.star-label { background: #000c; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+.chat p { margin: 6px 0; }
+.chat .user { color: var(--accent); }

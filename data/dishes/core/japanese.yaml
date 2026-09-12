@@ -1,0 +1,39 @@
+# OWNER: data (P1). One canonical recipe per dish, grams only. Seed recipes are placeholders:
+# replace ingredients/grams with a real canonical recipe, fill recipe_basis, then set confidence: reviewed.
+dishes:
+  - id: tonkotsu_ramen
+    name: Tonkotsu ramen
+    cuisine: japanese
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Creamy pork-bone broth, noodles, chashu and a soft egg.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: pork_bone_broth, g: 450, process: [simmered]}
+      - {ing: ramen_noodles, g: 150, process: [boiled]}
+      - {ing: pork_belly, g: 60, process: [braised]}
+      - {ing: soy_sauce, g: 20}
+      - {ing: egg, g: 50, process: [boiled]}
+      - {ing: scallion, g: 10}
+      - {ing: garlic, g: 5, process: [fried]}
+      - {ing: sesame_oil, g: 5}
+  - id: chicken_katsu
+    name: Chicken katsu
+    cuisine: japanese
+    course: savory
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Panko-crusted fried chicken with shredded cabbage and sweet-savory sauce.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: chicken_thigh, g: 180, process: [deep_fried]}
+      - {ing: panko, g: 30, process: [deep_fried]}
+      - {ing: egg, g: 25}
+      - {ing: wheat_flour, g: 15}
+      - {ing: neutral_oil, g: 15}
+      - {ing: cabbage, g: 60, process: [raw]}
+      - {ing: soy_sauce, g: 10}
+      - {ing: sugar, g: 3}

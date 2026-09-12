@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "DimInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "group": {
+          "enum": [
+            "taste",
+            "aroma",
+            "mouthfeel"
+          ],
+          "title": "Group",
+          "type": "string"
+        },
+        "high_label": {
+          "title": "High Label",
+          "type": "string"
+        },
+        "id": {
+          "enum": [
+            "sweet",
+            "salty",
+            "sour",
+            "bitter",
+            "umami",
+            "spicy",
+            "smoky",
+            "roasted",
+            "fermented",
+            "herbal",
+            "fruity",
+            "earthy",
+            "rich",
+            "creamy",
+            "crispy",
+            "chewy",
+            "brothy"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "low_label": {
+          "title": "Low Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "group",
+        "label",
+        "low_label",
+        "high_label"
+      ],
+      "title": "DimInfo",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dims": {
+      "items": {
+        "$ref": "#/$defs/DimInfo"
+      },
+      "title": "Dims",
+      "type": "array"
+    }
+  },
+  "required": [
+    "dims"
+  ],
+  "title": "DimsFile",
+  "type": "object"
+}

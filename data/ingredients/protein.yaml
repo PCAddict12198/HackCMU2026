@@ -1,0 +1,15 @@
+# OWNER: data (P1). Profile = intensity of each dim when eaten neat, 0..1 (omitted dims = 0).
+# potency = how strongly it carries when diluted (condiments/spices >> 1, bulk ~1, bland starch < 1).
+# SEED VALUES ARE PLACEHOLDERS (default_src: seed_placeholder). Replace them with sourced values:
+#   salty: {v: 0.9, src: usda, note: "sodium 5.6 g/100g"}   or set a new file-level default_src.
+default_src: seed_placeholder
+ingredients:
+  - {id: pork_belly, name: Pork belly, category: protein, potency: 1.2, profile: {rich: 0.9, umami: 0.5, salty: 0.1, chewy: 0.3}}
+  - {id: ground_pork, name: Ground pork, category: protein, profile: {rich: 0.6, umami: 0.5}}
+  - {id: pork_shoulder, name: Pork shoulder, category: protein, profile: {rich: 0.5, umami: 0.5, chewy: 0.3}}
+  - {id: guanciale, name: Guanciale, category: protein, potency: 2.0, aliases: [pancetta], profile: {rich: 0.9, salty: 0.8, umami: 0.6, fermented: 0.2}}
+  - {id: chicken_thigh, name: Chicken thigh, category: protein, aliases: [chicken, chicken thighs], profile: {umami: 0.4, rich: 0.4, chewy: 0.2}}
+  - {id: beef_sirloin, name: Beef sirloin, category: protein, aliases: [beef, steak], profile: {umami: 0.6, rich: 0.4, chewy: 0.3}}
+  - {id: tofu, name: Tofu, category: legume, potency: 0.6, profile: {creamy: 0.5, earthy: 0.2}}
+  - {id: egg, name: Egg, category: protein, unit_weight_g: 50, aliases: [eggs, egg yolk, egg yolks], profile: {rich: 0.5, creamy: 0.5, umami: 0.3}}
+  - {id: chickpeas, name: Chickpeas, category: legume, potency: 0.8, aliases: [chickpea, garbanzo beans], profile: {earthy: 0.6, creamy: 0.4, chewy: 0.2}}

@@ -1,0 +1,76 @@
+{
+  "source_id": "tonkotsu_ramen",
+  "target_z": {
+    "sweet": -1.1169,
+    "salty": 0.8677,
+    "sour": 0.2346,
+    "bitter": -0.6465,
+    "umami": 1.0299,
+    "spicy": -0.6186,
+    "smoky": -0.5654,
+    "roasted": -0.6911,
+    "fermented": 0.7346,
+    "herbal": -0.4818,
+    "fruity": -0.8846,
+    "earthy": -0.3515,
+    "rich": 0.0157,
+    "creamy": 0.6281,
+    "crispy": -0.7639,
+    "chewy": 0.7124,
+    "brothy": 1.4078
+  },
+  "target_xyz": [
+    -1.5127,
+    -3.7652,
+    -3.6448
+  ],
+  "relaxation_level": 0,
+  "relaxation_note": "every requested dimension moves the right way",
+  "results": [
+    {
+      "dish_id": "kimchi_jjigae",
+      "similarity_pct": 81.8,
+      "distance": 4.0023,
+      "moved": {
+        "sour": 0.8419,
+        "rich": -0.2392
+      }
+    },
+    {
+      "dish_id": "tom_yum_goong",
+      "similarity_pct": 81.8,
+      "distance": 4.0517,
+      "moved": {
+        "sour": 0.5818,
+        "rich": -0.5224
+      }
+    },
+    {
+      "dish_id": "pho_bo",
+      "similarity_pct": 81.8,
+      "distance": 4.0996,
+      "moved": {
+        "sour": 0.2163,
+        "rich": -0.1963
+      }
+    },
+    {
+      "dish_id": "chana_masala",
+      "similarity_pct": 42.4,
+      "distance": 5.49,
+      "moved": {
+        "sour": 0.5144,
+        "rich": -0.498
+      }
+    },
+    {
+      "dish_id": "tabbouleh",
+      "similarity_pct": 27.3,
+      "distance": 6.1356,
+      "moved": {
+        "sour": 0.9368,
+        "rich": -0.5548
+      }
+    }
+  ]
+}

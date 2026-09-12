@@ -1,0 +1,19 @@
+# OWNER: data (P1). See protein.yaml for the format. Seed values are placeholders.
+default_src: seed_placeholder
+ingredients:
+  - {id: onion, name: Onion, category: vegetable, unit_weight_g: 150, aliases: [onions, red onion, yellow onion, shallot], profile: {sweet: 0.3, spicy: 0.4, herbal: 0.2, crispy: 0.3}}
+  - {id: garlic, name: Garlic, category: vegetable, potency: 4.0, unit_weight_g: 5, profile: {spicy: 0.5, herbal: 0.3, earthy: 0.3, umami: 0.2}}
+  - {id: ginger, name: Ginger, category: vegetable, potency: 4.0, unit_weight_g: 10, profile: {spicy: 0.6, herbal: 0.5, fruity: 0.2}}
+  - {id: scallion, name: Scallion, category: vegetable, potency: 2.0, unit_weight_g: 15, aliases: [green onion, spring onion, scallions], profile: {herbal: 0.6, spicy: 0.3, crispy: 0.3}}
+  - {id: tomato, name: Tomato, category: vegetable, unit_weight_g: 120, aliases: [tomatoes], profile: {sour: 0.5, sweet: 0.4, umami: 0.5, fruity: 0.5}}
+  - {id: cabbage, name: Cabbage, category: vegetable, potency: 0.8, profile: {crispy: 0.6, sweet: 0.2, herbal: 0.2}}
+  - {id: mushroom, name: Mushroom, category: vegetable, potency: 1.2, aliases: [mushrooms, shiitake], profile: {umami: 0.7, earthy: 0.8, chewy: 0.3}}
+  - {id: bean_sprouts, name: Bean sprouts, category: vegetable, potency: 0.6, profile: {crispy: 0.8, herbal: 0.2}}
+  - {id: cucumber, name: Cucumber, category: vegetable, potency: 0.6, unit_weight_g: 200, profile: {crispy: 0.7, herbal: 0.4}}
+  - {id: lemongrass, name: Lemongrass, category: herb, potency: 4.0, unit_weight_g: 20, profile: {herbal: 0.8, fruity: 0.6, sour: 0.2}}
+  - {id: galangal, name: Galangal, category: vegetable, potency: 4.0, profile: {spicy: 0.5, herbal: 0.7, earthy: 0.3}}
+  - {id: kaffir_lime_leaf, name: Makrut lime leaf, category: herb, potency: 6.0, unit_weight_g: 0.5, aliases: [kaffir lime leaves, lime leaves], profile: {herbal: 0.8, fruity: 0.7}}
+  - {id: mango, name: Mango, category: fruit, unit_weight_g: 200, profile: {sweet: 0.85, fruity: 0.95, creamy: 0.3, sour: 0.2}}
+  - {id: pineapple, name: Pineapple, category: fruit, profile: {sweet: 0.7, fruity: 0.9, sour: 0.5}}
+  - {id: lime_juice, name: Lime juice, category: fruit, potency: 4.0, unit_weight_g: 30, aliases: [lime, limes], profile: {sour: 0.95, fruity: 0.6, bitter: 0.1}}
+  - {id: lemon_juice, name: Lemon juice, category: fruit, potency: 4.0, unit_weight_g: 40, aliases: [lemon, lemons], profile: {sour: 0.95, fruity: 0.6}}

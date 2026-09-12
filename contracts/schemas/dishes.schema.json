@@ -1,0 +1,181 @@
+{
+  "$defs": {
+    "Dish": {
+      "additionalProperties": false,
+      "properties": {
+        "blurb": {
+          "default": "",
+          "title": "Blurb",
+          "type": "string"
+        },
+        "confidence": {
+          "default": "draft",
+          "enum": [
+            "reviewed",
+            "draft"
+          ],
+          "title": "Confidence",
+          "type": "string"
+        },
+        "course": {
+          "enum": [
+            "savory",
+            "dessert"
+          ],
+          "title": "Course",
+          "type": "string"
+        },
+        "cuisine": {
+          "enum": [
+            "japanese",
+            "chinese",
+            "korean",
+            "thai",
+            "vietnamese",
+            "indian",
+            "levantine",
+            "italian",
+            "french",
+            "mexican"
+          ],
+          "title": "Cuisine",
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "soup",
+            "noodles",
+            "rice_dish",
+            "stew_braise",
+            "fried",
+            "grilled_roasted",
+            "raw_salad",
+            "bread_sandwich",
+            "dumpling",
+            "baked_sweet",
+            "custard_creamy",
+            "frozen"
+          ],
+          "title": "Format",
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9_]{1,40}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "ingredients": {
+          "items": {
+            "$ref": "#/$defs/DishIngredient"
+          },
+          "minItems": 1,
+          "title": "Ingredients",
+          "type": "array"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "recipe_basis": {
+          "default": "",
+          "description": "Where the canonical recipe comes from.",
+          "title": "Recipe Basis",
+          "type": "string"
+        },
+        "tier": {
+          "default": "core",
+          "enum": [
+            "core",
+            "extended"
+          ],
+          "title": "Tier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "cuisine",
+        "course",
+        "format",
+        "ingredients"
+      ],
+      "title": "Dish",
+      "type": "object"
+    },
+    "DishIngredient": {
+      "additionalProperties": false,
+      "properties": {
+        "g": {
+          "description": "Grams in the canonical recipe (grams only).",
+          "exclusiveMinimum": 0,
+          "title": "G",
+          "type": "number"
+        },
+        "ing": {
+          "pattern": "^[a-z][a-z0-9_]{1,40}$",
+          "title": "Ing",
+          "type": "string"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        },
+        "process": {
+          "description": "Applied in order.",
+          "items": {
+            "enum": [
+              "raw",
+              "boiled",
+              "simmered",
+              "braised",
+              "steamed",
+              "grilled",
+              "roasted",
+              "fried",
+              "deep_fried",
+              "smoked",
+              "caramelized",
+              "toasted",
+              "fermented",
+              "pickled",
+              "cured"
+            ],
+            "type": "string"
+          },
+          "title": "Process",
+          "type": "array"
+        }
+      },
+      "required": [
+        "ing",
+        "g"
+      ],
+      "title": "DishIngredient",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dishes": {
+      "items": {
+        "$ref": "#/$defs/Dish"
+      },
+      "title": "Dishes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "dishes"
+  ],
+  "title": "DishesFile",
+  "type": "object"
+}

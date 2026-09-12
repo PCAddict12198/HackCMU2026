@@ -1,0 +1,2 @@
+# IMMUTABLE engine test fixture (append-only).
+core: [fx_noodle_soup, fx_spicy_soup, fx_lime_salad, fx_cream_noodles, fx_sweet_cream, fx_sweet_lime]

@@ -1,0 +1,24 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: pho_bo
+    name: Pho bo
+    cuisine: vietnamese
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Spiced beef broth with rice noodles, herbs and lime.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: beef_bone_broth, g: 500, process: [simmered]}
+      - {ing: rice_noodles, g: 150, process: [boiled]}
+      - {ing: beef_sirloin, g: 80, process: [raw]}
+      - {ing: onion, g: 50, process: [grilled]}
+      - {ing: ginger, g: 15, process: [grilled]}
+      - {ing: star_anise, g: 2, process: [toasted]}
+      - {ing: cinnamon, g: 2, process: [toasted]}
+      - {ing: fish_sauce, g: 15}
+      - {ing: cilantro, g: 5}
+      - {ing: thai_basil, g: 5}
+      - {ing: lime_juice, g: 10}
+      - {ing: bean_sprouts, g: 40}

@@ -1,0 +1,116 @@
+{
+  "$defs": {
+    "Process": {
+      "additionalProperties": false,
+      "properties": {
+        "delta": {
+          "additionalProperties": {
+            "maximum": 1.0,
+            "minimum": -1.0,
+            "type": "number"
+          },
+          "description": "Added after scaling (default 0).",
+          "propertyNames": {
+            "enum": [
+              "sweet",
+              "salty",
+              "sour",
+              "bitter",
+              "umami",
+              "spicy",
+              "smoky",
+              "roasted",
+              "fermented",
+              "herbal",
+              "fruity",
+              "earthy",
+              "rich",
+              "creamy",
+              "crispy",
+              "chewy",
+              "brothy"
+            ]
+          },
+          "title": "Delta",
+          "type": "object"
+        },
+        "id": {
+          "enum": [
+            "raw",
+            "boiled",
+            "simmered",
+            "braised",
+            "steamed",
+            "grilled",
+            "roasted",
+            "fried",
+            "deep_fried",
+            "smoked",
+            "caramelized",
+            "toasted",
+            "fermented",
+            "pickled",
+            "cured"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        },
+        "scale": {
+          "additionalProperties": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "description": "Multiplier (default 1).",
+          "propertyNames": {
+            "enum": [
+              "sweet",
+              "salty",
+              "sour",
+              "bitter",
+              "umami",
+              "spicy",
+              "smoky",
+              "roasted",
+              "fermented",
+              "herbal",
+              "fruity",
+              "earthy",
+              "rich",
+              "creamy",
+              "crispy",
+              "chewy",
+              "brothy"
+            ]
+          },
+          "title": "Scale",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Process",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "processes": {
+      "items": {
+        "$ref": "#/$defs/Process"
+      },
+      "title": "Processes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "processes"
+  ],
+  "title": "ProcessesFile",
+  "type": "object"
+}

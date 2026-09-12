@@ -1,0 +1,83 @@
+{
+  "$defs": {
+    "Format": {
+      "additionalProperties": false,
+      "properties": {
+        "f": {
+          "additionalProperties": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "description": "Dish-level contribution (noisy-OR).",
+          "propertyNames": {
+            "enum": [
+              "sweet",
+              "salty",
+              "sour",
+              "bitter",
+              "umami",
+              "spicy",
+              "smoky",
+              "roasted",
+              "fermented",
+              "herbal",
+              "fruity",
+              "earthy",
+              "rich",
+              "creamy",
+              "crispy",
+              "chewy",
+              "brothy"
+            ]
+          },
+          "title": "F",
+          "type": "object"
+        },
+        "id": {
+          "enum": [
+            "soup",
+            "noodles",
+            "rice_dish",
+            "stew_braise",
+            "fried",
+            "grilled_roasted",
+            "raw_salad",
+            "bread_sandwich",
+            "dumpling",
+            "baked_sweet",
+            "custard_creamy",
+            "frozen"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Format",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "formats": {
+      "items": {
+        "$ref": "#/$defs/Format"
+      },
+      "title": "Formats",
+      "type": "array"
+    }
+  },
+  "required": [
+    "formats"
+  ],
+  "title": "FormatsFile",
+  "type": "object"
+}

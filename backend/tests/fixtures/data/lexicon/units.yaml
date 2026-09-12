@@ -1,0 +1,21 @@
+# IMMUTABLE engine test fixture (append-only). Copied from data/ at H0.
+# (x unit_weight_g). Keys and aliases are matched case-insensitively against the word after the quantity.
+units:
+  g: {kind: mass, factor: 1, aliases: [gram, grams, gr]}
+  kg: {kind: mass, factor: 1000, aliases: [kilogram, kilograms]}
+  oz: {kind: mass, factor: 28.35, aliases: [ounce, ounces]}
+  lb: {kind: mass, factor: 453.6, aliases: [lbs, pound, pounds]}
+  ml: {kind: volume, factor: 1, aliases: [milliliter, milliliters, millilitre, millilitres]}
+  l: {kind: volume, factor: 1000, aliases: [liter, liters, litre, litres]}
+  cup: {kind: volume, factor: 240, aliases: [cups]}
+  tbsp: {kind: volume, factor: 15, aliases: [tablespoon, tablespoons, tbs, tbl]}
+  tsp: {kind: volume, factor: 5, aliases: [teaspoon, teaspoons]}
+  pinch: {kind: mass, factor: 0.4, aliases: [pinches]}
+  dash: {kind: volume, factor: 0.6, aliases: [dashes]}
+  can: {kind: mass, factor: 400, aliases: [cans, tin, tins]}
+  bunch: {kind: mass, factor: 60, aliases: [bunches]}
+  handful: {kind: mass, factor: 30, aliases: [handfuls]}
+  clove: {kind: count, factor: 1, aliases: [cloves]}
+  piece: {kind: count, factor: 1, aliases: [pieces, pc, pcs]}
+  slice: {kind: count, factor: 1, aliases: [slices]}
+  stalk: {kind: count, factor: 1, aliases: [stalks, sprig, sprigs]}

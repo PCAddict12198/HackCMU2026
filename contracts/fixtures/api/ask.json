@@ -1,0 +1,251 @@
+{
+  "reply": "Spaghetti carbonara is the flavor twin of Tonkotsu ramen: closer than 96% of dish pairs.",
+  "grounded": true,
+  "ui_actions": [
+    {
+      "type": "select_dish",
+      "dish_id": "tonkotsu_ramen"
+    },
+    {
+      "type": "show_twins",
+      "dish_id": "tonkotsu_ramen",
+      "highlight_dish_id": "spaghetti_carbonara"
+    },
+    {
+      "type": "highlight_dishes",
+      "dish_ids": [
+        "spaghetti_carbonara",
+        "french_onion_soup",
+        "pho_bo"
+      ]
+    },
+    {
+      "type": "select_dish",
+      "dish_id": "tonkotsu_ramen"
+    },
+    {
+      "type": "set_shift",
+      "dish_id": "tonkotsu_ramen",
+      "deltas": {
+        "rich": -0.8,
+        "sour": 1.2
+      }
+    },
+    {
+      "type": "highlight_dishes",
+      "dish_ids": [
+        "kimchi_jjigae",
+        "tom_yum_goong",
+        "pho_bo",
+        "chana_masala",
+        "tabbouleh"
+      ]
+    },
+    {
+      "type": "open_panel",
+      "panel": "shift"
+    },
+    {
+      "type": "explain_pair",
+      "a": "tonkotsu_ramen",
+      "b": "spaghetti_carbonara"
+    },
+    {
+      "type": "open_panel",
+      "panel": "explain"
+    }
+  ],
+  "tool_trace": [
+    {
+      "call_id": "call_0",
+      "tool": "find_twins",
+      "args": {
+        "dish_id": "tonkotsu_ramen",
+        "k": 3
+      },
+      "ok": true,
+      "result": {
+        "source_id": "tonkotsu_ramen",
+        "relaxation_level": 1,
+        "relaxation_note": "relaxed to the top 20% of similar pairs",
+        "twins": [
+          {
+            "dish_id": "spaghetti_carbonara",
+            "similarity_pct": 95.5,
+            "distance": 3.3796,
+            "cuisine_distance": 1.0,
+            "shared_dims": [
+              "umami",
+              "rich",
+              "salty",
+              "chewy",
+              "fermented"
+            ],
+            "diffs": [
+              {
+                "dim": "brothy",
+                "delta": -0.9859
+              },
+              {
+                "dim": "crispy",
+                "delta": 0.6851
+              },
+              {
+                "dim": "creamy",
+                "delta": -0.2879
+              }
+            ],
+            "name": "Spaghetti carbonara",
+            "cuisine": "italian"
+          },
+          {
+            "dish_id": "french_onion_soup",
+            "similarity_pct": 83.3,
+            "distance": 3.8868,
+            "cuisine_distance": 1.0,
+            "shared_dims": [
+              "brothy",
+              "umami",
+              "rich",
+              "salty",
+              "fermented"
+            ],
+            "diffs": [
+              {
+                "dim": "roasted",
+                "delta": 0.766
+              },
+              {
+                "dim": "crispy",
+                "delta": 0.6156
+              },
+              {
+                "dim": "chewy",
+                "delta": -0.5265
+              }
+            ],
+            "name": "French onion soup",
+            "cuisine": "french"
+          },
+          {
+            "dish_id": "pho_bo",
+            "similarity_pct": 80.3,
+            "distance": 4.1654,
+            "cuisine_distance": 0.7,
+            "shared_dims": [
+              "brothy",
+              "umami",
+              "salty",
+              "fermented",
+              "rich"
+            ],
+            "diffs": [
+              {
+                "dim": "smoky",
+                "delta": 0.9641
+              },
+              {
+                "dim": "roasted",
+                "delta": 0.6153
+              },
+              {
+                "dim": "creamy",
+                "delta": -0.5908
+              }
+            ],
+            "name": "Pho bo",
+            "cuisine": "vietnamese"
+          }
+        ],
+        "source_name": "Tonkotsu ramen"
+      },
+      "error": null
+    },
+    {
+      "call_id": "call_1",
+      "tool": "shift_taste",
+      "args": {
+        "dish_id": "tonkotsu_ramen",
+        "changes": [
+          {
+            "dim": "rich",
+            "delta": -0.8
+          },
+          {
+            "dim": "sour",
+            "delta": 1.2
+          }
+        ]
+      },
+      "ok": true,
+      "result": {
+        "source_id": "tonkotsu_ramen",
+        "target_xyz": [
+          -1.5127,
+          -3.7652,
+          -3.6448
+        ],
+        "relaxation_level": 0,
+        "relaxation_note": "every requested dimension moves the right way",
+        "results": [
+          {
+            "dish_id": "kimchi_jjigae",
+            "similarity_pct": 81.8,
+            "distance": 4.0023,
+            "moved": {
+              "sour": 0.8419,
+              "rich": -0.2392
+            },
+            "name": "Kimchi jjigae"
+          },
+          {
+            "dish_id": "tom_yum_goong",
+            "similarity_pct": 81.8,
+            "distance": 4.0517,
+            "moved": {
+              "sour": 0.5818,
+              "rich": -0.5224
+            },
+            "name": "Tom yum goong"
+          },
+          {
+            "dish_id": "pho_bo",
+            "similarity_pct": 81.8,
+            "distance": 4.0996,
+            "moved": {
+              "sour": 0.2163,
+              "rich": -0.1963
+            },
+            "name": "Pho bo"
+          },
+          {
+            "dish_id": "chana_masala",
+            "similarity_pct": 42.4,
+            "distance": 5.49,
+            "moved": {
+              "sour": 0.5144,
+              "rich": -0.498
+            },
+            "name": "Chana masala"
+          },
+          {
+            "dish_id": "tabbouleh",
+            "similarity_pct": 27.3,
+            "distance": 6.1356,
+            "moved": {
+              "sour": 0.9368,
+              "rich": -0.5548
+            },
+            "name": "Tabbouleh"
+          }
+        ],
+        "source_name": "Tonkotsu ramen",
+        "requested": {
+          "rich": -0.8,
+          "sour": 1.2
+        }
+      },
+      "error": null
+    }
+  ]
+}

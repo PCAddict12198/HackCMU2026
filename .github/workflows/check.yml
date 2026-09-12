@@ -1,0 +1,25 @@
+# OWNER: integrator. Runs the full `make check` (ownership, contract drift, data, engine, web) on every push.
+name: check
+on:
+  push:
+    branches: [main, "agent/**"]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: git fetch origin main --tags || true
+      - uses: astral-sh/setup-uv@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: uv sync --frozen
+      - run: cd web && npm ci --no-audit --no-fund
+      - run: make build
+      - run: make check

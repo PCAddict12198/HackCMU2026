@@ -1,0 +1,21 @@
+# OWNER: data (P1). See japanese.yaml for the format. Seed recipes are placeholders.
+dishes:
+  - id: kimchi_jjigae
+    name: Kimchi jjigae
+    cuisine: korean
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Sour, spicy stew of aged kimchi, pork belly and tofu.
+    recipe_basis: seed placeholder
+    ingredients:
+      - {ing: kimchi, g: 200, process: [simmered]}
+      - {ing: pork_belly, g: 100, process: [simmered]}
+      - {ing: tofu, g: 150}
+      - {ing: chili_flakes, g: 8}
+      - {ing: gochujang, g: 15}
+      - {ing: onion, g: 60}
+      - {ing: scallion, g: 10}
+      - {ing: chicken_stock, g: 300}
+      - {ing: garlic, g: 8}

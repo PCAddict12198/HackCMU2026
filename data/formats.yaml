@@ -1,0 +1,15 @@
+# OWNER: data (P1). Format = dish-level contribution f (combined noisy-OR: D = ing + f * (1 - ing)).
+# Mouthfeel mostly comes from technique/format, not ingredients. Format IDs are FROZEN; values editable.
+formats:
+  - {id: soup, f: {brothy: 0.85}, note: liquid-forward bowl}
+  - {id: noodles, f: {chewy: 0.35}, note: noodle dish without much broth}
+  - {id: rice_dish, f: {chewy: 0.2}}
+  - {id: stew_braise, f: {rich: 0.25, brothy: 0.35}}
+  - {id: fried, f: {crispy: 0.6, rich: 0.2}}
+  - {id: grilled_roasted, f: {smoky: 0.3, roasted: 0.35}}
+  - {id: raw_salad, f: {crispy: 0.2}}
+  - {id: bread_sandwich, f: {chewy: 0.3, crispy: 0.2}}
+  - {id: dumpling, f: {chewy: 0.4}}
+  - {id: baked_sweet, f: {roasted: 0.15, creamy: 0.1}}
+  - {id: custard_creamy, f: {creamy: 0.7, rich: 0.3}}
+  - {id: frozen, f: {creamy: 0.5}}

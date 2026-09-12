@@ -1,0 +1,53 @@
+{
+  "$defs": {
+    "SanityPair": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "pattern": "^[a-z][a-z0-9_]{1,40}$",
+          "title": "A",
+          "type": "string"
+        },
+        "b": {
+          "pattern": "^[a-z][a-z0-9_]{1,40}$",
+          "title": "B",
+          "type": "string"
+        },
+        "why": {
+          "title": "Why",
+          "type": "string"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "why"
+      ],
+      "title": "SanityPair",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "negative": {
+      "items": {
+        "$ref": "#/$defs/SanityPair"
+      },
+      "title": "Negative",
+      "type": "array"
+    },
+    "positive": {
+      "items": {
+        "$ref": "#/$defs/SanityPair"
+      },
+      "title": "Positive",
+      "type": "array"
+    }
+  },
+  "required": [
+    "positive",
+    "negative"
+  ],
+  "title": "SanityPairs",
+  "type": "object"
+}

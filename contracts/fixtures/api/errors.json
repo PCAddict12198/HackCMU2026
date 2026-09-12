@@ -1,0 +1,44 @@
+{
+  "validation_error": {
+    "error": {
+      "code": "validation_error",
+      "message": "example validation_error error",
+      "details": null
+    }
+  },
+  "not_found": {
+    "error": {
+      "code": "not_found",
+      "message": "example not_found error",
+      "details": null
+    }
+  },
+  "not_ready": {
+    "error": {
+      "code": "not_ready",
+      "message": "example not_ready error",
+      "details": null
+    }
+  },
+  "grok_unavailable": {
+    "error": {
+      "code": "grok_unavailable",
+      "message": "example grok_unavailable error",
+      "details": null
+    }
+  },
+  "grok_failed": {
+    "error": {
+      "code": "grok_failed",
+      "message": "example grok_failed error",
+      "details": null
+    }
+  },
+  "internal": {
+    "error": {
+      "code": "internal",
+      "message": "example internal error",
+      "details": null
+    }
+  }
+}

@@ -1,0 +1,21 @@
+# IMMUTABLE engine test fixture (append-only). Copied from data/ at H0.
+# and descriptions. low_label/high_label are what the Shift sliders show.
+# YAML tip: quote any text that contains a comma or colon.
+dims:
+  - {id: sweet, group: taste, label: Sweet, low_label: Not sweet, high_label: Sweeter, description: "Sugar-driven sweetness"}
+  - {id: salty, group: taste, label: Salty, low_label: Low salt, high_label: Saltier, description: "Sodium / salt intensity"}
+  - {id: sour, group: taste, label: Sour, low_label: Mellow, high_label: More acidic, description: "Acidity from citrus, vinegar, ferments, tomato"}
+  - {id: bitter, group: taste, label: Bitter, low_label: Not bitter, high_label: More bitter, description: "Coffee, cocoa, greens, char"}
+  - {id: umami, group: taste, label: Umami, low_label: Light savoriness, high_label: More umami, description: "Glutamate-rich savoriness"}
+  - {id: spicy, group: aroma, label: Spicy, low_label: Mild, high_label: Spicier, description: "Chili heat and pungency (pepper, ginger, raw allium)"}
+  - {id: smoky, group: aroma, label: Smoky, low_label: Clean, high_label: Smokier, description: "Smoke and char"}
+  - {id: roasted, group: aroma, label: Roasted, low_label: Fresh-cooked, high_label: More roasted, description: "Maillard / browned / toasted notes"}
+  - {id: fermented, group: aroma, label: Fermented, low_label: Fresh, high_label: More funk, description: "Ferments, aged cheese, fish sauce, soy"}
+  - {id: herbal, group: aroma, label: Herbal, low_label: Not herby, high_label: Herbier, description: "Fresh green herbs and aromatics"}
+  - {id: fruity, group: aroma, label: Fruity, low_label: Not fruity, high_label: Fruitier, description: "Fruit and citrus aromas"}
+  - {id: earthy, group: aroma, label: Earthy, low_label: Bright, high_label: Earthier, description: "Mushrooms, legumes, warm spices, grains"}
+  - {id: rich, group: mouthfeel, label: Rich, low_label: Lighter, high_label: Richer, description: "Fat and body"}
+  - {id: creamy, group: mouthfeel, label: Creamy, low_label: Not creamy, high_label: Creamier, description: "Smooth, creamy texture"}
+  - {id: crispy, group: mouthfeel, label: Crispy, low_label: Soft, high_label: Crispier, description: "Crunch and crisp"}
+  - {id: chewy, group: mouthfeel, label: Chewy, low_label: Tender, high_label: Chewier, description: "Noodles, rice, bread, meat chew"}
+  - {id: brothy, group: mouthfeel, label: Brothy, low_label: Dry, high_label: Soupier, description: "Liquid / broth-forward"}

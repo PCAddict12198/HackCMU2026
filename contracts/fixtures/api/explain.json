@@ -1,0 +1,673 @@
+{
+  "a": "tonkotsu_ramen",
+  "b": "french_onion_soup",
+  "similarity_pct": 83.3,
+  "distance": 3.8868,
+  "dims": [
+    {
+      "dim": "sweet",
+      "a": 0.0554,
+      "b": 0.54,
+      "distance_share": 0.1473
+    },
+    {
+      "dim": "salty",
+      "a": 0.8514,
+      "b": 0.6978,
+      "distance_share": 0.0117
+    },
+    {
+      "dim": "sour",
+      "a": 0.0,
+      "b": 0.0,
+      "distance_share": 0.0
+    },
+    {
+      "dim": "bitter",
+      "a": 0.0,
+      "b": 0.0,
+      "distance_share": 0.0
+    },
+    {
+      "dim": "umami",
+      "a": 0.8939,
+      "b": 0.7973,
+      "distance_share": 0.007
+    },
+    {
+      "dim": "spicy",
+      "a": 0.182,
+      "b": 0.32,
+      "distance_share": 0.0099
+    },
+    {
+      "dim": "smoky",
+      "a": 0.0,
+      "b": 0.0,
+      "distance_share": 0.0
+    },
+    {
+      "dim": "roasted",
+      "a": 0.1399,
+      "b": 0.9059,
+      "distance_share": 0.3235
+    },
+    {
+      "dim": "fermented",
+      "a": 0.6621,
+      "b": 0.4108,
+      "distance_share": 0.027
+    },
+    {
+      "dim": "herbal",
+      "a": 0.2747,
+      "b": 0.524,
+      "distance_share": 0.032
+    },
+    {
+      "dim": "fruity",
+      "a": 0.0,
+      "b": 0.0,
+      "distance_share": 0.0
+    },
+    {
+      "dim": "earthy",
+      "a": 0.312,
+      "b": 0.5122,
+      "distance_share": 0.0242
+    },
+    {
+      "dim": "rich",
+      "a": 0.8409,
+      "b": 0.7334,
+      "distance_share": 0.0109
+    },
+    {
+      "dim": "creamy",
+      "a": 0.5908,
+      "b": 0.2774,
+      "distance_share": 0.0502
+    },
+    {
+      "dim": "crispy",
+      "a": 0.2438,
+      "b": 0.8594,
+      "distance_share": 0.2075
+    },
+    {
+      "dim": "chewy",
+      "a": 0.7477,
+      "b": 0.2212,
+      "distance_share": 0.1488
+    },
+    {
+      "dim": "brothy",
+      "a": 0.9859,
+      "b": 0.98,
+      "distance_share": 0.0
+    }
+  ],
+  "attributions": {
+    "a": {
+      "sweet": [
+        {
+          "kind": "ingredient",
+          "id": "soy_sauce",
+          "value": 0.055398255178789824,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "salty": [
+        {
+          "kind": "ingredient",
+          "id": "soy_sauce",
+          "value": 0.44076940802632425,
+          "src": "seed_placeholder",
+          "process": []
+        },
+        {
+          "kind": "ingredient",
+          "id": "pork_bone_broth",
+          "value": 0.34797584844183493,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "ramen_noodles",
+          "value": 0.0347975848441835,
+          "src": "seed_placeholder",
+          "process": [
+            "boiled"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "pork_belly",
+          "value": 0.027838067875346803,
+          "src": "seed_placeholder",
+          "process": [
+            "braised"
+          ]
+        }
+      ],
+      "sour": [],
+      "bitter": [],
+      "umami": [
+        {
+          "kind": "ingredient",
+          "id": "pork_bone_broth",
+          "value": 0.5684233606787205,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "soy_sauce",
+          "value": 0.20210608379687842,
+          "src": "seed_placeholder",
+          "process": []
+        },
+        {
+          "kind": "ingredient",
+          "id": "pork_belly",
+          "value": 0.08336875956621236,
+          "src": "seed_placeholder",
+          "process": [
+            "braised"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "egg",
+          "value": 0.03157907559326225,
+          "src": "seed_placeholder",
+          "process": [
+            "boiled"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "garlic",
+          "value": 0.008421086824869934,
+          "src": "seed_placeholder",
+          "process": [
+            "fried"
+          ]
+        }
+      ],
+      "spicy": [
+        {
+          "kind": "ingredient",
+          "id": "garlic",
+          "value": 0.113735496126795,
+          "src": "seed_placeholder",
+          "process": [
+            "fried"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "scallion",
+          "value": 0.06824129767607699,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "smoky": [],
+      "roasted": [
+        {
+          "kind": "ingredient",
+          "id": "sesame_oil",
+          "value": 0.11779962531833142,
+          "src": "seed_placeholder",
+          "process": []
+        },
+        {
+          "kind": "ingredient",
+          "id": "garlic",
+          "value": 0.02208742974718714,
+          "src": null,
+          "process": [
+            "fried"
+          ]
+        }
+      ],
+      "fermented": [
+        {
+          "kind": "ingredient",
+          "id": "soy_sauce",
+          "value": 0.6620831062856627,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "herbal": [
+        {
+          "kind": "ingredient",
+          "id": "scallion",
+          "value": 0.1831562077061736,
+          "src": "seed_placeholder",
+          "process": []
+        },
+        {
+          "kind": "ingredient",
+          "id": "garlic",
+          "value": 0.0915781038530868,
+          "src": "seed_placeholder",
+          "process": [
+            "fried"
+          ]
+        }
+      ],
+      "fruity": [],
+      "earthy": [
+        {
+          "kind": "ingredient",
+          "id": "garlic",
+          "value": 0.15598650694125082,
+          "src": "seed_placeholder",
+          "process": [
+            "fried"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "sesame_oil",
+          "value": 0.15598650694125082,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "rich": [
+        {
+          "kind": "ingredient",
+          "id": "pork_bone_broth",
+          "value": 0.6160341030533828,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "pork_belly",
+          "value": 0.14080779498363033,
+          "src": "seed_placeholder",
+          "process": [
+            "braised"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "egg",
+          "value": 0.0488915954804272,
+          "src": "seed_placeholder",
+          "process": [
+            "boiled"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "sesame_oil",
+          "value": 0.027379293469039234,
+          "src": "seed_placeholder",
+          "process": []
+        },
+        {
+          "kind": "ingredient",
+          "id": "garlic",
+          "value": 0.007822655276868354,
+          "src": null,
+          "process": [
+            "fried"
+          ]
+        }
+      ],
+      "creamy": [
+        {
+          "kind": "ingredient",
+          "id": "pork_bone_broth",
+          "value": 0.5187328256103295,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "egg",
+          "value": 0.07204622577921244,
+          "src": "seed_placeholder",
+          "process": [
+            "boiled"
+          ]
+        }
+      ],
+      "crispy": [
+        {
+          "kind": "ingredient",
+          "id": "garlic",
+          "value": 0.13929772328073112,
+          "src": null,
+          "process": [
+            "fried"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "scallion",
+          "value": 0.10447329246054834,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "chewy": [
+        {
+          "kind": "ingredient",
+          "id": "ramen_noodles",
+          "value": 0.5567821376698916,
+          "src": "seed_placeholder",
+          "process": [
+            "boiled"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "pork_belly",
+          "value": 0.19089673291539144,
+          "src": "seed_placeholder",
+          "process": [
+            "braised"
+          ]
+        }
+      ],
+      "brothy": [
+        {
+          "kind": "ingredient",
+          "id": "pork_bone_broth",
+          "value": 0.9057010913233777,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "format",
+          "id": "soup",
+          "value": 0.08015407237512902,
+          "src": null,
+          "process": []
+        }
+      ]
+    },
+    "b": {
+      "sweet": [
+        {
+          "kind": "ingredient",
+          "id": "onion",
+          "value": 0.5072396915588494,
+          "src": "seed_placeholder",
+          "process": [
+            "caramelized"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "gruyere",
+          "value": 0.016907989718628315,
+          "src": null,
+          "process": [
+            "roasted"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "butter",
+          "value": 0.015851240361214044,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "salty": [
+        {
+          "kind": "ingredient",
+          "id": "beef_bone_broth",
+          "value": 0.3876684931839629,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "gruyere",
+          "value": 0.31013479454717036,
+          "src": "seed_placeholder",
+          "process": [
+            "roasted"
+          ]
+        }
+      ],
+      "sour": [],
+      "bitter": [],
+      "umami": [
+        {
+          "kind": "ingredient",
+          "id": "beef_bone_broth",
+          "value": 0.6080838323285408,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "gruyere",
+          "value": 0.18918163672443494,
+          "src": "seed_placeholder",
+          "process": [
+            "roasted"
+          ]
+        }
+      ],
+      "spicy": [
+        {
+          "kind": "ingredient",
+          "id": "onion",
+          "value": 0.3199703291427891,
+          "src": "seed_placeholder",
+          "process": [
+            "caramelized"
+          ]
+        }
+      ],
+      "smoky": [],
+      "roasted": [
+        {
+          "kind": "ingredient",
+          "id": "onion",
+          "value": 0.3502082321036035,
+          "src": null,
+          "process": [
+            "caramelized"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "beef_bone_broth",
+          "value": 0.35020823210360347,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "gruyere",
+          "value": 0.14008329284144144,
+          "src": null,
+          "process": [
+            "roasted"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "baguette",
+          "value": 0.06537220332600599,
+          "src": "seed_placeholder",
+          "process": [
+            "toasted"
+          ]
+        }
+      ],
+      "fermented": [
+        {
+          "kind": "ingredient",
+          "id": "gruyere",
+          "value": 0.41079931979538986,
+          "src": "seed_placeholder",
+          "process": [
+            "roasted"
+          ]
+        }
+      ],
+      "herbal": [
+        {
+          "kind": "ingredient",
+          "id": "onion",
+          "value": 0.4514265075739381,
+          "src": "seed_placeholder",
+          "process": [
+            "caramelized"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "thyme",
+          "value": 0.07255068871724007,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "fruity": [],
+      "earthy": [
+        {
+          "kind": "ingredient",
+          "id": "gruyere",
+          "value": 0.4552949127948046,
+          "src": "seed_placeholder",
+          "process": [
+            "roasted"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "thyme",
+          "value": 0.056911864099350576,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "rich": [
+        {
+          "kind": "ingredient",
+          "id": "beef_bone_broth",
+          "value": 0.4553196721485461,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "gruyere",
+          "value": 0.16998601093545723,
+          "src": "seed_placeholder",
+          "process": [
+            "roasted"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "butter",
+          "value": 0.10813842213527967,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "creamy": [
+        {
+          "kind": "ingredient",
+          "id": "gruyere",
+          "value": 0.15240665409319862,
+          "src": "seed_placeholder",
+          "process": [
+            "roasted"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "butter",
+          "value": 0.12502108343582696,
+          "src": "seed_placeholder",
+          "process": []
+        }
+      ],
+      "crispy": [
+        {
+          "kind": "ingredient",
+          "id": "onion",
+          "value": 0.671395163595152,
+          "src": "seed_placeholder",
+          "process": [
+            "caramelized"
+          ]
+        },
+        {
+          "kind": "ingredient",
+          "id": "baguette",
+          "value": 0.18799064580664251,
+          "src": "seed_placeholder",
+          "process": [
+            "toasted"
+          ]
+        }
+      ],
+      "chewy": [
+        {
+          "kind": "ingredient",
+          "id": "baguette",
+          "value": 0.22119252655053392,
+          "src": "seed_placeholder",
+          "process": [
+            "toasted"
+          ]
+        }
+      ],
+      "brothy": [
+        {
+          "kind": "ingredient",
+          "id": "beef_bone_broth",
+          "value": 0.8666461101587076,
+          "src": "seed_placeholder",
+          "process": [
+            "simmered"
+          ]
+        },
+        {
+          "kind": "format",
+          "id": "soup",
+          "value": 0.11335080636509852,
+          "src": null,
+          "process": []
+        }
+      ]
+    }
+  }
+}

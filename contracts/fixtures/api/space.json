@@ -1,0 +1,890 @@
+{
+  "dims": [
+    {
+      "id": "sweet",
+      "group": "taste",
+      "label": "Sweet",
+      "low_label": "Not sweet",
+      "high_label": "Sweeter"
+    },
+    {
+      "id": "salty",
+      "group": "taste",
+      "label": "Salty",
+      "low_label": "Low salt",
+      "high_label": "Saltier"
+    },
+    {
+      "id": "sour",
+      "group": "taste",
+      "label": "Sour",
+      "low_label": "Mellow",
+      "high_label": "More acidic"
+    },
+    {
+      "id": "bitter",
+      "group": "taste",
+      "label": "Bitter",
+      "low_label": "Not bitter",
+      "high_label": "More bitter"
+    },
+    {
+      "id": "umami",
+      "group": "taste",
+      "label": "Umami",
+      "low_label": "Light savoriness",
+      "high_label": "More umami"
+    },
+    {
+      "id": "spicy",
+      "group": "aroma",
+      "label": "Spicy",
+      "low_label": "Mild",
+      "high_label": "Spicier"
+    },
+    {
+      "id": "smoky",
+      "group": "aroma",
+      "label": "Smoky",
+      "low_label": "Clean",
+      "high_label": "Smokier"
+    },
+    {
+      "id": "roasted",
+      "group": "aroma",
+      "label": "Roasted",
+      "low_label": "Fresh-cooked",
+      "high_label": "More roasted"
+    },
+    {
+      "id": "fermented",
+      "group": "aroma",
+      "label": "Fermented",
+      "low_label": "Fresh",
+      "high_label": "More funk"
+    },
+    {
+      "id": "herbal",
+      "group": "aroma",
+      "label": "Herbal",
+      "low_label": "Not herby",
+      "high_label": "Herbier"
+    },
+    {
+      "id": "fruity",
+      "group": "aroma",
+      "label": "Fruity",
+      "low_label": "Not fruity",
+      "high_label": "Fruitier"
+    },
+    {
+      "id": "earthy",
+      "group": "aroma",
+      "label": "Earthy",
+      "low_label": "Bright",
+      "high_label": "Earthier"
+    },
+    {
+      "id": "rich",
+      "group": "mouthfeel",
+      "label": "Rich",
+      "low_label": "Lighter",
+      "high_label": "Richer"
+    },
+    {
+      "id": "creamy",
+      "group": "mouthfeel",
+      "label": "Creamy",
+      "low_label": "Not creamy",
+      "high_label": "Creamier"
+    },
+    {
+      "id": "crispy",
+      "group": "mouthfeel",
+      "label": "Crispy",
+      "low_label": "Soft",
+      "high_label": "Crispier"
+    },
+    {
+      "id": "chewy",
+      "group": "mouthfeel",
+      "label": "Chewy",
+      "low_label": "Tender",
+      "high_label": "Chewier"
+    },
+    {
+      "id": "brothy",
+      "group": "mouthfeel",
+      "label": "Brothy",
+      "low_label": "Dry",
+      "high_label": "Soupier"
+    }
+  ],
+  "cuisines": [
+    {
+      "id": "japanese",
+      "name": "Japanese",
+      "region": "east_asia",
+      "macro": "asia"
+    },
+    {
+      "id": "chinese",
+      "name": "Chinese",
+      "region": "east_asia",
+      "macro": "asia"
+    },
+    {
+      "id": "korean",
+      "name": "Korean",
+      "region": "east_asia",
+      "macro": "asia"
+    },
+    {
+      "id": "thai",
+      "name": "Thai",
+      "region": "southeast_asia",
+      "macro": "asia"
+    },
+    {
+      "id": "vietnamese",
+      "name": "Vietnamese",
+      "region": "southeast_asia",
+      "macro": "asia"
+    },
+    {
+      "id": "indian",
+      "name": "Indian",
+      "region": "south_asia",
+      "macro": "asia"
+    },
+    {
+      "id": "levantine",
+      "name": "Levantine",
+      "region": "middle_east",
+      "macro": "europe_mena"
+    },
+    {
+      "id": "italian",
+      "name": "Italian",
+      "region": "europe",
+      "macro": "europe_mena"
+    },
+    {
+      "id": "french",
+      "name": "French",
+      "region": "europe",
+      "macro": "europe_mena"
+    },
+    {
+      "id": "mexican",
+      "name": "Mexican",
+      "region": "americas",
+      "macro": "americas"
+    }
+  ],
+  "dishes": [
+    {
+      "id": "aguachile",
+      "name": "Aguachile",
+      "cuisine": "mexican",
+      "course": "savory",
+      "format": "raw_salad",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Raw shrimp \"cooked\" in lime and chili with cucumber and onion.",
+      "xyz": [
+        -4.6424,
+        8.5434,
+        -3.4876
+      ],
+      "vector": {
+        "sweet": 0.444554,
+        "salty": 0.867262,
+        "sour": 0.983039,
+        "bitter": 0.833464,
+        "umami": 0.612481,
+        "spicy": 0.888776,
+        "smoky": 0.0,
+        "roasted": 0.0,
+        "fermented": 0.0,
+        "herbal": 0.899317,
+        "fruity": 0.946581,
+        "earthy": 0.0,
+        "rich": 0.0,
+        "creamy": 0.0,
+        "crispy": 0.825989,
+        "chewy": 0.903329,
+        "brothy": 0.0
+      }
+    },
+    {
+      "id": "chana_masala",
+      "name": "Chana masala",
+      "cuisine": "indian",
+      "course": "savory",
+      "format": "stew_braise",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Chickpeas simmered in a spiced tomato-onion gravy.",
+      "xyz": [
+        -1.4904,
+        3.9332,
+        3.1506
+      ],
+      "vector": {
+        "sweet": 0.575497,
+        "salty": 0.359983,
+        "sour": 0.514406,
+        "bitter": 0.175612,
+        "umami": 0.431704,
+        "spicy": 0.810753,
+        "smoky": 0.0,
+        "roasted": 0.635704,
+        "fermented": 0.0,
+        "herbal": 0.79565,
+        "fruity": 0.58868,
+        "earthy": 0.999319,
+        "rich": 0.342896,
+        "creamy": 0.361947,
+        "crispy": 0.758211,
+        "chewy": 0.567871,
+        "brothy": 0.35
+      }
+    },
+    {
+      "id": "chicken_katsu",
+      "name": "Chicken katsu",
+      "cuisine": "japanese",
+      "course": "savory",
+      "format": "fried",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Panko-crusted fried chicken with shredded cabbage and sweet-savory sauce.",
+      "xyz": [
+        0.0827,
+        -4.2222,
+        -1.5181
+      ],
+      "vector": {
+        "sweet": 0.228366,
+        "salty": 0.665456,
+        "sour": 0.0,
+        "bitter": 0.0,
+        "umami": 0.775699,
+        "spicy": 0.0,
+        "smoky": 0.0,
+        "roasted": 0.551793,
+        "fermented": 0.699925,
+        "herbal": 0.316233,
+        "fruity": 0.0,
+        "earthy": 0.030635,
+        "rich": 0.846326,
+        "creamy": 0.11387,
+        "crispy": 0.999854,
+        "chewy": 0.727537,
+        "brothy": 0.0
+      }
+    },
+    {
+      "id": "creme_brulee",
+      "name": "Creme brulee",
+      "cuisine": "french",
+      "course": "dessert",
+      "format": "custard_creamy",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Vanilla custard under a burnt-sugar crust.",
+      "xyz": [
+        10.0,
+        -1.3919,
+        -0.6097
+      ],
+      "vector": {
+        "sweet": 0.907714,
+        "salty": 0.0,
+        "sour": 0.0,
+        "bitter": 0.0,
+        "umami": 0.212546,
+        "spicy": 0.0,
+        "smoky": 0.0,
+        "roasted": 0.261141,
+        "fermented": 0.0,
+        "herbal": 0.0,
+        "fruity": 0.078772,
+        "earthy": 0.0,
+        "rich": 0.966563,
+        "creamy": 0.989245,
+        "crispy": 0.0,
+        "chewy": 0.0,
+        "brothy": 0.0
+      }
+    },
+    {
+      "id": "french_onion_soup",
+      "name": "French onion soup",
+      "cuisine": "french",
+      "course": "savory",
+      "format": "soup",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Deeply caramelized onions in beef broth under a gruyere crouton.",
+      "xyz": [
+        -0.6298,
+        -4.0136,
+        2.7174
+      ],
+      "vector": {
+        "sweet": 0.539999,
+        "salty": 0.697803,
+        "sour": 0.0,
+        "bitter": 0.0,
+        "umami": 0.797265,
+        "spicy": 0.31997,
+        "smoky": 0.0,
+        "roasted": 0.905872,
+        "fermented": 0.410799,
+        "herbal": 0.523977,
+        "fruity": 0.0,
+        "earthy": 0.512207,
+        "rich": 0.733444,
+        "creamy": 0.277428,
+        "crispy": 0.859386,
+        "chewy": 0.221193,
+        "brothy": 0.979997
+      }
+    },
+    {
+      "id": "kimchi_jjigae",
+      "name": "Kimchi jjigae",
+      "cuisine": "korean",
+      "course": "savory",
+      "format": "stew_braise",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Sour, spicy stew of aged kimchi, pork belly and tofu.",
+      "xyz": [
+        -5.8374,
+        -2.3753,
+        0.2019
+      ],
+      "vector": {
+        "sweet": 0.182015,
+        "salty": 0.900166,
+        "sour": 0.841881,
+        "bitter": 0.0,
+        "umami": 0.791207,
+        "spicy": 0.972623,
+        "smoky": 0.721423,
+        "roasted": 0.064901,
+        "fermented": 0.989704,
+        "herbal": 0.410477,
+        "fruity": 0.05955,
+        "earthy": 0.531379,
+        "rich": 0.601764,
+        "creamy": 0.158741,
+        "crispy": 0.718163,
+        "chewy": 0.403355,
+        "brothy": 0.837673
+      }
+    },
+    {
+      "id": "mango_sticky_rice",
+      "name": "Mango sticky rice",
+      "cuisine": "thai",
+      "course": "dessert",
+      "format": "rice_dish",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Sweet coconut sticky rice with ripe mango.",
+      "xyz": [
+        7.0059,
+        3.4868,
+        -4.7423
+      ],
+      "vector": {
+        "sweet": 0.891641,
+        "salty": 0.249717,
+        "sour": 0.310686,
+        "bitter": 0.0,
+        "umami": 0.0,
+        "spicy": 0.0,
+        "smoky": 0.0,
+        "roasted": 0.0,
+        "fermented": 0.0,
+        "herbal": 0.0,
+        "fruity": 0.90615,
+        "earthy": 0.0,
+        "rich": 0.590931,
+        "creamy": 0.776209,
+        "crispy": 0.0,
+        "chewy": 0.917245,
+        "brothy": 0.0
+      }
+    },
+    {
+      "id": "mapo_tofu",
+      "name": "Mapo tofu",
+      "cuisine": "chinese",
+      "course": "savory",
+      "format": "stew_braise",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Silky tofu in a numbing, spicy, fermented chili-bean sauce.",
+      "xyz": [
+        -4.7252,
+        -4.041,
+        2.1844
+      ],
+      "vector": {
+        "sweet": 0.032792,
+        "salty": 0.849567,
+        "sour": 0.0,
+        "bitter": 0.0,
+        "umami": 0.791353,
+        "spicy": 0.910092,
+        "smoky": 0.65371,
+        "roasted": 0.247205,
+        "fermented": 0.883046,
+        "herbal": 0.645003,
+        "fruity": 0.170386,
+        "earthy": 0.826235,
+        "rich": 0.616346,
+        "creamy": 0.368067,
+        "crispy": 0.711284,
+        "chewy": 0.0,
+        "brothy": 0.741206
+      }
+    },
+    {
+      "id": "pho_bo",
+      "name": "Pho bo",
+      "cuisine": "vietnamese",
+      "course": "savory",
+      "format": "soup",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Spiced beef broth with rice noodles, herbs and lime.",
+      "xyz": [
+        -4.7042,
+        -2.9477,
+        1.8289
+      ],
+      "vector": {
+        "sweet": 0.11292,
+        "salty": 0.773265,
+        "sour": 0.216297,
+        "bitter": 0.101621,
+        "umami": 0.865506,
+        "spicy": 0.48833,
+        "smoky": 0.964103,
+        "roasted": 0.755236,
+        "fermented": 0.605851,
+        "herbal": 0.719026,
+        "fruity": 0.215618,
+        "earthy": 0.2264,
+        "rich": 0.644639,
+        "creamy": 0.0,
+        "crispy": 0.527697,
+        "chewy": 0.576425,
+        "brothy": 0.984212
+      }
+    },
+    {
+      "id": "spaghetti_carbonara",
+      "name": "Spaghetti carbonara",
+      "cuisine": "italian",
+      "course": "savory",
+      "format": "noodles",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Pasta with guanciale, egg, pecorino and black pepper.",
+      "xyz": [
+        -1.6813,
+        -5.7146,
+        -2.5405
+      ],
+      "vector": {
+        "sweet": 0.0,
+        "salty": 0.98377,
+        "sour": 0.0,
+        "bitter": 0.0,
+        "umami": 0.905751,
+        "spicy": 0.294737,
+        "smoky": 0.0,
+        "roasted": 0.325599,
+        "fermented": 0.914496,
+        "herbal": 0.0,
+        "fruity": 0.0,
+        "earthy": 0.390592,
+        "rich": 0.909889,
+        "creamy": 0.302886,
+        "crispy": 0.928883,
+        "chewy": 0.906623,
+        "brothy": 0.0
+      }
+    },
+    {
+      "id": "tabbouleh",
+      "name": "Tabbouleh",
+      "cuisine": "levantine",
+      "course": "savory",
+      "format": "raw_salad",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Parsley-forward bulgur salad with lemon, mint and tomato.",
+      "xyz": [
+        -1.1403,
+        7.9679,
+        -1.277
+      ],
+      "vector": {
+        "sweet": 0.388626,
+        "salty": 0.442873,
+        "sour": 0.936756,
+        "bitter": 0.939953,
+        "umami": 0.448429,
+        "spicy": 0.202441,
+        "smoky": 0.0,
+        "roasted": 0.048786,
+        "fermented": 0.0,
+        "herbal": 0.99955,
+        "fruity": 0.893447,
+        "earthy": 0.445409,
+        "rich": 0.286112,
+        "creamy": 0.0,
+        "crispy": 0.389114,
+        "chewy": 0.336745,
+        "brothy": 0.0
+      }
+    },
+    {
+      "id": "tacos_al_pastor",
+      "name": "Tacos al pastor",
+      "cuisine": "mexican",
+      "course": "savory",
+      "format": "grilled_roasted",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Chili-marinated spit-roasted pork with pineapple on corn tortillas.",
+      "xyz": [
+        -2.9575,
+        4.329,
+        5.5622
+      ],
+      "vector": {
+        "sweet": 0.353826,
+        "salty": 0.0,
+        "sour": 0.69036,
+        "bitter": 0.286604,
+        "umami": 0.628664,
+        "spicy": 0.771382,
+        "smoky": 1.0,
+        "roasted": 0.930945,
+        "fermented": 0.0,
+        "herbal": 0.673599,
+        "fruity": 0.74484,
+        "earthy": 0.85844,
+        "rich": 0.537364,
+        "creamy": 0.0,
+        "crispy": 0.667476,
+        "chewy": 0.926165,
+        "brothy": 0.0
+      }
+    },
+    {
+      "id": "tiramisu",
+      "name": "Tiramisu",
+      "cuisine": "italian",
+      "course": "dessert",
+      "format": "custard_creamy",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Espresso-soaked ladyfingers layered with mascarpone cream and cocoa.",
+      "xyz": [
+        8.0874,
+        1.6905,
+        4.9328
+      ],
+      "vector": {
+        "sweet": 0.825294,
+        "salty": 0.0,
+        "sour": 0.496621,
+        "bitter": 0.999999,
+        "umami": 0.149336,
+        "spicy": 0.0,
+        "smoky": 0.0,
+        "roasted": 0.970414,
+        "fermented": 0.0,
+        "herbal": 0.0,
+        "fruity": 0.0,
+        "earthy": 0.54838,
+        "rich": 0.870907,
+        "creamy": 0.950746,
+        "crispy": 0.519606,
+        "chewy": 0.0,
+        "brothy": 0.0
+      }
+    },
+    {
+      "id": "tom_yum_goong",
+      "name": "Tom yum goong",
+      "cuisine": "thai",
+      "course": "savory",
+      "format": "soup",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Hot-and-sour shrimp soup with lemongrass, galangal and lime.",
+      "xyz": [
+        -6.2806,
+        1.3386,
+        -2.8633
+      ],
+      "vector": {
+        "sweet": 0.174474,
+        "salty": 0.899834,
+        "sour": 0.581759,
+        "bitter": 0.28545,
+        "umami": 0.906384,
+        "spicy": 0.573205,
+        "smoky": 0.0,
+        "roasted": 0.0,
+        "fermented": 0.802544,
+        "herbal": 0.900678,
+        "fruity": 0.623384,
+        "earthy": 0.929359,
+        "rich": 0.318571,
+        "creamy": 0.0,
+        "crispy": 0.0,
+        "chewy": 0.726574,
+        "brothy": 0.985748
+      }
+    },
+    {
+      "id": "tonkotsu_ramen",
+      "name": "Tonkotsu ramen",
+      "cuisine": "japanese",
+      "course": "savory",
+      "format": "soup",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Creamy pork-bone broth, noodles, chashu and a soft egg.",
+      "xyz": [
+        -0.709,
+        -5.4564,
+        -3.5498
+      ],
+      "vector": {
+        "sweet": 0.055398,
+        "salty": 0.851381,
+        "sour": 0.0,
+        "bitter": 0.0,
+        "umami": 0.893898,
+        "spicy": 0.181977,
+        "smoky": 0.0,
+        "roasted": 0.139887,
+        "fermented": 0.662083,
+        "herbal": 0.274734,
+        "fruity": 0.0,
+        "earthy": 0.311973,
+        "rich": 0.840935,
+        "creamy": 0.590779,
+        "crispy": 0.243771,
+        "chewy": 0.747679,
+        "brothy": 0.985855
+      }
+    },
+    {
+      "id": "tres_leches",
+      "name": "Tres leches",
+      "cuisine": "mexican",
+      "course": "dessert",
+      "format": "baked_sweet",
+      "tier": "core",
+      "confidence": "draft",
+      "blurb": "Sponge cake soaked in three milks.",
+      "xyz": [
+        9.622,
+        -1.1267,
+        0.01
+      ],
+      "vector": {
+        "sweet": 0.979096,
+        "salty": 0.0,
+        "sour": 0.0,
+        "bitter": 0.0,
+        "umami": 0.201602,
+        "spicy": 0.037328,
+        "smoky": 0.0,
+        "roasted": 0.231958,
+        "fermented": 0.0,
+        "herbal": 0.0,
+        "fruity": 0.0,
+        "earthy": 0.242231,
+        "rich": 0.889026,
+        "creamy": 0.945182,
+        "crispy": 0.0,
+        "chewy": 0.0,
+        "brothy": 0.0
+      }
+    }
+  ],
+  "pca": {
+    "mean": [
+      0.41826330504684184,
+      0.5338172854836204,
+      0.34823791201137433,
+      0.2264189156008554,
+      0.5882390776760462,
+      0.4032258355934032,
+      0.20870227011720152,
+      0.37934002143472006,
+      0.3730280795444283,
+      0.44739032398558937,
+      0.32671301106721795,
+      0.428284909977156,
+      0.6247321695162298,
+      0.3646937609419961,
+      0.5093396697408424,
+      0.4975463382613886,
+      0.3665432075995302
+    ],
+    "std": [
+      0.32489085720970995,
+      0.36597201219654873,
+      0.3607219783833832,
+      0.3502422067061903,
+      0.29677276678265097,
+      0.35767042566901963,
+      0.36915248123584776,
+      0.3464863787788357,
+      0.39348817852275153,
+      0.3583739953971304,
+      0.36935089386653663,
+      0.3308767805401332,
+      0.2650675066388343,
+      0.359925263323142,
+      0.34766040081560423,
+      0.35109268669260674,
+      0.4399287629646381
+    ],
+    "weights": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "components": [
+      [
+        0.3444585651486842,
+        -0.3149790125314862,
+        -0.15422662334011666,
+        -0.003139872699581485,
+        -0.33745310335998574,
+        -0.31795780555432507,
+        -0.18840287773295025,
+        0.03614732722011106,
+        -0.23954097500578872,
+        -0.30796372207056444,
+        -0.09469991422384316,
+        -0.18296322193600079,
+        0.23058923278066362,
+        0.36333937271303457,
+        -0.20837730612646757,
+        -0.18077953812942296,
+        -0.22497197030595092
+      ],
+      [
+        0.18392279301506553,
+        -0.17393336224072253,
+        0.3973472544440212,
+        0.3579511513025626,
+        -0.2304058468503342,
+        0.097046596828804,
+        -0.053184896228497536,
+        -0.0796991561429656,
+        -0.3492064317172906,
+        0.23418790598019146,
+        0.429318286692908,
+        0.035294334124317275,
+        -0.37597656147767783,
+        -0.09733206175363247,
+        -0.06965129674450579,
+        0.09625817164883936,
+        -0.225659936933987
+      ],
+      [
+        0.08076296180779591,
+        -0.299283892547451,
+        0.029219831722924965,
+        0.09895578795168992,
+        -0.042488138592359254,
+        0.18199353304664093,
+        0.35678847177174744,
+        0.5973020165398428,
+        -0.13845054904218856,
+        0.08413057003773765,
+        -0.15211930659657283,
+        0.40136055668220344,
+        0.09845791876120935,
+        0.00435670423459735,
+        0.2359772374501896,
+        -0.3117452910056415,
+        0.03471938422521155
+      ]
+    ],
+    "explained_variance": [
+      0.3595380191718113,
+      0.24693782495859806,
+      0.11421100681181662
+    ],
+    "axis_labels": [
+      "umami ↔ creamy",
+      "rich ↔ fruity",
+      "chewy ↔ roasted"
+    ],
+    "scale": 2.174944845233578
+  },
+  "meta": {
+    "build_id": "a3fa4cd4e4b2",
+    "data_tier": "core",
+    "n_dishes": 16,
+    "contract_version": "1.0.0",
+    "dim_order": [
+      "sweet",
+      "salty",
+      "sour",
+      "bitter",
+      "umami",
+      "spicy",
+      "smoky",
+      "roasted",
+      "fermented",
+      "herbal",
+      "fruity",
+      "earthy",
+      "rich",
+      "creamy",
+      "crispy",
+      "chewy",
+      "brothy"
+    ],
+    "warnings": [
+      "73 ingredient(s) still contain seed_placeholder values (replace before H16)",
+      "core progress: 16/70 manifest dishes written; missing e.g. shoyu_ramen, miso_soup, teriyaki_salmon, okonomiyaki, matcha_ice_cream, kung_pao_chicken",
+      "15 sanity pair(s) reference dishes not written yet (skipped in the report)"
+    ]
+  }
+}
