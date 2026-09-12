@@ -74,6 +74,29 @@ def _hist(values: np.ndarray, bins: int = 8, width: int = 28) -> list[str]:
     return [f"{edges[i]:6.2f}-{edges[i + 1]:6.2f} | {'#' * int(width * c / peak):<{width}} {c}" for i, c in enumerate(counts)]
 
 
+def data_gaps(ds: Dataset, top: int = 15) -> tuple[list[dict], list[tuple[str, float]]]:
+    """Empty-profile ingredients ranked by how much they would move dish vectors once filled
+    (sum over dishes of recipe share x potency), plus dishes mostly made of them."""
+    empty = {i for i, ing in ds.ingredients.items() if not ing.profile}
+    usage: dict[str, dict] = {}
+    blind: list[tuple[str, float]] = []
+    for d in ds.dishes.values():
+        total = sum(di.g for di in d.ingredients) or 1.0
+        missing = 0.0
+        for di in d.ingredients:
+            if di.ing in empty:
+                share = di.g / total
+                u = usage.setdefault(di.ing, {"id": di.ing, "dishes": set(), "impact": 0.0})
+                u["dishes"].add(d.id)
+                u["impact"] += share * ds.ingredients[di.ing].potency
+                missing += share
+        if missing >= 0.5:
+            blind.append((d.id, missing))
+    ranked = sorted(usage.values(), key=lambda u: -u["impact"])[:top]
+    return ([{"id": u["id"], "dishes": len(u["dishes"]), "impact": u["impact"]} for u in ranked],
+            sorted(blind, key=lambda x: -x[1]))
+
+
 def render_report(state: EngineState, ds: Dataset) -> str:
     m = state.model
     L: list[str] = [f"# TasteSpace build report `{state.build_id}`", ""]
@@ -107,6 +130,19 @@ def render_report(state: EngineState, ds: Dataset) -> str:
     L += ["## Provenance of non-zero ingredient values",
           *[f"- `{src}`: {n} ({100 * n / total:.0f}%)" for src, n in prov.most_common()],
           f"- reviewed/grounded share: **{100 * reviewed / total:.0f}%**", ""]
+
+    gaps, blind = data_gaps(ds)
+    n_empty = sum(1 for ing in ds.ingredients.values() if not ing.profile)
+    L += ["## Data gaps (fill these first)",
+          f"{n_empty} ingredient(s) have an empty profile, so they add nothing to any dish. "
+          "Ranked by impact (sum over dishes of recipe share x potency):"]
+    if gaps:
+        L += ["", "| ingredient | used in dishes | impact |", "|---|---:|---:|",
+              *[f"| {g['id']} | {g['dishes']} | {g['impact']:.2f} |" for g in gaps]]
+    if blind:
+        L += ["", f"Dishes where >= 50% of the recipe has no profile ({len(blind)}): "
+              + ", ".join(f"{d} ({100 * s:.0f}%)" for d, s in blind)]
+    L.append("")
 
     err = attribution_error(state)
     L += ["## Attribution check", f"max |sum(contributions) - dish value| = {err:.2e} -> "

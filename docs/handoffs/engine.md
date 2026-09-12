@@ -12,6 +12,36 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H9 · weight tuning waits for ratings · READY
+- what: on P1's fully sourced data: sanity +4/10, -9/10; 47/70 dishes find twins in the strict band. Aroma
+  (7 of 17 dims) carries 43% of pair distance. pho_bo~margherita_pizza (68th pct) is not an engine bug: they
+  differ mainly on brothy and agree on salty/umami/roasted/rich. New `uv run python -m tastespace.tune`
+  compares weight schemes (neutral vs group_balanced) by Spearman vs human ratings; sanity is shown only
+  as a secondary column. Weights stay neutral until ratings exist
+- for: data
+- action: the H15 rating study is what decides the weights: aim for >= 20 rated core pairs in
+  data/validation/ratings.yaml, picked BEFORE looking at engine scores
+
+## H9 · build report: data gaps · READY
+- what: build/report.md now has "Data gaps (fill these first)": the 79 empty-profile ingredients ranked by
+  impact (recipe share x potency) plus dishes >= 50% unprofiled. Top today: dashi, red_wine, lamb, salmon,
+  rice, hoisin, duck; 18 dishes (peking_duck 85%, teriyaki_salmon 81%, masala_dosa 80%, miso_soup 79%, ...)
+- for: data
+- action: fill ingredients in that order (`make build`, then read the section); it re-ranks as you go
+
+## H8 · integrator smoke · REQUEST
+- what: real mode (70 dishes): most galaxy stars render as large BLACK discs, only a few are colored.
+  Mock mode (16 dishes) looked fine. Suspect the instanced Stars in Galaxy.tsx (instanceColor set after the
+  material compiled, or per-instance scale). Repro: `make dev`, select any dish
+- for: web
+- action: fix on agent/web; mock-mode repro should be `?mockLarge=1` (80 dishes)
+
+## H8 · integrator smoke · READY
+- what: h8 merged all 3 branches; first build on real skeletons: sanity positive 2/10, negative 9/10
+  (several positives at the 76-85th pct). Expected: 79 ingredients have empty profiles, the rest are seed values
+- for: data
+- action: don't tune to the sanity set; fill real values (USDA + Grok drafts) and re-read build/report.md
+
 ## H0+ · Grok live · REQUEST
 - what: new optional env var GROK_REASONING_EFFORT (default "low"; "default" = don't send). Also: a
   pasted `GROK_MODEL=GROK_MODEL=grok-4.6` line broke every call; errors now say "Model not found: ..."
