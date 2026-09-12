@@ -5,6 +5,11 @@
 `OWNERS.json`, `AGENTS.md`, `docs/agents/**`. If another subsystem needs a change: REQUEST in
 `docs/handoffs/data.md`, commit, keep working.
 
+**Since h8:** the core dish recipes (`data/dishes/core/<cuisine>.yaml`) belong to the **data-dishes helper**
+(branch `agent/data-dishes`, see `docs/agents/data-dishes.md`). You own ingredients, lexicon, drafts,
+extended dishes and validation. Add the ingredients the helper REQUESTs in `docs/handoffs/data-dishes.md`
+(read it with `make inbox`).
+
 ## Goal
 A reviewed **core** corpus: ~100 ingredients, the ~70 dishes in `data/dishes/core/_manifest.yaml`,
 10 cuisines, every number with honest provenance. The demo and the validation run on core only.

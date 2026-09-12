@@ -50,6 +50,8 @@ check-data: ## P1: validate data/, sanity lock, core build smoke test, lint tool
 	$(PY) -m tastespace.build --out-dir build/check >/dev/null
 	$(UV) ruff check tools/data
 
+check-data-dishes: check-data ## data-dishes helper: same checks as data
+
 check-engine: ## P2: lint + engine/API/Grok tests (fixtures only, no network)
 	$(UV) ruff check backend contracts tools/integrate tools/ci
 	$(UV) pytest backend/tests -q

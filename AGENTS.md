@@ -12,6 +12,7 @@ Run `git branch --show-current`:
 | `agent/data` | **data** (P1) | `docs/agents/data.md` |
 | `agent/engine` | **engine** (P2) | `docs/agents/engine.md` |
 | `agent/web` | **web** (P3) | `docs/agents/web.md` |
+| `agent/data-dishes` | **data-dishes** (helper agent, e.g. Cursor/Codex) | `docs/agents/data-dishes.md` |
 | `main` | **integrator**, only if the human explicitly said so; otherwise STOP and ask | `docs/agents/integrator.md` |
 
 Any other branch: stop and ask the human.
@@ -19,7 +20,8 @@ Any other branch: stop and ask the human.
 ## 2. Ownership (enforced by a Claude Code hook, a git pre-commit hook and CI)
 You may READ anything. You may MODIFY only your role's paths (machine-readable in `OWNERS.json`):
 
-- **data**: `data/**` (except `data/sanity/**`, frozen), `tools/data/**`, `docs/demo/**`, `docs/handoffs/data.md`
+- **data**: `data/**` (except `data/sanity/**`, frozen, and the core dish files below), `tools/data/**`, `docs/demo/**`, `docs/handoffs/data.md`
+- **data-dishes** (helper): `data/dishes/core/<cuisine>.yaml` (not `_manifest.yaml`), `docs/handoffs/data-dishes.md`
 - **engine**: `backend/tastespace/**`, `backend/tests/**` (existing files in `backend/tests/fixtures/data/` are append-only), `docs/MODEL.md`, `docs/handoffs/engine.md`
 - **web**: `web/**` (including `package.json` / `package-lock.json`), `docs/handoffs/web.md`
 - **integrator** (on `main` only): everything else: `contracts/**`, `pyproject.toml`, `uv.lock`, `backend/pyproject.toml`, `Makefile`, `.github/**`, `.githooks/**`, `.claude/**`, `tools/ci/**`, `tools/integrate/**`, `OWNERS.json`, `AGENTS.md`, `CLAUDE.md`, `docs/agents/**`, `docs/CONTRACTS.md`, `docs/INTEGRATION.md`, `docs/TASKS.md`, `README.md`, `.gitignore`, `.env.example`
