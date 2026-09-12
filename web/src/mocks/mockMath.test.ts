@@ -41,6 +41,19 @@ describe("mock mode", () => {
     await expect(mockApi.ask({ messages: [{ role: "user", content: "hi" }] })).resolves.toHaveProperty("reply");
   });
 
+  it("?mockLarge=1 serves the 80-dish synthetic catalog", async () => {
+    expect(fixtures.spaceLarge.dishes).toHaveLength(80);
+    const prev = globalThis.location;
+    Object.defineProperty(globalThis, "location", { configurable: true, value: { search: "?mockLarge=1" } });
+    try {
+      const large = await mockApi.space();
+      expect(large.dishes).toHaveLength(80);
+      expect(large.meta.build_id).toBe("fixture-large");
+    } finally {
+      Object.defineProperty(globalThis, "location", { configurable: true, value: prev });
+    }
+  });
+
   it("mock explain always has fixture attributions", () => {
     const res = mockExplain(space, id, space.dishes[1].id);
     expect(Object.keys(res.attributions.a).length).toBeGreaterThan(0);

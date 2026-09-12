@@ -12,6 +12,8 @@ interface Store extends UiSlice {
   focus: Vec3 | null;
   homeTick: number;
   chat: ChatMessage[];
+  placeRecipeTick: number;
+  loadSeq: number;
   load(): Promise<void>;
   select(id: string | null): void;
   setPanel(p: Panel): void;
@@ -25,6 +27,7 @@ interface Store extends UiSlice {
   focusDish(id: string): void;
   setRecipeStar(r: RecipeResponse | null): void;
   resetView(): void;
+  bumpPlaceRecipe(): void;
   pushChat(m: ChatMessage): void;
   applyUiActions(actions: UiAction[]): void;
 }
@@ -51,18 +54,28 @@ export const useStore = create<Store>()((set, get) => ({
   focus: null,
   homeTick: 0,
   chat: [],
+  placeRecipeTick: 0,
+  loadSeq: 0,
 
   async load() {
+    const seq = get().loadSeq + 1;
+    set({ loadSeq: seq });
     const [space, health] = await Promise.allSettled([api.space(), api.health()]);
+    if (get().loadSeq !== seq) return;
     if (space.status === "rejected") return set({ loadError: space.reason });
     const ids = new Set(space.value.dishes.map((d) => d.id));
     const keep = get().selectedId && ids.has(get().selectedId!) ? get().selectedId : null;
     const first = keep ?? (ids.has("tonkotsu_ramen") ? "tonkotsu_ramen" : space.value.dishes[0]?.id) ?? null;
+    const large = space.value.dishes.length > 40;
     set({
       space: space.value,
       health: health.status === "fulfilled" ? health.value : null,
       selectedId: first,
-      focus: space.value.dishes.find((d) => d.id === first)?.xyz ?? null,
+      // Large mock catalogs look empty if we fly into one star on load.
+      focus: large ? null : space.value.dishes.find((d) => d.id === first)?.xyz ?? null,
+      highlightIds: [],
+      twinHighlight: null,
+      shiftResult: null,
       loadError: null,
     });
   },
@@ -94,6 +107,7 @@ export const useStore = create<Store>()((set, get) => ({
       highlightIds: recipeStar?.neighbors.map((n) => n.dish_id) ?? [],
     }),
   resetView: () => set((s) => ({ homeTick: s.homeTick + 1, focus: null })),
+  bumpPlaceRecipe: () => set((s) => ({ panel: "recipe", placeRecipeTick: s.placeRecipeTick + 1 })),
   pushChat: (m) => set((s) => ({ chat: [...s.chat, m] })),
   applyUiActions(actions) {
     const known = new Set(get().space?.dishes.map((d) => d.id) ?? []);

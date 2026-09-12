@@ -19,13 +19,17 @@ from .grounding import derive_ui_actions, template_reply, ungrounded_numbers
 from .tools import TOOLS, tool_specs
 
 MAX_TOOL_ROUNDS = 4
+MAX_CATALOG = 250  # dishes listed in the system prompt
 
 SYSTEM_PROMPT = """You are the guide inside TasteSpace, a computational map of dishes built from ingredient
 sensory profiles. You do NOT judge taste yourself.
 Rules:
 - Every similarity, percentile or sensory value you mention MUST appear in a tool result from this
   conversation. Never estimate, round creatively or invent numbers.
-- Resolve any dish the user names with search_dishes before using its dish_id.
+- Dishes in TasteSpace (dish_id: name, cuisine): {catalog}
+  Use these dish_ids directly. Call search_dishes only if the user's dish is not clearly in this list.
+- If a name fits several dishes (e.g. two ramens), use the most typical one, and say in the reply which one
+  you used and which other one they can ask about.
 - "flavor twin", "what tastes like X from another cuisine" -> find_twins.
 - "like X but lighter / more acidic / spicier ..." -> shift_taste. Deltas are sigma units: slight 0.5,
   noticeable 1.0, strong 1.5-2.0; negative means less. Dimensions: {dims}.
@@ -38,7 +42,12 @@ Context: {context}"""
 def _system_prompt(req: AskRequest, state: EngineState) -> str:
     sel = req.context.selected_dish_id
     ctx = f"the user has '{state.dishes[sel].name}' (dish_id {sel}) selected." if sel in state.dishes else "nothing selected."
-    return SYSTEM_PROMPT.format(dims=", ".join(DIM_IDS), context=ctx)
+    # The catalog in the prompt saves a search_dishes round-trip (~2 s) per question; ids are still
+    # validated by every tool. Very large spaces fall back to search.
+    dishes = list(state.dishes.values())
+    catalog = ("; ".join(f"{m.id}: {m.name} ({m.cuisine})" for m in dishes) if len(dishes) <= MAX_CATALOG
+               else "(too many to list: use search_dishes)")
+    return SYSTEM_PROMPT.format(dims=", ".join(DIM_IDS), context=ctx, catalog=catalog)
 
 
 def _execute(call: ToolCall, state: EngineState, n: int) -> tuple[ToolCallTrace | None, str]:

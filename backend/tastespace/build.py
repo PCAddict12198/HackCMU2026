@@ -26,7 +26,8 @@ from .state import DishMeta, EngineState
 FROZEN_CALIBRATION = Path(__file__).with_name("calibration_frozen.json")
 
 
-def build_state(ds: Dataset, calibration: np.ndarray | None = None) -> EngineState:
+def build_state(ds: Dataset, calibration: np.ndarray | None = None,
+                weights: dict[str, float] | None = None) -> EngineState:
     ids = sorted(ds.dishes)
     if len(ids) < 2:
         raise TasteSpaceError("not_ready", "need at least 2 dishes to build a space")
@@ -35,7 +36,7 @@ def build_state(ds: Dataset, calibration: np.ndarray | None = None) -> EngineSta
     s = np.asarray(calibration, float) if calibration is not None else calibrate(np.array([raws[d].raw for d in core_ids]))
     vecs = {d: finalize(raws[d], s) for d in ids}
     V = np.array([vecs[d].vector for d in ids])
-    model = fit_space(ids, [ds.dishes[d].course for d in ids], [ds.dishes[d].cuisine for d in ids], V, s)
+    model = fit_space(ids, [ds.dishes[d].course for d in ids], [ds.dishes[d].cuisine for d in ids], V, s, weights)
 
     h = hashlib.sha256(json.dumps(ids).encode())
     h.update(np.round(V, 6).tobytes())

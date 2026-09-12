@@ -3,14 +3,24 @@
 ## Panel readiness (placeholder = wired to contract, baseline = usable, demo = polished)
 | feature | status | notes |
 |---|---|---|
-| galaxy | demo | instanced stars, fly-to, PCA axes, cuisine legend, recipe star, shift glide |
-| twins | demo | radar, fly-to twin, closer-than-N% copy, Why? |
-| shift | demo | 6 sliders, HOW formula, moved bits, L/S/M presets, target trail |
-| explain | demo | radar, attribution bars, provenance chips |
-| recipe | demo | coverage + line status colors, format/course, glowing star |
-| ask | demo | tool trace, grounded badge, suggestion chips, retry; hidden if grok off |
+| galaxy | demo | 80-star mockLarge, dpr cap, no trail hitch, fly-to |
+| twins | demo | stale-while-revalidate + skeleton; 4 seeds explain pair |
+| shift | demo | sliders stay up during latency/errors; L/S/M |
+| explain | demo | key 4 / tab seeds pair so no empty state |
+| recipe | demo | key 5 auto-places sample; line statuses |
+| ask | demo | hidden if grok off; skeleton while asking |
 
 ## Log
+## 11:46 · READY
+- what: 80-dish mock actually loads (header toggle, ignore stale fetches, camera stays wide)
+- for: web
+- action: click "Load 80-dish mock" on http://localhost:5173/ (or ?mockLarge=1 with a full reload)
+
+## 10:50 · READY
+- what: pre-h8 polish — panel errors/latency, mockLarge orbit, demo keys 0–5
+- for: integrator
+- action: still fixtures-only until "main @ h8 ready"
+
 ## 10:29 · READY
 - what: mockError no longer kills the galaxy; space always serves the 16-dish fixture catalog
 - for: web

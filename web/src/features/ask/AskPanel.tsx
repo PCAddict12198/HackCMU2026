@@ -3,7 +3,7 @@ import { api, ApiError } from "../../api/client";
 import type { AskResponse } from "../../contract";
 import { useDish, useStore } from "../../state/store";
 import { formatToolCall } from "../shared/copy";
-import { ErrorState } from "../shared/Status";
+import { ErrorState, Loading } from "../shared/Status";
 
 export function AskPanel() {
   const { chat, pushChat, applyUiActions, selectedId, panel } = useStore();
@@ -73,6 +73,7 @@ export function AskPanel() {
           )}
         </>
       )}
+      {busy && <Loading label="Grok is calling the engine..." />}
       {error != null && (
         <ErrorState
           error={error}

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../api/client";
 import type { Course, DishFormat, RecipeResponse } from "../../contract";
 import { closerThan } from "../shared/copy";
 import { useStore } from "../../state/store";
-import { ErrorState } from "../shared/Status";
+import { ErrorState, Loading } from "../shared/Status";
 
 const SAMPLE = "200 g spaghetti\n100 g guanciale\n2 eggs\n50 g pecorino\n1 tsp black pepper";
 const FORMATS: DishFormat[] = [
@@ -27,6 +27,7 @@ export function RecipePanel() {
   const setPanel = useStore((s) => s.setPanel);
   const setExplainPair = useStore((s) => s.setExplainPair);
   const selectedId = useStore((s) => s.selectedId);
+  const placeRecipeTick = useStore((s) => s.placeRecipeTick);
   const [text, setText] = useState(SAMPLE);
   const [course, setCourse] = useState<Course | "">("");
   const [format, setFormat] = useState<DishFormat | "">("");
@@ -51,6 +52,12 @@ export function RecipePanel() {
       setBusy(false);
     }
   };
+
+  useEffect(() => {
+    if (placeRecipeTick > 0) void run();
+    // demo key 5 / first open
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [placeRecipeTick]);
   const name = (id: string) => space?.dishes.find((d) => d.id === id)?.name ?? id;
   return (
     <div>
@@ -75,6 +82,7 @@ export function RecipePanel() {
         {busy ? "Placing..." : "Place recipe"}
       </button>
       {error != null && <ErrorState error={error} onRetry={() => void run()} />}
+      {busy && <Loading label="Placing recipe in the galaxy..." />}
       {data && (
         <>
           <p className="small">

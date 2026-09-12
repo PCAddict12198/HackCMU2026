@@ -74,6 +74,75 @@ def _hist(values: np.ndarray, bins: int = 8, width: int = 28) -> list[str]:
     return [f"{edges[i]:6.2f}-{edges[i + 1]:6.2f} | {'#' * int(width * c / peak):<{width}} {c}" for i, c in enumerate(counts)]
 
 
+def data_gaps(ds: Dataset, top: int = 15) -> tuple[list[dict], list[tuple[str, float]]]:
+    """Empty-profile ingredients ranked by how much they would move dish vectors once filled
+    (sum over dishes of recipe share x potency), plus dishes mostly made of them."""
+    empty = {i for i, ing in ds.ingredients.items() if not ing.profile}
+    usage: dict[str, dict] = {}
+    blind: list[tuple[str, float]] = []
+    for d in ds.dishes.values():
+        total = sum(di.g for di in d.ingredients) or 1.0
+        missing = 0.0
+        for di in d.ingredients:
+            if di.ing in empty:
+                share = di.g / total
+                u = usage.setdefault(di.ing, {"id": di.ing, "dishes": set(), "impact": 0.0})
+                u["dishes"].add(d.id)
+                u["impact"] += share * ds.ingredients[di.ing].potency
+                missing += share
+        if missing >= 0.5:
+            blind.append((d.id, missing))
+    ranked = sorted(usage.values(), key=lambda u: -u["impact"])[:top]
+    return ([{"id": u["id"], "dishes": len(u["dishes"]), "impact": u["impact"]} for u in ranked],
+            sorted(blind, key=lambda x: -x[1]))
+
+
+AI_RATER_KEYS = {"claude", "grok", "gpt", "chatgpt", "gemini", "llm", "ai", "model"}
+
+
+def is_ai_rater(key: str) -> bool:
+    k = key.lower()
+    return k in AI_RATER_KEYS or k.startswith(("ai_", "ai-", "llm_"))
+
+
+def rater_rho(state: EngineState, ds: Dataset, keys: set[str] | None = None) -> tuple[int, float]:
+    """Spearman rho between the engine percentile and the mean rating over `keys` (None = every key)."""
+    xs, ys = [], []
+    for p in (ds.ratings.pairs if ds.ratings else []):
+        vals = [v for k, v in p.ratings.items() if keys is None or k in keys]
+        pct = pair_pct(state, p.a, p.b)
+        if pct is not None and vals:
+            xs.append(pct)
+            ys.append(sum(vals) / len(vals))
+    return len(xs), (spearman(xs, ys) if len(xs) >= 3 else float("nan"))
+
+
+def rater_panel(state: EngineState, ds: Dataset) -> dict:
+    """One rho per rater key, labelled human/AI, plus separate human and AI panel means."""
+    keys = sorted({k for p in (ds.ratings.pairs if ds.ratings else []) for k in p.ratings})
+    human = {k for k in keys if not is_ai_rater(k)}
+    ai = set(keys) - human
+    rows = [{"rater": k, "kind": "AI" if k in ai else "human", **dict(zip(("n", "rho"), rater_rho(state, ds, {k}), strict=True))}
+            for k in keys]
+    return {"rows": rows, "human_keys": sorted(human), "ai_keys": sorted(ai),
+            "human": rater_rho(state, ds, human) if human else (0, float("nan")),
+            "ai": rater_rho(state, ds, ai) if ai else (0, float("nan"))}
+
+
+def demo_candidates(state: EngineState, min_pct: float = 90.0, top: int = 10) -> list[dict]:
+    """The strongest cross-macro-region twin pairs, straight from find_twins (not hand-picked).
+    At H16 the team picks demo pairs from this list; it is also honest pitch evidence."""
+    seen: set[frozenset] = set()
+    out = []
+    for did in state.model.ids:
+        for t in find_twins(state, did, 3).twins:
+            key = frozenset((did, t.dish_id))
+            if t.cuisine_distance >= 1.0 and t.similarity_pct >= min_pct and key not in seen:
+                seen.add(key)
+                out.append({"a": did, "b": t.dish_id, "pct": t.similarity_pct, "shared": t.shared_dims[:4]})
+    return sorted(out, key=lambda c: -c["pct"])[:top]
+
+
 def render_report(state: EngineState, ds: Dataset) -> str:
     m = state.model
     L: list[str] = [f"# TasteSpace build report `{state.build_id}`", ""]
@@ -108,6 +177,19 @@ def render_report(state: EngineState, ds: Dataset) -> str:
           *[f"- `{src}`: {n} ({100 * n / total:.0f}%)" for src, n in prov.most_common()],
           f"- reviewed/grounded share: **{100 * reviewed / total:.0f}%**", ""]
 
+    gaps, blind = data_gaps(ds)
+    n_empty = sum(1 for ing in ds.ingredients.values() if not ing.profile)
+    L += ["## Data gaps (fill these first)",
+          f"{n_empty} ingredient(s) have an empty profile, so they add nothing to any dish. "
+          "Ranked by impact (sum over dishes of recipe share x potency):"]
+    if gaps:
+        L += ["", "| ingredient | used in dishes | impact |", "|---|---:|---:|",
+              *[f"| {g['id']} | {g['dishes']} | {g['impact']:.2f} |" for g in gaps]]
+    if blind:
+        L += ["", f"Dishes where >= 50% of the recipe has no profile ({len(blind)}): "
+              + ", ".join(f"{d} ({100 * s:.0f}%)" for d, s in blind)]
+    L.append("")
+
     err = attribution_error(state)
     L += ["## Attribution check", f"max |sum(contributions) - dish value| = {err:.2e} -> "
           f"{'OK' if err < 1e-6 else 'BROKEN'}", ""]
@@ -129,13 +211,29 @@ def render_report(state: EngineState, ds: Dataset) -> str:
           *[f"- level {lvl} ({LADDER[lvl][1] if lvl < len(LADDER) else 'same-cuisine fallback'}): {n}"
             for lvl, n in sorted(levels.items())], ""]
 
+    cands = demo_candidates(state)
+    L += ["## Demo candidates (engine output, cross-region twins >= 90th pct)",
+          "Pick demo pairs from here at H16; never hand-pick or tune data to create one."]
+    if cands:
+        L += ["", "| a | b | similarity pct | shared |", "|---|---|---:|---|",
+              *[f"| {c['a']} | {c['b']} | {c['pct']:.1f} | {', '.join(c['shared'])} |" for c in cands]]
+    else:
+        L.append("(none yet)")
+    L.append("")
+
     if ds.ratings and ds.ratings.pairs:
-        xs, ys = [], []
-        for p in ds.ratings.pairs:
-            pct = pair_pct(state, p.a, p.b)
-            if pct is not None and p.ratings:
-                xs.append(pct)
-                ys.append(sum(p.ratings.values()) / len(p.ratings))
-        rho = spearman(xs, ys) if len(xs) >= 3 else float("nan")
-        L += ["## Human ratings vs model", f"{len(xs)} rated pairs · Spearman rho = {rho:.2f}", ""]
+        panel = rater_panel(state, ds)
+        L += ["## Rater panel vs model (Spearman rho: engine percentile vs mean rating)",
+              "", "| rater | kind | pairs | rho |", "|---|---|---:|---:|",
+              *[f"| {r['rater']} | {r['kind']} | {r['n']} | {r['rho']:.2f} |" for r in panel["rows"]], ""]
+        hn, hrho = panel["human"]
+        if panel["human_keys"]:
+            L.append(f"- **human panel** ({', '.join(panel['human_keys'])}): {hn} pairs, rho = {hrho:.2f}")
+        else:
+            L.append("- **human panel: none.** Any rho above is an AI baseline, NOT human validation.")
+        if panel["ai_keys"]:
+            an, arho = panel["ai"]
+            L.append(f"- AI raters ({', '.join(panel['ai_keys'])}): {an} pairs, rho = {arho:.2f}. A baseline only: "
+                     "if the AI also wrote or reviewed the data, agreement is partly self-agreement.")
+        L.append("")
     return "\n".join(L) + "\n"

@@ -15,12 +15,18 @@ const space = () => (qs().get("mockLarge") === "1" ? fixtures.spaceLarge : fixtu
 async function respond<T>(endpoint: string, make: () => T): Promise<T> {
   const params = qs();
   const latency = Number(params.get("mockLatency") ?? 120);
-  const forced = params.get("mockError") as ErrorCode | null;
+  const forced = params.get("mockError");
   await new Promise((r) => setTimeout(r, Number.isFinite(latency) ? latency : 120));
   const panelOnly = endpoint !== "health" && endpoint !== "space";
-  if (forced && panelOnly && (forced !== "grok_unavailable" || endpoint === "ask")) {
-    const e = fixtures.errors[forced]?.error ?? { code: forced, message: "mock error" };
-    throw new ApiError(e.code, `[mock] ${e.message}`);
+  if (forced && panelOnly) {
+    if (forced === "network") throw new ApiError("network", "[mock] network unreachable");
+    if (forced === "grok_unavailable" && endpoint !== "ask") {
+      /* Ask tab hides; other panels keep working */
+    } else if (forced === "grok_unavailable" || fixtures.errors[forced as ErrorCode]) {
+      const code = forced as ErrorCode;
+      const e = fixtures.errors[code]?.error ?? { code, message: "mock error" };
+      throw new ApiError(e.code, `[mock] ${e.message}`);
+    }
   }
   return structuredClone(make());
 }
