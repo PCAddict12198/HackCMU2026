@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { api } from "../api/client";
-import type { ChatMessage, Deltas, DimId, HealthResponse, Panel, RecipeResponse, ShiftResponse, SpaceResponse, UiAction, Vec3 } from "../contract";
+import type { ChatMessage, Course, Deltas, DimId, DishFormat, HealthResponse, Panel, RecipeResponse, ShiftResponse, SpaceResponse, UiAction, Vec3 } from "../contract";
+import { SAMPLE_RECIPE } from "../features/recipe/constants";
 import { startDishId } from "../features/shared/demo";
 import { initialUi, reduceUiActions, type UiSlice } from "./uiActions";
 
@@ -10,6 +11,10 @@ interface Store extends UiSlice {
   loadError: unknown;
   shiftResult: ShiftResponse | null;
   recipeStar: RecipeResponse | null;
+  recipeMapped: RecipeResponse | null;
+  recipeText: string;
+  recipeCourse: Course | "";
+  recipeFormat: DishFormat | "";
   focus: Vec3 | null;
   homeTick: number;
   chat: ChatMessage[];
@@ -27,6 +32,10 @@ interface Store extends UiSlice {
   setTwinHighlight(id: string | null): void;
   focusDish(id: string): void;
   setRecipeStar(r: RecipeResponse | null): void;
+  setRecipeMapped(r: RecipeResponse | null): void;
+  setRecipeText(text: string): void;
+  setRecipeCourse(course: Course | ""): void;
+  setRecipeFormat(format: DishFormat | ""): void;
   resetView(): void;
   bumpPlaceRecipe(): void;
   pushChat(m: ChatMessage): void;
@@ -52,6 +61,10 @@ export const useStore = create<Store>()((set, get) => ({
   loadError: null,
   shiftResult: null,
   recipeStar: null,
+  recipeMapped: null,
+  recipeText: SAMPLE_RECIPE,
+  recipeCourse: "",
+  recipeFormat: "",
   focus: null,
   homeTick: 0,
   chat: [],
@@ -84,6 +97,7 @@ export const useStore = create<Store>()((set, get) => ({
       shiftDeltas: {},
       shiftResult: null,
       twinHighlight: null,
+      highlightIds: id ? s.highlightIds : [],
       focus: xyzOf(s, id),
     })),
   setPanel: (panel) => set({ panel }),
@@ -105,6 +119,10 @@ export const useStore = create<Store>()((set, get) => ({
       focus: recipeStar?.xyz ?? null,
       highlightIds: recipeStar?.neighbors.map((n) => n.dish_id) ?? [],
     }),
+  setRecipeMapped: (recipeMapped) => set({ recipeMapped }),
+  setRecipeText: (recipeText) => set({ recipeText }),
+  setRecipeCourse: (recipeCourse) => set({ recipeCourse }),
+  setRecipeFormat: (recipeFormat) => set({ recipeFormat }),
   resetView: () => set((s) => ({ homeTick: s.homeTick + 1, focus: null })),
   bumpPlaceRecipe: () => set((s) => ({ panel: "recipe", placeRecipeTick: s.placeRecipeTick + 1 })),
   pushChat: (m) => set((s) => ({ chat: [...s.chat, m] })),

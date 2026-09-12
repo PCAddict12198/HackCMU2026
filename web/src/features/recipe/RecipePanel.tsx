@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { api } from "../../api/client";
-import type { Course, DishFormat, RecipeResponse } from "../../contract";
+import type { Course, DishFormat } from "../../contract";
 import { closerThan } from "../shared/copy";
 import { useStore } from "../../state/store";
 import { ErrorState, Loading } from "../shared/Status";
 import { DishCard } from "../dish/DishCard";
 
-const SAMPLE = "200 g spaghetti\n100 g guanciale\n2 eggs\n50 g pecorino\n1 tsp black pepper";
 const FORMATS: DishFormat[] = [
   "soup",
   "noodles",
@@ -27,10 +26,14 @@ export function RecipePanel() {
   const setRecipeStar = useStore((s) => s.setRecipeStar);
   const setPanel = useStore((s) => s.setPanel);
   const placeRecipeTick = useStore((s) => s.placeRecipeTick);
-  const [text, setText] = useState(SAMPLE);
-  const [course, setCourse] = useState<Course | "">("");
-  const [format, setFormat] = useState<DishFormat | "">("");
-  const [data, setData] = useState<RecipeResponse | null>(null);
+  const text = useStore((s) => s.recipeText);
+  const course = useStore((s) => s.recipeCourse);
+  const format = useStore((s) => s.recipeFormat);
+  const data = useStore((s) => s.recipeMapped);
+  const setRecipeText = useStore((s) => s.setRecipeText);
+  const setRecipeCourse = useStore((s) => s.setRecipeCourse);
+  const setRecipeFormat = useStore((s) => s.setRecipeFormat);
+  const setRecipeMapped = useStore((s) => s.setRecipeMapped);
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
 
@@ -39,11 +42,11 @@ export function RecipePanel() {
     setError(null);
     try {
       const res = await api.recipe({
-        text,
-        course: course || null,
-        format: format || null,
+        text: useStore.getState().recipeText,
+        course: useStore.getState().recipeCourse || null,
+        format: useStore.getState().recipeFormat || null,
       });
-      setData(res);
+      setRecipeMapped(res);
       setRecipeStar(res);
     } catch (e) {
       setError(e);
@@ -57,6 +60,13 @@ export function RecipePanel() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [placeRecipeTick]);
 
+  const showOnMap = () => {
+    const mapped = useStore.getState().recipeMapped;
+    if (mapped) setRecipeStar(mapped);
+    setPanel("twins");
+    window.dispatchEvent(new Event("tastespace:show-map"));
+  };
+
   const dishOf = (id: string) => space?.dishes.find((d) => d.id === id);
 
   return (
@@ -66,16 +76,16 @@ export function RecipePanel() {
       <textarea
         rows={8}
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => setRecipeText(e.target.value)}
         placeholder="Paste ingredients or a recipe here..."
       />
       <div className="row" style={{ margin: "12px 0" }}>
-        <select value={course} onChange={(e) => setCourse(e.target.value as Course | "")}>
+        <select value={course} onChange={(e) => setRecipeCourse(e.target.value as Course | "")}>
           <option value="">any meal</option>
           <option value="savory">savory</option>
           <option value="dessert">sweet</option>
         </select>
-        <select value={format} onChange={(e) => setFormat(e.target.value as DishFormat | "")}>
+        <select value={format} onChange={(e) => setRecipeFormat(e.target.value as DishFormat | "")}>
           <option value="">any format</option>
           {FORMATS.map((f) => (
             <option key={f} value={f}>
@@ -84,9 +94,14 @@ export function RecipePanel() {
           ))}
         </select>
       </div>
-      <button type="button" className="primary" onClick={() => void run()} disabled={busy}>
-        {busy ? "Mapping…" : "Map this recipe"}
-      </button>
+      <div className="recipe-actions">
+        <button type="button" className="primary" onClick={() => void run()} disabled={busy}>
+          {busy ? "Mapping…" : "Map this recipe"}
+        </button>
+        <button type="button" onClick={showOnMap} disabled={!data || busy}>
+          Show on Taste Map
+        </button>
+      </div>
       {error != null && <ErrorState error={error} onRetry={() => void run()} />}
       {busy && <Loading label="Finding where this recipe lives…" />}
       {data && (
@@ -135,16 +150,6 @@ export function RecipePanel() {
               );
             })}
           </div>
-          <button
-            type="button"
-            className="primary"
-            onClick={() => {
-              setPanel("twins");
-              window.dispatchEvent(new Event("tastespace:show-map"));
-            }}
-          >
-            Show on Taste Map
-          </button>
         </>
       )}
     </div>

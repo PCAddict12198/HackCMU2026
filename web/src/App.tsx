@@ -47,7 +47,6 @@ export default function App() {
   const [searchQ, setSearchQ] = useState("");
   const [debugOpen, setDebugOpen] = useState(false);
   const [cuisineFilter, setCuisineFilter] = useState<string | null>(null);
-  const [courseFilter, setCourseFilter] = useState<string | null>(null);
   const [findQ, setFindQ] = useState("");
   const forced = debugError(query);
   const mockLarge = new URLSearchParams(query).get("mockLarge") === "1";
@@ -182,8 +181,7 @@ export default function App() {
             type="button"
             className={route === "recipe" ? "active" : ""}
             onClick={() => {
-              if (!useStore.getState().recipeStar) bumpPlaceRecipe();
-              else setPanel("recipe");
+              setPanel("recipe");
               setRoute("recipe");
             }}
           >
@@ -276,30 +274,23 @@ export default function App() {
       {route === "discover" && (
         <Discover onExplore={() => setRoute("map")} onAsk={(text) => openAsk(text)} />
       )}
-      {route === "recipe" && (
-        <div className="page">
-          <RecipePanel />
-        </div>
-      )}
+      <div className="page" hidden={route !== "recipe"}>
+        <RecipePanel />
+      </div>
       {route === "map" && (
         <main className="workspace">
           <ShiftEngine />
           <section className="galaxy">
-            <Galaxy cuisineFilter={cuisineFilter} courseFilter={courseFilter} />
+            <Galaxy cuisineFilter={cuisineFilter} />
             <MapFilters
-              cuisine={cuisineFilter}
-              course={courseFilter}
               query={findQ}
-              onCuisine={setCuisineFilter}
-              onCourse={setCourseFilter}
               onQuery={setFindQ}
               onPick={(id) => {
                 select(id);
                 setFindQ("");
               }}
-              onSeeAll={resetView}
             />
-            <CuisineLegend />
+            <CuisineLegend active={cuisineFilter} onToggle={setCuisineFilter} />
             {selected && (
               <div className="selected-sheet">
                 <DishVisual dish={selected} />

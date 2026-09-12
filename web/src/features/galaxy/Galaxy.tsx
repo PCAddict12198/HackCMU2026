@@ -1,6 +1,6 @@
 import { Html, Line, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import * as THREE from "three";
 import type { DishPoint, RecipeResponse, Vec3 } from "../../contract";
 import { asTriple } from "../../contract";
@@ -12,6 +12,28 @@ const LIME = "#D8F25A";
 const TERRACOTTA = "#C45C3E";
 const MAP_BG = "#F3EEE3";
 const MUTED = new THREE.Color("#C9C2B6");
+
+function labelAnchor(xyz: Vec3, lift: number): [number, number, number] {
+  return [xyz[0], xyz[1] + lift, xyz[2]];
+}
+
+function DishLabel({
+  xyz,
+  lift,
+  children,
+}: {
+  xyz: Vec3;
+  lift: number;
+  children: ReactNode;
+}) {
+  return (
+    <Html position={labelAnchor(xyz, lift)} distanceFactor={16} style={{ pointerEvents: "none" }}>
+      <div className="star-label-wrap" style={{ transform: "translate(-50%, calc(-100% - 18px))" }}>
+        {children}
+      </div>
+    </Html>
+  );
+}
 
 function StarField({
   dishes,
@@ -81,15 +103,15 @@ function StarField({
         <meshStandardMaterial roughness={0.22} metalness={0.08} toneMapped={false} />
       </instancedMesh>
       {selectedDish && selectedDish.id !== hoverDish?.id && (
-        <Html position={asTriple(selectedDish.xyz)} center distanceFactor={16} style={{ pointerEvents: "none" }}>
+        <DishLabel xyz={selectedDish.xyz} lift={1.35}>
           <div className="star-label">
             {selectedDish.name}
             <span className="sub">{selectedDish.cuisine}</span>
           </div>
-        </Html>
+        </DishLabel>
       )}
       {hoverDish && (
-        <Html position={asTriple(hoverDish.xyz)} center distanceFactor={16} style={{ pointerEvents: "none" }}>
+        <DishLabel xyz={hoverDish.xyz} lift={hoverDish.id === selectedId ? 1.35 : 1.05}>
           <div className="star-label">
             {hoverDish.name}
             <span className="sub">
@@ -97,7 +119,7 @@ function StarField({
               {tagsFor(hoverDish).length ? ` · ${tagsFor(hoverDish).join(" · ")}` : ""}
             </span>
           </div>
-        </Html>
+        </DishLabel>
       )}
     </>
   );
@@ -148,6 +170,7 @@ function NeighborLinks({
 
 function RecipeStar({ recipe }: { recipe: RecipeResponse }) {
   const pulse = useRef<THREE.Mesh>(null);
+  const setRecipeStar = useStore((s) => s.setRecipeStar);
   useFrame((state) => {
     if (!pulse.current) return;
     const s = 1 + 0.06 * Math.sin(state.clock.elapsedTime * 1.6);
@@ -157,8 +180,24 @@ function RecipeStar({ recipe }: { recipe: RecipeResponse }) {
     <mesh ref={pulse} position={asTriple(recipe.xyz)}>
       <sphereGeometry args={[0.4, 32, 32]} />
       <meshStandardMaterial color={LIME} roughness={0.25} metalness={0.1} toneMapped={false} />
-      <Html center distanceFactor={14} style={{ pointerEvents: "none" }}>
-        <div className="star-label recipe">{recipe.name}</div>
+      <Html position={[0, 1.35, 0]} distanceFactor={14} style={{ pointerEvents: "none" }}>
+        <div className="star-label-wrap">
+          <div className="star-label recipe">
+            <span>{recipe.name}</span>
+            <button
+              type="button"
+              className="star-dismiss"
+              aria-label="Remove recipe from Taste Map"
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.stopPropagation();
+                setRecipeStar(null);
+              }}
+            >
+              ×
+            </button>
+          </div>
+        </div>
       </Html>
     </mesh>
   );
@@ -278,7 +317,7 @@ function CameraRig({ focus, homeTick }: { focus: Vec3 | null; homeTick: number }
   return null;
 }
 
-export function Galaxy({ cuisineFilter, courseFilter }: { cuisineFilter: string | null; courseFilter: string | null }) {
+export function Galaxy({ cuisineFilter }: { cuisineFilter: string | null }) {
   const space = useStore((s) => s.space);
   const selectedId = useStore((s) => s.selectedId);
   const highlightIds = useStore((s) => s.highlightIds);
@@ -287,7 +326,9 @@ export function Galaxy({ cuisineFilter, courseFilter }: { cuisineFilter: string 
   const recipeStar = useStore((s) => s.recipeStar);
   const focus = useStore((s) => s.focus);
   const homeTick = useStore((s) => s.homeTick);
+  const select = useStore((s) => s.select);
   const selected = useDish(selectedId);
+  const pointerDown = useRef<{ x: number; y: number } | null>(null);
 
   const faded = useMemo(() => {
     if (!space) return null;
@@ -303,13 +344,12 @@ export function Galaxy({ cuisineFilter, courseFilter }: { cuisineFilter: string 
     }
     const set = new Set<string>();
     for (const d of space.dishes) {
-      const filtered =
-        (cuisineFilter && d.cuisine !== cuisineFilter) || (courseFilter && d.course !== courseFilter);
-      const unfocused = !!selectedId && !keep.has(d.id);
+      const filtered = !!cuisineFilter && d.cuisine !== cuisineFilter;
+      const unfocused = !cuisineFilter && !!selectedId && !keep.has(d.id);
       if (filtered || unfocused) set.add(d.id);
     }
     return set.size ? set : null;
-  }, [space, cuisineFilter, courseFilter, selectedId, highlightIds, twinHighlight, shiftResult, recipeStar]);
+  }, [space, cuisineFilter, selectedId, highlightIds, twinHighlight, shiftResult, recipeStar]);
 
   if (!space) return <div className="galaxy-empty">Finding dishes…</div>;
 
@@ -325,6 +365,18 @@ export function Galaxy({ cuisineFilter, courseFilter }: { cuisineFilter: string 
       camera={{ position: [0, 0, large ? 38 : 32], fov: 46 }}
       dpr={[1, 2]}
       gl={{ antialias: true, powerPreference: "high-performance", alpha: false, toneMapping: THREE.NoToneMapping }}
+      onPointerDown={(e) => {
+        pointerDown.current = { x: e.clientX, y: e.clientY };
+      }}
+      onPointerMissed={(e) => {
+        const start = pointerDown.current;
+        pointerDown.current = null;
+        if (!start) return;
+        const dx = e.clientX - start.x;
+        const dy = e.clientY - start.y;
+        if (dx * dx + dy * dy > 36) return;
+        select(null);
+      }}
     >
       <color attach="background" args={[MAP_BG]} />
       <fog attach="fog" args={[MAP_BG, 42, 88]} />
@@ -360,7 +412,13 @@ export function Galaxy({ cuisineFilter, courseFilter }: { cuisineFilter: string 
   );
 }
 
-export function CuisineLegend() {
+export function CuisineLegend({
+  active,
+  onToggle,
+}: {
+  active: string | null;
+  onToggle: (id: string | null) => void;
+}) {
   const space = useStore((s) => s.space);
   if (!space) return null;
   const present = new Set(space.dishes.map((d) => d.cuisine));
@@ -369,33 +427,28 @@ export function CuisineLegend() {
       {space.cuisines
         .filter((c) => present.has(c.id))
         .map((c) => (
-          <span key={c.id} className="legend-item">
+          <button
+            key={c.id}
+            type="button"
+            className={`legend-item ${active === c.id ? "active" : ""}`}
+            onClick={() => onToggle(active === c.id ? null : c.id)}
+          >
             <i style={{ background: cuisineColor(c.id) }} />
             {c.name}
-          </span>
+          </button>
         ))}
     </div>
   );
 }
 
 export function MapFilters({
-  cuisine,
-  course,
   query,
-  onCuisine,
-  onCourse,
   onQuery,
   onPick,
-  onSeeAll,
 }: {
-  cuisine: string | null;
-  course: string | null;
   query: string;
-  onCuisine: (id: string | null) => void;
-  onCourse: (id: string | null) => void;
   onQuery: (q: string) => void;
   onPick: (id: string) => void;
-  onSeeAll: () => void;
 }) {
   const space = useStore((s) => s.space);
   const hits = space && query.trim() ? space.dishes.filter((d) => d.name.toLowerCase().includes(query.toLowerCase())).slice(0, 6) : [];
@@ -416,37 +469,6 @@ export function MapFilters({
             </button>
           ))}
         </div>
-      )}
-      <div className="filter-row">
-        <button type="button" className={!course ? "active" : ""} onClick={() => onCourse(null)}>
-          All meals
-        </button>
-        <button type="button" className={course === "savory" ? "active" : ""} onClick={() => onCourse("savory")}>
-          Savory
-        </button>
-        <button type="button" className={course === "dessert" ? "active" : ""} onClick={() => onCourse("dessert")}>
-          Sweet
-        </button>
-        <button type="button" className="ghost" onClick={onSeeAll}>
-          See all
-        </button>
-      </div>
-      {space && (
-        <select
-          className="find"
-          value={cuisine ?? ""}
-          onChange={(e) => onCuisine(e.target.value || null)}
-          aria-label="Cuisine"
-        >
-          <option value="">Any cuisine</option>
-          {space.cuisines
-            .filter((c) => space.dishes.some((d) => d.cuisine === c.id))
-            .map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
-        </select>
       )}
     </div>
   );
