@@ -38,6 +38,8 @@ ingredients:
     sweet: {v: 0.13, src: usda, note: 'sugar 1.7 g/100g (fdc 169231: Ginger root, raw)'}
     salty: {v: 0.01, src: usda, note: 'sodium 13.0 mg/100g (fdc 169231: Ginger root, raw)'}
     rich: {v: 0.03, src: usda, note: 'fat 0.75 g/100g (fdc 169231: Ginger root, raw)'}
+    earthy: {v: 0.25, src: grok_reviewed}
+    chewy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: scallion
   name: Scallion
@@ -63,6 +65,8 @@ ingredients:
     sweet: {v: 0.2, src: usda, note: sugar ~2.6g/100g}
     umami: {v: 0.5, src: literature, note: 'free glutamate ~0.2-0.3g/100g, classically studied'}
     fruity: {v: 0.5, src: team}
+    earthy: {v: 0.1, src: grok_reviewed}
+  reviewed_by: ishan
 - id: cabbage
   name: Cabbage
   category: vegetable
@@ -71,6 +75,8 @@ ingredients:
     crispy: {v: 0.6, src: team}
     sweet: {v: 0.25, src: usda, note: sugar ~3.2g/100g}
     herbal: {v: 0.2, src: team}
+    earthy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
 - id: mushroom
   name: Mushroom
   category: vegetable
@@ -82,6 +88,7 @@ ingredients:
     chewy: {v: 0.3, src: team}
     salty: {v: 0.0, src: usda, note: 'sodium 0.891 mg/100g (fdc 2003603: Mushroom, beech)'}
     rich: {v: 0.02, src: usda, note: 'fat 0.449 g/100g (fdc 2003603: Mushroom, beech)'}
+    brothy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: bean_sprouts
   name: Bean sprouts
@@ -90,6 +97,8 @@ ingredients:
   profile:
     crispy: {v: 0.8, src: team}
     herbal: {v: 0.2, src: team}
+    earthy: {v: 0.1, src: grok_reviewed}
+  reviewed_by: ishan
 - id: cucumber
   name: Cucumber
   category: vegetable
@@ -119,6 +128,9 @@ ingredients:
     spicy: {v: 0.4, src: team}
     herbal: {v: 0.7, src: team}
     earthy: {v: 0.3, src: team}
+    fruity: {v: 0.2, src: grok_reviewed}
+    chewy: {v: 0.25, src: grok_reviewed}
+  reviewed_by: ishan
 - id: kaffir_lime_leaf
   name: Makrut lime leaf
   category: herb
@@ -186,6 +198,9 @@ ingredients:
     sweet: {v: 0.22, src: usda, note: 'sugar 3.0 g/100g (fdc 169210: Bamboo shoots, raw)'}
     salty: {v: 0.0, src: usda, note: 'sodium 4.0 mg/100g (fdc 169210: Bamboo shoots, raw)'}
     rich: {v: 0.01, src: usda, note: 'fat 0.3 g/100g (fdc 169210: Bamboo shoots, raw)'}
+    earthy: {v: 0.2, src: grok_reviewed}
+    crispy: {v: 0.35, src: grok_reviewed}
+    chewy: {v: 0.1, src: grok_reviewed}
   reviewed_by: ishan
 - id: nori
   name: Nori
@@ -198,6 +213,8 @@ ingredients:
     earthy: {v: 0.3, src: team}
     crispy: {v: 0.4, src: team, note: toasted sheet; the raw-laver row above is the nutrient basis}
     brothy: {v: 0.2, src: team}
+    roasted: {v: 0.3, src: grok_reviewed}
+    rich: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: wakame
   name: Wakame
@@ -207,6 +224,9 @@ ingredients:
     sweet: {v: 0.05, src: usda, note: 'sugar 0.65 g/100g (fdc 170496: Seaweed, wakame, raw)'}
     salty: {v: 0.44, src: usda, note: 'sodium 872 mg/100g (fdc 170496: Seaweed, wakame, raw)'}
     rich: {v: 0.03, src: usda, note: 'fat 0.64 g/100g (fdc 170496: Seaweed, wakame, raw)'}
+    earthy: {v: 0.2, src: grok_reviewed}
+    chewy: {v: 0.2, src: grok_reviewed}
+    brothy: {v: 0.35, src: grok_reviewed}
   reviewed_by: ishan
 - id: spinach
   name: Spinach
@@ -253,6 +273,7 @@ ingredients:
     sweet: {v: 0.18, src: team, note: 'unripe fruit, ~2-3 g sugar/100g; USDA lists only ripe papaya at 7.82 g (fdc 169926)'}
     crispy: {v: 0.8, src: team, note: shredded green papaya is the texture of som tam}
     herbal: {v: 0.2, src: team}
+    fruity: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: long_bean
   name: Long bean
@@ -264,6 +285,7 @@ ingredients:
     sweet: {v: 0.15, src: team, note: the USDA yardlong row carries no sugar figure; green-bean analogue ~2 g/100g}
     crispy: {v: 0.6, src: team}
     herbal: {v: 0.3, src: team}
+    earthy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: potato
   name: Potato
@@ -285,6 +307,8 @@ ingredients:
   profile:
     salty: {v: 0.01, src: usda, note: 'sodium 16.1 mg/100g (fdc 2346388: Lettuce, iceberg, raw)'}
     rich: {v: 0.0, src: usda, note: 'fat 0.0738 g/100g (fdc 2346388: Lettuce, iceberg, raw)'}
+    herbal: {v: 0.1, src: grok_reviewed}
+    crispy: {v: 0.45, src: grok_reviewed}
   reviewed_by: ishan
 - id: daikon
   name: Daikon
@@ -305,6 +329,9 @@ ingredients:
   profile:
     salty: {v: 0.06, src: usda, note: 'sodium 97.2 mg/100g (fdc 2346405: Celery, raw)'}
     rich: {v: 0.01, src: usda, note: 'fat 0.162 g/100g (fdc 2346405: Celery, raw)'}
+    herbal: {v: 0.3, src: grok_reviewed}
+    crispy: {v: 0.65, src: grok_reviewed}
+    chewy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: zucchini
   name: Zucchini
@@ -314,6 +341,7 @@ ingredients:
   profile:
     salty: {v: 0.0, src: usda, note: 'sodium 3.0 mg/100g (fdc 168565: Squash, zucchini, baby, raw)'}
     rich: {v: 0.02, src: usda, note: 'fat 0.4 g/100g (fdc 168565: Squash, zucchini, baby, raw)'}
+    earthy: {v: 0.1, src: grok_reviewed}
   reviewed_by: ishan
 - id: bell_pepper
   name: Bell pepper
@@ -323,6 +351,8 @@ ingredients:
   profile:
     salty: {v: 0.0, src: usda, note: 'sodium 0.0 mg/100g (fdc 2258588: Peppers, bell, green, raw)'}
     rich: {v: 0.0, src: usda, note: 'fat 0.106 g/100g (fdc 2258588: Peppers, bell, green, raw)'}
+    fruity: {v: 0.25, src: grok_reviewed}
+    crispy: {v: 0.5, src: grok_reviewed}
   reviewed_by: ishan
 - id: fennel
   name: Fennel
@@ -331,6 +361,8 @@ ingredients:
   profile:
     salty: {v: 0.03, src: usda, note: 'sodium 49.0 mg/100g (fdc 2747655: Fennel, bulb, raw)'}
     rich: {v: 0.01, src: usda, note: 'fat 0.14 g/100g (fdc 2747655: Fennel, bulb, raw)'}
+    herbal: {v: 0.65, src: grok_reviewed}
+    crispy: {v: 0.4, src: grok_reviewed}
   reviewed_by: ishan
 - id: avocado
   name: Avocado
@@ -363,4 +395,6 @@ ingredients:
     sweet: {v: 0.14, src: usda, note: 'sugar 1.86 g/100g (fdc 169276: Radishes, raw)'}
     salty: {v: 0.03, src: usda, note: 'sodium 39.0 mg/100g (fdc 169276: Radishes, raw)'}
     rich: {v: 0.0, src: usda, note: 'fat 0.1 g/100g (fdc 169276: Radishes, raw)'}
+    spicy: {v: 0.2, src: grok_reviewed}
+    crispy: {v: 0.5, src: grok_reviewed}
   reviewed_by: ishan

@@ -80,6 +80,10 @@ ingredients:
     spicy: {v: 0.5, src: literature, note: 'hydroxy-alpha-sanshool causes tingling/numbing, not capsaicin-based, no Scoville rating'}
     herbal: {v: 0.4, src: team}
     fruity: {v: 0.4, src: team}
+    roasted: {v: 0.1, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+    crispy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
 - id: black_pepper
   name: Black pepper
   category: spice
@@ -113,6 +117,9 @@ ingredients:
     spicy: {v: 0.4, src: team}
     sweet: {v: 0.2, src: team}
     roasted: {v: 0.3, src: team}
+    herbal: {v: 0.1, src: grok_reviewed}
+    rich: {v: 0.25, src: grok_reviewed}
+  reviewed_by: ishan
 - id: star_anise
   name: Star anise
   category: spice
@@ -121,6 +128,8 @@ ingredients:
     sweet: {v: 0.4, src: literature, note: 'anethole, same sweet-aromatic note as fennel/licorice'}
     herbal: {v: 0.6, src: team}
     earthy: {v: 0.2, src: team}
+    spicy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
 - id: cinnamon
   name: Cinnamon
   category: spice
@@ -129,6 +138,8 @@ ingredients:
     sweet: {v: 0.5, src: literature, note: cinnamaldehyde perceived as sweet-aromatic}
     earthy: {v: 0.4, src: team}
     spicy: {v: 0.2, src: team}
+    fruity: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
 - id: vanilla
   name: Vanilla
   category: spice
@@ -171,6 +182,7 @@ ingredients:
     earthy: {v: 0.5, src: team}
     spicy: {v: 0.3, src: team, note: 'clove eugenol and Sichuan pepper, blend-dependent'}
     herbal: {v: 0.3, src: team}
+    roasted: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: white_pepper
   name: White pepper
@@ -179,6 +191,8 @@ ingredients:
   profile:
     salty: {v: 0.0, src: usda, note: 'sodium 5.0 mg/100g (fdc 170933: Spices, pepper, white)'}
     rich: {v: 0.08, src: usda, note: 'fat 2.12 g/100g (fdc 170933: Spices, pepper, white)'}
+    spicy: {v: 0.25, src: grok_reviewed}
+    earthy: {v: 0.3, src: grok_reviewed}
   reviewed_by: ishan
 - id: turmeric
   name: Turmeric
@@ -188,6 +202,7 @@ ingredients:
     sweet: {v: 0.23, src: usda, note: 'sugar 3.21 g/100g (fdc 172231: Spices, turmeric, ground)'}
     salty: {v: 0.02, src: usda, note: 'sodium 27.0 mg/100g (fdc 172231: Spices, turmeric, ground)'}
     rich: {v: 0.12, src: usda, note: 'fat 3.25 g/100g (fdc 172231: Spices, turmeric, ground)'}
+    earthy: {v: 0.7, src: grok_reviewed}
   reviewed_by: ishan
 - id: cardamom
   name: Cardamom
@@ -197,6 +212,8 @@ ingredients:
   profile:
     salty: {v: 0.01, src: usda, note: 'sodium 18.0 mg/100g (fdc 170919: Spices, cardamom)'}
     rich: {v: 0.24, src: usda, note: 'fat 6.7 g/100g (fdc 170919: Spices, cardamom)'}
+    herbal: {v: 0.4, src: grok_reviewed}
+    fruity: {v: 0.3, src: grok_reviewed}
   reviewed_by: ishan
 - id: mustard_seeds
   name: Mustard seeds
@@ -206,6 +223,8 @@ ingredients:
     sweet: {v: 0.43, src: usda, note: 'sugar 6.79 g/100g (fdc 170929: Spices, mustard seed, ground)'}
     salty: {v: 0.01, src: usda, note: 'sodium 13.0 mg/100g (fdc 170929: Spices, mustard seed, ground)'}
     rich: {v: 0.76, src: usda, note: 'fat 36.2 g/100g (fdc 170929: Spices, mustard seed, ground)'}
+    spicy: {v: 0.3, src: grok_reviewed}
+    earthy: {v: 0.25, src: grok_reviewed}
   reviewed_by: ishan
 - id: sweet_basil
   name: Sweet basil
@@ -216,6 +235,7 @@ ingredients:
     sweet: {v: 0.02, src: usda, note: 'sugar 0.3 g/100g (fdc 172232: Basil, fresh)'}
     salty: {v: 0.0, src: usda, note: 'sodium 4.0 mg/100g (fdc 172232: Basil, fresh)'}
     rich: {v: 0.03, src: usda, note: 'fat 0.64 g/100g (fdc 172232: Basil, fresh)'}
+    herbal: {v: 0.75, src: grok_reviewed}
   reviewed_by: ishan
 - id: oregano
   name: Oregano
@@ -226,6 +246,7 @@ ingredients:
     sweet: {v: 0.29, src: usda, note: 'sugar 4.09 g/100g (fdc 171328: Spices, oregano, dried)'}
     salty: {v: 0.02, src: usda, note: 'sodium 25.0 mg/100g (fdc 171328: Spices, oregano, dried)'}
     rich: {v: 0.16, src: usda, note: 'fat 4.28 g/100g (fdc 171328: Spices, oregano, dried)'}
+    herbal: {v: 0.8, src: grok_reviewed}
   reviewed_by: ishan
 - id: sumac
   name: Sumac

@@ -12,6 +12,7 @@ ingredients:
     salty: {v: 0.07, src: usda, note: 'sodium 111 mg/100g (fdc 175180: Crustaceans, shrimp, cooked)'}
     chewy: {v: 0.4, src: team}
     rich: {v: 0.01, src: usda, note: 'fat 0.28 g/100g (fdc 175180: Crustaceans, shrimp, cooked)'}
+    brothy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: salmon
   name: Salmon
@@ -22,6 +23,8 @@ ingredients:
     salty: {v: 0.04, src: usda, note: 'sodium 59 mg/100g (fdc 175167: Fish, salmon, Atlantic, farmed, raw)'}
     umami: {v: 0.5, src: literature, note: inosinate in fish muscle}
     chewy: {v: 0.25, src: team}
+    creamy: {v: 0.25, src: grok_reviewed}
+    brothy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: fish_cake
   name: Fish cake
@@ -34,6 +37,7 @@ ingredients:
     umami: {v: 0.5, src: team}
     chewy: {v: 0.6, src: team}
     rich: {v: 0.2, src: team, note: pan-fried cake carries some frying oil}
+    brothy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: catfish
   name: Catfish
@@ -43,6 +47,8 @@ ingredients:
     sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 175165: Fish, catfish, channel, farmed, raw)'}
     salty: {v: 0.06, src: usda, note: 'sodium 98.0 mg/100g (fdc 175165: Fish, catfish, channel, farmed, raw)'}
     rich: {v: 0.21, src: usda, note: 'fat 5.94 g/100g (fdc 175165: Fish, catfish, channel, farmed, raw)'}
+    earthy: {v: 0.3, src: grok_reviewed}
+    chewy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: mussels
   name: Mussels
@@ -51,6 +57,8 @@ ingredients:
     sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 174216: Mollusks, mussel, blue, raw)'}
     salty: {v: 0.17, src: usda, note: 'sodium 286 mg/100g (fdc 174216: Mollusks, mussel, blue, raw)'}
     rich: {v: 0.09, src: usda, note: 'fat 2.24 g/100g (fdc 174216: Mollusks, mussel, blue, raw)'}
+    chewy: {v: 0.4, src: grok_reviewed}
+    brothy: {v: 0.5, src: grok_reviewed}
   reviewed_by: ishan
 - id: white_fish
   name: White fish
@@ -62,4 +70,5 @@ ingredients:
     umami: {v: 0.4, src: literature, note: free amino acids and nucleotides in lean white fish}
     sweet: {v: 0.15, src: team, note: 'perceived sweetness from free amino acids, not sugar'}
     chewy: {v: 0.2, src: team}
+    brothy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan

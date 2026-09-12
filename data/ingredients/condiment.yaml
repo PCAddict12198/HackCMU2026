@@ -13,6 +13,9 @@ ingredients:
     umami: {v: 0.8, src: literature, note: 'high free glutamate, well-documented umami source'}
     fermented: {v: 0.7, src: literature, note: 'koji fermentation, weeks-months'}
     rich: {v: 0.0, src: usda, note: 'fat 0.1 g/100g (fdc 174278: Soy sauce made from soy (tamari))'}
+    roasted: {v: 0.25, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+    brothy: {v: 0.5, src: grok_reviewed}
   reviewed_by: ishan
 - id: fish_sauce
   name: Fish sauce
@@ -25,6 +28,7 @@ ingredients:
     fermented: {v: 0.85, src: literature, note: 'anchovy fermentation, 6-18 months'}
     sweet: {v: 0.26, src: usda, note: 'sugar 3.64 g/100g (fdc 174531: Sauce, fish, ready-to-serve)'}
     rich: {v: 0.0, src: usda, note: 'fat 0.01 g/100g (fdc 174531: Sauce, fish, ready-to-serve)'}
+    brothy: {v: 0.55, src: grok_reviewed}
   reviewed_by: ishan
 - id: doubanjiang
   name: Doubanjiang
@@ -36,6 +40,9 @@ ingredients:
     spicy: {v: 0.55, src: team, note: chili content varies by brand}
     fermented: {v: 0.8, src: literature, note: 'broad bean fermentation, months-years'}
     umami: {v: 0.65, src: team}
+    earthy: {v: 0.2, src: grok_reviewed}
+    rich: {v: 0.3, src: grok_reviewed}
+  reviewed_by: ishan
 - id: gochujang
   name: Gochujang
   category: condiment
@@ -46,6 +53,11 @@ ingredients:
     spicy: {v: 0.5, src: team, note: gochugaru content varies by brand}
     fermented: {v: 0.6, src: literature, note: soybean + rice fermentation}
     umami: {v: 0.5, src: team}
+    fruity: {v: 0.15, src: grok_reviewed}
+    earthy: {v: 0.2, src: grok_reviewed}
+    rich: {v: 0.35, src: grok_reviewed}
+    brothy: {v: 0.25, src: grok_reviewed}
+  reviewed_by: ishan
 - id: kimchi
   name: Kimchi
   category: condiment
@@ -78,6 +90,8 @@ ingredients:
     salty: {v: 0.2, src: team, note: depends on added salt}
     creamy: {v: 0.3, src: team}
     brothy: {v: 0.8, src: team}
+    roasted: {v: 0.1, src: grok_reviewed}
+  reviewed_by: ishan
 - id: beef_bone_broth
   name: Beef bone broth
   category: liquid
@@ -88,6 +102,8 @@ ingredients:
     salty: {v: 0.2, src: team}
     roasted: {v: 0.2, src: team}
     brothy: {v: 0.8, src: team}
+    earthy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
 - id: chicken_stock
   name: Chicken stock
   category: liquid
@@ -111,6 +127,8 @@ ingredients:
     sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 171891: Beverages, coffee, brewed, espresso, restaurant-prepared)'}
     salty: {v: 0.01, src: usda, note: 'sodium 14.0 mg/100g (fdc 171891: Beverages, coffee, brewed, espresso, restaurant-prepared)'}
     rich: {v: 0.01, src: usda, note: 'fat 0.18 g/100g (fdc 171891: Beverages, coffee, brewed, espresso, restaurant-prepared)'}
+    smoky: {v: 0.2, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: dashi
   name: Dashi
@@ -121,6 +139,7 @@ ingredients:
     umami: {v: 0.55, src: literature, note: 'kombu glutamate + katsuobushi inosinate, the classic umami synergy pair'}
     brothy: {v: 0.75, src: team}
     salty: {v: 0.08, src: team, note: unsalted infusion; salt arrives with the dish seasoning}
+    smoky: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: coconut_water
   name: Coconut water
@@ -130,6 +149,7 @@ ingredients:
     sweet: {v: 0.2, src: usda, note: 'sugar 2.61 g/100g (fdc 170174: Nuts, coconut water (liquid from coconuts))'}
     salty: {v: 0.07, src: usda, note: 'sodium 105 mg/100g (fdc 170174: Nuts, coconut water (liquid from coconuts))'}
     rich: {v: 0.01, src: usda, note: 'fat 0.2 g/100g (fdc 170174: Nuts, coconut water (liquid from coconuts))'}
+    fruity: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: water
   name: Water
@@ -147,6 +167,9 @@ ingredients:
     sweet: {v: 0.4, src: usda, note: 'sugar 6.2 g/100g (fdc 172442: Miso)'}
     salty: {v: 0.92, src: usda, note: 'sodium 3730.0 mg/100g (fdc 172442: Miso)'}
     rich: {v: 0.21, src: usda, note: 'fat 6.01 g/100g (fdc 172442: Miso)'}
+    fermented: {v: 0.7, src: grok_reviewed}
+    earthy: {v: 0.35, src: grok_reviewed}
+    brothy: {v: 0.5, src: grok_reviewed}
   reviewed_by: ishan
 - id: mirin
   name: Mirin
@@ -157,6 +180,7 @@ ingredients:
     sweet: {v: 0.96, src: team, note: hon mirin label sugar ~40 g/100g (glucose from rice starch); no canonical USDA entry}
     umami: {v: 0.2, src: team}
     fermented: {v: 0.35, src: literature, note: koji-fermented glutinous rice}
+    fruity: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: mayonnaise
   name: Mayonnaise
@@ -180,6 +204,9 @@ ingredients:
     umami: {v: 0.5, src: team}
     fruity: {v: 0.3, src: team, note: 'date, apple and tomato in the base'}
     sour: {v: 0.25, src: team}
+    fermented: {v: 0.25, src: grok_reviewed}
+    rich: {v: 0.4, src: grok_reviewed}
+    brothy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: rice_vinegar
   name: Rice vinegar
@@ -191,6 +218,7 @@ ingredients:
     fermented: {v: 0.5, src: literature, note: rice wine oxidised by acetic acid bacteria}
     umami: {v: 0.15, src: team, note: higher in the aged Chinkiang black vinegar carried as an alias here}
     sweet: {v: 0.1, src: team}
+    fruity: {v: 0.1, src: grok_reviewed}
   reviewed_by: ishan
 - id: hoisin
   name: Hoisin sauce
@@ -201,6 +229,9 @@ ingredients:
     sweet: {v: 0.9, src: usda, note: 'sugar 27.3 g/100g (fdc 172886: Sauce, hoisin, ready-to-serve)'}
     salty: {v: 0.66, src: usda, note: 'sodium 1620.0 mg/100g (fdc 172886: Sauce, hoisin, ready-to-serve)'}
     rich: {v: 0.13, src: usda, note: 'fat 3.39 g/100g (fdc 172886: Sauce, hoisin, ready-to-serve)'}
+    fermented: {v: 0.45, src: grok_reviewed}
+    fruity: {v: 0.2, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: sesame_paste
   name: Sesame paste
@@ -210,6 +241,9 @@ ingredients:
   profile:
     salty: {v: 0.01, src: usda, note: 'sodium 12.0 mg/100g (fdc 170191: Seeds, sesame butter, paste)'}
     rich: {v: 0.87, src: usda, note: 'fat 50.9 g/100g (fdc 170191: Seeds, sesame butter, paste)'}
+    roasted: {v: 0.4, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+    creamy: {v: 0.65, src: grok_reviewed}
   reviewed_by: ishan
 - id: green_curry_paste
   name: Green curry paste
@@ -233,6 +267,8 @@ ingredients:
     salty: {v: 0.7, src: team, note: label sodium ~2100 mg/100g}
     umami: {v: 0.3, src: team}
     fermented: {v: 0.2, src: team}
+    roasted: {v: 0.4, src: grok_reviewed}
+    rich: {v: 0.3, src: grok_reviewed}
   reviewed_by: ishan
 - id: tamarind
   name: Tamarind
@@ -243,6 +279,7 @@ ingredients:
     sweet: {v: 0.96, src: usda, note: 'sugar 38.8 g/100g (fdc 167763: Tamarinds, raw)'}
     sour: {v: 0.8, src: literature, note: 'tartaric acid, the dominant organic acid in tamarind pulp'}
     fruity: {v: 0.6, src: team, note: pulp basis; the paste and water aliases are dilutions of it}
+    earthy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: shrimp_paste
   name: Shrimp paste
@@ -253,6 +290,9 @@ ingredients:
     salty: {v: 0.95, src: team, note: 'no USDA entry; label sodium ~8000 mg/100g, formula saturates'}
     umami: {v: 0.9, src: literature, note: 'fermented crustacean, very high free glutamate and nucleotides'}
     fermented: {v: 0.95, src: literature, note: months-long salt fermentation}
+    earthy: {v: 0.2, src: grok_reviewed}
+    rich: {v: 0.6, src: grok_reviewed}
+    brothy: {v: 0.4, src: grok_reviewed}
   reviewed_by: ishan
 - id: tahini
   name: Tahini
@@ -262,6 +302,9 @@ ingredients:
   profile:
     salty: {v: 0.02, src: usda, note: 'sodium 35.0 mg/100g (fdc 168604: Seeds, sesame butter, tahini, type of kernels unspecified)'}
     rich: {v: 0.88, src: usda, note: 'fat 53.0 g/100g (fdc 168604: Seeds, sesame butter, tahini, type of kernels unspecified)'}
+    roasted: {v: 0.35, src: grok_reviewed}
+    earthy: {v: 0.2, src: grok_reviewed}
+    creamy: {v: 0.6, src: grok_reviewed}
   reviewed_by: ishan
 - id: pomegranate_molasses
   name: Pomegranate molasses
@@ -271,6 +314,8 @@ ingredients:
     sweet: {v: 0.99, src: team, note: juice reduced ~5x; label sugar ~60 g/100g}
     sour: {v: 0.85, src: literature, note: 'citric and malic acid concentrated by the reduction, pH ~2.5'}
     fruity: {v: 0.8, src: team}
+    roasted: {v: 0.15, src: grok_reviewed}
+    rich: {v: 0.4, src: grok_reviewed}
   reviewed_by: ishan
 - id: rose_water
   name: Rose water
@@ -290,6 +335,9 @@ ingredients:
     bitter: {v: 0.35, src: literature, note: condensed tannins from skins and seeds}
     fruity: {v: 0.5, src: team}
     sweet: {v: 0.05, src: team, note: dry red residual sugar <1 g/100g}
+    fermented: {v: 0.4, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+    rich: {v: 0.3, src: grok_reviewed}
   reviewed_by: ishan
 - id: white_wine
   name: White wine
@@ -299,6 +347,8 @@ ingredients:
     sweet: {v: 0.08, src: usda, note: 'sugar 0.96 g/100g (fdc 174837: Alcoholic beverage, wine, table, white)'}
     salty: {v: 0.0, src: usda, note: 'sodium 5.0 mg/100g (fdc 174837: Alcoholic beverage, wine, table, white)'}
     rich: {v: 0.0, src: usda, note: 'fat 0.0 g/100g (fdc 174837: Alcoholic beverage, wine, table, white)'}
+    fermented: {v: 0.4, src: grok_reviewed}
+    fruity: {v: 0.4, src: grok_reviewed}
   reviewed_by: ishan
 - id: lentils
   name: Lentils

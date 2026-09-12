@@ -77,6 +77,8 @@ ingredients:
     earthy: {v: 0.2, src: team}
     creamy: {v: 0.4, src: team}
     sweet: {v: 0.03, src: usda, note: 'sugar 0.36 g/100g (fdc 171242: Cheese, gruyere)'}
+    roasted: {v: 0.2, src: grok_reviewed}
+    chewy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: paneer
   name: Paneer
@@ -122,4 +124,6 @@ ingredients:
     sweet: {v: 0.18, src: usda, note: 'sugar 2.32 g/100g (fdc 172223: Cheese, fresh, queso fresco)'}
     salty: {v: 0.39, src: usda, note: 'sodium 751 mg/100g (fdc 172223: Cheese, fresh, queso fresco)'}
     rich: {v: 0.61, src: usda, note: 'fat 23.8 g/100g (fdc 172223: Cheese, fresh, queso fresco)'}
+    fermented: {v: 0.1, src: grok_reviewed}
+    creamy: {v: 0.45, src: grok_reviewed}
   reviewed_by: ishan

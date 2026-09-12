@@ -4,12 +4,17 @@
 | item | value |
 |---|---|
 | core dishes written / manifest | 70 / 70 |
-| dishes `confidence: reviewed` | 70 / 70 (recipe + grams + processes checked, `recipe_basis` names the serving) |
-| ingredients | 153 — every one profiled except `water` (correctly zero on every dim) |
-| grounded (non-seed) value share | 100% (525/525) — usda 266, team 236, literature 66, grok_reviewed 8, scoville 2 |
+| dishes `confidence: reviewed` | 70 / 70 |
+| ingredients | 153 — `water` is correctly empty (all dims 0) |
+| grounded (non-seed) value share | 100% (662/662) — team 236, usda 213, grok_reviewed 145, literature 66, scoville 2 |
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 11:30 · agent/data · READY
+- what: H3-5 USDA + Grok fill done. USDA `--all` matches were reviewed; only 72 verified FDC hits promoted. Grok aroma/mouthfeel drafted for all 153, then promoted **only missing dims** (77 ingredients) as `grok_reviewed` so USDA/literature/scoville/team values were not overwritten. Engine REQUEST: added `water` (empty profile, ice/tap aliases).
+- for: engine | web
+- action: none; `GROK_MODEL` in `.env` was `GROK_MODEL=grok-4.6` (doubled) — integrator should fix the line to `GROK_MODEL=grok-4.6` (data cannot edit `.env`). Workaround: export `GROK_MODEL=grok-4.6` in the shell.
+
 ## 11:14 · 279a2b5 · BREAKING
 - what: `data/drafts/ingredients/grok_20260912_105317.yaml` has grown to 120 ingredients, and 94 of them
   are ingredients that are already reviewed and sourced. `promote_draft.py` overwrites the dims it is

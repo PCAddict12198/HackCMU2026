@@ -13,6 +13,7 @@ ingredients:
     umami: {v: 0.5, src: team}
     salty: {v: 0.03, src: usda, note: 'sodium 49.7 mg/100g (fdc 2727576: Pork, belly, with skin, raw)'}
     chewy: {v: 0.3, src: team}
+    creamy: {v: 0.4, src: grok_reviewed}
   reviewed_by: ishan
 - id: ground_pork
   name: Ground pork
@@ -21,6 +22,7 @@ ingredients:
     rich: {v: 0.5, src: usda, note: 'fat 17.5 g/100g (fdc 2514745: Pork, ground, raw)'}
     umami: {v: 0.5, src: team}
     salty: {v: 0.04, src: usda, note: 'sodium 53.6 mg/100g (fdc 2514745: Pork, ground, raw)'}
+    chewy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: pork_shoulder
   name: Pork shoulder
@@ -31,6 +33,7 @@ ingredients:
     chewy: {v: 0.3, src: team}
     sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 169187: Pork, Shoulder breast, boneless, separable lean and fat, raw)'}
     salty: {v: 0.04, src: usda, note: 'sodium 54.0 mg/100g (fdc 169187: Pork, Shoulder breast, boneless, separable lean and fat, raw)'}
+    creamy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: guanciale
   name: Guanciale
@@ -42,6 +45,8 @@ ingredients:
     salty: {v: 0.75, src: team, note: 'cured product, sodium varies by cure, no fixed USDA entry'}
     umami: {v: 0.6, src: team}
     fermented: {v: 0.2, src: team}
+    chewy: {v: 0.4, src: grok_reviewed}
+  reviewed_by: ishan
 - id: chicken_thigh
   name: Chicken thigh
   category: protein
@@ -59,6 +64,9 @@ ingredients:
     rich: {v: 0.2, src: usda, note: 'fat 5.71 g/100g (fdc 2727574: Beef, top sirloin steak, raw)'}
     chewy: {v: 0.3, src: team}
     salty: {v: 0.03, src: usda, note: 'sodium 42.8 mg/100g (fdc 2727574: Beef, top sirloin steak, raw)'}
+    roasted: {v: 0.35, src: grok_reviewed}
+    earthy: {v: 0.1, src: grok_reviewed}
+    brothy: {v: 0.15, src: grok_reviewed}
   reviewed_by: ishan
 - id: tofu
   name: Tofu
@@ -84,6 +92,8 @@ ingredients:
     sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 172617: Lamb, New Zealand, imported, ground lamb, raw)'}
     salty: {v: 0.04, src: usda, note: 'sodium 57.0 mg/100g (fdc 172617: Lamb, New Zealand, imported, ground lamb, raw)'}
     rich: {v: 0.39, src: usda, note: 'fat 12.4 g/100g (fdc 172617: Lamb, New Zealand, imported, ground lamb, raw)'}
+    earthy: {v: 0.3, src: grok_reviewed}
+    chewy: {v: 0.3, src: grok_reviewed}
   reviewed_by: ishan
 - id: veal_shank
   name: Veal shank
@@ -93,6 +103,8 @@ ingredients:
     sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 172648: Veal, shank, separable lean and fat, raw)'}
     salty: {v: 0.07, src: usda, note: 'sodium 107 mg/100g (fdc 172648: Veal, shank, separable lean and fat, raw)'}
     rich: {v: 0.12, src: usda, note: 'fat 3.3 g/100g (fdc 172648: Veal, shank, separable lean and fat, raw)'}
+    chewy: {v: 0.2, src: grok_reviewed}
+    brothy: {v: 0.5, src: grok_reviewed}
   reviewed_by: ishan
 - id: ham
   name: Ham
@@ -103,6 +115,9 @@ ingredients:
     sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 173865: Ham, minced)'}
     salty: {v: 0.56, src: usda, note: 'sodium 1240.0 mg/100g (fdc 173865: Ham, minced)'}
     rich: {v: 0.56, src: usda, note: 'fat 20.7 g/100g (fdc 173865: Ham, minced)'}
+    smoky: {v: 0.3, src: grok_reviewed}
+    fermented: {v: 0.15, src: grok_reviewed}
+    chewy: {v: 0.25, src: grok_reviewed}
   reviewed_by: ishan
 - id: chickpeas
   name: Chickpeas
@@ -122,6 +137,8 @@ ingredients:
     salty: {v: 0.04, src: usda, note: 'sodium 59 mg/100g (fdc 172409: Duck, domesticated, meat and skin, cooked, roasted)'}
     umami: {v: 0.55, src: literature, note: inosinate-rich dark poultry meat}
     chewy: {v: 0.3, src: team}
+    earthy: {v: 0.1, src: grok_reviewed}
+    creamy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: mung_bean
   name: Mung bean

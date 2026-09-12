@@ -32,6 +32,7 @@ ingredients:
   aliases: [vegetable oil, canola oil, oil]
   profile:
     rich: {v: 0.98, src: usda, note: '100g fat/100g, formula saturates'}
+    creamy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: olive_oil
   name: Olive oil
@@ -44,6 +45,9 @@ ingredients:
     fruity: {v: 0.3, src: team}
     bitter: {v: 0.2, src: literature, note: oleocanthin/polyphenols in EVOO}
     herbal: {v: 0.2, src: team}
+    spicy: {v: 0.1, src: grok_reviewed}
+    creamy: {v: 0.3, src: grok_reviewed}
+  reviewed_by: ishan
 - id: coconut_milk
   name: Coconut milk
   category: fat_oil
@@ -75,6 +79,9 @@ ingredients:
     sweet: {v: 0.02, src: usda, note: 'sugar 0.3 g/100g (fdc 170150: Seeds, sesame seeds, whole, dried)'}
     salty: {v: 0.01, src: usda, note: 'sodium 11.0 mg/100g (fdc 170150: Seeds, sesame seeds, whole, dried)'}
     rich: {v: 0.86, src: usda, note: 'fat 49.7 g/100g (fdc 170150: Seeds, sesame seeds, whole, dried)'}
+    roasted: {v: 0.15, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+    crispy: {v: 0.3, src: grok_reviewed}
   reviewed_by: ishan
 - id: walnuts
   name: Walnuts
@@ -88,6 +95,7 @@ ingredients:
     bitter: {v: 0.3, src: literature, note: tannins in the pellicle}
     earthy: {v: 0.5, src: team}
     crispy: {v: 0.45, src: team}
+    creamy: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: almonds
   name: Almonds

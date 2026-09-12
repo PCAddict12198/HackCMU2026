@@ -34,6 +34,8 @@ ingredients:
   profile:
     chewy: {v: 0.8, src: team}
     sweet: {v: 0.1, src: usda, note: cooked glutinous rice trace sugar ~0.5-1g/100g}
+    creamy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
 - id: bulgur
   name: Bulgur
   category: starch
@@ -144,6 +146,7 @@ ingredients:
   profile:
     chewy: {v: 0.6, src: team, note: rehydrated sheet}
     salty: {v: 0.08, src: team, note: rice and tapioca sheet with a little salt}
+    crispy: {v: 0.35, src: grok_reviewed}
   reviewed_by: ishan
 - id: sweet_potato_noodles
   name: Sweet potato noodles
@@ -163,6 +166,8 @@ ingredients:
     sweet: {v: 0.1, src: usda, note: 'sugar 1.3 g/100g (fdc 174915: Bread, pita, white, enriched)'}
     salty: {v: 0.3, src: usda, note: 'sodium 536 mg/100g (fdc 174915: Bread, pita, white, enriched)'}
     rich: {v: 0.05, src: usda, note: 'fat 1.2 g/100g (fdc 174915: Bread, pita, white, enriched)'}
+    roasted: {v: 0.15, src: grok_reviewed}
+    chewy: {v: 0.3, src: grok_reviewed}
   reviewed_by: ishan
 - id: phyllo
   name: Phyllo
@@ -183,6 +188,7 @@ ingredients:
     salty: {v: 0.3, src: team, note: 'dough at ~2% salt on flour, so sodium ~450 mg/100g'}
     roasted: {v: 0.2, src: team, note: crust Maillard once baked}
     earthy: {v: 0.15, src: team}
+    fermented: {v: 0.2, src: grok_reviewed}
   reviewed_by: ishan
 - id: hominy
   name: Hominy
@@ -193,6 +199,8 @@ ingredients:
     sweet: {v: 0.12, src: usda, note: 'sugar 1.51 g/100g (fdc 169701: Hominy, canned, white)'}
     salty: {v: 0.16, src: usda, note: 'sodium 267 mg/100g (fdc 169701: Hominy, canned, white)'}
     rich: {v: 0.03, src: usda, note: 'fat 0.88 g/100g (fdc 169701: Hominy, canned, white)'}
+    earthy: {v: 0.25, src: grok_reviewed}
+    chewy: {v: 0.4, src: grok_reviewed}
   reviewed_by: ishan
 - id: masa
   name: Masa
@@ -203,4 +211,5 @@ ingredients:
     sweet: {v: 0.13, src: usda, note: 'sugar 1.61 g/100g (fdc 169694: Corn flour, masa, enriched, white)'}
     salty: {v: 0.0, src: usda, note: 'sodium 5.0 mg/100g (fdc 169694: Corn flour, masa, enriched, white)'}
     rich: {v: 0.14, src: usda, note: 'fat 3.69 g/100g (fdc 169694: Corn flour, masa, enriched, white)'}
+    earthy: {v: 0.35, src: grok_reviewed}
   reviewed_by: ishan

@@ -855,3 +855,1253 @@ ingredients:
     rich:
       v: 0.35
       src: grok_draft
+- id: hominy
+  name: Hominy
+  category: starch
+  potency: 0.7
+  note: Nixtamalized maize kernels tasting mildly of earthy corn with a plump, distinctly chewy bite and little else.
+  profile:
+    earthy:
+      v: 0.25
+      src: grok_draft
+    chewy:
+      v: 0.4
+      src: grok_draft
+- id: kaffir_lime_leaf
+  name: Makrut lime leaf
+  category: herb
+  potency: 7.5
+  note: Intensely aromatic citrus-herb leaf whose neat flavor is almost entirely floral-lime oils.
+  profile:
+    herbal:
+      v: 0.8
+      src: grok_draft
+    fruity:
+      v: 0.35
+      src: grok_draft
+- id: kimchi
+  name: Kimchi
+  category: condiment
+  potency: 4.5
+  note: Lactic-fermented cabbage condiment dominated by gochugaru heat, pungent funk, and remaining cabbage crunch.
+  profile:
+    spicy:
+      v: 0.45
+      src: grok_draft
+    fermented:
+      v: 0.8
+      src: grok_draft
+    crispy:
+      v: 0.35
+      src: grok_draft
+- id: ladyfingers
+  name: Ladyfingers
+  category: starch
+  potency: 0.6
+  note: Dry sponge biscuits that are faintly sweet and mainly crisp, with negligible savory or aromatic dimensions.
+  profile:
+    crispy:
+      v: 0.5
+      src: grok_draft
+- id: lamb
+  name: Lamb
+  category: protein
+  potency: 1.2
+  note: Distinctively flavored red meat that is fatty-rich and mildly gamey-earthy with typical muscle chew.
+  profile:
+    earthy:
+      v: 0.3
+      src: grok_draft
+    rich:
+      v: 0.6
+      src: grok_draft
+    chewy:
+      v: 0.3
+      src: grok_draft
+- id: lemon_juice
+  name: Lemon juice
+  category: fruit
+  potency: 5.5
+  note: Bright citrus juice that registers as intense fruity-acid with no heat, smoke, body, or texture.
+  profile:
+    fruity:
+      v: 0.75
+      src: grok_draft
+- id: lemongrass
+  name: Lemongrass
+  category: herb
+  potency: 6.0
+  note: Citrus-herb stalk tasting neat as lemony-herbal aromatics with little else.
+  profile:
+    herbal:
+      v: 0.7
+      src: grok_draft
+    fruity:
+      v: 0.4
+      src: grok_draft
+- id: lentils
+  name: Lentils
+  category: legume
+  potency: 1.0
+  note: Mild cooked pulses whose neat flavor is primarily dusty earthiness with a soft, unremarkable bite.
+  profile:
+    earthy:
+      v: 0.45
+      src: grok_draft
+- id: lettuce
+  name: Lettuce
+  category: vegetable
+  potency: 0.4
+  note: Mild watery greens that contribute crunch far more than flavor when eaten plain.
+  profile:
+    herbal:
+      v: 0.1
+      src: grok_draft
+    crispy:
+      v: 0.45
+      src: grok_draft
+- id: lime_juice
+  name: Lime juice
+  category: fruit
+  potency: 5.5
+  note: Neat lime juice is almost pure citrus-fruit aroma and juice, with no fat, roast, or herbal ballast.
+  profile:
+    fruity:
+      v: 0.75
+      src: grok_draft
+- id: long_bean
+  name: Long bean
+  category: vegetable
+  potency: 0.6
+  note: Raw yardlong beans are snappy and only faintly grassy-earthy, otherwise nearly blank.
+  profile:
+    herbal:
+      v: 0.1
+      src: grok_draft
+    earthy:
+      v: 0.15
+      src: grok_draft
+    crispy:
+      v: 0.3
+      src: grok_draft
+- id: mandarin_pancake
+  name: Mandarin pancake
+  category: starch
+  potency: 0.5
+  note: A soft, mildly chewy wheat wrapper that is essentially a bland starch when tasted alone.
+  profile:
+    chewy:
+      v: 0.3
+      src: grok_draft
+- id: mango
+  name: Mango
+  category: fruit
+  potency: 1.4
+  note: Ripe mango is a benchmark tropical fruit with lush, slightly creamy flesh and little else on these axes.
+  profile:
+    fruity:
+      v: 0.8
+      src: grok_draft
+    creamy:
+      v: 0.3
+      src: grok_draft
+- id: masa
+  name: Masa
+  category: starch
+  potency: 1.1
+  note: Nixtamalized corn dough tastes distinctly earthy and modestly corn-rich, without spice, smoke, or fermentation.
+  profile:
+    earthy:
+      v: 0.35
+      src: grok_draft
+    rich:
+      v: 0.15
+      src: grok_draft
+- id: mascarpone
+  name: Mascarpone
+  category: dairy
+  potency: 2.2
+  note: Almost pure dairy fat and silk, sitting near the heavy-cream anchor for creaminess with substantial richness and no
+    savory funk.
+  profile:
+    rich:
+      v: 0.7
+      src: grok_draft
+    creamy:
+      v: 0.9
+      src: grok_draft
+- id: massaman_curry_paste
+  name: Massaman curry paste
+  category: condiment
+  potency: 7.5
+  note: Concentrated roasted warm spices, mild chili heat, shrimp-paste fermentation, and Thai aromatics, so several dimensions
+    register but none at ceiling.
+  profile:
+    spicy:
+      v: 0.4
+      src: grok_draft
+    roasted:
+      v: 0.4
+      src: grok_draft
+    fermented:
+      v: 0.25
+      src: grok_draft
+    herbal:
+      v: 0.3
+      src: grok_draft
+    earthy:
+      v: 0.25
+      src: grok_draft
+    rich:
+      v: 0.3
+      src: grok_draft
+- id: matcha
+  name: Matcha
+  category: spice
+  potency: 7.0
+  note: Neat matcha powder is grassy-herbal and slightly earthy with a hint of umami, without roast, smoke, or heat.
+  profile:
+    herbal:
+      v: 0.6
+      src: grok_draft
+    earthy:
+      v: 0.25
+      src: grok_draft
+    rich:
+      v: 0.15
+      src: grok_draft
+- id: mayonnaise
+  name: Mayonnaise
+  category: condiment
+  potency: 2.5
+  note: Tasted neat, mayonnaise is an emulsified fat condiment that reads almost only as creamy and moderately rich.
+  profile:
+    rich:
+      v: 0.5
+      src: grok_draft
+    creamy:
+      v: 0.8
+      src: grok_draft
+- id: mint
+  name: Mint
+  category: herb
+  potency: 6.0
+  note: Fresh mint tasted neat is almost purely herbal-menthol, with no savory, roasted, or textural flavor notes.
+  profile:
+    herbal:
+      v: 0.85
+      src: grok_draft
+- id: mirin
+  name: Mirin
+  category: condiment
+  potency: 4.0
+  note: Neat mirin is a sweet rice wine with only mild fermented and sweet-fruity character beyond its sugar.
+  profile:
+    fermented:
+      v: 0.2
+      src: grok_draft
+    fruity:
+      v: 0.2
+      src: grok_draft
+- id: miso
+  name: Miso
+  category: condiment
+  potency: 6.0
+  note: Neat miso paste is dominated by fermentation and umami-brothiness, with moderate earthy richness.
+  profile:
+    fermented:
+      v: 0.7
+      src: grok_draft
+    earthy:
+      v: 0.35
+      src: grok_draft
+    rich:
+      v: 0.45
+      src: grok_draft
+    brothy:
+      v: 0.5
+      src: grok_draft
+- id: mozzarella
+  name: Mozzarella
+  category: dairy
+  potency: 2.0
+  note: Neat mozzarella is a mild milky cheese that is modestly creamy and rich with a springy chew.
+  profile:
+    rich:
+      v: 0.25
+      src: grok_draft
+    creamy:
+      v: 0.45
+      src: grok_draft
+    chewy:
+      v: 0.4
+      src: grok_draft
+- id: mung_bean
+  name: Mung bean
+  category: legume
+  potency: 0.8
+  note: Cooked mung beans tasted neat are a bland starchy legume with only faint earthy-beany flavor.
+  profile:
+    earthy:
+      v: 0.2
+      src: grok_draft
+- id: mushroom
+  name: Mushroom
+  category: vegetable
+  potency: 1.5
+  note: Common mushrooms tasted neat are mainly earthy, with mild umami-brothy notes and a faintly chewy bite.
+  profile:
+    earthy:
+      v: 0.55
+      src: grok_draft
+    rich:
+      v: 0.15
+      src: grok_draft
+    chewy:
+      v: 0.25
+      src: grok_draft
+    brothy:
+      v: 0.2
+      src: grok_draft
+- id: mussels
+  name: Mussels
+  category: seafood
+  potency: 1.5
+  note: Neat mussels are briny and modestly chewy, with mineral ocean liquor that reads as brothy and only mildly rich.
+  profile:
+    rich:
+      v: 0.2
+      src: grok_draft
+    chewy:
+      v: 0.4
+      src: grok_draft
+    brothy:
+      v: 0.5
+      src: grok_draft
+- id: mustard_seeds
+  name: Mustard seeds
+  category: spice
+  potency: 8.0
+  note: Whole mustard seeds tasted neat are sinus-clearing and pungent with a dry earthy seed note and little else.
+  profile:
+    spicy:
+      v: 0.3
+      src: grok_draft
+    earthy:
+      v: 0.25
+      src: grok_draft
+- id: neutral_oil
+  name: Neutral oil
+  category: fat_oil
+  potency: 0.5
+  note: Refined neutral oil is nearly blank aside from a light fatty coat that registers as faintly rich and creamy.
+  profile:
+    rich:
+      v: 0.15
+      src: grok_draft
+    creamy:
+      v: 0.2
+      src: grok_draft
+- id: nori
+  name: Nori
+  category: vegetable
+  potency: 5.0
+  note: Dry toasted nori is brittle-crisp with roasted seaweed umami, mild ocean brothiness, and a touch of marine earth.
+  profile:
+    roasted:
+      v: 0.3
+      src: grok_draft
+    earthy:
+      v: 0.2
+      src: grok_draft
+    rich:
+      v: 0.15
+      src: grok_draft
+    crispy:
+      v: 0.5
+      src: grok_draft
+    brothy:
+      v: 0.3
+      src: grok_draft
+- id: okonomiyaki_sauce
+  name: Okonomiyaki sauce
+  category: condiment
+  potency: 5.5
+  note: This sweet-savory Japanese condiment tastes of fruit paste and molasses-like richness with modest soy-worcestershire
+    fermentation.
+  profile:
+    fermented:
+      v: 0.25
+      src: grok_draft
+    fruity:
+      v: 0.35
+      src: grok_draft
+    rich:
+      v: 0.4
+      src: grok_draft
+    brothy:
+      v: 0.2
+      src: grok_draft
+- id: olive_oil
+  name: Olive oil
+  category: fat_oil
+  potency: 2.0
+  note: Neat extra-virgin olive oil is olive-fruity and grassy-herbal, with coating richness and a faint peppery tickle.
+  profile:
+    spicy:
+      v: 0.1
+      src: grok_draft
+    herbal:
+      v: 0.25
+      src: grok_draft
+    fruity:
+      v: 0.3
+      src: grok_draft
+    rich:
+      v: 0.35
+      src: grok_draft
+    creamy:
+      v: 0.3
+      src: grok_draft
+- id: onion
+  name: Onion
+  category: vegetable
+  potency: 2.0
+  note: Raw onion is watery-crisp and sulfurously pungent, without roasted, herbal, or brothy character until cooked.
+  profile:
+    spicy:
+      v: 0.2
+      src: grok_draft
+    crispy:
+      v: 0.3
+      src: grok_draft
+- id: orange_juice
+  name: Orange juice
+  category: fruit
+  potency: 2.0
+  note: Orange juice neat is almost purely citrus-fruity, with no smoke, roast, savoriness, or notable texture.
+  profile:
+    fruity:
+      v: 0.85
+      src: grok_draft
+- id: oregano
+  name: Oregano
+  category: herb
+  potency: 7.0
+  note: Dried oregano tasted neat is a highly concentrated Mediterranean herb with a pungent, slightly bitter herbal aroma
+    and almost no other sensory dimensions.
+  profile:
+    herbal:
+      v: 0.8
+      src: grok_draft
+- id: paneer
+  name: Paneer
+  category: dairy
+  potency: 1.5
+  note: Fresh acid-set paneer is a mild, milky cheese that is only modestly rich and creamy, with little fermentation or other
+    flavor when eaten plain.
+  profile:
+    rich:
+      v: 0.25
+      src: grok_draft
+    creamy:
+      v: 0.3
+      src: grok_draft
+- id: panko
+  name: Panko
+  category: starch
+  potency: 0.6
+  note: Dry panko is a nearly flavorless wheat starch whose defining neat-tasting trait is a light, airy, shatter-crisp crumb.
+  profile:
+    crispy:
+      v: 0.7
+      src: grok_draft
+- id: parsley
+  name: Parsley
+  category: herb
+  potency: 3.0
+  note: Fresh parsley is a mild green herb with a clean grassy-herbal note and far less intensity or carry than oregano.
+  profile:
+    herbal:
+      v: 0.45
+      src: grok_draft
+- id: peanuts
+  name: Peanuts
+  category: nut_seed
+  potency: 2.2
+  note: Typical roasted peanuts are oil-rich and nutty, with a clear roasted character, modest earthiness, and no real creaminess
+    as whole nuts.
+  profile:
+    roasted:
+      v: 0.5
+      src: grok_draft
+    earthy:
+      v: 0.25
+      src: grok_draft
+    rich:
+      v: 0.4
+      src: grok_draft
+- id: pecorino
+  name: Pecorino Romano
+  category: dairy
+  potency: 3.5
+  note: Aged hard sheep’s-milk pecorino is sharp, salty, and pungent from ripening, with concentrated dairy richness but a
+    dry, non-creamy texture.
+  profile:
+    fermented:
+      v: 0.5
+      src: grok_draft
+    rich:
+      v: 0.6
+      src: grok_draft
+- id: phyllo
+  name: Phyllo
+  category: starch
+  potency: 0.5
+  note: Raw phyllo sheets taste like bland thin wheat dough and contribute essentially no flavor or texture until baked.
+  profile: {}
+- id: pineapple
+  name: Pineapple
+  category: fruit
+  potency: 2.5
+  note: Fresh pineapple is a strongly aromatic tropical fruit whose neat profile is almost entirely intense sweet-tart fruitiness.
+  profile:
+    fruity:
+      v: 0.85
+      src: grok_draft
+- id: pita
+  name: Pita
+  category: starch
+  potency: 0.5
+  note: Baked wheat flatbread tasted neat is mostly bland starch with a faint toasted note and modest chew.
+  profile:
+    roasted:
+      v: 0.15
+      src: grok_draft
+    chewy:
+      v: 0.3
+      src: grok_draft
+- id: pizza_dough
+  name: Pizza dough
+  category: starch
+  potency: 0.6
+  note: Raw yeasted wheat dough is a low-flavor starch with a light fermented tang and elastic chew.
+  profile:
+    fermented:
+      v: 0.2
+      src: grok_draft
+    chewy:
+      v: 0.35
+      src: grok_draft
+- id: pomegranate_molasses
+  name: Pomegranate molasses
+  category: condiment
+  potency: 6.5
+  note: Reduced pomegranate syrup is intensely tart-fruity with mild cooked-down richness and strong per-gram carry.
+  profile:
+    roasted:
+      v: 0.15
+      src: grok_draft
+    fruity:
+      v: 0.75
+      src: grok_draft
+    rich:
+      v: 0.4
+      src: grok_draft
+- id: pork_belly
+  name: Pork belly
+  category: protein
+  potency: 1.5
+  note: Unseasoned fatty pork is defined by richness and creamy fat, with moderate chew and no smoke or spice.
+  profile:
+    rich:
+      v: 0.7
+      src: grok_draft
+    creamy:
+      v: 0.4
+      src: grok_draft
+    chewy:
+      v: 0.3
+      src: grok_draft
+- id: pork_bone_broth
+  name: Pork bone broth
+  category: liquid
+  potency: 1.0
+  note: Pork stock is primarily brothy and moderately rich from collagen, with only faint roasted-bone depth.
+  profile:
+    roasted:
+      v: 0.1
+      src: grok_draft
+    rich:
+      v: 0.35
+      src: grok_draft
+    creamy:
+      v: 0.1
+      src: grok_draft
+    brothy:
+      v: 0.8
+      src: grok_draft
+- id: pork_shoulder
+  name: Pork shoulder
+  category: protein
+  potency: 1.1
+  note: Plain pork shoulder tastes moderately rich and chewy from well-worked muscle, without smoke or aromatics.
+  profile:
+    rich:
+      v: 0.45
+      src: grok_draft
+    creamy:
+      v: 0.15
+      src: grok_draft
+    chewy:
+      v: 0.35
+      src: grok_draft
+- id: potato
+  name: Potato
+  category: vegetable
+  potency: 0.6
+  note: Cooked potato is a mild tuber with gentle earthiness and a starchy creamy interior, otherwise nearly blank.
+  profile:
+    earthy:
+      v: 0.25
+      src: grok_draft
+    creamy:
+      v: 0.3
+      src: grok_draft
+- id: queso_fresco
+  name: Queso fresco
+  category: dairy
+  potency: 2.0
+  note: Fresh mild cheese is modestly creamy and lightly rich, with only a hint of lactic fermentation.
+  profile:
+    fermented:
+      v: 0.1
+      src: grok_draft
+    rich:
+      v: 0.3
+      src: grok_draft
+    creamy:
+      v: 0.45
+      src: grok_draft
+- id: radish
+  name: Radish
+  category: vegetable
+  potency: 1.3
+  note: Raw radish is watery and crisp with a mild peppery pungency and almost no other aroma.
+  profile:
+    spicy:
+      v: 0.2
+      src: grok_draft
+    crispy:
+      v: 0.5
+      src: grok_draft
+- id: ramen_noodles
+  name: Ramen noodles
+  category: starch
+  potency: 0.7
+  note: Plain cooked ramen noodles are a mild wheat starch defined mainly by springy chew.
+  profile:
+    chewy:
+      v: 0.5
+      src: grok_draft
+- id: red_bean
+  name: Red bean
+  category: legume
+  potency: 1.2
+  note: Cooked adzuki beans are mildly sweet-earthy with a soft, faintly creamy interior.
+  profile:
+    earthy:
+      v: 0.3
+      src: grok_draft
+    rich:
+      v: 0.15
+      src: grok_draft
+    creamy:
+      v: 0.2
+      src: grok_draft
+- id: red_wine
+  name: Red wine
+  category: liquid
+  potency: 2.5
+  note: Red wine tastes of fermented grape fruit with tannic richness and a light earthy note.
+  profile:
+    fermented:
+      v: 0.4
+      src: grok_draft
+    fruity:
+      v: 0.4
+      src: grok_draft
+    earthy:
+      v: 0.15
+      src: grok_draft
+    rich:
+      v: 0.3
+      src: grok_draft
+- id: rice
+  name: Cooked rice
+  category: starch
+  potency: 0.5
+  note: Cooked rice is a bland, softly chewy starch with almost no aromatic character.
+  profile:
+    chewy:
+      v: 0.2
+      src: grok_draft
+- id: rice_cake
+  name: Rice cake
+  category: starch
+  potency: 0.6
+  note: East Asian rice cakes are dense, highly chewy starch with a nearly neutral flavor.
+  profile:
+    chewy:
+      v: 0.8
+      src: grok_draft
+- id: rice_noodles
+  name: Rice noodles
+  category: starch
+  potency: 0.5
+  note: Rice noodles are a mild starch with a soft-chewy bite and negligible taste alone.
+  profile:
+    chewy:
+      v: 0.4
+      src: grok_draft
+- id: rice_paper
+  name: Rice paper
+  category: starch
+  potency: 0.4
+  note: Dry rice paper is a nearly flavorless thin starch sheet that shatters with a light crisp.
+  profile:
+    crispy:
+      v: 0.35
+      src: grok_draft
+- id: rice_vinegar
+  name: Rice vinegar
+  category: condiment
+  potency: 5.0
+  note: Neat rice vinegar is a clean acetic ferment with only a faint sweet-rice fruitiness and no roast, smoke, herb, or
+    body.
+  profile:
+    fermented:
+      v: 0.25
+      src: grok_draft
+    fruity:
+      v: 0.1
+      src: grok_draft
+- id: rose_water
+  name: Rose water
+  category: condiment
+  potency: 8.0
+  note: Rose distillate is a floral-botanical perfume with a slight lychee-like fruit note and no heat, fat, or texture.
+  profile:
+    herbal:
+      v: 0.25
+      src: grok_draft
+    fruity:
+      v: 0.15
+      src: grok_draft
+- id: salmon
+  name: Salmon
+  category: seafood
+  potency: 1.5
+  note: Plain salmon flesh is fatty-rich with a modest oily-creamy mouthfeel and light marine umami, not inherently smoky
+    or roasted.
+  profile:
+    rich:
+      v: 0.5
+      src: grok_draft
+    creamy:
+      v: 0.25
+      src: grok_draft
+    brothy:
+      v: 0.15
+      src: grok_draft
+- id: salt
+  name: Salt
+  category: condiment
+  potency: 9.0
+  note: Neat salt is only salty, a dimension outside this set, so listed scores are zero while per-gram seasoning power is
+    extremely high.
+  profile: {}
+- id: scallion
+  name: Scallion
+  category: vegetable
+  potency: 3.0
+  note: Raw scallion is a green allium-herbal note with a light snap; its pungency is not chili heat and other dimensions
+    are absent.
+  profile:
+    herbal:
+      v: 0.5
+      src: grok_draft
+    crispy:
+      v: 0.2
+      src: grok_draft
+- id: sesame_oil
+  name: Sesame oil
+  category: fat_oil
+  potency: 6.5
+  note: Culinary sesame oil (typically toasted) is roasted-nutty and oily-rich, potent in drops, without true smoke or creaminess.
+  profile:
+    roasted:
+      v: 0.55
+      src: grok_draft
+    rich:
+      v: 0.4
+      src: grok_draft
+- id: sesame_paste
+  name: Sesame paste
+  category: condiment
+  potency: 3.5
+  note: Ground sesame is a thick creamy-rich paste with toasted nuttiness and a mild earthy undertone, and no spice or chew.
+  profile:
+    roasted:
+      v: 0.4
+      src: grok_draft
+    earthy:
+      v: 0.15
+      src: grok_draft
+    rich:
+      v: 0.55
+      src: grok_draft
+    creamy:
+      v: 0.65
+      src: grok_draft
+- id: sesame_seeds
+  name: Sesame seeds
+  category: nut_seed
+  potency: 2.0
+  note: Whole seeds tasted neat give a small crunch, modest nutty richness, and only a hint of roast or earth.
+  profile:
+    roasted:
+      v: 0.15
+      src: grok_draft
+    earthy:
+      v: 0.15
+      src: grok_draft
+    rich:
+      v: 0.2
+      src: grok_draft
+    crispy:
+      v: 0.3
+      src: grok_draft
+- id: shrimp
+  name: Shrimp
+  category: seafood
+  potency: 1.2
+  note: Cooked shrimp tasted neat is mildly sweet and oceanic, with snappy chew and modest umami rather than strong aromatics.
+  profile:
+    rich:
+      v: 0.2
+      src: grok_draft
+    chewy:
+      v: 0.3
+      src: grok_draft
+    brothy:
+      v: 0.15
+      src: grok_draft
+- id: shrimp_paste
+  name: Shrimp paste
+  category: condiment
+  potency: 7.0
+  note: Pungent fermented shrimp condiment with extreme salty umami and marine funk that dominates even in tiny amounts.
+  profile:
+    fermented:
+      v: 0.9
+      src: grok_draft
+    earthy:
+      v: 0.2
+      src: grok_draft
+    rich:
+      v: 0.6
+      src: grok_draft
+    brothy:
+      v: 0.4
+      src: grok_draft
+- id: sichuan_peppercorn
+  name: Sichuan peppercorn
+  category: spice
+  potency: 8.0
+  note: Dried husks that numb rather than burn like chili, with citrus-floral lemon-peel aroma and a brittle crunch neat.
+  profile:
+    spicy:
+      v: 0.1
+      src: grok_draft
+    roasted:
+      v: 0.1
+      src: grok_draft
+    herbal:
+      v: 0.35
+      src: grok_draft
+    fruity:
+      v: 0.4
+      src: grok_draft
+    earthy:
+      v: 0.15
+      src: grok_draft
+    crispy:
+      v: 0.15
+      src: grok_draft
+- id: soy_sauce
+  name: Soy sauce
+  category: condiment
+  potency: 6.0
+  note: Brewed soy-wheat liquid whose salty fermented umami, dark Maillard notes, and broth-like savoriness carry strongly
+    per gram.
+  profile:
+    roasted:
+      v: 0.25
+      src: grok_draft
+    fermented:
+      v: 0.75
+      src: grok_draft
+    earthy:
+      v: 0.15
+      src: grok_draft
+    rich:
+      v: 0.55
+      src: grok_draft
+    brothy:
+      v: 0.5
+      src: grok_draft
+- id: spaghetti
+  name: Spaghetti
+  category: starch
+  potency: 0.5
+  note: Plain cooked wheat pasta is a nearly neutral starch vehicle with only mild grain character and al dente chew.
+  profile:
+    chewy:
+      v: 0.3
+      src: grok_draft
+- id: spinach
+  name: Spinach
+  category: vegetable
+  potency: 1.0
+  note: Leafy green with mineral, slightly earthy vegetal taste and chlorophyll notes rather than sweetness or richness.
+  profile:
+    herbal:
+      v: 0.25
+      src: grok_draft
+    earthy:
+      v: 0.4
+      src: grok_draft
+    chewy:
+      v: 0.1
+      src: grok_draft
+- id: star_anise
+  name: Star anise
+  category: spice
+  potency: 8.5
+  note: Intensely licorice-anise spice with sweet warming aroma that perfumes a whole dish from a single star.
+  profile:
+    spicy:
+      v: 0.15
+      src: grok_draft
+    herbal:
+      v: 0.5
+      src: grok_draft
+    earthy:
+      v: 0.1
+      src: grok_draft
+- id: sticky_rice
+  name: Sticky rice
+  category: starch
+  potency: 0.6
+  note: Mild, faintly sweet glutinous rice defined by dense sticky chew and a slightly creamy starch mouthfeel.
+  profile:
+    earthy:
+      v: 0.05
+      src: grok_draft
+    creamy:
+      v: 0.15
+      src: grok_draft
+    chewy:
+      v: 0.5
+      src: grok_draft
+- id: sugar
+  name: Sugar
+  category: sweetener
+  potency: 2.5
+  note: Neat sucrose is purely sweet and contributes none of the listed aromatic, savory, or textural dimensions.
+  profile: {}
+- id: sumac
+  name: Sumac
+  category: spice
+  potency: 6.5
+  note: Ground sumac is tart and lemony-fruity with mild earthy astringency and no chili heat or smoke.
+  profile:
+    fruity:
+      v: 0.35
+      src: grok_draft
+    earthy:
+      v: 0.15
+      src: grok_draft
+- id: sweet_basil
+  name: Sweet basil
+  category: herb
+  potency: 5.0
+  note: Fresh sweet basil is dominated by green herbal-anise aroma with negligible heat, roast, or other listed notes.
+  profile:
+    herbal:
+      v: 0.75
+      src: grok_draft
+- id: sweet_potato_noodles
+  name: Sweet potato noodles
+  category: starch
+  potency: 0.5
+  note: Cooked sweet-potato starch noodles are nearly flavorless and mainly add a slick, elastic chew.
+  profile:
+    chewy:
+      v: 0.55
+      src: grok_draft
+- id: tahini
+  name: Tahini
+  category: condiment
+  potency: 3.5
+  note: Sesame paste is creamy and moderately rich, with toasted-sesame roast and a nutty-earthy backbone.
+  profile:
+    roasted:
+      v: 0.35
+      src: grok_draft
+    earthy:
+      v: 0.2
+      src: grok_draft
+    rich:
+      v: 0.5
+      src: grok_draft
+    creamy:
+      v: 0.6
+      src: grok_draft
+- id: tamarind
+  name: Tamarind
+  category: condiment
+  potency: 5.5
+  note: Tamarind pulp is sour-sweet and tropical-fruity with faint brown-earth depth and no heat or fermentation.
+  profile:
+    fruity:
+      v: 0.5
+      src: grok_draft
+    earthy:
+      v: 0.15
+      src: grok_draft
+- id: thai_basil
+  name: Thai basil
+  category: herb
+  potency: 5.5
+  note: Thai basil is a pungent anise-scented herb, strongly herbal without capsaicin heat or smoke.
+  profile:
+    herbal:
+      v: 0.8
+      src: grok_draft
+- id: thyme
+  name: Thyme
+  category: herb
+  potency: 7.0
+  note: Thyme is a concentrated woody herb with camphoraceous herbal notes and a mild earthy backbone.
+  profile:
+    herbal:
+      v: 0.8
+      src: grok_draft
+    earthy:
+      v: 0.25
+      src: grok_draft
+- id: tofu
+  name: Tofu
+  category: legume
+  potency: 0.6
+  note: Plain soybean curd is bland and faintly beany, with a soft mildly creamy bite and almost no aromatic carry.
+  profile:
+    earthy:
+      v: 0.15
+      src: grok_draft
+    creamy:
+      v: 0.3
+      src: grok_draft
+- id: tomato
+  name: Tomato
+  category: vegetable
+  potency: 1.2
+  note: Raw ripe tomato is watery and clean, showing moderate fruitiness and only a hint of vegetal earth.
+  profile:
+    fruity:
+      v: 0.4
+      src: grok_draft
+    earthy:
+      v: 0.1
+      src: grok_draft
+- id: turmeric
+  name: Turmeric
+  category: spice
+  potency: 8.0
+  note: Ground rhizome tasted neat is dusty, bitter, and strongly earthy, with high dried-spice carry per gram.
+  profile:
+    earthy:
+      v: 0.7
+      src: grok_draft
+- id: urad_dal
+  name: Urad dal
+  category: legume
+  potency: 1.2
+  note: Split black gram is modestly beany and earthy and turns creamy when cooked, without much aromatic punch.
+  profile:
+    earthy:
+      v: 0.3
+      src: grok_draft
+    creamy:
+      v: 0.25
+      src: grok_draft
+- id: vanilla
+  name: Vanilla
+  category: spice
+  potency: 10.0
+  note: Cured vanilla is extremely potent by weight; neat flavor is round and faintly creamy rather than spicy or smoky.
+  profile:
+    rich:
+      v: 0.3
+      src: grok_draft
+    creamy:
+      v: 0.2
+      src: grok_draft
+- id: veal_shank
+  name: Veal shank
+  category: protein
+  potency: 1.2
+  note: Mild young-beef shank yields gelatinous richness and broth from collagen and marrow more than roast or smoke.
+  profile:
+    rich:
+      v: 0.4
+      src: grok_draft
+    chewy:
+      v: 0.2
+      src: grok_draft
+    brothy:
+      v: 0.5
+      src: grok_draft
+- id: wakame
+  name: Wakame
+  category: vegetable
+  potency: 3.5
+  note: Sea vegetable with gentle mineral earthiness, ocean umami brothiness, and a tender-chewy slip when eaten neat.
+  profile:
+    earthy:
+      v: 0.2
+      src: grok_draft
+    chewy:
+      v: 0.2
+      src: grok_draft
+    brothy:
+      v: 0.35
+      src: grok_draft
+- id: walnuts
+  name: Walnuts
+  category: nut_seed
+  potency: 2.8
+  note: Raw walnut is tannic-earthy and fatty-rich, with crunchy texture and modest oily creaminess rather than roast notes.
+  profile:
+    earthy:
+      v: 0.25
+      src: grok_draft
+    rich:
+      v: 0.5
+      src: grok_draft
+    creamy:
+      v: 0.2
+      src: grok_draft
+    crispy:
+      v: 0.35
+      src: grok_draft
+- id: water
+  name: Water
+  category: liquid
+  potency: 0.1
+  note: Tasteless, odorless liquid with no detectable flavor or texture dimensions when tasted neat.
+  profile: {}
+- id: wheat_flour
+  name: Wheat flour
+  category: starch
+  potency: 0.5
+  note: Raw wheat flour is a bland starchy powder with only a faint dusty cereal-earth note.
+  profile:
+    earthy:
+      v: 0.1
+      src: grok_draft
+- id: wheat_noodles
+  name: Wheat noodles
+  category: starch
+  potency: 0.6
+  note: Plain cooked wheat noodles are a mild starchy staple whose main neat sensory contribution is modest chew.
+  profile:
+    chewy:
+      v: 0.4
+      src: grok_draft
+- id: white_fish
+  name: White fish
+  category: seafood
+  potency: 1.0
+  note: Lean white fish tasted neat is mild, with only light savory-brothy character and slight richness.
+  profile:
+    rich:
+      v: 0.15
+      src: grok_draft
+    brothy:
+      v: 0.2
+      src: grok_draft
+- id: white_pepper
+  name: White pepper
+  category: spice
+  potency: 8.0
+  note: Ground white pepper is pungent and musty-earthy with moderate piperine heat and high per-gram impact.
+  profile:
+    spicy:
+      v: 0.25
+      src: grok_draft
+    earthy:
+      v: 0.3
+      src: grok_draft
+- id: white_wine
+  name: White wine
+  category: liquid
+  potency: 3.0
+  note: Dry white wine tasted neat shows moderate grape fruitiness and clear fermented character without smoke, spice, or
+    cream.
+  profile:
+    fermented:
+      v: 0.4
+      src: grok_draft
+    fruity:
+      v: 0.4
+      src: grok_draft
+- id: whole_milk
+  name: Whole milk
+  category: dairy
+  potency: 1.2
+  note: Whole milk is moderately creamy and mildly rich, well below heavy cream, with no other notable dimensions.
+  profile:
+    rich:
+      v: 0.3
+      src: grok_draft
+    creamy:
+      v: 0.5
+      src: grok_draft
+- id: yogurt
+  name: Yogurt
+  category: dairy
+  potency: 1.8
+  note: Plain yogurt is tangy from lactic fermentation and moderately creamy, with modest milk-fat richness.
+  profile:
+    fermented:
+      v: 0.5
+      src: grok_draft
+    rich:
+      v: 0.25
+      src: grok_draft
+    creamy:
+      v: 0.55
+      src: grok_draft
+- id: zucchini
+  name: Zucchini
+  category: vegetable
+  potency: 0.4
+  note: Plain zucchini is a watery, nearly flavorless summer squash with only a faint vegetal-earthy note and almost no other
+    sensory intensity.
+  profile:
+    earthy:
+      v: 0.1
+      src: grok_draft
