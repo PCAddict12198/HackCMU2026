@@ -4,6 +4,8 @@ import type { AskResponse } from "../../contract";
 import { useDish, useStore } from "../../state/store";
 import { formatToolCall, formatToolStory } from "../shared/copy";
 import { AskReply } from "./AskReply";
+import { recommendedDishIds } from "./recommendedDishes";
+import { DishVisual } from "../dish/DishVisual";
 import { ErrorState, Loading } from "../shared/Status";
 
 export function AskPanel({
@@ -18,6 +20,8 @@ export function AskPanel({
   const { chat, pushChat, applyUiActions, selectedId, panel } = useStore();
   const selected = useDish(selectedId);
   const [input, setInput] = useState("like pho bo but spicier");
+  const space = useStore((s) => s.space);
+  const [picks, setPicks] = useState<Record<number, string[]>>({});
   const [last, setLast] = useState<AskResponse | null>(null);
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
@@ -41,6 +45,10 @@ export function AskPanel({
       const res = await api.ask({ messages, context: { selected_dish_id: selectedId, active_panel: panel } });
       setLast(res);
       pushChat({ role: "assistant", content: res.reply });
+      const known = new Set(useStore.getState().space?.dishes.map((d) => d.id) ?? []);
+      const dishIds = recommendedDishIds(res, known);
+      const idx = useStore.getState().chat.length - 1;
+      if (dishIds.length) setPicks((p) => ({ ...p, [idx]: dishIds }));
       applyUiActions(res.ui_actions);
       onUsedEngine?.();
     } catch (e) {
@@ -79,15 +87,34 @@ export function AskPanel({
         ))}
       </div>
       <div className="chat">
-        {chat.map((m, i) =>
-          m.role === "assistant" ? (
-            <AskReply key={i} text={m.content} />
-          ) : (
-            <p key={i} className="user">
-              {m.content}
-            </p>
-          ),
-        )}
+        {chat.map((m, i) => (
+          <div key={i} className={`chat-turn ${m.role}`}>
+            {m.role === "assistant" ? <AskReply text={m.content} /> : <p className="user">{m.content}</p>}
+            {m.role === "assistant" && picks[i]?.length ? (
+              <div className="ask-picks">
+                {picks[i].map((id) => {
+                  const dish = space?.dishes.find((d) => d.id === id);
+                  if (!dish) return null;
+                  return (
+                    <button
+                      key={id}
+                      type="button"
+                      className="ask-pick"
+                      onClick={() => {
+                        useStore.getState().select(id);
+                        useStore.getState().setPanel("twins");
+                        window.dispatchEvent(new Event("tastespace:show-map"));
+                      }}
+                    >
+                      <DishVisual dish={dish} className="mini" />
+                      <span>{dish.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            ) : null}
+          </div>
+        ))}
       </div>
       {last && (
         <>

@@ -490,7 +490,8 @@ th { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-we
   color: rgba(255, 253, 248, 0.88);
 }
 .dish-visual.mini .dish-photo figcaption,
-.food-card.compact .dish-photo figcaption {
+.food-card.compact .dish-photo figcaption,
+.ask-pick .dish-photo figcaption {
   display: none;
 }
 .dish-photo a { color: inherit; text-underline-offset: 2px; }
@@ -575,6 +576,17 @@ details.tech summary {
 .ask-reply code {
   font-size: 0.92em; background: var(--ivory); padding: 1px 5px; border-radius: 6px;
 }
+.ask-picks {
+  display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 8px;
+  margin: 0 0 8px;
+}
+.ask-pick {
+  display: flex; flex-direction: column; align-items: stretch;
+  width: 96px; flex-shrink: 0; padding: 6px;
+  border-radius: 12px; text-align: left; gap: 6px;
+}
+.ask-pick .dish-visual { width: 84px; height: 64px; border-radius: 10px; }
+.ask-pick .dish-photo figcaption { display: none; }
 .ask-drawer {
   position: fixed; right: 0; top: 57px; bottom: 0; width: min(400px, 100%);
   background: var(--paper); border-left: 1px solid var(--line);
