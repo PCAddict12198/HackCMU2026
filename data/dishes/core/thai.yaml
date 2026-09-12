@@ -17,7 +17,7 @@ dishes:
       - {ing: kaffir_lime_leaf, g: 3}
       - {ing: lime_juice, g: 30}
       - {ing: fish_sauce, g: 25}
-      - {ing: fresh_chili, g: 8}
+      - {ing: chili_hot, g: 8}
       - {ing: mushroom, g: 80}
       - {ing: cilantro, g: 5}
   - id: mango_sticky_rice
@@ -53,7 +53,7 @@ dishes:
       - {ing: fish_sauce, g: 20}
       - {ing: sugar, g: 8}
       - {ing: thai_basil, g: 10}
-      - {ing: fresh_chili, g: 5}
+      - {ing: chili_hot, g: 5}
   - id: pad_thai
     name: Pad thai
     cuisine: thai
@@ -89,7 +89,7 @@ dishes:
       - {ing: green_papaya, g: 180}
       - {ing: lime_juice, g: 25}
       - {ing: fish_sauce, g: 15}
-      - {ing: fresh_chili, g: 10}
+      - {ing: chili_hot, g: 10}
       - {ing: garlic, g: 6}
       - {ing: sugar, g: 10}
       - {ing: peanuts, g: 15, process: [toasted]}
@@ -108,7 +108,7 @@ dishes:
       - {ing: ground_pork, g: 180, process: [fried]}
       - {ing: lime_juice, g: 25}
       - {ing: fish_sauce, g: 20}
-      - {ing: fresh_chili, g: 8}
+      - {ing: chili_hot, g: 8}
       - {ing: sticky_rice, g: 15, process: [toasted], note: toasted rice powder}
       - {ing: mint, g: 12}
       - {ing: cilantro, g: 8}

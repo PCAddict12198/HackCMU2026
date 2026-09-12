@@ -1,0 +1,36 @@
+# TasteSpace slides (H17). OWNER: data (P1). Speak from `docs/demo/demo_script.md`; this is the deck outline.
+
+Times assume a ~3 min live demo plus ~2 min on method/limits. Numbers are from core build `cc7311f268f9` unless a later `make build` is quoted on the validation slide.
+
+## 1. Hook
+- Line: "Food apps organize the world by cuisine. Cuisines don't own flavor."
+- Show: rotating galaxy, stars colored by cuisine.
+
+## 2. Twin
+- Click **pho bo** → Flavor Twin **french onion soup**.
+- Speak the engine number: **97.6th percentile**, top 10% band, cuisine distance 1.0.
+- Shared dims from the tool: brothy, umami, earthy, roasted, rich.
+- Point: Vietnam and France, same neighborhood of sensory space.
+
+## 3. Shift
+- Preset **L** (rich −0.8σ, sour +1.2σ) from pho bo.
+- First hit **pozole rojo** (97.8th, every requested dim moves the right way), then **tom yum goong** (87.9th).
+- Line: "What I love about pho, lighter and more acidic."
+
+## 4. Why / provenance
+- Explain pho vs onion soup, similarity 97.6.
+- Chips: beef bone broth (`team`), lime (`literature`), gruyere/butter fat (`usda`), soup format.
+- Line: "Every number traces back to ingredients, preparation and a source."
+
+## 5. Ask
+- "like pho bo but spicier" → Grok calls shift; first hit **mapo tofu** (99.0th, spicy +0.36).
+- Line: "Grok is the interface; the engine is the judge."
+
+## 6. Validation (honest)
+- Frozen sanity (not tuned): **4/10** positive ≥ 90th pct, **9/10** negative < 50th pct.
+- Rating panel: **AI baseline, not a human study.** If `make build` still says Spearman rho ≈ 0.89 with rater key `claude`, say so on the slide. It is an upper bound (same agent also wrote a lot of the corpus). Do not call it human validation.
+- Limits: one canonical recipe per dish; no perceptual masking; sparse dims (e.g. smoky on espresso) move dessert twins.
+
+## 7. What we built
+- ~70 core dishes × 10 cuisines, ~155 ingredients, every nonzero value sourced.
+- Optional extended drafts live in `data/dishes/extended/` and do not move calibration.

@@ -6,7 +6,8 @@ aliases:
   green chili: fresh_chili
   red chili: fresh_chili
   chile: fresh_chili
-  thai chilies: fresh_chili
+  habanero: chili_hot
+  chili pepper: fresh_chili
   cilantro leaves: cilantro
   italian parsley: parsley
   flat-leaf parsley: parsley
@@ -39,3 +40,24 @@ aliases:
   ice cubes: water
   cold water: water
   boiling water: water
+  coconut cream: coconut_milk
+  basmati: rice
+  basmati rice: rice
+  arborio: rice
+  arborio rice: rice
+  rice vermicelli: rice_noodles
+  vermicelli: rice_noodles
+  rice wine vinegar: rice_vinegar
+  chinese black vinegar: rice_vinegar
+  yoghurt: yogurt
+  whipping cream: heavy_cream
+  jaggery: sugar
+  caster sugar: sugar
+  five-spice: five_spice
+  chinese five-spice: five_spice
+  makrut lime leaves: kaffir_lime_leaf
+  nori sheets: nori
+  thai bird chili: chili_hot
+  cayenne: chili_hot
+  togarashi: chili_flakes
+  mozzarella cheese: mozzarella

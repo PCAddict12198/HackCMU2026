@@ -15,7 +15,7 @@ ingredients:
     rich: {v: 0.0, src: usda, note: 'fat 0.1 g/100g (fdc 174278: Soy sauce made from soy (tamari))'}
     roasted: {v: 0.25, src: grok_reviewed}
     earthy: {v: 0.15, src: grok_reviewed}
-    brothy: {v: 0.5, src: grok_reviewed}
+    brothy: {v: 0.05, src: team, note: 'brothy is liquid body: it belongs to stocks and to the soup format vector. A seasoning at potency 6.0 made 19 non-soup dishes (som_tam, larb, banh_mi) read brothy, so the grok-drafted 0.5 was rejected on review'}
   reviewed_by: ishan
 - id: fish_sauce
   name: Fish sauce
@@ -28,7 +28,7 @@ ingredients:
     fermented: {v: 0.85, src: literature, note: 'anchovy fermentation, 6-18 months'}
     sweet: {v: 0.26, src: usda, note: 'sugar 3.64 g/100g (fdc 174531: Sauce, fish, ready-to-serve)'}
     rich: {v: 0.0, src: usda, note: 'fat 0.01 g/100g (fdc 174531: Sauce, fish, ready-to-serve)'}
-    brothy: {v: 0.55, src: grok_reviewed}
+    brothy: {v: 0.05, src: team, note: 'brothy is liquid body: it belongs to stocks and to the soup format vector. A seasoning at potency 7.0 made 19 non-soup dishes (som_tam, larb, banh_mi) read brothy, so the grok-drafted 0.55 was rejected on review'}
   reviewed_by: ishan
 - id: doubanjiang
   name: Doubanjiang
@@ -55,8 +55,8 @@ ingredients:
     umami: {v: 0.5, src: team}
     fruity: {v: 0.15, src: grok_reviewed}
     earthy: {v: 0.2, src: grok_reviewed}
-    rich: {v: 0.35, src: grok_reviewed}
-    brothy: {v: 0.25, src: grok_reviewed}
+    rich: {v: 0.04, src: team, note: 'Gochujang carries ~1 g fat/100g, so the MODEL.md rich map gives ~0.04; grok-drafted 0.35 rejected on review'}
+    brothy: {v: 0.0, src: team, note: 'a thick paste has no broth body; grok-drafted 0.25 rejected on review'}
   reviewed_by: ishan
 - id: kimchi
   name: Kimchi
@@ -205,8 +205,8 @@ ingredients:
     fruity: {v: 0.3, src: team, note: 'date, apple and tomato in the base'}
     sour: {v: 0.25, src: team}
     fermented: {v: 0.25, src: grok_reviewed}
-    rich: {v: 0.4, src: grok_reviewed}
-    brothy: {v: 0.2, src: grok_reviewed}
+    rich: {v: 0.02, src: team, note: 'Okonomiyaki sauce carries ~0.5 g fat/100g, so the MODEL.md rich map gives ~0.02; grok-drafted 0.4 rejected on review'}
+    brothy: {v: 0.0, src: team, note: 'a thick sauce has no broth body; grok-drafted 0.2 rejected on review'}
   reviewed_by: ishan
 - id: rice_vinegar
   name: Rice vinegar
@@ -291,8 +291,8 @@ ingredients:
     umami: {v: 0.9, src: literature, note: 'fermented crustacean, very high free glutamate and nucleotides'}
     fermented: {v: 0.95, src: literature, note: months-long salt fermentation}
     earthy: {v: 0.2, src: grok_reviewed}
-    rich: {v: 0.6, src: grok_reviewed}
-    brothy: {v: 0.4, src: grok_reviewed}
+    rich: {v: 0.06, src: team, note: 'Shrimp paste carries ~1.5 g fat/100g, so the MODEL.md rich map gives ~0.06; grok-drafted 0.6 rejected on review'}
+    brothy: {v: 0.05, src: team, note: 'brothy is liquid body: it belongs to stocks and to the soup format vector. A seasoning at potency 8.0 made 19 non-soup dishes (som_tam, larb, banh_mi) read brothy, so the grok-drafted 0.4 was rejected on review'}
   reviewed_by: ishan
 - id: tahini
   name: Tahini
@@ -315,7 +315,8 @@ ingredients:
     sour: {v: 0.85, src: literature, note: 'citric and malic acid concentrated by the reduction, pH ~2.5'}
     fruity: {v: 0.8, src: team}
     roasted: {v: 0.15, src: grok_reviewed}
-    rich: {v: 0.4, src: grok_reviewed}
+    rich: {v: 0.0, src: team, note: 'reduced juice carries no fat, so the MODEL.md rich map gives ~0; grok-drafted
+      0.4 rejected on review'}
   reviewed_by: ishan
 - id: rose_water
   name: Rose water

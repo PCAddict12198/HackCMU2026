@@ -62,14 +62,39 @@ ingredients:
     smoky: {v: 0.3, src: team}
     fruity: {v: 0.2, src: team}
     roasted: {v: 0.2, src: team}
+- id: chili_mild
+  name: Mild fresh chili
+  category: spice
+  potency: 6.0
+  unit_weight_g: 12
+  aliases: [jalapeno, jalapeño, serrano]
+  profile:
+    spicy: {v: 0.45, src: scoville, note: 'jalapeño 2.5k-8k SHU, serrano 10k-23k SHU'}
+    fruity: {v: 0.3, src: team}
+    herbal: {v: 0.25, src: team}
+- id: chili_hot
+  name: Hot fresh chili
+  category: spice
+  potency: 6.0
+  unit_weight_g: 2
+  aliases: [bird's eye chili, thai chili, thai chilies, birds eye chili]
+  profile:
+    spicy: {v: 0.85, src: scoville, note: "Thai bird's eye 50k-100k SHU, ~12x a jalapeño"}
+    fruity: {v: 0.3, src: team}
+    herbal: {v: 0.2, src: team}
+# Kept as the generic fallback so a pasted recipe saying only "chili" still maps somewhere; dishes name
+# chili_mild or chili_hot instead. Macro dims are deliberately not claimed for any chili: potency 6.0
+# multiplies every dim, so the USDA sugar figure (5.3 g/100g -> sweet 0.36) would make a 5 g garnish
+# sweeten a dish like a sweetener.
 - id: fresh_chili
   name: Fresh chili
   category: spice
   potency: 6.0
   unit_weight_g: 5
-  aliases: [chili, chilli, jalapeno, serrano, bird's eye chili, thai chili]
+  aliases: [chili, chilli]
   profile:
-    spicy: {v: 0.7, src: scoville, note: 'bundles jalapeño (2.5k-8k SHU) to Thai bird''s eye (50k-100k SHU); mid-high estimate, see data handoff flag'}
+    spicy: {v: 0.7, src: scoville, note: 'generic fallback spanning jalapeño 2.5k-8k SHU to Thai bird''s eye
+      50k-100k SHU; dishes use chili_mild or chili_hot instead'}
     fruity: {v: 0.3, src: team}
     herbal: {v: 0.2, src: team}
 - id: sichuan_peppercorn
