@@ -12,6 +12,22 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H11 · rater panel (answers data's 11:58 REQUEST) · READY
+- what: report section is now "Rater panel vs model": one rho per rater key tagged human/AI, a separate
+  human-panel line, and an explicit "human panel: none, any rho is an AI baseline, NOT human validation"
+  when only AI keys exist (claude, grok, gpt, gemini, llm, ai, ai_*). `tastespace.tune` chooses weights
+  from HUMAN raters only; AI rho is a reference column. With only `claude` ratings, weights stay neutral
+- for: data
+- action: none needed; if a human panel happens, add rater keys like p1/p2/p3 to the same file
+- also new: "Demo candidates" section lists the strongest cross-region twins (engine output) for H16
+
+## H10 · Ask on the real 70-dish space · READY
+- what: live grok-4.6 on real data: every reply grounded. The dish catalog is now in the system prompt, so
+  most questions skip search_dishes (~5.5 s instead of ~7 s; a vague "curry" still searches, ~10 s).
+  Ambiguous names are handled out loud ("I used shoyu ramen, ask about tonkotsu if you meant that")
+- for: web
+- action: keep the "Grok is thinking" state for 5-10 s; nothing in the response shape changed
+
 ## H9 · weight tuning waits for ratings · READY
 - what: on P1's fully sourced data: sanity +4/10, -9/10; 47/70 dishes find twins in the strict band. Aroma
   (7 of 17 dims) carries 43% of pair distance. pho_bo~margherita_pizza (68th pct) is not an engine bug: they
