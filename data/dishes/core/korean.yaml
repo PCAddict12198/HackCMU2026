@@ -19,3 +19,120 @@ dishes:
       - {ing: scallion, g: 10}
       - {ing: chicken_stock, g: 300}
       - {ing: garlic, g: 8}
+  - id: bibimbap
+    name: Bibimbap
+    cuisine: korean
+    course: savory
+    format: rice_dish
+    tier: core
+    confidence: draft
+    blurb: Rice bowl with seasoned vegetables, beef, fried egg and gochujang.
+    recipe_basis: team estimate of one stone-bowl serving
+    ingredients:
+      - {ing: rice, g: 250, process: [steamed]}
+      - {ing: beef_sirloin, g: 80, process: [fried]}
+      - {ing: spinach, g: 40, process: [boiled]}
+      - {ing: carrot, g: 40, process: [fried]}
+      - {ing: bean_sprouts, g: 40, process: [boiled]}
+      - {ing: cucumber, g: 30}
+      - {ing: egg, g: 50, process: [fried]}
+      - {ing: gochujang, g: 20}
+      - {ing: sesame_oil, g: 10}
+      - {ing: sesame_seeds, g: 3, process: [toasted]}
+      - {ing: soy_sauce, g: 8}
+      - {ing: garlic, g: 5}
+  - id: bulgogi
+    name: Bulgogi
+    cuisine: korean
+    course: savory
+    format: grilled_roasted
+    tier: core
+    confidence: draft
+    blurb: Thinly sliced beef marinated in soy, sugar, garlic and sesame.
+    recipe_basis: team estimate of one plated serving
+    ingredients:
+      - {ing: beef_sirloin, g: 200, process: [grilled]}
+      - {ing: soy_sauce, g: 20}
+      - {ing: sugar, g: 15}
+      - {ing: garlic, g: 10}
+      - {ing: onion, g: 60}
+      - {ing: sesame_oil, g: 10}
+      - {ing: sesame_seeds, g: 3, process: [toasted]}
+      - {ing: black_pepper, g: 1}
+  - id: tteokbokki
+    name: Tteokbokki
+    cuisine: korean
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Chewy rice cakes simmered in spicy-sweet gochujang sauce.
+    recipe_basis: team estimate of one street-stall serving
+    ingredients:
+      - {ing: rice_cake, g: 200, process: [simmered]}
+      - {ing: fish_cake, g: 80, process: [simmered]}
+      - {ing: cabbage, g: 50}
+      - {ing: scallion, g: 20}
+      - {ing: gochujang, g: 30}
+      - {ing: chili_flakes, g: 8}
+      - {ing: sugar, g: 15}
+      - {ing: soy_sauce, g: 10}
+      - {ing: chicken_stock, g: 200}
+      - {ing: garlic, g: 8}
+  - id: korean_fried_chicken
+    name: Korean fried chicken
+    cuisine: korean
+    course: savory
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Twice-fried chicken in a sticky gochujang-garlic glaze.
+    recipe_basis: team estimate of a half-bird share
+    ingredients:
+      - {ing: chicken_thigh, g: 250, process: [deep_fried]}
+      - {ing: wheat_flour, g: 40}
+      - {ing: gochujang, g: 25}
+      - {ing: soy_sauce, g: 15}
+      - {ing: garlic, g: 10}
+      - {ing: sugar, g: 15}
+      - {ing: sesame_oil, g: 5}
+      - {ing: chili_flakes, g: 4}
+      - {ing: neutral_oil, g: 15}
+  - id: japchae
+    name: Japchae
+    cuisine: korean
+    course: savory
+    format: noodles
+    tier: core
+    confidence: draft
+    blurb: Glass noodles stir-fried with beef and vegetables in sesame-soy.
+    recipe_basis: team estimate of one side-dish plate
+    ingredients:
+      - {ing: sweet_potato_noodles, g: 150, process: [boiled]}
+      - {ing: beef_sirloin, g: 60, process: [fried]}
+      - {ing: spinach, g: 50, process: [boiled]}
+      - {ing: carrot, g: 40, process: [fried]}
+      - {ing: onion, g: 50, process: [fried]}
+      - {ing: mushroom, g: 40, process: [fried]}
+      - {ing: soy_sauce, g: 20}
+      - {ing: sesame_oil, g: 12}
+      - {ing: sugar, g: 8}
+      - {ing: garlic, g: 6}
+      - {ing: sesame_seeds, g: 3, process: [toasted]}
+  - id: hotteok
+    name: Hotteok
+    cuisine: korean
+    course: dessert
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Pan-fried stuffed pancake with brown sugar, cinnamon and nuts.
+    recipe_basis: team estimate of two pancakes
+    ingredients:
+      - {ing: wheat_flour, g: 120}
+      - {ing: sugar, g: 50}
+      - {ing: cinnamon, g: 3}
+      - {ing: peanuts, g: 20}
+      - {ing: butter, g: 10}
+      - {ing: neutral_oil, g: 10, process: [fried]}
+      - {ing: whole_milk, g: 40}

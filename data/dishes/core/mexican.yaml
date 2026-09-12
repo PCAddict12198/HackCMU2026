@@ -52,3 +52,85 @@ dishes:
       - {ing: condensed_milk, g: 150}
       - {ing: heavy_cream, g: 120}
       - {ing: cinnamon, g: 2}
+  - id: mole_poblano
+    name: Mole poblano
+    cuisine: mexican
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Complex chili-and-cocoa sauce over chicken.
+    recipe_basis: team estimate of one plated serving
+    ingredients:
+      - {ing: chicken_thigh, g: 220, process: [braised]}
+      - {ing: chili_flakes, g: 20, process: [toasted]}
+      - {ing: cocoa_powder, g: 8}
+      - {ing: sesame_seeds, g: 8, process: [toasted]}
+      - {ing: almonds, g: 10, process: [toasted]}
+      - {ing: tomato, g: 60}
+      - {ing: onion, g: 50}
+      - {ing: garlic, g: 8}
+      - {ing: cinnamon, g: 2}
+      - {ing: chicken_stock, g: 200}
+      - {ing: corn_tortilla, g: 20, process: [toasted]}
+      - {ing: sesame_oil, g: 5}
+  - id: pozole_rojo
+    name: Pozole rojo
+    cuisine: mexican
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Pork and hominy stew in a red-chili broth.
+    recipe_basis: team estimate of one bowl
+    ingredients:
+      - {ing: pork_shoulder, g: 200, process: [simmered]}
+      - {ing: hominy, g: 200, process: [simmered]}
+      - {ing: chili_flakes, g: 15, process: [toasted]}
+      - {ing: onion, g: 50}
+      - {ing: garlic, g: 10}
+      - {ing: oregano, g: 3}
+      - {ing: chicken_stock, g: 400, process: [simmered]}
+      - {ing: cabbage, g: 40}
+      - {ing: radish, g: 20}
+      - {ing: lime_juice, g: 15}
+      - {ing: salt, g: 4}
+  - id: chiles_rellenos
+    name: Chiles rellenos
+    cuisine: mexican
+    course: savory
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Cheese-stuffed roasted peppers in egg batter.
+    recipe_basis: team estimate of two peppers
+    ingredients:
+      - {ing: bell_pepper, g: 200, process: [roasted], note: "poblano approximated as bell pepper"}
+      - {ing: queso_fresco, g: 80}
+      - {ing: egg, g: 80}
+      - {ing: wheat_flour, g: 20}
+      - {ing: tomato, g: 80, process: [simmered]}
+      - {ing: onion, g: 30}
+      - {ing: garlic, g: 5}
+      - {ing: oregano, g: 2}
+      - {ing: neutral_oil, g: 15, process: [fried]}
+      - {ing: salt, g: 3}
+  - id: cochinita_pibil
+    name: Cochinita pibil
+    cuisine: mexican
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Achiote-and-citrus marinated pork, slow-roasted.
+    recipe_basis: team estimate of one taco-plate serving
+    ingredients:
+      - {ing: pork_shoulder, g: 250, process: [braised]}
+      - {ing: achiote, g: 10}
+      - {ing: orange_juice, g: 80}
+      - {ing: lime_juice, g: 20}
+      - {ing: garlic, g: 10}
+      - {ing: oregano, g: 3}
+      - {ing: onion, g: 40}
+      - {ing: corn_tortilla, g: 90, process: [toasted]}
+      - {ing: cilantro, g: 8}

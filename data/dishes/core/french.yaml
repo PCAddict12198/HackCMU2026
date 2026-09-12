@@ -31,3 +31,104 @@ dishes:
       - {ing: sugar, g: 50}
       - {ing: sugar, g: 15, process: [caramelized], note: the brulee crust}
       - {ing: vanilla, g: 3}
+  - id: beef_bourguignon
+    name: Beef bourguignon
+    cuisine: french
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Beef braised in red wine with mushrooms, onion and bacon.
+    recipe_basis: team estimate of one serving
+    ingredients:
+      - {ing: beef_sirloin, g: 250, process: [braised]}
+      - {ing: red_wine, g: 200}
+      - {ing: beef_bone_broth, g: 150, process: [simmered]}
+      - {ing: mushroom, g: 80, process: [fried]}
+      - {ing: onion, g: 80, process: [caramelized]}
+      - {ing: carrot, g: 50}
+      - {ing: guanciale, g: 40, process: [fried], note: lardons}
+      - {ing: thyme, g: 2}
+      - {ing: garlic, g: 6}
+      - {ing: butter, g: 15}
+      - {ing: wheat_flour, g: 10}
+  - id: coq_au_vin
+    name: Coq au vin
+    cuisine: french
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Chicken braised in red wine with mushroom, onion and thyme.
+    recipe_basis: team estimate of one serving
+    ingredients:
+      - {ing: chicken_thigh, g: 280, process: [braised]}
+      - {ing: red_wine, g: 180}
+      - {ing: chicken_stock, g: 150}
+      - {ing: mushroom, g: 80, process: [fried]}
+      - {ing: onion, g: 70, process: [fried]}
+      - {ing: guanciale, g: 30, process: [fried]}
+      - {ing: thyme, g: 2}
+      - {ing: garlic, g: 6}
+      - {ing: butter, g: 15}
+      - {ing: wheat_flour, g: 8}
+  - id: ratatouille
+    name: Ratatouille
+    cuisine: french
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Slow-cooked Provençal vegetables in olive oil and tomato.
+    recipe_basis: team estimate of one side plate
+    ingredients:
+      - {ing: eggplant, g: 120, process: [simmered]}
+      - {ing: zucchini, g: 120, process: [simmered]}
+      - {ing: bell_pepper, g: 80, process: [simmered]}
+      - {ing: tomato, g: 150, process: [simmered]}
+      - {ing: onion, g: 60, process: [fried]}
+      - {ing: garlic, g: 8}
+      - {ing: olive_oil, g: 25}
+      - {ing: thyme, g: 3}
+      - {ing: sweet_basil, g: 5}
+      - {ing: salt, g: 4}
+  - id: bouillabaisse
+    name: Bouillabaisse
+    cuisine: french
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Provençal fish stew with fennel, tomato and saffron-like herbs.
+    recipe_basis: team estimate of one bowl
+    ingredients:
+      - {ing: white_fish, g: 150, process: [simmered]}
+      - {ing: mussels, g: 100, process: [simmered]}
+      - {ing: shrimp, g: 60, process: [simmered]}
+      - {ing: fennel, g: 50}
+      - {ing: tomato, g: 100}
+      - {ing: onion, g: 50}
+      - {ing: garlic, g: 8}
+      - {ing: white_wine, g: 80}
+      - {ing: chicken_stock, g: 300, process: [simmered]}
+      - {ing: olive_oil, g: 15}
+      - {ing: thyme, g: 2}
+      - {ing: orange_juice, g: 10, note: "strip of orange peel approximated as juice"}
+      - {ing: baguette, g: 40, process: [toasted]}
+  - id: croque_monsieur
+    name: Croque monsieur
+    cuisine: french
+    course: savory
+    format: bread_sandwich
+    tier: core
+    confidence: draft
+    blurb: Griddled ham-and-gruyere sandwich with bechamel.
+    recipe_basis: team estimate of one sandwich
+    ingredients:
+      - {ing: baguette, g: 100, process: [toasted]}
+      - {ing: ham, g: 60}
+      - {ing: gruyere, g: 50, process: [roasted]}
+      - {ing: butter, g: 20}
+      - {ing: whole_milk, g: 40}
+      - {ing: wheat_flour, g: 8}
+      - {ing: black_pepper, g: 1}

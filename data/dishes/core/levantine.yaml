@@ -18,3 +18,118 @@ dishes:
       - {ing: olive_oil, g: 25}
       - {ing: onion, g: 20}
       - {ing: salt, g: 3}
+  - id: hummus
+    name: Hummus
+    cuisine: levantine
+    course: savory
+    format: raw_salad
+    tier: core
+    confidence: draft
+    blurb: Chickpea and tahini dip with lemon, garlic and olive oil.
+    recipe_basis: team estimate of one mezze bowl
+    ingredients:
+      - {ing: chickpeas, g: 250, process: [boiled]}
+      - {ing: tahini, g: 40}
+      - {ing: lemon_juice, g: 30}
+      - {ing: garlic, g: 8}
+      - {ing: olive_oil, g: 25}
+      - {ing: cumin, g: 2}
+      - {ing: salt, g: 4}
+      - {ing: parsley, g: 5}
+  - id: falafel
+    name: Falafel
+    cuisine: levantine
+    course: savory
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Deep-fried chickpea-herb fritters.
+    recipe_basis: team estimate of five balls
+    ingredients:
+      - {ing: chickpeas, g: 200}
+      - {ing: parsley, g: 30}
+      - {ing: cilantro, g: 20}
+      - {ing: onion, g: 40}
+      - {ing: garlic, g: 8}
+      - {ing: cumin, g: 4, process: [toasted]}
+      - {ing: wheat_flour, g: 15}
+      - {ing: salt, g: 4}
+      - {ing: neutral_oil, g: 15, process: [deep_fried]}
+  - id: shawarma
+    name: Shawarma
+    cuisine: levantine
+    course: savory
+    format: grilled_roasted
+    tier: core
+    confidence: draft
+    blurb: Spiced spit-roasted meat in pita with tahini and pickle.
+    recipe_basis: team estimate of one wrap
+    ingredients:
+      - {ing: lamb, g: 150, process: [roasted]}
+      - {ing: pita, g: 80, process: [toasted]}
+      - {ing: yogurt, g: 40}
+      - {ing: tahini, g: 20}
+      - {ing: garlic, g: 6}
+      - {ing: lemon_juice, g: 15}
+      - {ing: cucumber, g: 30}
+      - {ing: tomato, g: 40}
+      - {ing: parsley, g: 8}
+      - {ing: cumin, g: 3}
+      - {ing: sumac, g: 2}
+  - id: fattoush
+    name: Fattoush
+    cuisine: levantine
+    course: savory
+    format: raw_salad
+    tier: core
+    confidence: draft
+    blurb: Mixed salad with fried pita, sumac and pomegranate molasses.
+    recipe_basis: team estimate of one salad plate
+    ingredients:
+      - {ing: lettuce, g: 80}
+      - {ing: tomato, g: 80}
+      - {ing: cucumber, g: 60}
+      - {ing: radish, g: 30}
+      - {ing: parsley, g: 20}
+      - {ing: mint, g: 10}
+      - {ing: pita, g: 40, process: [fried]}
+      - {ing: lemon_juice, g: 25}
+      - {ing: olive_oil, g: 20}
+      - {ing: sumac, g: 4}
+      - {ing: pomegranate_molasses, g: 10}
+      - {ing: salt, g: 3}
+  - id: mujaddara
+    name: Mujaddara
+    cuisine: levantine
+    course: savory
+    format: rice_dish
+    tier: core
+    confidence: draft
+    blurb: Lentils and rice topped with deeply caramelized onions.
+    recipe_basis: team estimate of one plate
+    ingredients:
+      - {ing: lentils, g: 150, process: [simmered]}
+      - {ing: rice, g: 150, process: [simmered]}
+      - {ing: onion, g: 200, process: [caramelized]}
+      - {ing: cumin, g: 4, process: [toasted]}
+      - {ing: olive_oil, g: 25}
+      - {ing: salt, g: 4}
+      - {ing: black_pepper, g: 1}
+  - id: baklava
+    name: Baklava
+    cuisine: levantine
+    course: dessert
+    format: baked_sweet
+    tier: core
+    confidence: draft
+    blurb: Layered phyllo with nuts and rose-cardamom syrup.
+    recipe_basis: team estimate of two pieces
+    ingredients:
+      - {ing: phyllo, g: 80, process: [roasted]}
+      - {ing: walnuts, g: 50}
+      - {ing: almonds, g: 20}
+      - {ing: butter, g: 40}
+      - {ing: sugar, g: 60, process: [simmered]}
+      - {ing: rose_water, g: 4}
+      - {ing: cardamom, g: 1}
+      - {ing: lemon_juice, g: 5}

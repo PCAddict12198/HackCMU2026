@@ -3,13 +3,33 @@
 ## Status
 | item | value |
 |---|---|
-| core dishes written / manifest | 16 / 70 (seed) |
+| core dishes written / manifest | 70 / 70 (all skeletons `confidence: draft`) |
 | dishes `confidence: reviewed` | 0 |
-| ingredients | 73 (all `seed_placeholder`) |
+| ingredients | 152 (73 with seed_placeholder profiles; ~79 new mostly `profile: {}`) |
 | grounded (non-seed) value share | 0% |
-| sanity set | draft, to freeze at h0-freeze |
+| sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 10:55 · 5f1a383 · REQUEST
+- what: USDA_API_KEY and XAI_API_KEY are unset locally; H3-5 fill/draft scripts cannot run
+- for: integrator
+- action: put keys in `.env` (not committed) so P1 can run `usda_fill.py --all` and `grok_draft_ingredients.py`
+
+## 10:50 · agent/data · READY
+- what: remaining 26 skeletons (indian, levantine, italian, french, mexican) — full 70-dish core present
+- for: engine
+- action: none; next is USDA fill + grok drafts for empty-profile ingredients (H3-5)
+
+## 10:35 · agent/data · READY
+- what: first 35 manifest skeletons done (japanese through vietnamese); remaining 35 are IN/LEV/IT/FR/MX
+- for: engine
+- action: none; unknown-id list is now the ingredient-profile to-do (empty `profile: {}` ids)
+
+## 10:15 · agent/data · READY
+- what: japanese core complete (7/7) — added shoyu_ramen, miso_soup, teriyaki_salmon, okonomiyaki, matcha_ice_cream skeletons
+- for: engine
+- action: none; continue H0-3 skeletons cuisine by cuisine
+
 ## H0 · scaffold · READY
 - what: seed data (73 ingredients, 16 dishes, 70-dish manifest, draft sanity pairs) validates
 - for: data
