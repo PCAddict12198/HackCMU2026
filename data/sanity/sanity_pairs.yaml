@@ -2,24 +2,26 @@
 # BEFORE looking at engine results. After the tag, no branch may change this file (hooks + CI enforce).
 # positive: the model should place b in a's top 10% of same-course pairs.
 # negative: the pair should be less similar than the median pair. Core (manifest) dishes only.
+# Positive pairs are deliberately CROSS-CUISINE: the product's whole point is finding flavor twins
+# across cultures, so two dishes from the same cuisine (e.g. tonkotsu vs shoyu ramen) prove nothing here.
 positive:
-  - {a: mapo_tofu, b: kimchi_jjigae, why: "spicy fermented tofu-and-pork stews"}
-  - {a: tonkotsu_ramen, b: shoyu_ramen, why: "same family of rich noodle soups"}
-  - {a: pho_bo, b: bun_bo_hue, why: "Vietnamese beef noodle soups"}
-  - {a: tom_yum_goong, b: hot_and_sour_soup, why: "sour-spicy brothy soups"}
-  - {a: spaghetti_carbonara, b: cacio_e_pepe, why: "cheese-and-pepper pasta"}
-  - {a: butter_chicken, b: massaman_curry, why: "rich, creamy, gently sweet curries"}
-  - {a: tabbouleh, b: fattoush, why: "herby, acidic Levantine salads"}
-  - {a: beef_bourguignon, b: osso_buco, why: "wine-braised meat stews"}
-  - {a: tiramisu, b: tres_leches, why: "creamy soaked cakes"}
-  - {a: creme_brulee, b: egg_tart, why: "sweet egg custards"}
+  - {a: mapo_tofu, b: kimchi_jjigae, why: "spicy fermented tofu/pork stews (Chinese vs Korean)"}
+  - {a: tonkotsu_ramen, b: french_onion_soup, why: "deeply savory, rich browned broths (Japanese vs French)"}
+  - {a: pho_bo, b: hot_and_sour_soup, why: "sour, herbal, warming broths (Vietnamese vs Chinese)"}
+  - {a: spaghetti_carbonara, b: dan_dan_noodles, why: "rich, salty, fatty pork noodles (Italian vs Chinese)"}
+  - {a: butter_chicken, b: massaman_curry, why: "creamy, mildly sweet, warmly spiced curries (Indian vs Thai)"}
+  - {a: tabbouleh, b: som_tam, why: "bright, herby, citrus-forward salads (Levantine vs Thai)"}
+  - {a: beef_bourguignon, b: mole_poblano, why: "deep, dark, wine/chili-braised meat stews (French vs Mexican)"}
+  - {a: tiramisu, b: tres_leches, why: "creamy, milk-soaked sponge cakes (Italian vs Mexican)"}
+  - {a: creme_brulee, b: egg_tart, why: "sweet egg custards with a caramelized top (French vs Chinese)"}
+  - {a: chicken_katsu, b: korean_fried_chicken, why: "crispy fried chicken with a savory glaze (Japanese vs Korean)"}
 negative:
   - {a: tonkotsu_ramen, b: tabbouleh, why: "rich hot broth vs bright raw salad"}
   - {a: spaghetti_carbonara, b: aguachile, why: "rich cheesy pasta vs acidic raw seafood"}
   - {a: french_onion_soup, b: som_tam, why: "sweet-rich soup vs sour-spicy crunchy salad"}
   - {a: butter_chicken, b: goi_cuon, why: "creamy curry vs fresh herb rolls"}
   - {a: mapo_tofu, b: fattoush, why: "fermented chili stew vs lemony salad"}
-  - {a: chicken_katsu, b: miso_soup, why: "crispy fried vs light broth"}
+  - {a: chicken_katsu, b: tom_yum_goong, why: "crispy fried chicken vs sour spicy broth (Japanese vs Thai)"}
   - {a: pho_bo, b: margherita_pizza, why: "herby broth vs baked cheese bread"}
   - {a: tacos_al_pastor, b: mushroom_risotto, why: "smoky chili pork vs creamy rice"}
   - {a: korean_fried_chicken, b: tabbouleh, why: "crispy fried vs raw herb salad"}
