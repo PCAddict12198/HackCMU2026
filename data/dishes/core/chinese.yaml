@@ -21,3 +21,111 @@ dishes:
       - {ing: chicken_stock, g: 150}
       - {ing: soy_sauce, g: 10}
       - {ing: neutral_oil, g: 20}
+  - id: kung_pao_chicken
+    name: Kung pao chicken
+    cuisine: chinese
+    course: savory
+    format: fried
+    tier: core
+    confidence: draft
+    blurb: Stir-fried chicken with dried chili, Sichuan peppercorn and peanuts.
+    recipe_basis: team estimate of one wok serving
+    ingredients:
+      - {ing: chicken_thigh, g: 200, process: [fried]}
+      - {ing: peanuts, g: 40, process: [fried]}
+      - {ing: chili_flakes, g: 8, process: [fried]}
+      - {ing: sichuan_peppercorn, g: 3, process: [toasted]}
+      - {ing: soy_sauce, g: 15}
+      - {ing: rice_vinegar, g: 10}
+      - {ing: sugar, g: 8}
+      - {ing: garlic, g: 10}
+      - {ing: ginger, g: 8}
+      - {ing: scallion, g: 20}
+      - {ing: neutral_oil, g: 20}
+  - id: char_siu
+    name: Char siu
+    cuisine: chinese
+    course: savory
+    format: grilled_roasted
+    tier: core
+    confidence: draft
+    blurb: Cantonese barbecue pork with a sweet soy-five-spice glaze.
+    recipe_basis: team estimate of a sliced serving
+    ingredients:
+      - {ing: pork_shoulder, g: 250, process: [roasted]}
+      - {ing: soy_sauce, g: 20}
+      - {ing: hoisin, g: 15}
+      - {ing: sugar, g: 20, note: "honey plus sugar in the glaze"}
+      - {ing: five_spice, g: 3}
+      - {ing: garlic, g: 8}
+      - {ing: sesame_oil, g: 5}
+  - id: hot_and_sour_soup
+    name: Hot and sour soup
+    cuisine: chinese
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Vinegary, peppery soup with tofu, mushroom and egg ribbons.
+    recipe_basis: team estimate of one bowl
+    ingredients:
+      - {ing: chicken_stock, g: 500, process: [simmered]}
+      - {ing: tofu, g: 120}
+      - {ing: mushroom, g: 60}
+      - {ing: bamboo_shoots, g: 40}
+      - {ing: egg, g: 50}
+      - {ing: rice_vinegar, g: 25}
+      - {ing: soy_sauce, g: 15}
+      - {ing: white_pepper, g: 2}
+      - {ing: chili_flakes, g: 3}
+  - id: dan_dan_noodles
+    name: Dan dan noodles
+    cuisine: chinese
+    course: savory
+    format: noodles
+    tier: core
+    confidence: draft
+    blurb: Wheat noodles in spicy sesame sauce with minced pork.
+    recipe_basis: team estimate of one bowl
+    ingredients:
+      - {ing: wheat_noodles, g: 150, process: [boiled]}
+      - {ing: ground_pork, g: 80, process: [fried]}
+      - {ing: sesame_paste, g: 25}
+      - {ing: chili_flakes, g: 8}
+      - {ing: sichuan_peppercorn, g: 2, process: [toasted]}
+      - {ing: soy_sauce, g: 15}
+      - {ing: garlic, g: 8}
+      - {ing: scallion, g: 10}
+      - {ing: sesame_oil, g: 8}
+  - id: peking_duck
+    name: Peking duck
+    cuisine: chinese
+    course: savory
+    format: grilled_roasted
+    tier: core
+    confidence: draft
+    blurb: Crispy roast duck with pancakes, cucumber, scallion and hoisin.
+    recipe_basis: team estimate of a plated serving
+    ingredients:
+      - {ing: duck, g: 250, process: [roasted]}
+      - {ing: mandarin_pancake, g: 80, process: [steamed]}
+      - {ing: cucumber, g: 40}
+      - {ing: scallion, g: 20}
+      - {ing: hoisin, g: 20}
+      - {ing: five_spice, g: 2}
+  - id: egg_tart
+    name: Egg tart
+    cuisine: chinese
+    course: dessert
+    format: baked_sweet
+    tier: core
+    confidence: draft
+    blurb: Flaky pastry cup filled with glossy baked egg custard.
+    recipe_basis: team estimate of two tarts
+    ingredients:
+      - {ing: wheat_flour, g: 80, process: [roasted]}
+      - {ing: butter, g: 40}
+      - {ing: egg, g: 80}
+      - {ing: sugar, g: 40}
+      - {ing: whole_milk, g: 80}
+      - {ing: vanilla, g: 2}

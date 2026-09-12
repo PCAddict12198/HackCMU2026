@@ -8,3 +8,7 @@ ingredients:
   - {id: mascarpone, name: Mascarpone, category: dairy, potency: 1.5, profile: {creamy: 0.95, rich: 0.9, sweet: 0.2}}
   - {id: pecorino, name: Pecorino Romano, category: dairy, potency: 3.0, aliases: [pecorino cheese, parmesan, parmigiano], profile: {salty: 0.85, umami: 0.8, rich: 0.6, fermented: 0.5}}
   - {id: gruyere, name: Gruyere, category: dairy, potency: 2.0, aliases: [gruyère, swiss cheese], profile: {salty: 0.6, umami: 0.7, rich: 0.7, fermented: 0.4, creamy: 0.4, earthy: 0.2}}
+  - {id: paneer, name: Paneer, category: dairy, potency: 1.2, profile: {}}
+  - {id: yogurt, name: Yogurt, category: dairy, potency: 1.2, aliases: [plain yogurt, greek yogurt], profile: {}}
+  - {id: mozzarella, name: Mozzarella, category: dairy, potency: 1.2, aliases: [fresh mozzarella], profile: {}}
+  - {id: queso_fresco, name: Queso fresco, category: dairy, potency: 1.2, aliases: [mexican cheese, oaxaca], profile: {}}

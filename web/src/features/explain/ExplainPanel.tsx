@@ -1,41 +1,62 @@
-// Explain (baseline): per-dim comparison + ingredient attributions with provenance chips.
-// P3 TODO: radar chart, attribution bars, highlight seed/grok values differently.
-import { useEffect, useState } from "react";
-import { api, errorMessage } from "../../api/client";
+import { useEffect, useMemo, useState } from "react";
+import { api } from "../../api/client";
 import type { ExplainResponse } from "../../contract";
+import { cuisineColor } from "../galaxy/colors";
 import { useStore } from "../../state/store";
+import { closerThan } from "../shared/copy";
+import { AttributionBars } from "../shared/ProvenanceChip";
+import { Radar, radarAxes } from "../shared/Radar";
+import { ErrorState, Loading } from "../shared/Status";
 
 export function ExplainPanel() {
   const pair = useStore((s) => s.explainPair);
   const space = useStore((s) => s.space);
   const [data, setData] = useState<ExplainResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<unknown>(null);
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
     if (!pair) return;
     let live = true;
+    setData(null);
     api
       .explain(pair[0], pair[1])
       .then((r) => live && (setData(r), setError(null)))
-      .catch((e) => live && setError(errorMessage(e)));
+      .catch((e) => live && setError(e));
     return () => {
       live = false;
     };
-  }, [pair]);
+  }, [pair, tick]);
 
   const name = (id: string) => space?.dishes.find((d) => d.id === id)?.name ?? id;
+  const dishA = space?.dishes.find((d) => d.id === data?.a);
+  const dishB = space?.dishes.find((d) => d.id === data?.b);
+  const axes = useMemo(() => {
+    if (!dishA || !dishB || !space) return [];
+    return radarAxes(dishA.vector, dishB.vector, space.meta.dim_order);
+  }, [dishA, dishB, space]);
+
   if (!pair) return <p className="muted">Pick "Why?" on a twin to compare two dishes.</p>;
-  if (error) return <p className="error">{error}</p>;
-  if (!data) return <p className="muted">Comparing...</p>;
-  const dims = [...data.dims].sort((x, y) => Math.max(y.a, y.b) - Math.max(x.a, x.b)).slice(0, 8);
+  if (error) return <ErrorState error={error} onRetry={() => setTick((n) => n + 1)} />;
+  if (!data) return <Loading label="Comparing flavor dimensions..." />;
+
+  const dims = [...data.dims].sort((x, y) => y.distance_share - x.distance_share).slice(0, 8);
+  const top = dims[0]?.dim;
   return (
     <div>
       <h3>
         {name(data.a)} vs {name(data.b)}
       </h3>
-      <p className="small">
-        closer than <strong>{data.similarity_pct.toFixed(0)}%</strong> of same-course dish pairs
-      </p>
+      <p className="small">{closerThan(data.similarity_pct)}</p>
+      {dishA && dishB && axes.length > 0 && (
+        <Radar
+          axes={axes}
+          series={[
+            { label: dishA.name, color: cuisineColor(dishA.cuisine), values: axes.map((d) => dishA.vector[d] ?? 0) },
+            { label: dishB.name, color: cuisineColor(dishB.cuisine), values: axes.map((d) => dishB.vector[d] ?? 0) },
+          ]}
+        />
+      )}
       <table>
         <thead>
           <tr>
@@ -56,15 +77,18 @@ export function ExplainPanel() {
           ))}
         </tbody>
       </table>
-      <h4>Why is {name(data.a)} {dims[0]?.dim}?</h4>
-      <ul>
-        {(data.attributions.a[dims[0]?.dim] ?? []).slice(0, 4).map((c) => (
-          <li key={c.kind + c.id + c.process.join()} className="small">
-            +{c.value.toFixed(2)} {c.id} {c.process.length > 0 && `(${c.process.join(", ")})`}{" "}
-            <span className="chip">{c.src ?? c.kind}</span>
-          </li>
-        ))}
-      </ul>
+      {top && (
+        <>
+          <h4>
+            Why is {name(data.a)} {top}?
+          </h4>
+          <AttributionBars items={(data.attributions.a[top] ?? []).slice(0, 6)} />
+          <h4>
+            Why is {name(data.b)} {top}?
+          </h4>
+          <AttributionBars items={(data.attributions.b[top] ?? []).slice(0, 6)} />
+        </>
+      )}
     </div>
   );
 }

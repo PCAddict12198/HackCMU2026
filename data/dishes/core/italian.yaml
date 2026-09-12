@@ -31,3 +31,95 @@ dishes:
       - {ing: sugar, g: 75}
       - {ing: egg, g: 100}
       - {ing: cocoa_powder, g: 10}
+  - id: cacio_e_pepe
+    name: Cacio e pepe
+    cuisine: italian
+    course: savory
+    format: noodles
+    tier: core
+    confidence: draft
+    blurb: Pasta tossed with pecorino and lots of black pepper.
+    recipe_basis: team estimate of one plate
+    ingredients:
+      - {ing: spaghetti, g: 180, process: [boiled]}
+      - {ing: pecorino, g: 60}
+      - {ing: black_pepper, g: 4, process: [toasted]}
+  - id: margherita_pizza
+    name: Margherita pizza
+    cuisine: italian
+    course: savory
+    format: grilled_roasted
+    tier: core
+    confidence: draft
+    blurb: Wood-fired pizza with tomato, mozzarella and basil.
+    recipe_basis: team estimate of one personal pie
+    ingredients:
+      - {ing: pizza_dough, g: 220, process: [roasted]}
+      - {ing: tomato, g: 120}
+      - {ing: mozzarella, g: 100}
+      - {ing: olive_oil, g: 15}
+      - {ing: sweet_basil, g: 8}
+      - {ing: salt, g: 3}
+  - id: mushroom_risotto
+    name: Mushroom risotto
+    cuisine: italian
+    course: savory
+    format: rice_dish
+    tier: core
+    confidence: draft
+    blurb: Creamy slow-stirred rice with mushrooms, butter and pecorino.
+    recipe_basis: team estimate of one plate
+    ingredients:
+      - {ing: rice, g: 180, process: [simmered]}
+      - {ing: mushroom, g: 120, process: [fried]}
+      - {ing: chicken_stock, g: 400, process: [simmered]}
+      - {ing: onion, g: 40, process: [fried]}
+      - {ing: butter, g: 30}
+      - {ing: pecorino, g: 30}
+      - {ing: white_wine, g: 40}
+      - {ing: olive_oil, g: 10}
+      - {ing: thyme, g: 2}
+      - {ing: salt, g: 3}
+  - id: osso_buco
+    name: Osso buco
+    cuisine: italian
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Braised veal shank with soffritto, wine and gremolata.
+    recipe_basis: team estimate of one shank serving
+    ingredients:
+      - {ing: veal_shank, g: 350, process: [braised]}
+      - {ing: onion, g: 60, process: [fried]}
+      - {ing: carrot, g: 40, process: [fried]}
+      - {ing: celery, g: 30, process: [fried]}
+      - {ing: tomato, g: 80}
+      - {ing: white_wine, g: 80}
+      - {ing: beef_bone_broth, g: 200, process: [simmered]}
+      - {ing: garlic, g: 6}
+      - {ing: parsley, g: 8}
+      - {ing: lemon_juice, g: 5}
+      - {ing: olive_oil, g: 15}
+  - id: minestrone
+    name: Minestrone
+    cuisine: italian
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Vegetable soup with beans, pasta and olive oil.
+    recipe_basis: team estimate of one bowl
+    ingredients:
+      - {ing: chicken_stock, g: 500, process: [simmered]}
+      - {ing: tomato, g: 120}
+      - {ing: cannellini_bean, g: 80, process: [simmered]}
+      - {ing: carrot, g: 40}
+      - {ing: celery, g: 30}
+      - {ing: zucchini, g: 50}
+      - {ing: onion, g: 50, process: [fried]}
+      - {ing: spaghetti, g: 40, process: [boiled]}
+      - {ing: olive_oil, g: 15}
+      - {ing: parsley, g: 6}
+      - {ing: garlic, g: 5}
+      - {ing: salt, g: 4}

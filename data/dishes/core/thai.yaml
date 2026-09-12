@@ -35,3 +35,102 @@ dishes:
       - {ing: sugar, g: 30}
       - {ing: salt, g: 2}
       - {ing: mango, g: 150}
+  - id: green_curry
+    name: Green curry
+    cuisine: thai
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Coconut curry with green chili paste, chicken and Thai basil.
+    recipe_basis: team estimate of one bowl with rice on the side omitted
+    ingredients:
+      - {ing: coconut_milk, g: 250}
+      - {ing: green_curry_paste, g: 30}
+      - {ing: chicken_thigh, g: 180, process: [simmered]}
+      - {ing: eggplant, g: 80, process: [simmered]}
+      - {ing: kaffir_lime_leaf, g: 3}
+      - {ing: fish_sauce, g: 20}
+      - {ing: sugar, g: 8}
+      - {ing: thai_basil, g: 10}
+      - {ing: fresh_chili, g: 5}
+  - id: pad_thai
+    name: Pad thai
+    cuisine: thai
+    course: savory
+    format: noodles
+    tier: core
+    confidence: draft
+    blurb: Stir-fried rice noodles with tamarind, fish sauce, shrimp and peanuts.
+    recipe_basis: team estimate of one wok plate
+    ingredients:
+      - {ing: rice_noodles, g: 150, process: [fried]}
+      - {ing: shrimp, g: 100, process: [fried]}
+      - {ing: tofu, g: 50, process: [fried]}
+      - {ing: egg, g: 50, process: [fried]}
+      - {ing: tamarind, g: 20}
+      - {ing: fish_sauce, g: 20}
+      - {ing: sugar, g: 15}
+      - {ing: bean_sprouts, g: 50}
+      - {ing: peanuts, g: 20, process: [toasted]}
+      - {ing: garlic, g: 8}
+      - {ing: lime_juice, g: 15}
+      - {ing: scallion, g: 10}
+  - id: som_tam
+    name: Som tam
+    cuisine: thai
+    course: savory
+    format: raw_salad
+    tier: core
+    confidence: draft
+    blurb: Pounded green papaya salad with chili, lime, fish sauce and peanuts.
+    recipe_basis: team estimate of one salad plate
+    ingredients:
+      - {ing: green_papaya, g: 180}
+      - {ing: lime_juice, g: 25}
+      - {ing: fish_sauce, g: 15}
+      - {ing: fresh_chili, g: 10}
+      - {ing: garlic, g: 6}
+      - {ing: sugar, g: 10}
+      - {ing: peanuts, g: 15, process: [toasted]}
+      - {ing: tomato, g: 40}
+      - {ing: long_bean, g: 30}
+  - id: larb
+    name: Larb
+    cuisine: thai
+    course: savory
+    format: raw_salad
+    tier: core
+    confidence: draft
+    blurb: Minced pork salad with lime, toasted rice, mint and chili.
+    recipe_basis: team estimate of one sharing plate
+    ingredients:
+      - {ing: ground_pork, g: 180, process: [fried]}
+      - {ing: lime_juice, g: 25}
+      - {ing: fish_sauce, g: 20}
+      - {ing: fresh_chili, g: 8}
+      - {ing: sticky_rice, g: 15, process: [toasted], note: toasted rice powder}
+      - {ing: mint, g: 12}
+      - {ing: cilantro, g: 8}
+      - {ing: onion, g: 30}
+      - {ing: scallion, g: 10}
+  - id: massaman_curry
+    name: Massaman curry
+    cuisine: thai
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Mild coconut curry with beef, potato, peanut and warm spices.
+    recipe_basis: team estimate of one bowl
+    ingredients:
+      - {ing: coconut_milk, g: 250}
+      - {ing: massaman_curry_paste, g: 30}
+      - {ing: beef_sirloin, g: 180, process: [braised]}
+      - {ing: potato, g: 150, process: [simmered]}
+      - {ing: onion, g: 60}
+      - {ing: peanuts, g: 25}
+      - {ing: fish_sauce, g: 15}
+      - {ing: tamarind, g: 10}
+      - {ing: cinnamon, g: 2}
+      - {ing: star_anise, g: 1}
