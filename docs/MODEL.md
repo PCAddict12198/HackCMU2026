@@ -48,7 +48,7 @@ Bland bulk (water, noodles) has `r ~ 0`, so it doesn't dilute potent ingredients
 ## 6. Flavor Twins (`engine/twins.py`)
 Same course. Candidates are filled from an adaptive ladder of similarity thresholds (90th -> 80th -> 70th
 percentile -> any other cuisine -> same-cuisine fallback), and within a level they're ranked by cuisine distance
-first (0 / 0.4 same region / 0.7 same macro-region / 1.0), then similarity. The response reports the level used.
+first (0 / 0.4 same region / 0.7 same macro-region / 1.0), then similarity. `relaxation_level` is the level at which the best twin was found; the remaining slots may come from looser levels.
 
 ## 7. Taste Shift (`engine/shift.py`)
 `target = z_A + delta` (sigma units). Candidates must move the requested way on the touched dims

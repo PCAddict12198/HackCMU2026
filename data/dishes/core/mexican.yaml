@@ -1,7 +1,7 @@
 # OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: tacos_al_pastor
-    name: Tacos al pastor
+    name: Tacos Al Pastor
     cuisine: mexican
     course: savory
     format: grilled_roasted
@@ -37,7 +37,7 @@ dishes:
       - {ing: cilantro, g: 10}
       - {ing: salt, g: 3}
   - id: tres_leches
-    name: Tres leches
+    name: Tres Leches
     cuisine: mexican
     course: dessert
     format: baked_sweet
@@ -54,7 +54,7 @@ dishes:
       - {ing: heavy_cream, g: 120}
       - {ing: cinnamon, g: 2}
   - id: mole_poblano
-    name: Mole poblano
+    name: Mole Poblano
     cuisine: mexican
     course: savory
     format: stew_braise
@@ -76,7 +76,7 @@ dishes:
       - {ing: corn_tortilla, g: 20, process: [toasted]}
       - {ing: sesame_oil, g: 5}
   - id: pozole_rojo
-    name: Pozole rojo
+    name: Pozole Rojo
     cuisine: mexican
     course: savory
     format: soup
@@ -97,7 +97,7 @@ dishes:
       - {ing: lime_juice, g: 15}
       - {ing: salt, g: 4}
   - id: chiles_rellenos
-    name: Chiles rellenos
+    name: Chiles Rellenos
     cuisine: mexican
     course: savory
     format: fried
@@ -117,7 +117,7 @@ dishes:
       - {ing: neutral_oil, g: 15, process: [fried]}
       - {ing: salt, g: 3}
   - id: cochinita_pibil
-    name: Cochinita pibil
+    name: Cochinita Pibil
     cuisine: mexican
     course: savory
     format: stew_braise

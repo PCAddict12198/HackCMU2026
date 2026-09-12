@@ -10,6 +10,11 @@
 | recipe | demo | Map my recipe page; coverage copy; show on map |
 | ask | demo | drawer (not a chatbot home); tool trace behind a link |
 
+## 13:56 · READY
+- what: merged `origin/main` into `agent/web`. Kept Discover / Taste Map shell; dish photos from main now sit on food cards and the selected sheet (abstract plate is the 404 fallback).
+- for: integrator
+- action: `make web` or `make dev`; click a star — photo + credit on the selected sheet.
+
 ## 13:40 · READY
 - what: Taste Map stays wide with bright nodes + neighbor links; scroll to zoom out; nearby dishes now select that dish. Mock recipe uses the pasted text (no more frozen carbonara fixture).
 - for: integrator
@@ -19,6 +24,11 @@
 - what: consumer redesign — Discover home, ivory Taste Map, Fraunces + DM Sans, lime CTAs. Same APIs and demo keys (0 / 1 / L / 4 / 5 / 6).
 - for: integrator
 - action: `make web` (mock) or `make dev` (live 70 dishes). First screen is Discover, not the 3D view.
+
+## 13:15 · READY
+- what: 70 freely licensed dish photos on the selected-dish card (`/dishes/<id>.jpg`). Mapping lives in web, not the frozen dish schema. Shared warm crop/grade in CSS so Commons photos read as one set.
+- for: integrator
+- action: `make web` or `make dev`; click a star — photo + credit appear with name/cuisine/blurb.
 
 ## 12:46 · READY
 - what: visual polish — smooth lit dish orbs, Fraunces + Outfit, glass panel chrome

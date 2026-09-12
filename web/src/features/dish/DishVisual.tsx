@@ -1,4 +1,5 @@
 import type { DishPoint } from "../../contract";
+import { DishPhoto } from "../shared/DishPhoto";
 import { plateColors } from "../galaxy/colors";
 
 function mix(id: string): number {
@@ -12,12 +13,13 @@ export function DishVisual({ dish, className }: { dish: DishPoint; className?: s
   const n = mix(dish.id);
   const rot = Math.round(n * 40 - 12);
   return (
-    <div className={`dish-visual ${className ?? ""}`} aria-hidden="true" style={{ background: c }}>
-      <span className="plate" style={{ background: `radial-gradient(circle at 35% 30%, ${a}, ${b} 55%, ${c})` }}>
+    <div className={`dish-visual ${className ?? ""}`} style={{ background: c }}>
+      <span className="plate" aria-hidden="true" style={{ background: `radial-gradient(circle at 35% 30%, ${a}, ${b} 55%, ${c})` }}>
         <i style={{ transform: `translate(-12%, -8%) rotate(${rot}deg)`, background: a }} />
         <i style={{ transform: `translate(18%, 10%) rotate(${-rot}deg)`, background: b }} />
         <i className="glaze" />
       </span>
+      <DishPhoto id={dish.id} name={dish.name} />
     </div>
   );
 }

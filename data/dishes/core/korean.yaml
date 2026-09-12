@@ -1,7 +1,7 @@
 # OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: kimchi_jjigae
-    name: Kimchi jjigae
+    name: Kimchi Jjigae
     cuisine: korean
     course: savory
     format: stew_braise
@@ -80,7 +80,7 @@ dishes:
       - {ing: chicken_stock, g: 200}
       - {ing: garlic, g: 8}
   - id: korean_fried_chicken
-    name: Korean fried chicken
+    name: Korean Fried Chicken
     cuisine: korean
     course: savory
     format: fried

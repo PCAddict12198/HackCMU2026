@@ -1,7 +1,7 @@
 # OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: spaghetti_carbonara
-    name: Spaghetti carbonara
+    name: Spaghetti Carbonara
     cuisine: italian
     course: savory
     format: noodles
@@ -32,7 +32,7 @@ dishes:
       - {ing: egg, g: 100}
       - {ing: cocoa_powder, g: 10}
   - id: cacio_e_pepe
-    name: Cacio e pepe
+    name: Cacio E Pepe
     cuisine: italian
     course: savory
     format: noodles
@@ -45,7 +45,7 @@ dishes:
       - {ing: pecorino, g: 60}
       - {ing: black_pepper, g: 4, process: [toasted]}
   - id: margherita_pizza
-    name: Margherita pizza
+    name: Margherita Pizza
     cuisine: italian
     course: savory
     format: grilled_roasted
@@ -61,7 +61,7 @@ dishes:
       - {ing: sweet_basil, g: 8}
       - {ing: salt, g: 3}
   - id: mushroom_risotto
-    name: Mushroom risotto
+    name: Mushroom Risotto
     cuisine: italian
     course: savory
     format: rice_dish
@@ -81,7 +81,7 @@ dishes:
       - {ing: thyme, g: 2}
       - {ing: salt, g: 3}
   - id: osso_buco
-    name: Osso buco
+    name: Osso Buco
     cuisine: italian
     course: savory
     format: stew_braise

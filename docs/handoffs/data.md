@@ -12,6 +12,91 @@
 | extended drafts | 13 (added bun_thit_nuong; still `confidence: draft`) |
 
 ## Log
+## 12:52 · 261e590 · READY (closes the 12:44 REQUEST below)
+- what: engine landed the twins fix themselves as **`b9005bf [engine] twins: label by the best twin's level,
+  not the loosest fill`**, now in `main` and merged into `agent/data`. Their version is better than the patch
+  data had prepared, so the patch is deleted rather than applied: besides the same one-line guard they also
+  rewrote the LADDER strings from "relaxed to the top N%" to **"best twin is in the top N%"**, which fixes
+  the semantic wart data had flagged (the note now states what it actually measures instead of implying the
+  whole list sits in that band), and they added a regression test,
+  `backend/tests/unit/test_twins_level.py`. `docs/demo/patches/twins-relaxation-level.patch` is removed as
+  obsolete. Verified on `agent/data` after merging main: 82 tests pass, relaxation levels are
+  {0: 56, 1: 10, 2: 2, 3: 2}, and the only level-3 dishes are baklava and tiramisu.
+- for: engine
+- action: none — thank you. Noting for the record that data briefly committed the same fix on the
+  `agent/engine` branch before seeing b9005bf; that commit was never pushed and has been discarded, so there
+  is no duplicate to untangle.
+
+## 12:44 · 5ba33ad · REQUEST (superseded by the entry above — patch deleted, engine fixed it in b9005bf)
+- what: the relaxation-level bug from the 12:32 entry is **fixed, verified, and ready to apply — but not
+  committed**, because `backend/tastespace/engine/twins.py` is engine-owned and the pre-commit ownership
+  hook correctly refused it. The human owner asked data to make the change directly; the guardrail the team
+  set up said no, and it was not bypassed (`--no-verify` is forbidden by AGENTS.md section 3). The patch is
+  committed instead, as data-owned content:
+  **`docs/demo/patches/twins-relaxation-level.patch`** — apply with
+  `git apply docs/demo/patches/twins-relaxation-level.patch` from the repo root.
+  It is 3 functional lines: `level, note` is assigned only on the band that supplies the FIRST (closest)
+  twin rather than on every contributing band, plus the docstring line that documented the old behaviour.
+  Measured with the patch applied: level 3 goes 8 dishes -> **2** (baklava, tiramisu — the only genuinely
+  isolated ones), level 0 goes 40 -> **56**, and miso_soup reports level 1 "relaxed to the top 20% of
+  similar pairs" with hot_and_sour_soup 85.2 instead of "no close cross-cuisine match yet". All 82 backend
+  tests pass, including `test_every_twin_relaxation_level_is_reachable` (it uses k=1, where only one band
+  can contribute). Core build id stays `3eaa61b000dc`: the space, the calibration freeze, sanity (4/10,
+  9/10) and every number in `docs/demo/demo_script.md` are unaffected — only the reported band changes.
+- for: engine
+- action: apply the patch on your branch (or tell data you would rather not and it stays as is). One
+  semantic change to be aware of: `relaxation_note` now describes the best twin rather than the weakest, so
+  a 3-twin list can contain entries below the band the note names. Per-twin `similarity_pct` is unchanged
+  and already in the response, so the UI can still show per-row quality if you want that distinction back.
+  Worth doing before the demo: miso soup currently tells a judge there is no close cross-cuisine match
+  while showing one at the 85th percentile.
+
+## 12:32 · e4dcf4b · BREAKING
+- what: the "8 dishes with no close cross-cuisine twin" in the build report is **mostly a reporting bug in
+  `twins.py`, not a data gap** — and it is user-visible, because the UI shows the relaxation note. In
+  `find_twins` the ladder loop at `backend/tastespace/engine/twins.py:44-50` reassigns
+  `level, note = lvl, lvl_note` on **every** level whose pool is non-empty, while it keeps accumulating
+  picks until it has `k`. So the reported `relaxation_level` is the WORST level that contributed a pick,
+  not the quality of the match. With `k=3` and a thin course, any dish with one or two strong
+  cross-cuisine matches must dip to level 3 to fill the third slot, and is then labelled "no close
+  cross-cuisine match yet" even when its best twin is in the top 20%. Proof — same dishes, `k=1` vs `k=3`:
+  | dish | best cross-cuisine twin | level @k=1 | level @k=3 |
+  |---|---|---:|---:|
+  | che_ba_mau | mango_sticky_rice 86.7 | 1 | 3 |
+  | mango_sticky_rice | che_ba_mau 86.7 | 1 | 3 |
+  | miso_soup | hot_and_sour_soup 85.2 | 1 | 3 |
+  | larb | kung_pao_chicken 80.2 | 1 | 3 |
+  | matcha_ice_cream | tres_leches 75.6 | 2 | 3 |
+  | green_curry | mapo_tofu 70.0 | 2 | 3 |
+  | baklava | hotteok 66.7 | 3 | 3 |
+  | tiramisu | matcha_ice_cream 28.9 | 3 | 3 |
+  Six of the eight are mislabelled. Only baklava and tiramisu are genuinely isolated in core.
+- for: engine
+- action: report the level the **best** twin earns, not the last one used — e.g. track
+  `level = min(level, lvl)` on first assignment, or set it only from the level that produced `picked[0]`.
+  Data is not changing anything here: the twins are real and already in the corpus. This is worth fixing
+  before the demo, since "no close cross-cuisine match yet" on miso soup (whose twin is hot and sour soup
+  at the 85th percentile) is the opposite of the pitch.
+
+## 12:32 · e4dcf4b · READY
+- what: for the two dishes that ARE genuinely isolated in core, added the missing neighbours as extended
+  drafts using existing ingredient ids only: `cannoli` (italian, fried shell + sweet cheese cream + nuts)
+  and `opera_cake` (french, almond sponge + coffee buttercream + chocolate ganache). Measured at
+  `--tier all`: baklava's best cross-cuisine goes 66.7 -> **cannoli 86.8** (level 3 -> 1) and tiramisu's
+  goes 28.9 -> **opera_cake 90.1** (level 3 -> 0). At `k=1, tier=all` the only level-3 dish left is
+  `baba_ganoush` (extended, and its nearest analogue `hummus` is the same cuisine). Chosen to fill those
+  two neighbourhoods deliberately, and said so here — but they are canonical dishes, no existing dish's
+  values were touched, and core is untouched: the core build id is still `3eaa61b000dc`, so every number
+  in `docs/demo/demo_script.md` still holds and sanity is still 4/10 and 9/10.
+- for: integrator | web
+- action: **these two do not help the demo as things stand.** `DATA_TIER=core`, calibration is frozen on
+  core, and `dishes/core/_manifest.yaml` is frozen at H0 — so data cannot promote them. If the team wants
+  tiramisu and baklava to have real twins on stage, someone has to either add `cannoli` and `opera_cake`
+  to the core manifest (a human decision; it would shift percentiles and need the demo numbers re-derived,
+  and the calibration freeze re-run) or point the demo at `DATA_TIER=all`. Otherwise leave them as drafts
+  and expect those two dishes to show the fallback note — which the `twins.py` fix above will at least
+  make accurate.
+
 ## 12:20 · Cursor-on-data · READY
 - what: post-Claude P1 sweep. Culinary: pozole_rojo broth `chicken_stock` → `pork_bone_broth` (it is a pork stew).
   Aliases: green/red chili now map to chili_mild/chili_hot. Ratings left blind to percentiles but three
