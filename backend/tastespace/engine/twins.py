@@ -1,7 +1,8 @@
 """Flavor Twins: high sensory similarity first, then maximize culinary (cuisine) distance.
 
 Same-course candidates only. A small corpus can leave the strict band empty, so candidates are filled
-from an adaptive ladder of percentile thresholds; the response reports the deepest level used.
+from an adaptive ladder of percentile thresholds; relaxation_level is the level the BEST twin was found at
+(the remaining slots may come from looser levels).
 """
 
 import numpy as np
@@ -12,9 +13,9 @@ from ..state import EngineState
 
 # (minimum similarity percentile, note). Level index = relaxation_level.
 LADDER: list[tuple[float, str]] = [
-    (90.0, "twins are in the top 10% of similar dish pairs"),
-    (80.0, "relaxed to the top 20% of similar pairs"),
-    (70.0, "relaxed to the top 30% of similar pairs"),
+    (90.0, "best twin is in the top 10% of similar dish pairs"),
+    (80.0, "best twin is in the top 20% of similar pairs"),
+    (70.0, "best twin is in the top 30% of similar pairs"),
     (0.0, "no close cross-cuisine match yet; showing the nearest other cuisines"),
 ]
 SAME_CUISINE_NOTE = "no other cuisine in this course yet; showing same-cuisine neighbours"
@@ -45,8 +46,9 @@ def find_twins(state: EngineState, dish_id: str, k: int = 3) -> TwinsResponse:
             taken = {p[0] for p in picked}
             pool = sorted((c for c in cross if c[2] >= threshold and c[0] not in taken), key=lambda c: (-c[3], -c[2]))
             if pool:
+                if not picked:  # report the level the BEST twin earned, not the loosest one used to fill k
+                    level, note = lvl, lvl_note
                 picked += pool[: k - len(picked)]
-                level, note = lvl, lvl_note
             if len(picked) >= k:
                 break
     else:
