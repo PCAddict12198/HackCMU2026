@@ -97,6 +97,20 @@ def data_gaps(ds: Dataset, top: int = 15) -> tuple[list[dict], list[tuple[str, f
             sorted(blind, key=lambda x: -x[1]))
 
 
+def demo_candidates(state: EngineState, min_pct: float = 90.0, top: int = 10) -> list[dict]:
+    """The strongest cross-macro-region twin pairs, straight from find_twins (not hand-picked).
+    At H16 the team picks demo pairs from this list; it is also honest pitch evidence."""
+    seen: set[frozenset] = set()
+    out = []
+    for did in state.model.ids:
+        for t in find_twins(state, did, 3).twins:
+            key = frozenset((did, t.dish_id))
+            if t.cuisine_distance >= 1.0 and t.similarity_pct >= min_pct and key not in seen:
+                seen.add(key)
+                out.append({"a": did, "b": t.dish_id, "pct": t.similarity_pct, "shared": t.shared_dims[:4]})
+    return sorted(out, key=lambda c: -c["pct"])[:top]
+
+
 def render_report(state: EngineState, ds: Dataset) -> str:
     m = state.model
     L: list[str] = [f"# TasteSpace build report `{state.build_id}`", ""]
@@ -164,6 +178,16 @@ def render_report(state: EngineState, ds: Dataset) -> str:
     L += ["## Twin relaxation usage (k=3, per dish)",
           *[f"- level {lvl} ({LADDER[lvl][1] if lvl < len(LADDER) else 'same-cuisine fallback'}): {n}"
             for lvl, n in sorted(levels.items())], ""]
+
+    cands = demo_candidates(state)
+    L += ["## Demo candidates (engine output, cross-region twins >= 90th pct)",
+          "Pick demo pairs from here at H16; never hand-pick or tune data to create one."]
+    if cands:
+        L += ["", "| a | b | similarity pct | shared |", "|---|---|---:|---|",
+              *[f"| {c['a']} | {c['b']} | {c['pct']:.1f} | {', '.join(c['shared'])} |" for c in cands]]
+    else:
+        L.append("(none yet)")
+    L.append("")
 
     if ds.ratings and ds.ratings.pairs:
         xs, ys = [], []
