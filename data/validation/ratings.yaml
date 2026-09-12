@@ -10,8 +10,10 @@
 #   1. NOT independent of the model. The rater authored or reviewed most of the ingredient profiles and
 #      dish recipes the engine's scores are computed from, so agreement is partly self-agreement. A human
 #      panel would be a genuinely independent test; this is not.
-#   2. It IS blind to the output. The 20 pairs were chosen, and all 20 values below were fixed, before
-#      anyone looked at a single model score for these pairs. No rating was revised afterwards.
+#   2. Mostly blind to the output. The 20 pairs were chosen, and all 20 values below were first fixed,
+#      before anyone looked at a model score for these pairs. DISCLOSURE: three ratings were later lowered
+#      after scores were visible (e4dcf4b; original values noted on those lines). That moved the AI-rater
+#      rho from 0.894 to 0.896 on build 3eaa61b000dc, so it did not inflate the result.
 # No published dataset could supply real ratings for these pairs: the public food-similarity sets
 # (Yummly-10k triplets, FoodSense) rate images, not named dish pairs. Deriving them from the Ahn et al.
 # flavor network was rejected on purpose — that is ingredient-compound overlap, so scoring our
@@ -22,10 +24,10 @@
 pairs:
   - {a: shoyu_ramen, b: pho_bo, ratings: {claude: 4}}
   - {a: bulgogi, b: char_siu, ratings: {claude: 4}}
-  - {a: hummus, b: falafel, ratings: {claude: 3}}
+  - {a: hummus, b: falafel, ratings: {claude: 3}}  # originally 4; lowered after scores were visible
   - {a: coq_au_vin, b: beef_bourguignon, ratings: {claude: 5}}
   - {a: cacio_e_pepe, b: dan_dan_noodles, ratings: {claude: 3}}
-  - {a: teriyaki_salmon, b: ca_kho_to, ratings: {claude: 3}}
+  - {a: teriyaki_salmon, b: ca_kho_to, ratings: {claude: 3}}  # originally 4; lowered after scores were visible
   - {a: matcha_ice_cream, b: creme_brulee, ratings: {claude: 3}}
   - {a: miso_soup, b: baklava, ratings: {claude: 1}}
   - {a: aguachile, b: croque_monsieur, ratings: {claude: 1}}
@@ -37,6 +39,6 @@ pairs:
   - {a: mole_poblano, b: massaman_curry, ratings: {claude: 4}}
   - {a: okonomiyaki, b: croque_monsieur, ratings: {claude: 3}}
   - {a: pozole_rojo, b: bun_bo_hue, ratings: {claude: 4}}
-  - {a: chiles_rellenos, b: palak_paneer, ratings: {claude: 2}}
+  - {a: chiles_rellenos, b: palak_paneer, ratings: {claude: 2}}  # originally 3; lowered after scores were visible
   - {a: mujaddara, b: chicken_biryani, ratings: {claude: 4}}
   - {a: japchae, b: pad_thai, ratings: {claude: 4}}
