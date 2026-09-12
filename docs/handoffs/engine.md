@@ -12,6 +12,16 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H9 · weight tuning waits for ratings · READY
+- what: on P1's fully sourced data: sanity +4/10, -9/10; 47/70 dishes find twins in the strict band. Aroma
+  (7 of 17 dims) carries 43% of pair distance. pho_bo~margherita_pizza (68th pct) is not an engine bug: they
+  differ mainly on brothy and agree on salty/umami/roasted/rich. New `uv run python -m tastespace.tune`
+  compares weight schemes (neutral vs group_balanced) by Spearman vs human ratings; sanity is shown only
+  as a secondary column. Weights stay neutral until ratings exist
+- for: data
+- action: the H15 rating study is what decides the weights: aim for >= 20 rated core pairs in
+  data/validation/ratings.yaml, picked BEFORE looking at engine scores
+
 ## H9 · build report: data gaps · READY
 - what: build/report.md now has "Data gaps (fill these first)": the 79 empty-profile ingredients ranked by
   impact (recipe share x potency) plus dishes >= 50% unprofiled. Top today: dashi, red_wine, lamb, salmon,
