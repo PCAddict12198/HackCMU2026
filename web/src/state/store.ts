@@ -55,7 +55,9 @@ export const useStore = create<Store>()((set, get) => ({
   async load() {
     const [space, health] = await Promise.allSettled([api.space(), api.health()]);
     if (space.status === "rejected") return set({ loadError: space.reason });
-    const first = get().selectedId ?? space.value.dishes[0]?.id ?? null;
+    const ids = new Set(space.value.dishes.map((d) => d.id));
+    const keep = get().selectedId && ids.has(get().selectedId!) ? get().selectedId : null;
+    const first = keep ?? (ids.has("tonkotsu_ramen") ? "tonkotsu_ramen" : space.value.dishes[0]?.id) ?? null;
     set({
       space: space.value,
       health: health.status === "fulfilled" ? health.value : null,

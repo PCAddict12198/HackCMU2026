@@ -25,6 +25,7 @@ nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 button { background: #1b2030; color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
 button.active, button:hover { border-color: var(--accent); }
 button.ghost { background: transparent; }
+a.badge, a.chip-btn { text-decoration: none; display: inline-flex; align-items: center; }
 button.linkish { background: none; border: none; padding: 0 6px 0 0; color: var(--accent); text-decoration: underline; }
 input, textarea, select { width: 100%; background: #0b0d14; color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 8px; font: inherit; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }

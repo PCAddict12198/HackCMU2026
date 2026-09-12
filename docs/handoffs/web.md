@@ -11,6 +11,11 @@
 | ask | demo | tool trace, grounded badge, suggestion chips, retry; hidden if grok off |
 
 ## Log
+## 10:29 · READY
+- what: mockError no longer kills the galaxy; space always serves the 16-dish fixture catalog
+- for: web
+- action: open http://localhost:5173/ with no query string; ?mockError= is panel-only debug
+
 ## 10:20 · c5c7026 · READY
 - what: mock-mode UI through H8 TODOs (galaxy + all panels + demo keys 0/1–6/L/S/M)
 - for: integrator

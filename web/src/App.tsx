@@ -77,6 +77,13 @@ export default function App() {
         <strong>TasteSpace</strong>
         <span className="muted small">search by flavor, not by name</span>
         <span className={`badge ${API_MODE}`}>{API_MODE === "mock" ? "MOCK DATA" : "LIVE ENGINE"}</span>
+        {typeof location !== "undefined" &&
+          API_MODE === "mock" &&
+          new URLSearchParams(location.search).get("mockError") && (
+            <a className="badge mock" href="/">
+              debug ?mockError= — click to clear
+            </a>
+          )}
         {space && (
           <span className="muted small">
             build {space.meta.build_id} · {space.meta.n_dishes} dishes

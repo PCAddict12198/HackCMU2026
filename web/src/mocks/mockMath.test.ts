@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { fixtures } from "./fixtures";
 import { mockApi } from "../api/mock";
-import { projectDelta, mockShift, mockTwins } from "./mockMath";
+import { mockExplain, mockShift, mockTwins, projectDelta } from "./mockMath";
 
 describe("mock mode", () => {
   const space = fixtures.space;
@@ -39,5 +39,10 @@ describe("mock mode", () => {
     await expect(mockApi.space()).resolves.toHaveProperty("dishes");
     await expect(mockApi.twins(id)).resolves.toHaveProperty("twins");
     await expect(mockApi.ask({ messages: [{ role: "user", content: "hi" }] })).resolves.toHaveProperty("reply");
+  });
+
+  it("mock explain always has fixture attributions", () => {
+    const res = mockExplain(space, id, space.dishes[1].id);
+    expect(Object.keys(res.attributions.a).length).toBeGreaterThan(0);
   });
 });
