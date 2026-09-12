@@ -1,14 +1,107 @@
 # OWNER: data (P1). See protein.yaml for the format. Seed values are placeholders.
 default_src: seed_placeholder
 ingredients:
-  - {id: butter, name: Butter, category: dairy, potency: 2.5, density_g_per_ml: 0.91, profile: {rich: 0.95, creamy: 0.7, sweet: 0.1}}
-  - {id: heavy_cream, name: Heavy cream, category: dairy, potency: 1.5, aliases: [cream, heavy whipping cream, double cream], profile: {creamy: 0.95, rich: 0.9, sweet: 0.15}}
-  - {id: whole_milk, name: Whole milk, category: dairy, potency: 0.8, density_g_per_ml: 1.03, aliases: [milk], profile: {creamy: 0.6, sweet: 0.3, rich: 0.3}}
-  - {id: condensed_milk, name: Sweetened condensed milk, category: dairy, potency: 3.0, density_g_per_ml: 1.3, aliases: [condensed milk], profile: {sweet: 0.95, creamy: 0.8, rich: 0.6}}
-  - {id: mascarpone, name: Mascarpone, category: dairy, potency: 1.5, profile: {creamy: 0.95, rich: 0.9, sweet: 0.2}}
-  - {id: pecorino, name: Pecorino Romano, category: dairy, potency: 3.0, aliases: [pecorino cheese, parmesan, parmigiano], profile: {salty: 0.85, umami: 0.8, rich: 0.6, fermented: 0.5}}
-  - {id: gruyere, name: Gruyere, category: dairy, potency: 2.0, aliases: [gruyère, swiss cheese], profile: {salty: 0.6, umami: 0.7, rich: 0.7, fermented: 0.4, creamy: 0.4, earthy: 0.2}}
-  - {id: paneer, name: Paneer, category: dairy, potency: 1.2, profile: {}}
-  - {id: yogurt, name: Yogurt, category: dairy, potency: 1.2, aliases: [plain yogurt, greek yogurt], profile: {}}
-  - {id: mozzarella, name: Mozzarella, category: dairy, potency: 1.2, aliases: [fresh mozzarella], profile: {}}
-  - {id: queso_fresco, name: Queso fresco, category: dairy, potency: 1.2, aliases: [mexican cheese, oaxaca], profile: {}}
+- id: butter
+  name: Butter
+  category: dairy
+  potency: 2.5
+  density_g_per_ml: 0.91
+  profile:
+    rich: {v: 0.98, src: usda, note: 'fat 100 g/100g (fdc 171314: Butter, Clarified butter (ghee))'}
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 171314: Butter, Clarified butter (ghee))'}
+    creamy: {v: 0.6, src: team}
+    salty: {v: 0.0, src: usda, note: 'sodium 0.0 mg/100g (fdc 171314: Butter, Clarified butter (ghee))'}
+  reviewed_by: ishan
+- id: heavy_cream
+  name: Heavy cream
+  category: dairy
+  potency: 1.5
+  aliases: [cream, heavy whipping cream, double cream]
+  profile:
+    rich: {v: 0.76, src: usda, note: 'fat 35.6 g/100g (fdc 2346386: Cream, heavy)'}
+    sweet: {v: 0.2, src: usda, note: lactose ~2.8g/100g}
+    creamy: {v: 0.9, src: team}
+    salty: {v: 0.01, src: usda, note: 'sodium 20.6 mg/100g (fdc 2346386: Cream, heavy)'}
+  reviewed_by: ishan
+- id: whole_milk
+  name: Whole milk
+  category: dairy
+  potency: 0.8
+  density_g_per_ml: 1.03
+  aliases: [milk]
+  profile:
+    rich: {v: 0.12, src: usda, note: fat ~3.25g/100g}
+    sweet: {v: 0.33, src: usda, note: lactose ~4.8g/100g}
+    creamy: {v: 0.45, src: team}
+- id: condensed_milk
+  name: Sweetened condensed milk
+  category: dairy
+  potency: 3.0
+  density_g_per_ml: 1.3
+  aliases: [condensed milk]
+  profile:
+    sweet: {v: 0.95, src: usda, note: 'sugar ~54g/100g, formula saturates'}
+    rich: {v: 0.3, src: usda, note: fat ~8.7g/100g}
+    creamy: {v: 0.8, src: team}
+  reviewed_by: ishan
+- id: mascarpone
+  name: Mascarpone
+  category: dairy
+  potency: 1.5
+  profile:
+    rich: {v: 0.83, src: usda, note: typical commercial label fat ~44g/100g}
+    sweet: {v: 0.22, src: usda, note: sugar ~3g/100g}
+    creamy: {v: 0.95, src: team}
+- id: pecorino
+  name: Pecorino Romano
+  category: dairy
+  potency: 3.0
+  aliases: [pecorino cheese, parmesan, parmigiano]
+  profile:
+    salty: {v: 0.61, src: usda, note: 'sodium 1430.0 mg/100g (fdc 171249: Cheese, romano)'}
+    rich: {v: 0.66, src: usda, note: 'fat 26.9 g/100g (fdc 171249: Cheese, romano)'}
+    umami: {v: 0.8, src: literature, note: 'aged hard cheese, very high free glutamate'}
+    fermented: {v: 0.5, src: team}
+    sweet: {v: 0.06, src: usda, note: 'sugar 0.73 g/100g (fdc 171249: Cheese, romano)'}
+  reviewed_by: ishan
+- id: gruyere
+  name: Gruyere
+  category: dairy
+  potency: 2.0
+  aliases: [gruyère, swiss cheese]
+  profile:
+    salty: {v: 0.38, src: usda, note: 'sodium 714 mg/100g (fdc 171242: Cheese, gruyere)'}
+    rich: {v: 0.73, src: usda, note: 'fat 32.3 g/100g (fdc 171242: Cheese, gruyere)'}
+    umami: {v: 0.65, src: literature}
+    fermented: {v: 0.4, src: team}
+    earthy: {v: 0.2, src: team}
+    creamy: {v: 0.4, src: team}
+    sweet: {v: 0.03, src: usda, note: 'sugar 0.36 g/100g (fdc 171242: Cheese, gruyere)'}
+  reviewed_by: ishan
+- id: paneer
+  name: Paneer
+  category: dairy
+  potency: 1.2
+  profile: {}
+- id: yogurt
+  name: Yogurt
+  category: dairy
+  potency: 1.2
+  aliases: [plain yogurt, greek yogurt]
+  profile: {}
+- id: mozzarella
+  name: Mozzarella
+  category: dairy
+  potency: 1.2
+  aliases: [fresh mozzarella]
+  profile: {}
+- id: queso_fresco
+  name: Queso fresco
+  category: dairy
+  potency: 1.2
+  aliases: [mexican cheese, oaxaca]
+  profile:
+    sweet: {v: 0.18, src: usda, note: 'sugar 2.32 g/100g (fdc 172223: Cheese, fresh, queso fresco)'}
+    salty: {v: 0.39, src: usda, note: 'sodium 751 mg/100g (fdc 172223: Cheese, fresh, queso fresco)'}
+    rich: {v: 0.61, src: usda, note: 'fat 23.8 g/100g (fdc 172223: Cheese, fresh, queso fresco)'}
+  reviewed_by: ishan

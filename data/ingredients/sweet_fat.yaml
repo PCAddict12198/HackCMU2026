@@ -1,12 +1,83 @@
 # OWNER: data (P1). Sweeteners, oils and fats. See protein.yaml for the format.
 default_src: seed_placeholder
 ingredients:
-  - {id: sugar, name: Sugar, category: sweetener, potency: 3.0, density_g_per_ml: 0.85, aliases: [white sugar, granulated sugar, brown sugar, palm sugar], profile: {sweet: 1.0}}
-  - {id: sesame_oil, name: Sesame oil, category: fat_oil, potency: 4.0, density_g_per_ml: 0.92, profile: {roasted: 0.8, rich: 0.7, earthy: 0.3}}
-  - {id: neutral_oil, name: Neutral oil, category: fat_oil, potency: 1.5, density_g_per_ml: 0.92, aliases: [vegetable oil, canola oil, oil], profile: {rich: 0.8}}
-  - {id: olive_oil, name: Olive oil, category: fat_oil, potency: 2.0, density_g_per_ml: 0.92, aliases: [extra virgin olive oil], profile: {rich: 0.7, fruity: 0.3, bitter: 0.2, herbal: 0.2}}
-  - {id: coconut_milk, name: Coconut milk, category: fat_oil, potency: 1.5, profile: {creamy: 0.9, rich: 0.7, sweet: 0.3, fruity: 0.3}}
-  - {id: peanuts, name: Peanuts, category: nut_seed, potency: 1.5, aliases: [roasted peanuts, peanut], profile: {}}
-  - {id: sesame_seeds, name: Sesame seeds, category: nut_seed, potency: 3.0, aliases: [toasted sesame], profile: {}}
-  - {id: walnuts, name: Walnuts, category: nut_seed, potency: 1.5, aliases: [walnut], profile: {}}
-  - {id: almonds, name: Almonds, category: nut_seed, potency: 1.5, aliases: [almond], profile: {}}
+- id: sugar
+  name: Sugar
+  category: sweetener
+  potency: 3.0
+  density_g_per_ml: 0.85
+  aliases: [white sugar, granulated sugar, brown sugar, palm sugar]
+  profile:
+    sweet: {v: 1.0, src: usda, note: 'sugar 99.2 g/100g (fdc 170674: Sugar, turbinado)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 3.0 mg/100g (fdc 170674: Sugar, turbinado)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.0 g/100g (fdc 170674: Sugar, turbinado)'}
+  reviewed_by: ishan
+- id: sesame_oil
+  name: Sesame oil
+  category: fat_oil
+  potency: 4.0
+  density_g_per_ml: 0.92
+  profile:
+    roasted: {v: 0.8, src: literature, note: toasted sesame oil pyrazine compounds}
+    rich: {v: 0.98, src: usda, note: 'fat 100 g/100g (fdc 171016: Oil, sesame, salad or cooking)'}
+    earthy: {v: 0.3, src: team}
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 171016: Oil, sesame, salad or cooking)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 0.0 mg/100g (fdc 171016: Oil, sesame, salad or cooking)'}
+  reviewed_by: ishan
+- id: neutral_oil
+  name: Neutral oil
+  category: fat_oil
+  potency: 1.5
+  density_g_per_ml: 0.92
+  aliases: [vegetable oil, canola oil, oil]
+  profile:
+    rich: {v: 0.98, src: usda, note: '100g fat/100g, formula saturates'}
+  reviewed_by: ishan
+- id: olive_oil
+  name: Olive oil
+  category: fat_oil
+  potency: 2.0
+  density_g_per_ml: 0.92
+  aliases: [extra virgin olive oil]
+  profile:
+    rich: {v: 0.98, src: usda, note: '100g fat/100g, formula saturates'}
+    fruity: {v: 0.3, src: team}
+    bitter: {v: 0.2, src: literature, note: oleocanthin/polyphenols in EVOO}
+    herbal: {v: 0.2, src: team}
+- id: coconut_milk
+  name: Coconut milk
+  category: fat_oil
+  potency: 1.5
+  profile:
+    creamy: {v: 0.9, src: team}
+    rich: {v: 0.58, src: usda, note: canned coconut milk fat ~24g/100g}
+    sweet: {v: 0.18, src: usda, note: sugar ~3g/100g}
+    fruity: {v: 0.3, src: team}
+- id: peanuts
+  name: Peanuts
+  category: nut_seed
+  potency: 1.5
+  aliases: [roasted peanuts, peanut]
+  profile: {}
+- id: sesame_seeds
+  name: Sesame seeds
+  category: nut_seed
+  potency: 3.0
+  aliases: [toasted sesame]
+  profile:
+    sweet: {v: 0.02, src: usda, note: 'sugar 0.3 g/100g (fdc 170150: Seeds, sesame seeds, whole, dried)'}
+    salty: {v: 0.01, src: usda, note: 'sodium 11.0 mg/100g (fdc 170150: Seeds, sesame seeds, whole, dried)'}
+    rich: {v: 0.86, src: usda, note: 'fat 49.7 g/100g (fdc 170150: Seeds, sesame seeds, whole, dried)'}
+  reviewed_by: ishan
+- id: walnuts
+  name: Walnuts
+  category: nut_seed
+  potency: 1.5
+  aliases: [walnut]
+  profile: {}
+- id: almonds
+  name: Almonds
+  category: nut_seed
+  potency: 1.5
+  aliases: [almond]
+  profile: {}

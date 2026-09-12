@@ -1,37 +1,309 @@
 # OWNER: data (P1). See protein.yaml for the format. Seed values are placeholders.
 default_src: seed_placeholder
 ingredients:
-  - {id: onion, name: Onion, category: vegetable, unit_weight_g: 150, aliases: [onions, red onion, yellow onion, shallot], profile: {sweet: 0.3, spicy: 0.4, herbal: 0.2, crispy: 0.3}}
-  - {id: garlic, name: Garlic, category: vegetable, potency: 4.0, unit_weight_g: 5, profile: {spicy: 0.5, herbal: 0.3, earthy: 0.3, umami: 0.2}}
-  - {id: ginger, name: Ginger, category: vegetable, potency: 4.0, unit_weight_g: 10, profile: {spicy: 0.6, herbal: 0.5, fruity: 0.2}}
-  - {id: scallion, name: Scallion, category: vegetable, potency: 2.0, unit_weight_g: 15, aliases: [green onion, spring onion, scallions], profile: {herbal: 0.6, spicy: 0.3, crispy: 0.3}}
-  - {id: tomato, name: Tomato, category: vegetable, unit_weight_g: 120, aliases: [tomatoes], profile: {sour: 0.5, sweet: 0.4, umami: 0.5, fruity: 0.5}}
-  - {id: cabbage, name: Cabbage, category: vegetable, potency: 0.8, profile: {crispy: 0.6, sweet: 0.2, herbal: 0.2}}
-  - {id: mushroom, name: Mushroom, category: vegetable, potency: 1.2, aliases: [mushrooms, shiitake], profile: {umami: 0.7, earthy: 0.8, chewy: 0.3}}
-  - {id: bean_sprouts, name: Bean sprouts, category: vegetable, potency: 0.6, profile: {crispy: 0.8, herbal: 0.2}}
-  - {id: cucumber, name: Cucumber, category: vegetable, potency: 0.6, unit_weight_g: 200, profile: {crispy: 0.7, herbal: 0.4}}
-  - {id: lemongrass, name: Lemongrass, category: herb, potency: 4.0, unit_weight_g: 20, profile: {herbal: 0.8, fruity: 0.6, sour: 0.2}}
-  - {id: galangal, name: Galangal, category: vegetable, potency: 4.0, profile: {spicy: 0.5, herbal: 0.7, earthy: 0.3}}
-  - {id: kaffir_lime_leaf, name: Makrut lime leaf, category: herb, potency: 6.0, unit_weight_g: 0.5, aliases: [kaffir lime leaves, lime leaves], profile: {herbal: 0.8, fruity: 0.7}}
-  - {id: mango, name: Mango, category: fruit, unit_weight_g: 200, profile: {sweet: 0.85, fruity: 0.95, creamy: 0.3, sour: 0.2}}
-  - {id: pineapple, name: Pineapple, category: fruit, profile: {sweet: 0.7, fruity: 0.9, sour: 0.5}}
-  - {id: lime_juice, name: Lime juice, category: fruit, potency: 4.0, unit_weight_g: 30, aliases: [lime, limes], profile: {sour: 0.95, fruity: 0.6, bitter: 0.1}}
-  - {id: lemon_juice, name: Lemon juice, category: fruit, potency: 4.0, unit_weight_g: 40, aliases: [lemon, lemons], profile: {sour: 0.95, fruity: 0.6}}
-  - {id: bamboo_shoots, name: Bamboo shoots, category: vegetable, potency: 0.6, aliases: [menma], profile: {}}
-  - {id: nori, name: Nori, category: vegetable, potency: 3.0, aliases: [seaweed, toasted seaweed], profile: {}}
-  - {id: wakame, name: Wakame, category: vegetable, potency: 1.5, profile: {}}
-  - {id: spinach, name: Spinach, category: vegetable, potency: 0.8, profile: {}}
-  - {id: carrot, name: Carrot, category: vegetable, potency: 0.8, unit_weight_g: 70, aliases: [carrots], profile: {}}
-  - {id: eggplant, name: Eggplant, category: vegetable, potency: 0.8, aliases: [aubergine, thai eggplant], profile: {}}
-  - {id: green_papaya, name: Green papaya, category: fruit, potency: 0.7, aliases: [unripe papaya], profile: {}}
-  - {id: long_bean, name: Long bean, category: vegetable, potency: 0.7, aliases: [yardlong bean, snake bean], profile: {}}
-  - {id: potato, name: Potato, category: vegetable, potency: 0.5, aliases: [potatoes, yukon gold], profile: {}}
-  - {id: lettuce, name: Lettuce, category: vegetable, potency: 0.5, aliases: [leaf lettuce, romaine], profile: {}}
-  - {id: daikon, name: Daikon, category: vegetable, potency: 0.6, aliases: [daikon radish, pickled daikon], profile: {}}
-  - {id: celery, name: Celery, category: vegetable, potency: 0.7, profile: {}}
-  - {id: zucchini, name: Zucchini, category: vegetable, potency: 0.6, aliases: [courgette], profile: {}}
-  - {id: bell_pepper, name: Bell pepper, category: vegetable, potency: 0.8, aliases: [red pepper, capsicum], profile: {}}
-  - {id: fennel, name: Fennel, category: vegetable, potency: 1.2, profile: {}}
-  - {id: avocado, name: Avocado, category: fruit, potency: 1.2, profile: {}}
-  - {id: orange_juice, name: Orange juice, category: fruit, potency: 2.0, aliases: [orange, sour orange], profile: {}}
-  - {id: radish, name: Radish, category: vegetable, potency: 0.8, profile: {}}
+- id: onion
+  name: Onion
+  category: vegetable
+  unit_weight_g: 150
+  aliases: [onions, red onion, yellow onion, shallot]
+  profile:
+    sweet: {v: 0.3, src: usda, note: 'sugar 4.24 g/100g (fdc 170000: Onions, raw)'}
+    spicy: {v: 0.4, src: team, note: 'allyl sulfide pungency, not capsaicin-based'}
+    herbal: {v: 0.2, src: team}
+    crispy: {v: 0.3, src: team}
+    salty: {v: 0.0, src: usda, note: 'sodium 4.0 mg/100g (fdc 170000: Onions, raw)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.1 g/100g (fdc 170000: Onions, raw)'}
+  reviewed_by: ishan
+- id: garlic
+  name: Garlic
+  category: vegetable
+  potency: 4.0
+  unit_weight_g: 5
+  profile:
+    spicy: {v: 0.4, src: team, note: allicin pungency}
+    herbal: {v: 0.3, src: team}
+    earthy: {v: 0.3, src: team}
+    umami: {v: 0.25, src: literature, note: modest free glutamate contributor}
+    rich: {v: 0.02, src: usda, note: 'fat 0.38 g/100g (fdc 1104647: Garlic, raw)'}
+  reviewed_by: ishan
+- id: ginger
+  name: Ginger
+  category: vegetable
+  potency: 4.0
+  unit_weight_g: 10
+  profile:
+    spicy: {v: 0.55, src: literature, note: 'gingerol/shogaol pungency, distinct from capsaicin'}
+    herbal: {v: 0.5, src: team}
+    fruity: {v: 0.2, src: team}
+    sweet: {v: 0.13, src: usda, note: 'sugar 1.7 g/100g (fdc 169231: Ginger root, raw)'}
+    salty: {v: 0.01, src: usda, note: 'sodium 13.0 mg/100g (fdc 169231: Ginger root, raw)'}
+    rich: {v: 0.03, src: usda, note: 'fat 0.75 g/100g (fdc 169231: Ginger root, raw)'}
+  reviewed_by: ishan
+- id: scallion
+  name: Scallion
+  category: vegetable
+  potency: 2.0
+  unit_weight_g: 15
+  aliases: [green onion, spring onion, scallions]
+  profile:
+    herbal: {v: 0.6, src: team}
+    spicy: {v: 0.3, src: team}
+    crispy: {v: 0.3, src: team}
+    sweet: {v: 0.18, src: usda, note: 'sugar 2.33 g/100g (fdc 170005: Onions, spring or scallions (includes tops and bulb), raw)'}
+    salty: {v: 0.01, src: usda, note: 'sodium 16.0 mg/100g (fdc 170005: Onions, spring or scallions (includes tops and bulb), raw)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.19 g/100g (fdc 170005: Onions, spring or scallions (includes tops and bulb), raw)'}
+  reviewed_by: ishan
+- id: tomato
+  name: Tomato
+  category: vegetable
+  unit_weight_g: 120
+  aliases: [tomatoes]
+  profile:
+    sour: {v: 0.4, src: literature, note: 'citric/malic acid, pH ~4.3'}
+    sweet: {v: 0.2, src: usda, note: sugar ~2.6g/100g}
+    umami: {v: 0.5, src: literature, note: 'free glutamate ~0.2-0.3g/100g, classically studied'}
+    fruity: {v: 0.5, src: team}
+- id: cabbage
+  name: Cabbage
+  category: vegetable
+  potency: 0.8
+  profile:
+    crispy: {v: 0.6, src: team}
+    sweet: {v: 0.25, src: usda, note: sugar ~3.2g/100g}
+    herbal: {v: 0.2, src: team}
+- id: mushroom
+  name: Mushroom
+  category: vegetable
+  potency: 1.2
+  aliases: [mushrooms, shiitake]
+  profile:
+    umami: {v: 0.7, src: literature, note: 'free glutamate + guanylate, classic umami source'}
+    earthy: {v: 0.8, src: team}
+    chewy: {v: 0.3, src: team}
+    salty: {v: 0.0, src: usda, note: 'sodium 0.891 mg/100g (fdc 2003603: Mushroom, beech)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.449 g/100g (fdc 2003603: Mushroom, beech)'}
+  reviewed_by: ishan
+- id: bean_sprouts
+  name: Bean sprouts
+  category: vegetable
+  potency: 0.6
+  profile:
+    crispy: {v: 0.8, src: team}
+    herbal: {v: 0.2, src: team}
+- id: cucumber
+  name: Cucumber
+  category: vegetable
+  potency: 0.6
+  unit_weight_g: 200
+  profile:
+    crispy: {v: 0.7, src: team}
+    herbal: {v: 0.4, src: team}
+    sweet: {v: 0.11, src: usda, note: 'sugar 1.38 g/100g (fdc 169225: Cucumber, peeled, raw)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 2.0 mg/100g (fdc 169225: Cucumber, peeled, raw)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.16 g/100g (fdc 169225: Cucumber, peeled, raw)'}
+  reviewed_by: ishan
+- id: lemongrass
+  name: Lemongrass
+  category: herb
+  potency: 4.0
+  unit_weight_g: 20
+  profile:
+    herbal: {v: 0.8, src: literature, note: citral compound}
+    fruity: {v: 0.6, src: team}
+    sour: {v: 0.2, src: team}
+- id: galangal
+  name: Galangal
+  category: vegetable
+  potency: 4.0
+  profile:
+    spicy: {v: 0.4, src: team}
+    herbal: {v: 0.7, src: team}
+    earthy: {v: 0.3, src: team}
+- id: kaffir_lime_leaf
+  name: Makrut lime leaf
+  category: herb
+  potency: 6.0
+  unit_weight_g: 0.5
+  aliases: [kaffir lime leaves, lime leaves]
+  profile:
+    herbal: {v: 0.8, src: literature, note: citronellal/limonene}
+    fruity: {v: 0.7, src: team}
+- id: mango
+  name: Mango
+  category: fruit
+  unit_weight_g: 200
+  profile:
+    sweet: {v: 0.68, src: usda, note: 'sugar 13.7 g/100g (fdc 169910: Mangos, raw)'}
+    fruity: {v: 0.95, src: team}
+    creamy: {v: 0.3, src: team}
+    sour: {v: 0.15, src: usda, note: low acidity relative to citrus}
+    salty: {v: 0.0, src: usda, note: 'sodium 1.0 mg/100g (fdc 169910: Mangos, raw)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.38 g/100g (fdc 169910: Mangos, raw)'}
+  reviewed_by: ishan
+- id: pineapple
+  name: Pineapple
+  category: fruit
+  profile:
+    sweet: {v: 0.56, src: usda, note: sugar ~10g/100g}
+    fruity: {v: 0.9, src: team}
+    sour: {v: 0.4, src: literature, note: citric acid content}
+    salty: {v: 0.0, src: usda, note: 'sodium 0.0 mg/100g (fdc 2346398: Pineapple, raw)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.211 g/100g (fdc 2346398: Pineapple, raw)'}
+  reviewed_by: ishan
+- id: lime_juice
+  name: Lime juice
+  category: fruit
+  potency: 4.0
+  unit_weight_g: 30
+  aliases: [lime, limes]
+  profile:
+    sour: {v: 0.9, src: literature, note: citric acid ~5-8g/100g}
+    fruity: {v: 0.6, src: team}
+    sweet: {v: 0.13, src: usda, note: 'sugar 1.69 g/100g (fdc 168156: Lime juice, raw)'}
+    bitter: {v: 0.1, src: team}
+    salty: {v: 0.0, src: usda, note: 'sodium 2.0 mg/100g (fdc 168156: Lime juice, raw)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.07 g/100g (fdc 168156: Lime juice, raw)'}
+  reviewed_by: ishan
+- id: lemon_juice
+  name: Lemon juice
+  category: fruit
+  potency: 4.0
+  unit_weight_g: 40
+  aliases: [lemon, lemons]
+  profile:
+    sour: {v: 0.9, src: literature, note: citric acid ~5-6g/100g}
+    fruity: {v: 0.6, src: team}
+    sweet: {v: 0.19, src: usda, note: 'sugar 2.52 g/100g (fdc 167747: Lemon juice, raw)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 1.0 mg/100g (fdc 167747: Lemon juice, raw)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.24 g/100g (fdc 167747: Lemon juice, raw)'}
+  reviewed_by: ishan
+- id: bamboo_shoots
+  name: Bamboo shoots
+  category: vegetable
+  potency: 0.6
+  aliases: [menma]
+  profile:
+    sweet: {v: 0.22, src: usda, note: 'sugar 3.0 g/100g (fdc 169210: Bamboo shoots, raw)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 4.0 mg/100g (fdc 169210: Bamboo shoots, raw)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.3 g/100g (fdc 169210: Bamboo shoots, raw)'}
+  reviewed_by: ishan
+- id: nori
+  name: Nori
+  category: vegetable
+  potency: 3.0
+  aliases: [seaweed, toasted seaweed]
+  profile: {}
+- id: wakame
+  name: Wakame
+  category: vegetable
+  potency: 1.5
+  profile:
+    sweet: {v: 0.05, src: usda, note: 'sugar 0.65 g/100g (fdc 170496: Seaweed, wakame, raw)'}
+    salty: {v: 0.44, src: usda, note: 'sodium 872 mg/100g (fdc 170496: Seaweed, wakame, raw)'}
+    rich: {v: 0.03, src: usda, note: 'fat 0.64 g/100g (fdc 170496: Seaweed, wakame, raw)'}
+  reviewed_by: ishan
+- id: spinach
+  name: Spinach
+  category: vegetable
+  potency: 0.8
+  profile: {}
+- id: carrot
+  name: Carrot
+  category: vegetable
+  potency: 0.8
+  unit_weight_g: 70
+  aliases: [carrots]
+  profile: {}
+- id: eggplant
+  name: Eggplant
+  category: vegetable
+  potency: 0.8
+  aliases: [aubergine, thai eggplant]
+  profile: {}
+- id: green_papaya
+  name: Green papaya
+  category: fruit
+  potency: 0.7
+  aliases: [unripe papaya]
+  profile: {}
+- id: long_bean
+  name: Long bean
+  category: vegetable
+  potency: 0.7
+  aliases: [yardlong bean, snake bean]
+  profile: {}
+- id: potato
+  name: Potato
+  category: vegetable
+  potency: 0.5
+  aliases: [potatoes, yukon gold]
+  profile: {}
+- id: lettuce
+  name: Lettuce
+  category: vegetable
+  potency: 0.5
+  aliases: [leaf lettuce, romaine]
+  profile:
+    salty: {v: 0.01, src: usda, note: 'sodium 16.1 mg/100g (fdc 2346388: Lettuce, iceberg, raw)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.0738 g/100g (fdc 2346388: Lettuce, iceberg, raw)'}
+  reviewed_by: ishan
+- id: daikon
+  name: Daikon
+  category: vegetable
+  potency: 0.6
+  aliases: [daikon radish, pickled daikon]
+  profile: {}
+- id: celery
+  name: Celery
+  category: vegetable
+  potency: 0.7
+  profile:
+    salty: {v: 0.06, src: usda, note: 'sodium 97.2 mg/100g (fdc 2346405: Celery, raw)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.162 g/100g (fdc 2346405: Celery, raw)'}
+  reviewed_by: ishan
+- id: zucchini
+  name: Zucchini
+  category: vegetable
+  potency: 0.6
+  aliases: [courgette]
+  profile:
+    salty: {v: 0.0, src: usda, note: 'sodium 3.0 mg/100g (fdc 168565: Squash, zucchini, baby, raw)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.4 g/100g (fdc 168565: Squash, zucchini, baby, raw)'}
+  reviewed_by: ishan
+- id: bell_pepper
+  name: Bell pepper
+  category: vegetable
+  potency: 0.8
+  aliases: [red pepper, capsicum]
+  profile:
+    salty: {v: 0.0, src: usda, note: 'sodium 0.0 mg/100g (fdc 2258588: Peppers, bell, green, raw)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.106 g/100g (fdc 2258588: Peppers, bell, green, raw)'}
+  reviewed_by: ishan
+- id: fennel
+  name: Fennel
+  category: vegetable
+  potency: 1.2
+  profile:
+    salty: {v: 0.03, src: usda, note: 'sodium 49.0 mg/100g (fdc 2747655: Fennel, bulb, raw)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.14 g/100g (fdc 2747655: Fennel, bulb, raw)'}
+  reviewed_by: ishan
+- id: avocado
+  name: Avocado
+  category: fruit
+  potency: 1.2
+  profile: {}
+- id: orange_juice
+  name: Orange juice
+  category: fruit
+  potency: 2.0
+  aliases: [orange, sour orange]
+  profile: {}
+- id: radish
+  name: Radish
+  category: vegetable
+  potency: 0.8
+  profile:
+    sweet: {v: 0.14, src: usda, note: 'sugar 1.86 g/100g (fdc 169276: Radishes, raw)'}
+    salty: {v: 0.03, src: usda, note: 'sodium 39.0 mg/100g (fdc 169276: Radishes, raw)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.1 g/100g (fdc 169276: Radishes, raw)'}
+  reviewed_by: ishan

@@ -1,9 +1,48 @@
 # OWNER: data (P1). See protein.yaml for the format. Seed values are placeholders.
 default_src: seed_placeholder
 ingredients:
-  - {id: shrimp, name: Shrimp, category: seafood, unit_weight_g: 15, aliases: [prawn, prawns], profile: {umami: 0.5, sweet: 0.3, salty: 0.2, chewy: 0.4}}
-  - {id: salmon, name: Salmon, category: seafood, aliases: [salmon fillet], profile: {}}
-  - {id: fish_cake, name: Fish cake, category: seafood, potency: 1.2, aliases: [eomuk, odeng], profile: {}}
-  - {id: catfish, name: Catfish, category: seafood, aliases: [ca tre], profile: {}}
-  - {id: mussels, name: Mussels, category: seafood, profile: {}}
-  - {id: white_fish, name: White fish, category: seafood, aliases: [cod, snapper, rockfish], profile: {}}
+- id: shrimp
+  name: Shrimp
+  category: seafood
+  unit_weight_g: 15
+  aliases: [prawn, prawns]
+  profile:
+    umami: {v: 0.5, src: literature, note: 'glycine/glutamate content, documented in crustaceans'}
+    sweet: {v: 0.3, src: team, note: 'perceived sweetness from free amino acids, not sugar'}
+    salty: {v: 0.07, src: usda, note: 'sodium 111 mg/100g (fdc 175180: Crustaceans, shrimp, cooked)'}
+    chewy: {v: 0.4, src: team}
+    rich: {v: 0.01, src: usda, note: 'fat 0.28 g/100g (fdc 175180: Crustaceans, shrimp, cooked)'}
+  reviewed_by: ishan
+- id: salmon
+  name: Salmon
+  category: seafood
+  aliases: [salmon fillet]
+  profile: {}
+- id: fish_cake
+  name: Fish cake
+  category: seafood
+  potency: 1.2
+  aliases: [eomuk, odeng]
+  profile: {}
+- id: catfish
+  name: Catfish
+  category: seafood
+  aliases: [ca tre]
+  profile:
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 175165: Fish, catfish, channel, farmed, raw)'}
+    salty: {v: 0.06, src: usda, note: 'sodium 98.0 mg/100g (fdc 175165: Fish, catfish, channel, farmed, raw)'}
+    rich: {v: 0.21, src: usda, note: 'fat 5.94 g/100g (fdc 175165: Fish, catfish, channel, farmed, raw)'}
+  reviewed_by: ishan
+- id: mussels
+  name: Mussels
+  category: seafood
+  profile:
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 174216: Mollusks, mussel, blue, raw)'}
+    salty: {v: 0.17, src: usda, note: 'sodium 286 mg/100g (fdc 174216: Mollusks, mussel, blue, raw)'}
+    rich: {v: 0.09, src: usda, note: 'fat 2.24 g/100g (fdc 174216: Mollusks, mussel, blue, raw)'}
+  reviewed_by: ishan
+- id: white_fish
+  name: White fish
+  category: seafood
+  aliases: [cod, snapper, rockfish]
+  profile: {}

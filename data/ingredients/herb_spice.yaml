@@ -1,28 +1,230 @@
 # OWNER: data (P1). See protein.yaml for the format. Seed values are placeholders.
 default_src: seed_placeholder
 ingredients:
-  - {id: cilantro, name: Cilantro, category: herb, potency: 3.0, aliases: [coriander leaves, coriander], profile: {herbal: 0.95, fruity: 0.2}}
-  - {id: parsley, name: Parsley, category: herb, potency: 1.5, profile: {herbal: 0.9, bitter: 0.2}}
-  - {id: mint, name: Mint, category: herb, potency: 3.0, profile: {herbal: 0.95}}
-  - {id: thai_basil, name: Thai basil, category: herb, potency: 3.0, aliases: [basil], profile: {herbal: 0.95, spicy: 0.2}}
-  - {id: thyme, name: Thyme, category: herb, potency: 5.0, profile: {herbal: 0.9, earthy: 0.4}}
-  - {id: chili_flakes, name: Dried chili flakes, category: spice, potency: 6.0, aliases: [gochugaru, red pepper flakes, dried chili, guajillo], profile: {spicy: 0.9, smoky: 0.3, fruity: 0.2, roasted: 0.2}}
-  - {id: fresh_chili, name: Fresh chili, category: spice, potency: 6.0, unit_weight_g: 5, aliases: [chili, chilli, jalapeno, serrano, "bird's eye chili", thai chili], profile: {spicy: 0.95, fruity: 0.3, herbal: 0.2}}
-  - {id: sichuan_peppercorn, name: Sichuan peppercorn, category: spice, potency: 8.0, profile: {spicy: 0.7, herbal: 0.4, fruity: 0.4}}
-  - {id: black_pepper, name: Black pepper, category: spice, potency: 8.0, aliases: [pepper], profile: {spicy: 0.7, earthy: 0.4}}
-  - {id: cumin, name: Cumin, category: spice, potency: 8.0, profile: {earthy: 0.9, roasted: 0.3, bitter: 0.2}}
-  - {id: garam_masala, name: Garam masala, category: spice, potency: 8.0, profile: {earthy: 0.7, spicy: 0.4, sweet: 0.2, roasted: 0.3}}
-  - {id: star_anise, name: Star anise, category: spice, potency: 8.0, profile: {sweet: 0.4, herbal: 0.6, earthy: 0.2}}
-  - {id: cinnamon, name: Cinnamon, category: spice, potency: 8.0, profile: {sweet: 0.5, earthy: 0.4, spicy: 0.2}}
-  - {id: vanilla, name: Vanilla, category: spice, potency: 10.0, aliases: [vanilla extract], profile: {sweet: 0.5, creamy: 0.3, fruity: 0.2}}
-  - {id: cocoa_powder, name: Cocoa powder, category: spice, potency: 5.0, aliases: [cocoa], profile: {bitter: 0.8, roasted: 0.6, earthy: 0.5}}
-  - {id: matcha, name: Matcha, category: spice, potency: 6.0, aliases: [green tea powder], profile: {}}
-  - {id: five_spice, name: Five-spice powder, category: spice, potency: 8.0, aliases: [chinese five spice], profile: {}}
-  - {id: white_pepper, name: White pepper, category: spice, potency: 8.0, profile: {}}
-  - {id: turmeric, name: Turmeric, category: spice, potency: 6.0, profile: {}}
-  - {id: cardamom, name: Cardamom, category: spice, potency: 8.0, aliases: [green cardamom], profile: {}}
-  - {id: mustard_seeds, name: Mustard seeds, category: spice, potency: 6.0, profile: {}}
-  - {id: sweet_basil, name: Sweet basil, category: herb, potency: 3.0, aliases: [italian basil], profile: {}}
-  - {id: oregano, name: Oregano, category: herb, potency: 5.0, aliases: [mexican oregano], profile: {}}
-  - {id: sumac, name: Sumac, category: spice, potency: 5.0, profile: {}}
-  - {id: achiote, name: Achiote, category: spice, potency: 4.0, aliases: [annatto], profile: {}}
+- id: cilantro
+  name: Cilantro
+  category: herb
+  potency: 3.0
+  aliases: [coriander leaves, coriander]
+  profile:
+    herbal: {v: 0.95, src: team}
+    fruity: {v: 0.2, src: literature, note: '(E)-2-alkenal aldehydes give citrusy note, documented flavor chemistry'}
+    sweet: {v: 0.07, src: usda, note: 'sugar 0.87 g/100g (fdc 169997: Coriander (cilantro) leaves, raw)'}
+    salty: {v: 0.03, src: usda, note: 'sodium 46.0 mg/100g (fdc 169997: Coriander (cilantro) leaves, raw)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.52 g/100g (fdc 169997: Coriander (cilantro) leaves, raw)'}
+  reviewed_by: ishan
+- id: parsley
+  name: Parsley
+  category: herb
+  potency: 1.5
+  profile:
+    herbal: {v: 0.9, src: literature, note: apiole/myristicin compounds}
+    bitter: {v: 0.2, src: team}
+    sweet: {v: 0.07, src: usda, note: 'sugar 0.85 g/100g (fdc 170416: Parsley, fresh)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 56.0 mg/100g (fdc 170416: Parsley, fresh)'}
+    rich: {v: 0.03, src: usda, note: 'fat 0.79 g/100g (fdc 170416: Parsley, fresh)'}
+  reviewed_by: ishan
+- id: mint
+  name: Mint
+  category: herb
+  potency: 3.0
+  profile:
+    herbal: {v: 0.95, src: literature, note: 'menthol, extensively documented'}
+- id: thai_basil
+  name: Thai basil
+  category: herb
+  potency: 3.0
+  aliases: [basil]
+  profile:
+    herbal: {v: 0.95, src: literature, note: estragole/linalool}
+    spicy: {v: 0.2, src: team}
+    sweet: {v: 0.02, src: usda, note: 'sugar 0.3 g/100g (fdc 172232: Basil, fresh)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 4.0 mg/100g (fdc 172232: Basil, fresh)'}
+    rich: {v: 0.03, src: usda, note: 'fat 0.64 g/100g (fdc 172232: Basil, fresh)'}
+  reviewed_by: ishan
+- id: thyme
+  name: Thyme
+  category: herb
+  potency: 5.0
+  profile:
+    herbal: {v: 0.9, src: literature, note: thymol}
+    earthy: {v: 0.4, src: team}
+    salty: {v: 0.01, src: usda, note: 'sodium 9.0 mg/100g (fdc 173470: Thyme, fresh)'}
+    rich: {v: 0.06, src: usda, note: 'fat 1.68 g/100g (fdc 173470: Thyme, fresh)'}
+  reviewed_by: ishan
+- id: chili_flakes
+  name: Dried chili flakes
+  category: spice
+  potency: 6.0
+  aliases: [gochugaru, red pepper flakes, dried chili, guajillo]
+  profile:
+    spicy: {v: 0.6, src: scoville, note: 'bundles gochugaru (~1.5k-10k SHU) to guajillo (~2.5k-5k SHU); mid-range estimate, see data handoff flag'}
+    smoky: {v: 0.3, src: team}
+    fruity: {v: 0.2, src: team}
+    roasted: {v: 0.2, src: team}
+- id: fresh_chili
+  name: Fresh chili
+  category: spice
+  potency: 6.0
+  unit_weight_g: 5
+  aliases: [chili, chilli, jalapeno, serrano, bird's eye chili, thai chili]
+  profile:
+    spicy: {v: 0.7, src: scoville, note: 'bundles jalapeño (2.5k-8k SHU) to Thai bird''s eye (50k-100k SHU); mid-high estimate, see data handoff flag'}
+    fruity: {v: 0.3, src: team}
+    herbal: {v: 0.2, src: team}
+- id: sichuan_peppercorn
+  name: Sichuan peppercorn
+  category: spice
+  potency: 8.0
+  profile:
+    spicy: {v: 0.5, src: literature, note: 'hydroxy-alpha-sanshool causes tingling/numbing, not capsaicin-based, no Scoville rating'}
+    herbal: {v: 0.4, src: team}
+    fruity: {v: 0.4, src: team}
+- id: black_pepper
+  name: Black pepper
+  category: spice
+  potency: 8.0
+  aliases: [pepper]
+  profile:
+    spicy: {v: 0.55, src: literature, note: 'piperine pungency, distinct scale from capsaicin/Scoville'}
+    earthy: {v: 0.4, src: team}
+    sweet: {v: 0.05, src: usda, note: 'sugar 0.64 g/100g (fdc 170931: Spices, pepper, black)'}
+    salty: {v: 0.01, src: usda, note: 'sodium 20.0 mg/100g (fdc 170931: Spices, pepper, black)'}
+    rich: {v: 0.12, src: usda, note: 'fat 3.26 g/100g (fdc 170931: Spices, pepper, black)'}
+  reviewed_by: ishan
+- id: cumin
+  name: Cumin
+  category: spice
+  potency: 8.0
+  profile:
+    earthy: {v: 0.9, src: literature, note: cuminaldehyde}
+    roasted: {v: 0.3, src: team}
+    bitter: {v: 0.2, src: team}
+    sweet: {v: 0.17, src: usda, note: 'sugar 2.25 g/100g (fdc 170923: Spices, cumin seed)'}
+    salty: {v: 0.11, src: usda, note: 'sodium 168 mg/100g (fdc 170923: Spices, cumin seed)'}
+    rich: {v: 0.59, src: usda, note: 'fat 22.3 g/100g (fdc 170923: Spices, cumin seed)'}
+  reviewed_by: ishan
+- id: garam_masala
+  name: Garam masala
+  category: spice
+  potency: 8.0
+  profile:
+    earthy: {v: 0.6, src: team, note: blend ratio varies by recipe}
+    spicy: {v: 0.4, src: team}
+    sweet: {v: 0.2, src: team}
+    roasted: {v: 0.3, src: team}
+- id: star_anise
+  name: Star anise
+  category: spice
+  potency: 8.0
+  profile:
+    sweet: {v: 0.4, src: literature, note: 'anethole, same sweet-aromatic note as fennel/licorice'}
+    herbal: {v: 0.6, src: team}
+    earthy: {v: 0.2, src: team}
+- id: cinnamon
+  name: Cinnamon
+  category: spice
+  potency: 8.0
+  profile:
+    sweet: {v: 0.5, src: literature, note: cinnamaldehyde perceived as sweet-aromatic}
+    earthy: {v: 0.4, src: team}
+    spicy: {v: 0.2, src: team}
+- id: vanilla
+  name: Vanilla
+  category: spice
+  potency: 10.0
+  aliases: [vanilla extract]
+  profile:
+    sweet: {v: 0.65, src: usda, note: 'sugar 12.6 g/100g (fdc 173471: Vanilla extract)'}
+    creamy: {v: 0.3, src: team}
+    fruity: {v: 0.2, src: team}
+    salty: {v: 0.01, src: usda, note: 'sodium 9.0 mg/100g (fdc 173471: Vanilla extract)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.06 g/100g (fdc 173471: Vanilla extract)'}
+  reviewed_by: ishan
+- id: cocoa_powder
+  name: Cocoa powder
+  category: spice
+  potency: 5.0
+  aliases: [cocoa]
+  profile:
+    bitter: {v: 0.8, src: literature, note: theobromine + flavanols in unsweetened cocoa}
+    roasted: {v: 0.6, src: team}
+    earthy: {v: 0.5, src: team}
+- id: matcha
+  name: Matcha
+  category: spice
+  potency: 6.0
+  aliases: [green tea powder]
+  profile: {}
+- id: five_spice
+  name: Five-spice powder
+  category: spice
+  potency: 8.0
+  aliases: [chinese five spice]
+  profile: {}
+- id: white_pepper
+  name: White pepper
+  category: spice
+  potency: 8.0
+  profile:
+    salty: {v: 0.0, src: usda, note: 'sodium 5.0 mg/100g (fdc 170933: Spices, pepper, white)'}
+    rich: {v: 0.08, src: usda, note: 'fat 2.12 g/100g (fdc 170933: Spices, pepper, white)'}
+  reviewed_by: ishan
+- id: turmeric
+  name: Turmeric
+  category: spice
+  potency: 6.0
+  profile:
+    sweet: {v: 0.23, src: usda, note: 'sugar 3.21 g/100g (fdc 172231: Spices, turmeric, ground)'}
+    salty: {v: 0.02, src: usda, note: 'sodium 27.0 mg/100g (fdc 172231: Spices, turmeric, ground)'}
+    rich: {v: 0.12, src: usda, note: 'fat 3.25 g/100g (fdc 172231: Spices, turmeric, ground)'}
+  reviewed_by: ishan
+- id: cardamom
+  name: Cardamom
+  category: spice
+  potency: 8.0
+  aliases: [green cardamom]
+  profile:
+    salty: {v: 0.01, src: usda, note: 'sodium 18.0 mg/100g (fdc 170919: Spices, cardamom)'}
+    rich: {v: 0.24, src: usda, note: 'fat 6.7 g/100g (fdc 170919: Spices, cardamom)'}
+  reviewed_by: ishan
+- id: mustard_seeds
+  name: Mustard seeds
+  category: spice
+  potency: 6.0
+  profile:
+    sweet: {v: 0.43, src: usda, note: 'sugar 6.79 g/100g (fdc 170929: Spices, mustard seed, ground)'}
+    salty: {v: 0.01, src: usda, note: 'sodium 13.0 mg/100g (fdc 170929: Spices, mustard seed, ground)'}
+    rich: {v: 0.76, src: usda, note: 'fat 36.2 g/100g (fdc 170929: Spices, mustard seed, ground)'}
+  reviewed_by: ishan
+- id: sweet_basil
+  name: Sweet basil
+  category: herb
+  potency: 3.0
+  aliases: [italian basil]
+  profile:
+    sweet: {v: 0.02, src: usda, note: 'sugar 0.3 g/100g (fdc 172232: Basil, fresh)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 4.0 mg/100g (fdc 172232: Basil, fresh)'}
+    rich: {v: 0.03, src: usda, note: 'fat 0.64 g/100g (fdc 172232: Basil, fresh)'}
+  reviewed_by: ishan
+- id: oregano
+  name: Oregano
+  category: herb
+  potency: 5.0
+  aliases: [mexican oregano]
+  profile:
+    sweet: {v: 0.29, src: usda, note: 'sugar 4.09 g/100g (fdc 171328: Spices, oregano, dried)'}
+    salty: {v: 0.02, src: usda, note: 'sodium 25.0 mg/100g (fdc 171328: Spices, oregano, dried)'}
+    rich: {v: 0.16, src: usda, note: 'fat 4.28 g/100g (fdc 171328: Spices, oregano, dried)'}
+  reviewed_by: ishan
+- id: sumac
+  name: Sumac
+  category: spice
+  potency: 5.0
+  profile: {}
+- id: achiote
+  name: Achiote
+  category: spice
+  potency: 4.0
+  aliases: [annatto]
+  profile: {}
