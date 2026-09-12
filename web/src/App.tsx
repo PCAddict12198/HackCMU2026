@@ -7,6 +7,7 @@ import { CuisineLegend, Galaxy } from "./features/galaxy/Galaxy";
 import { RecipePanel } from "./features/recipe/RecipePanel";
 import { ShiftPanel } from "./features/shift/ShiftPanel";
 import { TwinsPanel } from "./features/twins/TwinsPanel";
+import { ErrorState } from "./features/shared/Status";
 import { useDish, useStore } from "./state/store";
 
 const PANELS: Record<Panel, { label: string; View: ComponentType }> = {
@@ -86,13 +87,9 @@ export default function App() {
         </button>
         <span className="muted small hide-narrow">1–5 panels · L/S/M shift · 0 reset</span>
       </header>
-      {loadError && (
-        <div className="banner error-card">
-          <strong>Could not load the flavor space</strong>
-          <p className="small">{loadError}</p>
-          <button type="button" onClick={() => void load()}>
-            Retry
-          </button>
+      {loadError != null && (
+        <div className="banner">
+          <ErrorState error={loadError} onRetry={() => void load()} />
         </div>
       )}
       <main>

@@ -64,7 +64,7 @@ function StarField({
         onPointerOut={() => setHover(null)}
       >
         <sphereGeometry args={[0.22, 12, 12]} />
-        <meshStandardMaterial vertexColors toneMapped={false} roughness={0.35} metalness={0.1} />
+        <meshBasicMaterial vertexColors toneMapped={false} />
       </instancedMesh>
       {label && (
         <Html position={asTriple(label.xyz)} center distanceFactor={14} style={{ pointerEvents: "none" }}>
@@ -170,6 +170,7 @@ function CameraRig({ focus, homeTick }: { focus: Vec3 | null; homeTick: number }
   const homeCam = useMemo(() => new THREE.Vector3(0, 0, 26), []);
   const origin = useMemo(() => new THREE.Vector3(0, 0, 0), []);
   const goal = useRef(new THREE.Vector3());
+  const camGoal = useRef(new THREE.Vector3());
 
   useFrame((_, dt) => {
     if (!controls) return;
@@ -184,6 +185,8 @@ function CameraRig({ focus, homeTick }: { focus: Vec3 | null; homeTick: number }
     } else if (focus) {
       goal.current.set(focus[0], focus[1], focus[2]);
       controls.target.lerp(goal.current, k);
+      camGoal.current.set(focus[0] + 5, focus[1] + 3.5, focus[2] + 11);
+      camera.position.lerp(camGoal.current, k * 0.85);
     }
     controls.update?.();
   });

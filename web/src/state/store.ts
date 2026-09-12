@@ -1,12 +1,12 @@
 import { create } from "zustand";
-import { api, errorMessage } from "../api/client";
+import { api } from "../api/client";
 import type { ChatMessage, Deltas, DimId, HealthResponse, Panel, RecipeResponse, ShiftResponse, SpaceResponse, UiAction, Vec3 } from "../contract";
 import { initialUi, reduceUiActions, type UiSlice } from "./uiActions";
 
 interface Store extends UiSlice {
   space: SpaceResponse | null;
   health: HealthResponse | null;
-  loadError: string | null;
+  loadError: unknown;
   shiftResult: ShiftResponse | null;
   recipeStar: RecipeResponse | null;
   focus: Vec3 | null;
@@ -54,7 +54,7 @@ export const useStore = create<Store>()((set, get) => ({
 
   async load() {
     const [space, health] = await Promise.allSettled([api.space(), api.health()]);
-    if (space.status === "rejected") return set({ loadError: errorMessage(space.reason) });
+    if (space.status === "rejected") return set({ loadError: space.reason });
     const first = get().selectedId ?? space.value.dishes[0]?.id ?? null;
     set({
       space: space.value,

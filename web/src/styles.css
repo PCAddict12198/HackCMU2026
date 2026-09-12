@@ -20,7 +20,7 @@ main { flex: 1; display: grid; grid-template-columns: 1fr minmax(320px, 400px); 
 .legend { position: absolute; left: 16px; top: 16px; display: flex; flex-wrap: wrap; gap: 6px; max-width: 52%; }
 .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); background: #10131ccc; border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; }
 .legend-item i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-aside { border-left: 1px solid var(--line); background: var(--panel); padding: 12px; overflow-y: auto; }
+aside { border-left: 1px solid var(--line); background: var(--panel); padding: 12px; overflow-y: auto; position: relative; z-index: 2; }
 nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 button { background: #1b2030; color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
 button.active, button:hover { border-color: var(--accent); }
@@ -69,7 +69,6 @@ td, th { border-bottom: 1px solid var(--line); padding: 4px; text-align: left; }
 .lines { padding-left: 18px; }
 .trace { padding-left: 18px; }
 .relax { font-style: italic; }
-.loading::after { content: "…"; }
 .hide-narrow { margin-left: auto; }
 @media (max-width: 900px) {
   main { grid-template-columns: 1fr; grid-template-rows: 1fr 45vh; }
