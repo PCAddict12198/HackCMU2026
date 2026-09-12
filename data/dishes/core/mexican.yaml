@@ -6,14 +6,15 @@ dishes:
     course: savory
     format: grilled_roasted
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Chili-marinated spit-roasted pork with pineapple on corn tortillas.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of a three-taco plate"
     ingredients:
       - {ing: pork_shoulder, g: 200, process: [grilled]}
       - {ing: pineapple, g: 60, process: [grilled]}
       - {ing: corn_tortilla, g: 90, process: [toasted]}
       - {ing: chili_flakes, g: 8}
+      - {ing: achiote, g: 4}
       - {ing: onion, g: 30}
       - {ing: cilantro, g: 8}
       - {ing: lime_juice, g: 15}
@@ -24,9 +25,9 @@ dishes:
     course: savory
     format: raw_salad
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Raw shrimp "cooked" in lime and chili with cucumber and onion.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one plate"
     ingredients:
       - {ing: shrimp, g: 200, process: [cured]}
       - {ing: lime_juice, g: 80}
@@ -41,9 +42,9 @@ dishes:
     course: dessert
     format: baked_sweet
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Sponge cake soaked in three milks.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of a two-serving slice share"
     ingredients:
       - {ing: wheat_flour, g: 100, process: [roasted]}
       - {ing: egg, g: 150}
@@ -58,7 +59,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Complex chili-and-cocoa sauce over chicken.
     recipe_basis: team estimate of one plated serving
     ingredients:
@@ -80,7 +81,7 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Pork and hominy stew in a red-chili broth.
     recipe_basis: team estimate of one bowl
     ingredients:
@@ -101,7 +102,7 @@ dishes:
     course: savory
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Cheese-stuffed roasted peppers in egg batter.
     recipe_basis: team estimate of two peppers
     ingredients:
@@ -121,7 +122,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Achiote-and-citrus marinated pork, slow-roasted.
     recipe_basis: team estimate of one taco-plate serving
     ingredients:

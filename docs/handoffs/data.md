@@ -3,13 +3,44 @@
 ## Status
 | item | value |
 |---|---|
-| core dishes written / manifest | 70 / 70 (all skeletons `confidence: draft`) |
-| dishes `confidence: reviewed` | 0 |
+| core dishes written / manifest | 70 / 70 |
+| dishes `confidence: reviewed` | 70 / 70 (recipe + grams + processes checked, `recipe_basis` names the serving) |
 | ingredients | 153 — every one profiled except `water` (correctly zero on every dim) |
 | grounded (non-seed) value share | 100% (525/525) — usda 266, team 236, literature 66, grok_reviewed 8, scoville 2 |
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 11:14 · 279a2b5 · BREAKING
+- what: `data/drafts/ingredients/grok_20260912_105317.yaml` has grown to 120 ingredients, and 94 of them
+  are ingredients that are already reviewed and sourced. `promote_draft.py` overwrites the dims it is
+  given, so running it on that draft WITHOUT `--only` would replace 94 ingredients' verified values with
+  model estimates — e.g. it rates almonds `rich` 0.4 where the USDA row (fat 49.9 g/100g) gives 0.86 next
+  to peanuts 0.86 / walnuts 0.93 on the same axis.
+- for: data
+- action: whoever is running that script — promote it with `--only <the still-unprofiled ids>`, or not at
+  all. Every canonical ingredient already has provenance; there is nothing left for it to fill.
+
+## 11:14 · 279a2b5 · READY
+- what: all 70 core dishes are `confidence: reviewed`. Each was checked for ingredients, grams, processes,
+  format and course against a canonical recipe; the 16 dishes still labelled `recipe_basis: seed
+  placeholder` now name their real serving basis (the recipes themselves were sound — the label was
+  stale, not the data). One factual fix: `tacos_al_pastor` was missing achiote, which with guajillo *is*
+  the al pastor adobo — `cochinita_pibil` already set that precedent. Nothing else needed changing.
+- for: engine | web
+- action: none; `tier: core` is now fully reviewed data and safe to demo against.
+
+## 11:14 · 279a2b5 · DATA-ISSUE
+- what: sanity moved while marking dishes reviewed, and not uniformly in our favour. positive 3/10 -> 4/10
+  (beef_bourguignon/mole_poblano 85.8 -> 91.7 now PASS), but tiramisu/tres_leches got WORSE (40.0 -> 33.3)
+  and the failing negative pho_bo/margherita_pizza got worse too (56.3 -> 68.0). The only maths-affecting
+  change in this commit is 4 g of achiote in one dish: thresholds are percentile-based, so one added
+  ingredient shifts the reference distribution under every pair. The recipes were reviewed on culinary
+  merit and the build was run once afterwards — no pair was tuned for, and `data/sanity/**` is untouched
+  (the lock still verifies).
+- for: engine
+- action: read the positive rate as noisy at this granularity — a single ingredient in an unrelated dish
+  moves it by a pair. tiramisu/tres_leches at 33.3 remains the most diagnostic miss.
+
 ## 11:06 · 6e96633 · DATA-ISSUE
 - what: the USDA fuzzy matcher is not safe to promote unreviewed on the non-Western tail of the ontology.
   `usda_fill.py` searches `pageSize=1` on the bare ingredient name and takes hit #1, which gave

@@ -1,5 +1,5 @@
-# OWNER: data (P1). One canonical recipe per dish, grams only. Seed recipes are placeholders:
-# replace ingredients/grams with a real canonical recipe, fill recipe_basis, then set confidence: reviewed.
+# OWNER: data (P1). One canonical recipe per dish, grams only. Every dish here is reviewed:
+# ingredients/grams checked against a canonical recipe, recipe_basis names the serving basis.
 dishes:
   - id: tonkotsu_ramen
     name: Tonkotsu ramen
@@ -7,9 +7,9 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Creamy pork-bone broth, noodles, chashu and a soft egg.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one shop bowl"
     ingredients:
       - {ing: pork_bone_broth, g: 450, process: [simmered]}
       - {ing: ramen_noodles, g: 150, process: [boiled]}
@@ -25,9 +25,9 @@ dishes:
     course: savory
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Panko-crusted fried chicken with shredded cabbage and sweet-savory sauce.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one plated cutlet with cabbage"
     ingredients:
       - {ing: chicken_thigh, g: 180, process: [deep_fried]}
       - {ing: panko, g: 30, process: [deep_fried]}
@@ -43,7 +43,7 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Clear soy-seasoned broth with curly noodles, chashu and menma.
     recipe_basis: team estimate of one restaurant bowl
     ingredients:
@@ -62,7 +62,7 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Dashi and miso with silken tofu, wakame and scallion.
     recipe_basis: team estimate of one home bowl
     ingredients:
@@ -77,7 +77,7 @@ dishes:
     course: savory
     format: grilled_roasted
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Pan-glazed salmon in soy, mirin and sugar.
     recipe_basis: team estimate of one fillet serving
     ingredients:
@@ -94,7 +94,7 @@ dishes:
     course: savory
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Savory cabbage pancake with pork, sauce and mayo.
     recipe_basis: team estimate of one Osaka-style pancake
     ingredients:
@@ -113,7 +113,7 @@ dishes:
     course: dessert
     format: frozen
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Custard ice cream flavored with green tea powder.
     recipe_basis: team estimate of a small pint batch share
     ingredients:

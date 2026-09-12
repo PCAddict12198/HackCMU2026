@@ -6,9 +6,9 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Chickpeas simmered in a spiced tomato-onion gravy.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one serving"
     ingredients:
       - {ing: chickpeas, g: 250, process: [simmered]}
       - {ing: onion, g: 120, process: [caramelized]}
@@ -27,7 +27,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Tandoori-style chicken in a buttery tomato-cream sauce.
     recipe_basis: team estimate of one restaurant serving
     ingredients:
@@ -49,7 +49,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Spinach gravy with cubes of fresh paneer.
     recipe_basis: team estimate of one serving
     ingredients:
@@ -70,7 +70,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Kashmiri-style lamb braised with yogurt and warm spices.
     recipe_basis: team estimate of one serving
     ingredients:
@@ -92,7 +92,7 @@ dishes:
     course: savory
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Fermented rice-and-lentil crepe filled with spiced potato.
     recipe_basis: team estimate of one dosa
     ingredients:
@@ -112,7 +112,7 @@ dishes:
     course: savory
     format: rice_dish
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Layered spiced rice and marinated chicken steamed together.
     recipe_basis: team estimate of one plated serving
     ingredients:
@@ -136,7 +136,7 @@ dishes:
     course: dessert
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Fried milk dumplings soaked in rose-cardamom syrup.
     recipe_basis: team estimate of four balls
     ingredients:

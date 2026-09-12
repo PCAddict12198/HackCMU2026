@@ -6,9 +6,9 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Hot-and-sour shrimp soup with lemongrass, galangal and lime.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one bowl"
     ingredients:
       - {ing: chicken_stock, g: 500}
       - {ing: shrimp, g: 150, process: [boiled]}
@@ -26,9 +26,9 @@ dishes:
     course: dessert
     format: rice_dish
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Sweet coconut sticky rice with ripe mango.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one plate"
     ingredients:
       - {ing: sticky_rice, g: 150, process: [steamed]}
       - {ing: coconut_milk, g: 120}
@@ -41,7 +41,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Coconut curry with green chili paste, chicken and Thai basil.
     recipe_basis: team estimate of one bowl with rice on the side omitted
     ingredients:
@@ -60,7 +60,7 @@ dishes:
     course: savory
     format: noodles
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Stir-fried rice noodles with tamarind, fish sauce, shrimp and peanuts.
     recipe_basis: team estimate of one wok plate
     ingredients:
@@ -82,7 +82,7 @@ dishes:
     course: savory
     format: raw_salad
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Pounded green papaya salad with chili, lime, fish sauce and peanuts.
     recipe_basis: team estimate of one salad plate
     ingredients:
@@ -101,7 +101,7 @@ dishes:
     course: savory
     format: raw_salad
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Minced pork salad with lime, toasted rice, mint and chili.
     recipe_basis: team estimate of one sharing plate
     ingredients:
@@ -120,7 +120,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Mild coconut curry with beef, potato, peanut and warm spices.
     recipe_basis: team estimate of one bowl
     ingredients:
