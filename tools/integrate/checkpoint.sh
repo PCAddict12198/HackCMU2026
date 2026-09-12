@@ -21,7 +21,7 @@ pick() {  # newest of origin/agent/<role> and agent/<role>
 }
 
 failed=()
-for role in engine data data-dishes web; do
+for role in engine data web; do
   ref=$(pick "$role")
   if [ -z "$ref" ]; then echo "== $role: no branch, skipping"; continue; fi
   echo "================ merging $ref ================"
@@ -31,7 +31,7 @@ for role in engine data data-dishes web; do
     echo "!! CONFLICT merging $role (someone edited outside their folder?). Backed out."
     failed+=("$role (conflict)"); continue
   fi
-  case "$role" in data*) make build || true ;; esac
+  if [ "$role" = data ]; then make build || true; fi
   if ! make check; then
     echo "!! make check FAILED after merging $role. Backing it out; owner fixes on their branch."
     git reset --keep "$before"

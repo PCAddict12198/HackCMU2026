@@ -3,7 +3,7 @@
 # Uses whichever of origin/agent/<role> or agent/<role> is newer. OWNER: integrator.
 set -uo pipefail
 git fetch -q origin 2>/dev/null || true
-for role in data data-dishes engine web; do
+for role in data engine web; do
   best="" best_ts=0
   for ref in "origin/agent/$role" "agent/$role"; do
     if git rev-parse -q --verify "$ref" >/dev/null; then
