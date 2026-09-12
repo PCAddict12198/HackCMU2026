@@ -2,18 +2,22 @@
   "_comment": "Machine-readable folder ownership. OWNER: integrator (main only). Read by tools/ci/check_ownership.py (git pre-commit hook + CI) and tools/ci/agent_guard.py (Claude Code PreToolUse hook). Globs: ** = any depth, * = within one folder.",
   "branches": {
     "agent/data": "data",
+    "agent/data-dishes": "data-dishes",
     "agent/engine": "engine",
     "agent/web": "web",
     "main": "integrator"
   },
   "roles": {
     "data": ["data/**", "tools/data/**", "docs/demo/**", "docs/handoffs/data.md"],
+    "data-dishes": ["data/dishes/core/*.yaml", "docs/handoffs/data-dishes.md"],
     "engine": ["backend/tastespace/**", "backend/tests/**", "docs/MODEL.md", "docs/handoffs/engine.md"],
     "web": ["web/**", "docs/handoffs/web.md"],
     "integrator": ["**"]
   },
   "exclude": {
-    "data": ["data/sanity/**"],
+    "_comment": "Core dish recipes moved to the data-dishes helper at h8, so P1 and the helper never edit the same file.",
+    "data": ["data/sanity/**", "data/dishes/core/*.yaml"],
+    "data-dishes": ["data/dishes/core/_manifest.yaml"],
     "engine": [],
     "web": [],
     "integrator": []
