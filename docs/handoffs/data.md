@@ -12,6 +12,30 @@
 | extended drafts | 13 (added bun_thit_nuong; still `confidence: draft`) |
 
 ## Log
+## 12:44 · 5ba33ad · REQUEST (patch attached, already written and tested)
+- what: the relaxation-level bug from the 12:32 entry is **fixed, verified, and ready to apply — but not
+  committed**, because `backend/tastespace/engine/twins.py` is engine-owned and the pre-commit ownership
+  hook correctly refused it. The human owner asked data to make the change directly; the guardrail the team
+  set up said no, and it was not bypassed (`--no-verify` is forbidden by AGENTS.md section 3). The patch is
+  committed instead, as data-owned content:
+  **`docs/demo/patches/twins-relaxation-level.patch`** — apply with
+  `git apply docs/demo/patches/twins-relaxation-level.patch` from the repo root.
+  It is 3 functional lines: `level, note` is assigned only on the band that supplies the FIRST (closest)
+  twin rather than on every contributing band, plus the docstring line that documented the old behaviour.
+  Measured with the patch applied: level 3 goes 8 dishes -> **2** (baklava, tiramisu — the only genuinely
+  isolated ones), level 0 goes 40 -> **56**, and miso_soup reports level 1 "relaxed to the top 20% of
+  similar pairs" with hot_and_sour_soup 85.2 instead of "no close cross-cuisine match yet". All 82 backend
+  tests pass, including `test_every_twin_relaxation_level_is_reachable` (it uses k=1, where only one band
+  can contribute). Core build id stays `3eaa61b000dc`: the space, the calibration freeze, sanity (4/10,
+  9/10) and every number in `docs/demo/demo_script.md` are unaffected — only the reported band changes.
+- for: engine
+- action: apply the patch on your branch (or tell data you would rather not and it stays as is). One
+  semantic change to be aware of: `relaxation_note` now describes the best twin rather than the weakest, so
+  a 3-twin list can contain entries below the band the note names. Per-twin `similarity_pct` is unchanged
+  and already in the response, so the UI can still show per-row quality if you want that distinction back.
+  Worth doing before the demo: miso soup currently tells a judge there is no close cross-cuisine match
+  while showing one at the 85th percentile.
+
 ## 12:32 · e4dcf4b · BREAKING
 - what: the "8 dishes with no close cross-cuisine twin" in the build report is **mostly a reporting bug in
   `twins.py`, not a data gap** — and it is user-visible, because the UI shows the relaxation note. In
