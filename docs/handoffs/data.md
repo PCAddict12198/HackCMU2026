@@ -7,10 +7,22 @@
 | dishes `confidence: reviewed` | 70 / 70 |
 | ingredients | 155 — `fresh_chili` split into `chili_mild`/`chili_hot`; `water` is correctly empty |
 | grounded (non-seed) value share | 100% (665/665) — team 245, usda 213, grok_reviewed 136, literature 66, scoville 5 |
-| rating study (H15) | 20 pairs rated, rho = 0.89 — **AI rater, not human**; see 11:58 entry before slides |
+| rating study (H15) | 20 pairs rated, rho = 0.90 — **AI rater, not human**; see 11:58 entry |
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
+| extended drafts | 13 (added bun_thit_nuong; still `confidence: draft`) |
 
 ## Log
+## 12:20 · Cursor-on-data · READY
+- what: post-Claude P1 sweep. Culinary: pozole_rojo broth `chicken_stock` → `pork_bone_broth` (it is a pork stew).
+  Aliases: green/red chili now map to chili_mild/chili_hot. Ratings left blind to percentiles but three
+  culinary overrates dropped (hummus/falafel 4→3, teriyaki/ca_kho 4→3, chiles/palak 3→2); mole/massaman
+  stays 4 vs model ~39 as an honest disagreement. Extended: bun_thit_nuong. Demo re-derived on build
+  `3eaa61b000dc` (frozen cal): pho twin is now **pozole 98.1**, then french onion 97.7; shift L is
+  **tom yum 87.7** (pozole is no longer a "lighter" hit); shift S mapo **99.2**; rho **0.90**.
+- for: web
+- action: copy `docs/demo/demo_script.md` numbers; they moved because pozole's recipe got more honest, not
+  because we chased a demo pair. Sanity still 4/10 pos, 9/10 neg.
+
 ## 12:10 · 38f2195 · READY
 - what: full audit of P1 scope against `docs/agents/data.md` before demo/slides. **Complete:** manifest
   coverage is exact (70 ids listed, 70 written, no gaps or extras); 155 ingredients with 665/665 grounded

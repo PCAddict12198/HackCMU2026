@@ -3,8 +3,8 @@
 aliases:
   bacon: guanciale
   parmigiano reggiano: pecorino
-  green chili: fresh_chili
-  red chili: fresh_chili
+  green chili: chili_mild
+  red chili: chili_hot
   chile: fresh_chili
   habanero: chili_hot
   chili pepper: fresh_chili

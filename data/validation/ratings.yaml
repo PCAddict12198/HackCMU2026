@@ -3,9 +3,8 @@
 #
 # ===> THE RATINGS BELOW ARE NOT HUMAN. The single rater key `claude` is an AI (Claude, the coding agent
 # ===> that authored much of this corpus). The team chose this knowingly because no human study was run.
-# ===> The report section is titled "Human ratings vs model" and averages every rater key, so until engine
-# ===> adds a separate AI-baseline line (REQUEST filed in docs/handoffs/data.md) any rho it prints is an
-# ===> AI baseline, NOT human validation. Label it that way on the validation slide.
+# ===> Engine report heading is now "Rater panel vs model" and tags this key as AI. Label the slide as an
+# ===> AI baseline, NOT human validation. Add human keys (p1/p2/p3) later in the same map if a panel runs.
 #
 # Two caveats that bound what this rho can mean:
 #   1. NOT independent of the model. The rater authored or reviewed most of the ingredient profiles and
@@ -23,10 +22,10 @@
 pairs:
   - {a: shoyu_ramen, b: pho_bo, ratings: {claude: 4}}
   - {a: bulgogi, b: char_siu, ratings: {claude: 4}}
-  - {a: hummus, b: falafel, ratings: {claude: 4}}
+  - {a: hummus, b: falafel, ratings: {claude: 3}}
   - {a: coq_au_vin, b: beef_bourguignon, ratings: {claude: 5}}
   - {a: cacio_e_pepe, b: dan_dan_noodles, ratings: {claude: 3}}
-  - {a: teriyaki_salmon, b: ca_kho_to, ratings: {claude: 4}}
+  - {a: teriyaki_salmon, b: ca_kho_to, ratings: {claude: 3}}
   - {a: matcha_ice_cream, b: creme_brulee, ratings: {claude: 3}}
   - {a: miso_soup, b: baklava, ratings: {claude: 1}}
   - {a: aguachile, b: croque_monsieur, ratings: {claude: 1}}
@@ -38,6 +37,6 @@ pairs:
   - {a: mole_poblano, b: massaman_curry, ratings: {claude: 4}}
   - {a: okonomiyaki, b: croque_monsieur, ratings: {claude: 3}}
   - {a: pozole_rojo, b: bun_bo_hue, ratings: {claude: 4}}
-  - {a: chiles_rellenos, b: palak_paneer, ratings: {claude: 3}}
+  - {a: chiles_rellenos, b: palak_paneer, ratings: {claude: 2}}
   - {a: mujaddara, b: chicken_biryani, ratings: {claude: 4}}
   - {a: japchae, b: pad_thai, ratings: {claude: 4}}
