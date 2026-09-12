@@ -15,6 +15,8 @@ web/.vite/
 .env
 .env.local
 .claude/settings.local.json
+# local agent worktrees (Topology A, or the integrator's own engine checkout)
+.worktrees/
 # caches
 tools/data/.cache/
 .DS_Store
