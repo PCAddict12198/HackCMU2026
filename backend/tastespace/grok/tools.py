@@ -99,12 +99,25 @@ def _explain(state: EngineState, args: ExplainPairArgs) -> dict:
     out = explain(state, args.a, args.b).model_dump()
     dims = sorted(out["dims"], key=lambda d: -d["distance_share"])
     out["dims"] = dims[:6]
-    out["closest_dims"] = [d["dim"] for d in sorted(dims, key=lambda d: d["distance_share"])[:4]]
+    # strengths they SHARE: both clearly present and close. (Smallest distance share also picks dims
+    # where both are ~0, which the model then reported as "they align most on bitter".)
+    both = [d for d in dims if min(d["a"], d["b"]) >= 0.2]
+    out["shared_strengths"] = [d["dim"] for d in sorted(both, key=lambda d: abs(d["a"] - d["b"]) - min(d["a"], d["b"]))][:4]
     top = {x["dim"] for x in dims[:4]}
     out["attributions"] = {side: {dim: contribs[:2] for dim, contribs in out["attributions"][side].items() if dim in top}
                            for side in ("a", "b")}
     out["a_name"], out["b_name"] = _name(state, args.a), _name(state, args.b)
-    return out
+    return _round(out)  # Grok quotes what it sees: 0.8, not 0.7991
+
+
+def _round(obj, nd: int = 2):
+    if isinstance(obj, float):
+        return round(obj, nd)
+    if isinstance(obj, dict):
+        return {k: _round(v, nd) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_round(v, nd) for v in obj]
+    return obj
 
 
 TOOLS: dict[str, Tool] = {

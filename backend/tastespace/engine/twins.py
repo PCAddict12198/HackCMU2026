@@ -18,6 +18,7 @@ LADDER: list[tuple[float, str]] = [
     (0.0, "no close cross-cuisine match yet; showing the nearest other cuisines"),
 ]
 SAME_CUISINE_NOTE = "no other cuisine in this course yet; showing same-cuisine neighbours"
+EMPTY_COURSE_NOTE = "no other dishes in this course yet"
 
 
 def shared_and_diffs(va: np.ndarray, vb: np.ndarray) -> tuple[list[str], list[DimDelta]]:
@@ -50,7 +51,7 @@ def find_twins(state: EngineState, dish_id: str, k: int = 3) -> TwinsResponse:
                 break
     else:
         picked = sorted(cands, key=lambda c: -c[2])[:k]
-        level, note = len(LADDER), SAME_CUISINE_NOTE
+        level, note = len(LADDER), SAME_CUISINE_NOTE if cands else EMPTY_COURSE_NOTE
 
     twins = []
     for j, dist, pct, cd in picked:

@@ -12,6 +12,7 @@ from tastespace_contracts.data_models import Ingredient
 
 from ..errors import TasteSpaceError
 from .client import ChatFactory
+from .errors import provider_error_message
 
 SYSTEM = ("You map free-text recipe ingredient names to the closest ingredient id from a fixed list. "
           "Prefer the ingredient that would taste most similar. Answer 'none' if nothing is reasonably close. "
@@ -34,7 +35,8 @@ def map_ingredients(names: list[str], ingredients: dict[str, Ingredient], chat_f
     try:
         out = chat.parse(shape)
     except Exception as exc:
-        raise TasteSpaceError("grok_failed", f"Grok ingredient mapping failed ({type(exc).__name__})") from exc
+        reason = provider_error_message(exc)
+        raise TasteSpaceError("grok_failed", f"Grok ingredient mapping failed: {reason}", {"reason": reason}) from exc
     wanted = set(names)
     return {it.name: it.ingredient_id for it in out.items  # type: ignore[attr-defined]
             if it.name in wanted and it.ingredient_id != "none" and it.ingredient_id in ingredients}
