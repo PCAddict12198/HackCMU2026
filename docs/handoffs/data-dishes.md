@@ -1,7 +1,7 @@
 # Handoffs: DATA-DISHES helper. Only the data-dishes agent edits this file. Newest entry first.
 
 ## Status
-| cuisine | reviewed / 7 |
+| cuisine | extended dishes added |
 |---|---|
 | japanese | 0 |
 | chinese | 0 |
@@ -15,7 +15,7 @@
 | mexican | 0 |
 
 ## Log
-## H8 · integrator · READY
-- what: helper branch created at h8; core dish recipes (data/dishes/core/<cuisine>.yaml) now belong to this helper
+## H9 · integrator · READY
+- what: helper owns extended-tier dishes (data/dishes/extended/<cuisine>.yaml); P1 keeps the reviewed core 70
 - for: data-dishes
-- action: review recipes cuisine by cuisine; list missing ingredients as REQUESTs for P1 here
+- action: ~5 well-known dishes per cuisine with existing ingredient ids; missing ingredients go here as REQUESTs for P1

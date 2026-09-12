@@ -9,15 +9,15 @@
   },
   "roles": {
     "data": ["data/**", "tools/data/**", "docs/demo/**", "docs/handoffs/data.md"],
-    "data-dishes": ["data/dishes/core/*.yaml", "docs/handoffs/data-dishes.md"],
+    "data-dishes": ["data/dishes/extended/*.yaml", "docs/handoffs/data-dishes.md"],
     "engine": ["backend/tastespace/**", "backend/tests/**", "docs/MODEL.md", "docs/handoffs/engine.md"],
     "web": ["web/**", "docs/handoffs/web.md"],
     "integrator": ["**"]
   },
   "exclude": {
-    "_comment": "Core dish recipes moved to the data-dishes helper at h8, so P1 and the helper never edit the same file.",
-    "data": ["data/sanity/**", "data/dishes/core/*.yaml"],
-    "data-dishes": ["data/dishes/core/_manifest.yaml"],
+    "_comment": "Extended-tier dishes belong to the data-dishes helper, so P1 and the helper never edit the same file.",
+    "data": ["data/sanity/**", "data/dishes/extended/**"],
+    "data-dishes": [],
     "engine": [],
     "web": [],
     "integrator": []
