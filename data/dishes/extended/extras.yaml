@@ -227,3 +227,38 @@ dishes:
       - {ing: mint, g: 8}
       - {ing: cilantro, g: 8}
       - {ing: peanuts, g: 15, process: [toasted]}
+  - id: cannoli
+    name: Cannoli
+    cuisine: italian
+    course: dessert
+    format: fried
+    tier: extended
+    confidence: draft
+    blurb: Fried pastry shell filled with sweet cheese cream and nuts.
+    recipe_basis: "team estimate of two cannoli"
+    ingredients:
+      - {ing: wheat_flour, g: 50, process: [deep_fried]}
+      - {ing: neutral_oil, g: 12, process: [deep_fried]}
+      - {ing: mascarpone, g: 100}
+      - {ing: sugar, g: 35}
+      - {ing: almonds, g: 12}
+      - {ing: cocoa_powder, g: 4}
+      - {ing: vanilla, g: 1}
+  - id: opera_cake
+    name: Opera cake
+    cuisine: french
+    course: dessert
+    format: baked_sweet
+    tier: extended
+    confidence: draft
+    blurb: Almond sponge layered with coffee buttercream and chocolate ganache.
+    recipe_basis: "team estimate of one slice"
+    ingredients:
+      - {ing: wheat_flour, g: 25, process: [roasted]}
+      - {ing: almonds, g: 20}
+      - {ing: egg, g: 35}
+      - {ing: sugar, g: 30}
+      - {ing: butter, g: 28}
+      - {ing: espresso, g: 22}
+      - {ing: cocoa_powder, g: 7}
+      - {ing: heavy_cream, g: 18}
