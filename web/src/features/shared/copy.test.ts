@@ -3,7 +3,7 @@ import { closerThan, formatToolCall, friendlyError, movedBits, shiftFormula } fr
 
 describe("copy", () => {
   it("never says percent similar", () => {
-    expect(closerThan(93.4)).toBe("closer than 93% of dish pairs");
+    expect(closerThan(93.4)).toBe("Closer in taste than 93% of dish pairs");
     expect(closerThan(93.4).toLowerCase()).not.toContain("similar");
   });
 

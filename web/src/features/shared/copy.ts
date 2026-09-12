@@ -1,6 +1,6 @@
 import type { Deltas, DimId, ErrorCode, ProvenanceSrc, ToolTrace } from "../../contract";
 
-export const closerThan = (pct: number) => `closer than ${Math.round(pct)}% of dish pairs`;
+export const closerThan = (pct: number) => `Closer in taste than ${Math.round(pct)}% of dish pairs`;
 
 export const prettyId = (id: string) => id.replaceAll("_", " ");
 
@@ -28,6 +28,15 @@ export const SRC_LABEL: Record<NonNullable<ProvenanceSrc>, string> = {
   seed_placeholder: "seed (placeholder)",
   fixture: "fixture",
 };
+
+export function formatToolStory(t: ToolTrace): string {
+  const args = t.args ?? {};
+  if (t.tool === "find_twins") return "Looked for flavor twins";
+  if (t.tool === "explain_pair") return "Compared two dishes in TasteSpace";
+  if (t.tool === "search_dishes" && typeof args.query === "string") return `Searched for “${args.query}”`;
+  if (t.tool === "shift_taste") return "Moved your craving through TasteSpace";
+  return "Used TasteSpace";
+}
 
 export function formatToolCall(t: ToolTrace): string {
   const args = t.args ?? {};

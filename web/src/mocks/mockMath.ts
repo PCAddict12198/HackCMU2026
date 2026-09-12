@@ -6,6 +6,8 @@ import type {
   DimId,
   DishPoint,
   ExplainResponse,
+  RecipeRequest,
+  RecipeResponse,
   ShiftRequest,
   ShiftResponse,
   SpaceResponse,
@@ -106,3 +108,92 @@ export function mockExplain(space: SpaceResponse, a: string, b: string): Explain
     attributions: { a: mockAttribs(A), b: mockAttribs(B) },
   };
 }
+
+const STOP = new Set([
+  "the",
+  "and",
+  "with",
+  "for",
+  "tsp",
+  "tbsp",
+  "cup",
+  "cups",
+  "gram",
+  "grams",
+  "pinch",
+  "into",
+  "this",
+  "that",
+  "your",
+]);
+
+function tokens(s: string): string[] {
+  return s
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((t) => t.length > 2 && !STOP.has(t) && !/^\d+$/.test(t));
+}
+
+function dishHay(d: DishPoint): string {
+  return `${d.name} ${d.id.replaceAll("_", " ")} ${d.blurb} ${d.cuisine} ${d.format.replaceAll("_", " ")}`.toLowerCase();
+}
+
+/** Mock-only: place a recipe by word overlap with the catalog. Not the engine. */
+export function mockRecipe(space: SpaceResponse, req: RecipeRequest): RecipeResponse {
+  const rawLines = req.text
+    .split(/\n+/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const lines = (rawLines.length ? rawLines : ["(empty recipe)"]).map((raw) => {
+    const ts = tokens(raw);
+    const hit = space.dishes.find((d) => {
+      const hay = dishHay(d);
+      return ts.some((t) => hay.includes(t));
+    });
+    return {
+      raw,
+      status: hit ? ("fuzzy" as const) : ("unmatched" as const),
+      ingredient_id: hit ? hit.id : null,
+      grams: null,
+      confidence: hit ? 0.55 : 0,
+      process: [] as RecipeResponse["lines"][number]["process"],
+      note: hit ? `MOCK: closest catalog dish “${hit.name}”` : "MOCK: no catalog word on this line",
+    };
+  });
+  const allTok = tokens(req.text);
+  const scored = space.dishes
+    .map((d) => {
+      const hay = dishHay(d);
+      const s = allTok.reduce((n, t) => n + (hay.includes(t) ? (d.name.toLowerCase().includes(t) ? 3 : 1) : 0), 0);
+      return { d, s };
+    })
+    .sort((a, b) => b.s - a.s || dist3(a.d.xyz, [0, 0, 0] as unknown as Vec3) - dist3(b.d.xyz, [0, 0, 0] as unknown as Vec3));
+  const top = (scored[0]?.s ? scored.filter((x) => x.s > 0) : scored).slice(0, 5);
+  const used = top.length ? top : scored.slice(0, 5);
+  const n = Math.max(used.length, 1);
+  const xyz = used
+    .reduce((acc, x) => [acc[0] + x.d.xyz[0], acc[1] + x.d.xyz[1], acc[2] + x.d.xyz[2]], [0, 0, 0])
+    .map((v) => v / n) as unknown as Vec3;
+  const vector = Object.fromEntries(
+    space.meta.dim_order.map((dim) => [dim, used.reduce((s, x) => s + (x.d.vector[dim] ?? 0), 0) / n]),
+  );
+  const attributions: Record<string, Contribution[]> = {};
+  const matched = lines.filter((l) => l.status !== "unmatched").length;
+  const dessertHint = allTok.some((t) => ["sugar", "cream", "mango", "sweet", "milk", "custard", "cake"].includes(t));
+  return {
+    name: req.name?.trim() || "Your recipe",
+    course: req.course ?? (dessertHint ? "dessert" : "savory"),
+    lines,
+    coverage: { matched, total: lines.length },
+    used_grok: false,
+    vector,
+    xyz,
+    neighbors: used.map((x, i) => ({
+      dish_id: x.d.id,
+      similarity_pct: pct(i, Math.max(space.dishes.length - 1, 1)),
+      distance: dist3(xyz, x.d.xyz),
+    })),
+    attributions,
+  };
+}
+

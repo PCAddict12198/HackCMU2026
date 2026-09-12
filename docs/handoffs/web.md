@@ -3,14 +3,23 @@
 ## Panel readiness (placeholder = wired to contract, baseline = usable, demo = polished)
 | feature | status | notes |
 |---|---|---|
-| galaxy | demo | lit 3D orbs (not faceted dots); Fraunces/Outfit chrome |
-| twins | demo | stale-while-revalidate + skeleton; 4 seeds explain pair |
-| shift | demo | sliders stay up during latency/errors; L/S/M |
-| explain | demo | key 4 / tab seeds pair so no empty state |
-| recipe | demo | key 5 auto-places sample; line statuses |
-| ask | demo | hidden if grok off; skeleton while asking |
+| galaxy | demo | Taste Map on warm ivory; cuisine dropdown; fly-to; shift trail |
+| twins | demo | food cards + dim dots; “Why this match?” |
+| shift | demo | craving sliders + path from engine results; L/S/M |
+| explain | demo | consumer story first; calc details behind details |
+| recipe | demo | Map my recipe page; coverage copy; show on map |
+| ask | demo | drawer (not a chatbot home); tool trace behind a link |
 
-## Log
+## 13:40 · READY
+- what: Taste Map stays wide with bright nodes + neighbor links; scroll to zoom out; nearby dishes now select that dish. Mock recipe uses the pasted text (no more frozen carbonara fixture).
+- for: integrator
+- action: `make web` and try Map my recipe with two different pastes; Taste Map “See all” then click another node.
+
+## 13:24 · READY
+- what: consumer redesign — Discover home, ivory Taste Map, Fraunces + DM Sans, lime CTAs. Same APIs and demo keys (0 / 1 / L / 4 / 5 / 6).
+- for: integrator
+- action: `make web` (mock) or `make dev` (live 70 dishes). First screen is Discover, not the 3D view.
+
 ## 12:46 · READY
 - what: visual polish — smooth lit dish orbs, Fraunces + Outfit, glass panel chrome
 - for: integrator

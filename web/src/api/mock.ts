@@ -3,7 +3,7 @@
 // mockError is panel-only (twins/shift/explain/recipe/ask). Space + health always load the catalog.
 import type { ErrorCode } from "../contract";
 import { fixtures } from "../mocks/fixtures";
-import { mockExplain, mockShift, mockTwins } from "../mocks/mockMath";
+import { mockExplain, mockRecipe, mockShift, mockTwins } from "../mocks/mockMath";
 import { ApiError, type TasteSpaceApi } from "./types";
 
 function qs() {
@@ -49,6 +49,6 @@ export const mockApi: TasteSpaceApi = {
         ? fixtures.explain
         : mockExplain(space(), a, b),
     ),
-  recipe: () => respond("recipe", () => fixtures.recipe),
+  recipe: (req) => respond("recipe", () => mockRecipe(space(), req)),
   ask: () => respond("ask", () => fixtures.ask),
 };

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { fixtures } from "./fixtures";
 import { mockApi } from "../api/mock";
-import { mockExplain, mockShift, mockTwins, projectDelta } from "./mockMath";
+import { mockExplain, mockRecipe, mockShift, mockTwins, projectDelta } from "./mockMath";
 
 describe("mock mode", () => {
   const space = fixtures.space;
@@ -57,5 +57,12 @@ describe("mock mode", () => {
   it("mock explain always has fixture attributions", () => {
     const res = mockExplain(space, id, space.dishes[1].id);
     expect(Object.keys(res.attributions.a).length).toBeGreaterThan(0);
+  });
+
+  it("mock recipe neighbors change when the text changes", () => {
+    const pasta = mockRecipe(space, { text: "spaghetti pecorino egg black pepper" });
+    const mango = mockRecipe(space, { text: "mango sticky rice coconut milk" });
+    expect(pasta.neighbors[0]?.dish_id).not.toBe(mango.neighbors[0]?.dish_id);
+    expect(mango.neighbors.some((n) => n.dish_id === "mango_sticky_rice")).toBe(true);
   });
 });

@@ -4,6 +4,7 @@ import type { Course, DishFormat, RecipeResponse } from "../../contract";
 import { closerThan } from "../shared/copy";
 import { useStore } from "../../state/store";
 import { ErrorState, Loading } from "../shared/Status";
+import { DishCard } from "../dish/DishCard";
 
 const SAMPLE = "200 g spaghetti\n100 g guanciale\n2 eggs\n50 g pecorino\n1 tsp black pepper";
 const FORMATS: DishFormat[] = [
@@ -25,8 +26,6 @@ export function RecipePanel() {
   const space = useStore((s) => s.space);
   const setRecipeStar = useStore((s) => s.setRecipeStar);
   const setPanel = useStore((s) => s.setPanel);
-  const setExplainPair = useStore((s) => s.setExplainPair);
-  const selectedId = useStore((s) => s.selectedId);
   const placeRecipeTick = useStore((s) => s.placeRecipeTick);
   const [text, setText] = useState(SAMPLE);
   const [course, setCourse] = useState<Course | "">("");
@@ -55,19 +54,26 @@ export function RecipePanel() {
 
   useEffect(() => {
     if (placeRecipeTick > 0) void run();
-    // demo key 5 / first open
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [placeRecipeTick]);
-  const name = (id: string) => space?.dishes.find((d) => d.id === id)?.name ?? id;
+
+  const dishOf = (id: string) => space?.dishes.find((d) => d.id === id);
+
   return (
-    <div>
-      <h3>Where does my recipe live?</h3>
-      <textarea rows={7} value={text} onChange={(e) => setText(e.target.value)} />
-      <div className="row">
+    <div className="recipe-page">
+      <h3 className="panel-title">Map my recipe</h3>
+      <p className="lede-sm">Paste a recipe and see where it lives in TasteSpace.</p>
+      <textarea
+        rows={8}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Paste ingredients or a recipe here..."
+      />
+      <div className="row" style={{ margin: "12px 0" }}>
         <select value={course} onChange={(e) => setCourse(e.target.value as Course | "")}>
-          <option value="">any course</option>
+          <option value="">any meal</option>
           <option value="savory">savory</option>
-          <option value="dessert">dessert</option>
+          <option value="dessert">sweet</option>
         </select>
         <select value={format} onChange={(e) => setFormat(e.target.value as DishFormat | "")}>
           <option value="">any format</option>
@@ -78,47 +84,67 @@ export function RecipePanel() {
           ))}
         </select>
       </div>
-      <button type="button" onClick={run} disabled={busy}>
-        {busy ? "Placing..." : "Place recipe"}
+      <button type="button" className="primary" onClick={() => void run()} disabled={busy}>
+        {busy ? "Mapping…" : "Map this recipe"}
       </button>
       {error != null && <ErrorState error={error} onRetry={() => void run()} />}
-      {busy && <Loading label="Placing recipe in the galaxy..." />}
+      {busy && <Loading label="Finding where this recipe lives…" />}
       {data && (
         <>
+          <h4>Your recipe</h4>
+          <p className="taste-line">{data.name}</p>
           <p className="small">
-            matched {data.coverage.matched}/{data.coverage.total} lines
-            {data.used_grok && " (some mapped by Grok)"}
+            We matched {data.coverage.matched} of {data.coverage.total} ingredients
+            {data.used_grok ? " — a few were understood from the way you wrote them." : "."}
           </p>
-          <ul className="lines">
-            {data.lines.map((l) => (
-              <li key={l.raw} className={`small line line-${l.status}`}>
-                <span className={`chip status-${l.status}`}>{l.status}</span> {l.raw}
-                {l.ingredient_id && ` → ${l.ingredient_id}`}
-                {l.grams != null && ` (${l.grams} g)`}
-                {l.status === "grok_mapped" && (
-                  <em className="muted"> Grok chose this id from our ingredient list</em>
-                )}
-                {l.note && <em className="muted"> {l.note}</em>}
-              </li>
-            ))}
-          </ul>
-          <p className="small">
-            Nearest dishes:{" "}
-            {data.neighbors.map((n) => (
-              <button
-                key={n.dish_id}
-                type="button"
-                className="linkish"
-                title={closerThan(n.similarity_pct)}
-                onClick={() => {
-                  if (selectedId) setExplainPair(selectedId, n.dish_id);
-                  else setPanel("twins");
-                }}
-              >
-                {name(n.dish_id)}
-              </button>
-            ))}
-          </p>
+          <details className="tech">
+            <summary>Ingredient notes</summary>
+            <ul className="lines">
+              {data.lines.map((l) => (
+                <li key={l.raw} className={`small line line-${l.status}`}>
+                  <span className={`chip status-${l.status}`}>{l.status.replaceAll("_", " ")}</span> {l.raw}
+                  {l.ingredient_id && ` → ${l.ingredient_id.replaceAll("_", " ")}`}
+                  {l.grams != null && ` (${l.grams} g)`}
+                  {l.note && <em className="muted"> {l.note}</em>}
+                </li>
+              ))}
+            </ul>
+          </details>
+          <h4>Closest dishes</h4>
+          <div className="neighbor-list">
+            {data.neighbors.map((n, i) => {
+              const d = dishOf(n.dish_id);
+              if (!d) {
+                return (
+                  <p key={n.dish_id} className="small">
+                    {i + 1}. {n.dish_id.replaceAll("_", " ")} · {closerThan(n.similarity_pct)}
+                  </p>
+                );
+              }
+              return (
+                <DishCard
+                  key={n.dish_id}
+                  dish={d}
+                  dims={space?.dims}
+                  compact
+                  onClick={() => {
+                    useStore.getState().select(n.dish_id);
+                    window.dispatchEvent(new Event("tastespace:show-map"));
+                  }}
+                />
+              );
+            })}
+          </div>
+          <button
+            type="button"
+            className="primary"
+            onClick={() => {
+              setPanel("twins");
+              window.dispatchEvent(new Event("tastespace:show-map"));
+            }}
+          >
+            Show on Taste Map
+          </button>
         </>
       )}
     </div>

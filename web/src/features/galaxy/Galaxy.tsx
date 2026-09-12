@@ -1,24 +1,33 @@
 import { Html, Line, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import type { DishPoint, RecipeResponse, Vec3 } from "../../contract";
 import { asTriple } from "../../contract";
 import { useDish, useStore } from "../../state/store";
 import { cuisineColor } from "./colors";
+import { topLabels } from "../dish/sensory";
+
+const LIME = "#D8F25A";
+const TERRACOTTA = "#C45C3E";
+const MAP_BG = "#F3EEE3";
+const MUTED = new THREE.Color("#C9C2B6");
 
 function StarField({
   dishes,
   selectedId,
   highlightIds,
   twinHighlight,
+  faded,
 }: {
   dishes: DishPoint[];
   selectedId: string | null;
   highlightIds: string[];
   twinHighlight: string | null;
+  faded: Set<string> | null;
 }) {
   const select = useStore((s) => s.select);
+  const space = useStore((s) => s.space);
   const mesh = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const color = useMemo(() => new THREE.Color(), []);
@@ -30,24 +39,27 @@ function StarField({
     if (!m) return;
     dishes.forEach((d, i) => {
       dummy.position.set(d.xyz[0], d.xyz[1], d.xyz[2]);
-      let s = d.tier === "extended" ? 0.62 : 1;
-      if (d.id === selectedId) s *= 1.9;
-      else if (d.id === twinHighlight) s *= 1.55;
-      else if (hi.has(d.id)) s *= 1.35;
-      if (hover === i) s *= 1.2;
+      let s = d.tier === "extended" ? 0.7 : 1;
+      const dimmed = faded?.has(d.id) ?? false;
+      if (d.id === selectedId) s *= 1.85;
+      else if (d.id === twinHighlight) s *= 1.45;
+      else if (hi.has(d.id)) s *= 1.28;
+      else if (dimmed) s *= 0.5;
+      if (hover === i) s *= dimmed ? 1.45 : 1.12;
       dummy.scale.setScalar(s);
       dummy.updateMatrix();
       m.setMatrixAt(i, dummy.matrix);
       color.set(cuisineColor(d.cuisine));
+      if (dimmed && hover !== i) color.lerp(MUTED, 0.82);
       m.setColorAt(i, color);
     });
     m.instanceMatrix.needsUpdate = true;
     if (m.instanceColor) m.instanceColor.needsUpdate = true;
-  }, [color, dishes, dummy, hi, hover, selectedId, twinHighlight]);
+  }, [color, dishes, dummy, faded, hi, hover, selectedId, twinHighlight]);
 
-  const labelIdx = hover ?? dishes.findIndex((d) => d.id === selectedId);
-  const label = labelIdx >= 0 ? dishes[labelIdx] : null;
-
+  const hoverDish = hover != null ? dishes[hover] : null;
+  const selectedDish = selectedId ? dishes.find((d) => d.id === selectedId) : null;
+  const tagsFor = (d: DishPoint) => topLabels(d.vector, space?.dims, 3);
   const segs = dishes.length > 40 ? 24 : 36;
   return (
     <>
@@ -65,12 +77,26 @@ function StarField({
         }}
         onPointerOut={() => setHover(null)}
       >
-        <sphereGeometry args={[0.3, segs, segs]} />
-        <meshStandardMaterial roughness={0.22} metalness={0.28} envMapIntensity={0.9} />
+        <sphereGeometry args={[0.32, segs, segs]} />
+        <meshStandardMaterial roughness={0.22} metalness={0.08} toneMapped={false} />
       </instancedMesh>
-      {label && (
-        <Html position={asTriple(label.xyz)} center distanceFactor={14} style={{ pointerEvents: "none" }}>
-          <div className="star-label">{label.name}</div>
+      {selectedDish && selectedDish.id !== hoverDish?.id && (
+        <Html position={asTriple(selectedDish.xyz)} center distanceFactor={16} style={{ pointerEvents: "none" }}>
+          <div className="star-label">
+            {selectedDish.name}
+            <span className="sub">{selectedDish.cuisine}</span>
+          </div>
+        </Html>
+      )}
+      {hoverDish && (
+        <Html position={asTriple(hoverDish.xyz)} center distanceFactor={16} style={{ pointerEvents: "none" }}>
+          <div className="star-label">
+            {hoverDish.name}
+            <span className="sub">
+              {hoverDish.cuisine}
+              {tagsFor(hoverDish).length ? ` · ${tagsFor(hoverDish).join(" · ")}` : ""}
+            </span>
+          </div>
         </Html>
       )}
     </>
@@ -85,9 +111,37 @@ function Halos({ dishes, ids }: { dishes: DishPoint[]; ids: string[] }) {
     if (!d) return null;
     return (
       <mesh key={id} position={asTriple(d.xyz)}>
-        <sphereGeometry args={[0.52, 32, 32]} />
-        <meshBasicMaterial color="#e4c08a" transparent opacity={0.16} depthWrite={false} />
+        <sphereGeometry args={[0.48, 28, 28]} />
+        <meshBasicMaterial color={LIME} transparent opacity={0.28} depthWrite={false} toneMapped={false} />
       </mesh>
+    );
+  });
+}
+
+function NeighborLinks({
+  dishes,
+  selectedId,
+  ids,
+}: {
+  dishes: DishPoint[];
+  selectedId: string | null;
+  ids: string[];
+}) {
+  const from = dishes.find((d) => d.id === selectedId);
+  if (!from) return null;
+  const byId = new Map(dishes.map((d) => [d.id, d]));
+  return [...new Set(ids)].map((id) => {
+    const to = byId.get(id);
+    if (!to) return null;
+    return (
+      <Line
+        key={id}
+        points={[asTriple(from.xyz), asTriple(to.xyz)]}
+        color={cuisineColor(to.cuisine)}
+        lineWidth={1.6}
+        transparent
+        opacity={0.55}
+      />
     );
   });
 }
@@ -96,13 +150,13 @@ function RecipeStar({ recipe }: { recipe: RecipeResponse }) {
   const pulse = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (!pulse.current) return;
-    const s = 0.38 + 0.08 * Math.sin(state.clock.elapsedTime * 3);
-    pulse.current.scale.setScalar(s / 0.38);
+    const s = 1 + 0.06 * Math.sin(state.clock.elapsedTime * 1.6);
+    pulse.current.scale.setScalar(s);
   });
   return (
     <mesh ref={pulse} position={asTriple(recipe.xyz)}>
-      <sphereGeometry args={[0.4, 36, 36]} />
-      <meshStandardMaterial color="#ffe8a3" emissive="#e4c08a" emissiveIntensity={0.85} roughness={0.18} metalness={0.35} />
+      <sphereGeometry args={[0.4, 32, 32]} />
+      <meshStandardMaterial color={LIME} roughness={0.25} metalness={0.1} toneMapped={false} />
       <Html center distanceFactor={14} style={{ pointerEvents: "none" }}>
         <div className="star-label recipe">{recipe.name}</div>
       </Html>
@@ -121,14 +175,14 @@ function TargetGlide({ from, to, trail }: { from: Vec3; to: Vec3; trail: boolean
     g.setDrawRange(0, 2);
     return g;
   }, []);
-  const trailLine = useMemo(() => new THREE.Line(geo, new THREE.LineBasicMaterial({ color: 0xe4c08a })), [geo]);
+  const trailLine = useMemo(() => new THREE.Line(geo, new THREE.LineBasicMaterial({ color: 0xc45c3e })), [geo]);
   const goal = useMemo(() => new THREE.Vector3(to[0], to[1], to[2]), [to[0], to[1], to[2]]);
   const dashPts = useMemo(
     () => [new THREE.Vector3(from[0], from[1], from[2]), new THREE.Vector3(to[0], to[1], to[2])],
     [from, to],
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     current.current.set(from[0], from[1], from[2]);
     last.current.set(from[0], from[1], from[2]);
     count.current = 1;
@@ -154,10 +208,10 @@ function TargetGlide({ from, to, trail }: { from: Vec3; to: Vec3; trail: boolean
   return (
     <>
       {trail && <primitive object={trailLine} />}
-      <Line points={dashPts} color="#e4c08a" lineWidth={1.4} dashed dashSize={0.28} gapSize={0.18} />
+      <Line points={dashPts} color={TERRACOTTA} lineWidth={1.8} dashed dashSize={0.28} gapSize={0.18} />
       <mesh ref={marker} position={asTriple(to)}>
-        <sphereGeometry args={[0.26, 32, 32]} />
-        <meshStandardMaterial color="#e4c08a" emissive="#e4c08a" emissiveIntensity={0.55} roughness={0.2} metalness={0.4} wireframe={false} />
+        <sphereGeometry args={[0.22, 24, 24]} />
+        <meshStandardMaterial color={TERRACOTTA} roughness={0.25} metalness={0.08} toneMapped={false} />
       </mesh>
     </>
   );
@@ -174,7 +228,7 @@ function Axes({ labels }: { labels: string[] }) {
     <group>
       {ends.map((p, i) => (
         <group key={labels[i] ?? i}>
-          <Line points={[[0, 0, 0], p]} color="#3a342c" lineWidth={1} />
+          <Line points={[[0, 0, 0], p]} color="#D4CBBA" lineWidth={1} />
           <Html position={p} center style={{ pointerEvents: "none" }}>
             <div className="axis-label">{labels[i]}</div>
           </Html>
@@ -188,7 +242,9 @@ function CameraRig({ focus, homeTick }: { focus: Vec3 | null; homeTick: number }
   const { camera } = useThree();
   const controls = useThree((s) => s.controls) as { target: THREE.Vector3; update?: () => void } | null;
   const lastHome = useRef(homeTick);
-  const homeCam = useMemo(() => new THREE.Vector3(0, 0, 34), []);
+  const lastFocusKey = useRef("");
+  const chasing = useRef<"focus" | "home" | null>(null);
+  const homeCam = useMemo(() => new THREE.Vector3(0, 0, 36), []);
   const origin = useMemo(() => new THREE.Vector3(0, 0, 0), []);
   const goal = useRef(new THREE.Vector3());
   const camGoal = useRef(new THREE.Vector3());
@@ -198,23 +254,31 @@ function CameraRig({ focus, homeTick }: { focus: Vec3 | null; homeTick: number }
     const k = 1 - Math.exp(-3.2 * dt);
     if (homeTick !== lastHome.current) {
       lastHome.current = homeTick;
+      chasing.current = "home";
+      lastFocusKey.current = "";
     }
-    const resetting = homeTick > 0 && !focus;
-    if (resetting) {
+    const focusKey = focus ? focus.join(",") : "";
+    if (focusKey && focusKey !== lastFocusKey.current) {
+      lastFocusKey.current = focusKey;
+      chasing.current = "focus";
+    }
+    if (chasing.current === "home") {
       camera.position.lerp(homeCam, k);
       controls.target.lerp(origin, k);
-    } else if (focus) {
+      if (camera.position.distanceTo(homeCam) < 0.2) chasing.current = null;
+    } else if (chasing.current === "focus" && focus) {
       goal.current.set(focus[0], focus[1], focus[2]);
       controls.target.lerp(goal.current, k);
-      camGoal.current.set(focus[0] + 5, focus[1] + 3.5, focus[2] + 11);
+      camGoal.current.set(focus[0] + 6, focus[1] + 4, focus[2] + 16);
       camera.position.lerp(camGoal.current, k * 0.85);
+      if (camera.position.distanceTo(camGoal.current) < 0.25) chasing.current = null;
     }
     controls.update?.();
   });
   return null;
 }
 
-export function Galaxy() {
+export function Galaxy({ cuisineFilter, courseFilter }: { cuisineFilter: string | null; courseFilter: string | null }) {
   const space = useStore((s) => s.space);
   const selectedId = useStore((s) => s.selectedId);
   const highlightIds = useStore((s) => s.highlightIds);
@@ -225,37 +289,72 @@ export function Galaxy() {
   const homeTick = useStore((s) => s.homeTick);
   const selected = useDish(selectedId);
 
-  if (!space) return <div className="galaxy-empty">Loading TasteSpace...</div>;
+  const faded = useMemo(() => {
+    if (!space) return null;
+    const keep = new Set<string>();
+    if (selectedId) keep.add(selectedId);
+    if (twinHighlight) keep.add(twinHighlight);
+    for (const id of highlightIds) keep.add(id);
+    if (shiftResult && shiftResult.source_id === selectedId) {
+      for (const r of shiftResult.results) keep.add(r.dish_id);
+    }
+    if (recipeStar) {
+      for (const n of recipeStar.neighbors) keep.add(n.dish_id);
+    }
+    const set = new Set<string>();
+    for (const d of space.dishes) {
+      const filtered =
+        (cuisineFilter && d.cuisine !== cuisineFilter) || (courseFilter && d.course !== courseFilter);
+      const unfocused = !!selectedId && !keep.has(d.id);
+      if (filtered || unfocused) set.add(d.id);
+    }
+    return set.size ? set : null;
+  }, [space, cuisineFilter, courseFilter, selectedId, highlightIds, twinHighlight, shiftResult, recipeStar]);
+
+  if (!space) return <div className="galaxy-empty">Finding dishes…</div>;
 
   const haloIds = [...highlightIds, twinHighlight, selectedId].filter((x): x is string => !!x);
-
+  const linkIds = [...highlightIds, twinHighlight].filter((x): x is string => !!x && x !== selectedId);
+  if (shiftResult && shiftResult.source_id === selectedId) {
+    for (const r of shiftResult.results) if (!linkIds.includes(r.dish_id)) linkIds.push(r.dish_id);
+  }
   const large = space.dishes.length > 40;
 
   return (
     <Canvas
-      camera={{ position: [0, 0, large ? 34 : 26], fov: 46 }}
+      camera={{ position: [0, 0, large ? 38 : 32], fov: 46 }}
       dpr={[1, 2]}
-      gl={{ antialias: true, powerPreference: "high-performance", alpha: false }}
+      gl={{ antialias: true, powerPreference: "high-performance", alpha: false, toneMapping: THREE.NoToneMapping }}
     >
-      <color attach="background" args={["#05040a"]} />
-      <fog attach="fog" args={["#05040a", 22, 58]} />
-      <hemisphereLight args={["#f0e6d4", "#1a1210", 0.55]} />
-      <directionalLight position={[10, 14, 8]} intensity={1.35} color="#fff6ea" />
-      <pointLight position={[-12, -4, 10]} intensity={0.55} color="#c4a0ff" />
-      <pointLight position={[4, 8, -10]} intensity={0.28} color="#e4c08a" />
+      <color attach="background" args={[MAP_BG]} />
+      <fog attach="fog" args={[MAP_BG, 42, 88]} />
+      <hemisphereLight args={["#FFFDF8", "#E8DCC8", 1.05]} />
+      <ambientLight intensity={0.72} />
+      <directionalLight position={[10, 14, 8]} intensity={1.15} color="#fffaf0" />
+      <pointLight position={[-8, 6, 10]} intensity={0.45} color="#FFE8A0" />
       <StarField
         dishes={space.dishes}
         selectedId={selectedId}
         highlightIds={highlightIds}
         twinHighlight={twinHighlight}
+        faded={faded}
       />
+      <NeighborLinks dishes={space.dishes} selectedId={selectedId} ids={linkIds} />
       <Halos dishes={space.dishes} ids={haloIds} />
       {recipeStar && <RecipeStar recipe={recipeStar} />}
       {shiftResult && selected && shiftResult.source_id === selected.id && (
         <TargetGlide from={selected.xyz} to={shiftResult.target_xyz} trail={!large} />
       )}
       <Axes labels={space.pca.axis_labels} />
-      <OrbitControls makeDefault enableDamping dampingFactor={0.12} autoRotate={!selectedId} autoRotateSpeed={0.35} />
+      <OrbitControls
+        makeDefault
+        enableDamping
+        dampingFactor={0.12}
+        autoRotate={!focus}
+        autoRotateSpeed={0.28}
+        minDistance={6}
+        maxDistance={110}
+      />
       <CameraRig focus={focus} homeTick={homeTick} />
     </Canvas>
   );
@@ -275,6 +374,80 @@ export function CuisineLegend() {
             {c.name}
           </span>
         ))}
+    </div>
+  );
+}
+
+export function MapFilters({
+  cuisine,
+  course,
+  query,
+  onCuisine,
+  onCourse,
+  onQuery,
+  onPick,
+  onSeeAll,
+}: {
+  cuisine: string | null;
+  course: string | null;
+  query: string;
+  onCuisine: (id: string | null) => void;
+  onCourse: (id: string | null) => void;
+  onQuery: (q: string) => void;
+  onPick: (id: string) => void;
+  onSeeAll: () => void;
+}) {
+  const space = useStore((s) => s.space);
+  const hits = space && query.trim() ? space.dishes.filter((d) => d.name.toLowerCase().includes(query.toLowerCase())).slice(0, 6) : [];
+  return (
+    <div className="map-filters">
+      <input
+        className="find"
+        value={query}
+        onChange={(e) => onQuery(e.target.value)}
+        placeholder="Find a dish"
+        aria-label="Find a dish"
+      />
+      {hits.length > 0 && (
+        <div className="filter-row">
+          {hits.map((d) => (
+            <button key={d.id} type="button" onClick={() => onPick(d.id)}>
+              {d.name}
+            </button>
+          ))}
+        </div>
+      )}
+      <div className="filter-row">
+        <button type="button" className={!course ? "active" : ""} onClick={() => onCourse(null)}>
+          All meals
+        </button>
+        <button type="button" className={course === "savory" ? "active" : ""} onClick={() => onCourse("savory")}>
+          Savory
+        </button>
+        <button type="button" className={course === "dessert" ? "active" : ""} onClick={() => onCourse("dessert")}>
+          Sweet
+        </button>
+        <button type="button" className="ghost" onClick={onSeeAll}>
+          See all
+        </button>
+      </div>
+      {space && (
+        <select
+          className="find"
+          value={cuisine ?? ""}
+          onChange={(e) => onCuisine(e.target.value || null)}
+          aria-label="Cuisine"
+        >
+          <option value="">Any cuisine</option>
+          {space.cuisines
+            .filter((c) => space.dishes.some((d) => d.cuisine === c.id))
+            .map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+        </select>
+      )}
     </div>
   );
 }

@@ -1,20 +1,21 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../api/client";
 import type { DimId } from "../../contract";
 import { useStore } from "../../state/store";
 import { closerThan, movedBits, shiftFormula } from "../shared/copy";
 import { ErrorState, Loading } from "../shared/Status";
+import { DishCard } from "../dish/DishCard";
 
 const SLIDERS: DimId[] = ["rich", "sour", "spicy", "smoky", "brothy", "sweet"];
 
 const PRESETS: { key: string; label: string; deltas: Partial<Record<DimId, number>> }[] = [
-  { key: "l", label: "Lighter + more acidic (L)", deltas: { rich: -0.8, sour: 1.2 } },
-  { key: "s", label: "Spicier (S)", deltas: { spicy: 1.4 } },
-  { key: "m", label: "Smokier (M)", deltas: { smoky: 1.2, roasted: 0.6 } },
+  { key: "l", label: "Lighter + brighter", deltas: { rich: -0.8, sour: 1.2 } },
+  { key: "s", label: "Spicier", deltas: { spicy: 1.4 } },
+  { key: "m", label: "Smokier", deltas: { smoky: 1.2, roasted: 0.6 } },
 ];
 
 export function ShiftPanel() {
-  const { selectedId, space, shiftDeltas, shiftResult, setShiftDelta, setShiftDeltas, resetShift, setShiftResult, setHighlights } =
+  const { selectedId, space, shiftDeltas, shiftResult, setShiftDelta, setShiftDeltas, resetShift, setShiftResult, setHighlights, select, setPanel } =
     useStore();
   const [error, setError] = useState<unknown>(null);
   const [tick, setTick] = useState(0);
@@ -43,13 +44,21 @@ export function ShiftPanel() {
   }, [selectedId, shiftDeltas, setShiftResult, setHighlights, tick]);
 
   const dim = (id: DimId) => space?.dims.find((d) => d.id === id);
-  const name = (id: string) => space?.dishes.find((d) => d.id === id)?.name ?? id;
-  const formula = useMemo(() => (selectedId ? shiftFormula(selectedId, shiftDeltas) : ""), [selectedId, shiftDeltas]);
+  const dishOf = (id: string) => space?.dishes.find((d) => d.id === id);
+  const source = dishOf(selectedId ?? "");
+  const formula = selectedId ? shiftFormula(selectedId, shiftDeltas) : "";
+  const path =
+    source && shiftResult
+      ? [source, ...shiftResult.results.map((r) => dishOf(r.dish_id)).filter((d): d is NonNullable<typeof d> => !!d)]
+      : [];
 
-  if (!selectedId) return <p className="muted">Select a dish, then move the sliders.</p>;
+  if (!selectedId) return <p className="muted">Select a dish, then move your craving.</p>;
   return (
     <div>
-      <h3>Shift {name(selectedId)}</h3>
+      <h3>Make it more your taste</h3>
+      <p className="lede-sm">
+        Starting with <strong>{source?.name ?? selectedId}</strong>. Move the sliders and watch the map follow.
+      </p>
       {SLIDERS.map((id) => (
         <label key={id} className="slider">
           <span className="small">{dim(id)?.low_label ?? id}</span>
@@ -64,10 +73,6 @@ export function ShiftPanel() {
           <span className="small">{dim(id)?.high_label ?? id}</span>
         </label>
       ))}
-      <div className="how-card">
-        <div className="small muted">HOW?</div>
-        <code>{formula}</code>
-      </div>
       <div className="row wrap">
         <button type="button" onClick={resetShift}>
           Reset
@@ -79,21 +84,56 @@ export function ShiftPanel() {
         ))}
       </div>
       {error != null && <ErrorState error={error} onRetry={() => setTick((n) => n + 1)} />}
-      {busy && !shiftResult && error == null && <Loading label="Shifting through flavor space..." />}
-      {busy && shiftResult && error == null && <p className="muted small">Updating neighbors…</p>}
+      {busy && !shiftResult && error == null && <Loading label="Moving your craving…" />}
+      {busy && shiftResult && error == null && <p className="muted small">Updating nearby dishes…</p>}
       {error == null && shiftResult && (
         <>
+          {path.length > 1 && (
+            <>
+              <h4>A path through taste</h4>
+              <ol className="craving-path">
+                {path.slice(0, 4).map((d) =>
+                  d ? (
+                    <li key={d.id}>
+                      <strong>{d.name}</strong>
+                      <span className="muted small"> · {d.cuisine}</span>
+                    </li>
+                  ) : null,
+                )}
+              </ol>
+            </>
+          )}
           {shiftResult.relaxation_level > 0 && <p className="muted small relax">{shiftResult.relaxation_note}</p>}
-          <ol>
-            {shiftResult.results.map((r) => (
-              <li key={r.dish_id}>
-                {name(r.dish_id)} <span className="pill">{closerThan(r.similarity_pct)}</span>
-                {movedBits(r.moved) && <div className="small muted">moved {movedBits(r.moved)}</div>}
-              </li>
-            ))}
-          </ol>
+          <h4>Try these</h4>
+          {shiftResult.results.map((r) => {
+            const d = dishOf(r.dish_id);
+            if (!d) return null;
+            return (
+              <div key={r.dish_id} className="card">
+                <DishCard
+                  dish={d}
+                  dims={space?.dims}
+                  compact
+                  onClick={() => {
+                    select(r.dish_id);
+                    setPanel("twins");
+                  }}
+                />
+                <p className="small muted" style={{ margin: "8px 0 0" }}>
+                  {closerThan(r.similarity_pct)}
+                  {movedBits(r.moved) ? ` · ${movedBits(r.moved)}` : ""}
+                </p>
+              </div>
+            );
+          })}
         </>
       )}
+      <details className="tech">
+        <summary>See how TasteSpace calculated this</summary>
+        <div className="how-card">
+          <code>{formula}</code>
+        </div>
+      </details>
     </div>
   );
 }

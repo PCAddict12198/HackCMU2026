@@ -67,13 +67,11 @@ export const useStore = create<Store>()((set, get) => ({
     const ids = new Set(space.value.dishes.map((d) => d.id));
     const keep = get().selectedId && ids.has(get().selectedId!) ? get().selectedId : null;
     const first = keep ?? startDishId(ids) ?? space.value.dishes[0]?.id ?? null;
-    const large = space.value.dishes.length > 40;
     set({
       space: space.value,
       health: health.status === "fulfilled" ? health.value : null,
       selectedId: first,
-      // Large mock catalogs look empty if we fly into one star on load.
-      focus: large ? null : space.value.dishes.find((d) => d.id === first)?.xyz ?? null,
+      focus: null,
       highlightIds: [],
       twinHighlight: null,
       shiftResult: null,
