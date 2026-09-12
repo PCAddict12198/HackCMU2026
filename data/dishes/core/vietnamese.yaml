@@ -22,3 +22,115 @@ dishes:
       - {ing: thai_basil, g: 5}
       - {ing: lime_juice, g: 10}
       - {ing: bean_sprouts, g: 40}
+  - id: bun_cha
+    name: Bun cha
+    cuisine: vietnamese
+    course: savory
+    format: grilled_roasted
+    tier: core
+    confidence: draft
+    blurb: Grilled pork with rice noodles, herbs and nuoc cham.
+    recipe_basis: team estimate of one Hanoi-style serving
+    ingredients:
+      - {ing: pork_belly, g: 120, process: [grilled]}
+      - {ing: ground_pork, g: 80, process: [grilled]}
+      - {ing: rice_noodles, g: 150, process: [boiled]}
+      - {ing: fish_sauce, g: 25}
+      - {ing: lime_juice, g: 20}
+      - {ing: sugar, g: 12}
+      - {ing: garlic, g: 6}
+      - {ing: fresh_chili, g: 5}
+      - {ing: lettuce, g: 40}
+      - {ing: mint, g: 8}
+      - {ing: cilantro, g: 8}
+  - id: banh_mi
+    name: Banh mi
+    cuisine: vietnamese
+    course: savory
+    format: bread_sandwich
+    tier: core
+    confidence: draft
+    blurb: Crisp baguette with pork, pickled vegetables, cilantro and mayo.
+    recipe_basis: team estimate of one sandwich
+    ingredients:
+      - {ing: baguette, g: 120}
+      - {ing: pork_shoulder, g: 80, process: [roasted]}
+      - {ing: mayonnaise, g: 20}
+      - {ing: cilantro, g: 10}
+      - {ing: cucumber, g: 30}
+      - {ing: carrot, g: 25, process: [pickled]}
+      - {ing: daikon, g: 25, process: [pickled]}
+      - {ing: fresh_chili, g: 5}
+      - {ing: soy_sauce, g: 5}
+  - id: goi_cuon
+    name: Goi cuon
+    cuisine: vietnamese
+    course: savory
+    format: dumpling
+    tier: core
+    confidence: draft
+    blurb: Fresh rice-paper rolls with shrimp, herbs and peanut-hoisin dip.
+    recipe_basis: team estimate of three rolls
+    ingredients:
+      - {ing: rice_paper, g: 40}
+      - {ing: shrimp, g: 80, process: [boiled]}
+      - {ing: rice_noodles, g: 40, process: [boiled]}
+      - {ing: lettuce, g: 30}
+      - {ing: mint, g: 8}
+      - {ing: cilantro, g: 8}
+      - {ing: bean_sprouts, g: 20}
+      - {ing: peanuts, g: 15}
+      - {ing: hoisin, g: 15}
+  - id: bun_bo_hue
+    name: Bun bo Hue
+    cuisine: vietnamese
+    course: savory
+    format: soup
+    tier: core
+    confidence: draft
+    blurb: Spicy lemongrass beef noodle soup from Hue.
+    recipe_basis: team estimate of one bowl
+    ingredients:
+      - {ing: beef_bone_broth, g: 500, process: [simmered]}
+      - {ing: rice_noodles, g: 150, process: [boiled]}
+      - {ing: beef_sirloin, g: 80, process: [simmered]}
+      - {ing: lemongrass, g: 20}
+      - {ing: chili_flakes, g: 8}
+      - {ing: shrimp_paste, g: 5}
+      - {ing: fish_sauce, g: 20}
+      - {ing: onion, g: 40}
+      - {ing: scallion, g: 10}
+      - {ing: lime_juice, g: 10}
+  - id: ca_kho_to
+    name: Ca kho to
+    cuisine: vietnamese
+    course: savory
+    format: stew_braise
+    tier: core
+    confidence: draft
+    blurb: Caramelized catfish braised in fish sauce in a clay pot.
+    recipe_basis: team estimate of one clay-pot serving
+    ingredients:
+      - {ing: catfish, g: 250, process: [braised]}
+      - {ing: fish_sauce, g: 30}
+      - {ing: sugar, g: 25, process: [caramelized]}
+      - {ing: garlic, g: 10}
+      - {ing: onion, g: 40}
+      - {ing: black_pepper, g: 2}
+      - {ing: coconut_water, g: 80}
+      - {ing: scallion, g: 8}
+  - id: che_ba_mau
+    name: Che ba mau
+    cuisine: vietnamese
+    course: dessert
+    format: custard_creamy
+    tier: core
+    confidence: draft
+    blurb: Three-color sweet bean dessert with coconut milk.
+    recipe_basis: team estimate of one glass
+    ingredients:
+      - {ing: coconut_milk, g: 120}
+      - {ing: mung_bean, g: 60, process: [simmered]}
+      - {ing: red_bean, g: 60, process: [simmered]}
+      - {ing: sticky_rice, g: 40, process: [steamed]}
+      - {ing: sugar, g: 40}

@@ -20,3 +20,11 @@ ingredients:
   - {id: bamboo_shoots, name: Bamboo shoots, category: vegetable, potency: 0.6, aliases: [menma], profile: {}}
   - {id: nori, name: Nori, category: vegetable, potency: 3.0, aliases: [seaweed, toasted seaweed], profile: {}}
   - {id: wakame, name: Wakame, category: vegetable, potency: 1.5, profile: {}}
+  - {id: spinach, name: Spinach, category: vegetable, potency: 0.8, profile: {}}
+  - {id: carrot, name: Carrot, category: vegetable, potency: 0.8, unit_weight_g: 70, aliases: [carrots], profile: {}}
+  - {id: eggplant, name: Eggplant, category: vegetable, potency: 0.8, aliases: [aubergine, thai eggplant], profile: {}}
+  - {id: green_papaya, name: Green papaya, category: fruit, potency: 0.7, aliases: [unripe papaya], profile: {}}
+  - {id: long_bean, name: Long bean, category: vegetable, potency: 0.7, aliases: [yardlong bean, snake bean], profile: {}}
+  - {id: potato, name: Potato, category: vegetable, potency: 0.5, aliases: [potatoes, yukon gold], profile: {}}
+  - {id: lettuce, name: Lettuce, category: vegetable, potency: 0.5, aliases: [leaf lettuce, romaine], profile: {}}
+  - {id: daikon, name: Daikon, category: vegetable, potency: 0.6, aliases: [daikon radish, pickled daikon], profile: {}}

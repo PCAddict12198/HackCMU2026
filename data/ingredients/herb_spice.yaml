@@ -17,3 +17,5 @@ ingredients:
   - {id: vanilla, name: Vanilla, category: spice, potency: 10.0, aliases: [vanilla extract], profile: {sweet: 0.5, creamy: 0.3, fruity: 0.2}}
   - {id: cocoa_powder, name: Cocoa powder, category: spice, potency: 5.0, aliases: [cocoa], profile: {bitter: 0.8, roasted: 0.6, earthy: 0.5}}
   - {id: matcha, name: Matcha, category: spice, potency: 6.0, aliases: [green tea powder], profile: {}}
+  - {id: five_spice, name: Five-spice powder, category: spice, potency: 8.0, aliases: [chinese five spice], profile: {}}
+  - {id: white_pepper, name: White pepper, category: spice, potency: 8.0, profile: {}}

@@ -3,3 +3,5 @@ default_src: seed_placeholder
 ingredients:
   - {id: shrimp, name: Shrimp, category: seafood, unit_weight_g: 15, aliases: [prawn, prawns], profile: {umami: 0.5, sweet: 0.3, salty: 0.2, chewy: 0.4}}
   - {id: salmon, name: Salmon, category: seafood, aliases: [salmon fillet], profile: {}}
+  - {id: fish_cake, name: Fish cake, category: seafood, potency: 1.2, aliases: [eomuk, odeng], profile: {}}
+  - {id: catfish, name: Catfish, category: seafood, aliases: [ca tre], profile: {}}

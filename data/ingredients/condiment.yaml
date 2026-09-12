@@ -12,7 +12,15 @@ ingredients:
   - {id: chicken_stock, name: Chicken stock, category: liquid, aliases: [chicken broth], profile: {umami: 0.4, salty: 0.2, rich: 0.2, brothy: 0.8}}
   - {id: espresso, name: Espresso, category: liquid, potency: 3.0, aliases: [coffee, strong coffee], profile: {bitter: 0.9, roasted: 0.9, sour: 0.2}}
   - {id: dashi, name: Dashi, category: liquid, potency: 2.0, aliases: [kombu dashi], profile: {}}
+  - {id: coconut_water, name: Coconut water, category: liquid, potency: 0.8, profile: {}}
   - {id: miso, name: Miso, category: condiment, potency: 5.0, aliases: [white miso, red miso, miso paste], profile: {}}
   - {id: mirin, name: Mirin, category: condiment, potency: 3.0, aliases: [hon mirin], profile: {}}
   - {id: mayonnaise, name: Mayonnaise, category: condiment, potency: 2.0, aliases: [mayo, japanese mayo], profile: {}}
   - {id: okonomiyaki_sauce, name: Okonomiyaki sauce, category: condiment, potency: 4.0, profile: {}}
+  - {id: rice_vinegar, name: Rice vinegar, category: condiment, potency: 4.0, aliases: [black vinegar, chinkiang vinegar], profile: {}}
+  - {id: hoisin, name: Hoisin sauce, category: condiment, potency: 4.0, aliases: [hoisin sauce], profile: {}}
+  - {id: sesame_paste, name: Sesame paste, category: condiment, potency: 3.0, aliases: [chinese sesame paste], profile: {}}
+  - {id: green_curry_paste, name: Green curry paste, category: condiment, potency: 6.0, profile: {}}
+  - {id: massaman_curry_paste, name: Massaman curry paste, category: condiment, potency: 5.0, profile: {}}
+  - {id: tamarind, name: Tamarind, category: condiment, potency: 4.0, aliases: [tamarind paste, tamarind water], profile: {}}
+  - {id: shrimp_paste, name: Shrimp paste, category: condiment, potency: 8.0, aliases: [belacan, mam tom], profile: {}}
