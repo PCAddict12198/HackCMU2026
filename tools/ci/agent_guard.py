@@ -49,12 +49,12 @@ GIT_RULES = [
     (r"\bgit\b.*\b(commit|push|merge)\b.*(--no-verify|\s-n\b)", "bypassing git hooks is not allowed"),
     (r"\bgit\b.*\bconfig\b.*core\.hooksPath", "changing hooksPath is not allowed"),
     (r"\bgit\b.*\bbranch\b.*\s-(d|D)\b", "deleting branches is not allowed"),
-    (r"\bgit\b.*\bworktree\b.*\b(remove|prune)\b", "removing worktrees is the integrator's job"),
 ]
 AGENT_ONLY_GIT_RULES = [
     (r"\bgit\b.*\bpush\b.*\b(main|master)\b", "agents never push to main; push your own branch: git push origin HEAD"),
     (r"\bgit\b.*\b(checkout|switch)\b\s+(-\S+\s+)*(main|master)\b", "stay on your agent branch; do not switch to main"),
     (r"\bgit\b.*\bmerge\b.*\bagent/", "never merge another agent's branch; only the integrator merges (at checkpoints)"),
+    (r"\bgit\b.*\bworktree\b.*\b(add|remove|prune|move)\b", "worktrees are managed by the integrator"),
 ]
 
 
