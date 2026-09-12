@@ -6,9 +6,9 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Spiced beef broth with rice noodles, herbs and lime.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one Hanoi-style bowl"
     ingredients:
       - {ing: beef_bone_broth, g: 500, process: [simmered]}
       - {ing: rice_noodles, g: 150, process: [boiled]}
@@ -28,7 +28,7 @@ dishes:
     course: savory
     format: grilled_roasted
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Grilled pork with rice noodles, herbs and nuoc cham.
     recipe_basis: team estimate of one Hanoi-style serving
     ingredients:
@@ -49,7 +49,7 @@ dishes:
     course: savory
     format: bread_sandwich
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Crisp baguette with pork, pickled vegetables, cilantro and mayo.
     recipe_basis: team estimate of one sandwich
     ingredients:
@@ -68,7 +68,7 @@ dishes:
     course: savory
     format: dumpling
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Fresh rice-paper rolls with shrimp, herbs and peanut-hoisin dip.
     recipe_basis: team estimate of three rolls
     ingredients:
@@ -87,7 +87,7 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Spicy lemongrass beef noodle soup from Hue.
     recipe_basis: team estimate of one bowl
     ingredients:
@@ -107,7 +107,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Caramelized catfish braised in fish sauce in a clay pot.
     recipe_basis: team estimate of one clay-pot serving
     ingredients:
@@ -125,7 +125,7 @@ dishes:
     course: dessert
     format: custard_creamy
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Three-color sweet bean dessert with coconut milk.
     recipe_basis: team estimate of one glass
     ingredients:

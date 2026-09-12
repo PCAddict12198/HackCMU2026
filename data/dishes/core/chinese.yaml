@@ -6,9 +6,9 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Silky tofu in a numbing, spicy, fermented chili-bean sauce.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one wok serving, Sichuan home style"
     ingredients:
       - {ing: tofu, g: 300, process: [simmered]}
       - {ing: ground_pork, g: 100, process: [fried]}
@@ -27,7 +27,7 @@ dishes:
     course: savory
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Stir-fried chicken with dried chili, Sichuan peppercorn and peanuts.
     recipe_basis: team estimate of one wok serving
     ingredients:
@@ -48,7 +48,7 @@ dishes:
     course: savory
     format: grilled_roasted
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Cantonese barbecue pork with a sweet soy-five-spice glaze.
     recipe_basis: team estimate of a sliced serving
     ingredients:
@@ -65,7 +65,7 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Vinegary, peppery soup with tofu, mushroom and egg ribbons.
     recipe_basis: team estimate of one bowl
     ingredients:
@@ -84,7 +84,7 @@ dishes:
     course: savory
     format: noodles
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Wheat noodles in spicy sesame sauce with minced pork.
     recipe_basis: team estimate of one bowl
     ingredients:
@@ -103,7 +103,7 @@ dishes:
     course: savory
     format: grilled_roasted
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Crispy roast duck with pancakes, cucumber, scallion and hoisin.
     recipe_basis: team estimate of a plated serving
     ingredients:
@@ -119,7 +119,7 @@ dishes:
     course: dessert
     format: baked_sweet
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Flaky pastry cup filled with glossy baked egg custard.
     recipe_basis: team estimate of two tarts
     ingredients:

@@ -4,19 +4,178 @@
 #   salty: {v: 0.9, src: usda, note: "sodium 5.6 g/100g"}   or set a new file-level default_src.
 default_src: seed_placeholder
 ingredients:
-  - {id: pork_belly, name: Pork belly, category: protein, potency: 1.2, profile: {rich: 0.9, umami: 0.5, salty: 0.1, chewy: 0.3}}
-  - {id: ground_pork, name: Ground pork, category: protein, profile: {rich: 0.6, umami: 0.5}}
-  - {id: pork_shoulder, name: Pork shoulder, category: protein, profile: {rich: 0.5, umami: 0.5, chewy: 0.3}}
-  - {id: guanciale, name: Guanciale, category: protein, potency: 2.0, aliases: [pancetta], profile: {rich: 0.9, salty: 0.8, umami: 0.6, fermented: 0.2}}
-  - {id: chicken_thigh, name: Chicken thigh, category: protein, aliases: [chicken, chicken thighs], profile: {umami: 0.4, rich: 0.4, chewy: 0.2}}
-  - {id: beef_sirloin, name: Beef sirloin, category: protein, aliases: [beef, steak], profile: {umami: 0.6, rich: 0.4, chewy: 0.3}}
-  - {id: tofu, name: Tofu, category: legume, potency: 0.6, profile: {creamy: 0.5, earthy: 0.2}}
-  - {id: egg, name: Egg, category: protein, unit_weight_g: 50, aliases: [eggs, egg yolk, egg yolks], profile: {rich: 0.5, creamy: 0.5, umami: 0.3}}
-  - {id: lamb, name: Lamb, category: protein, aliases: [lamb shoulder, mutton], profile: {}}
-  - {id: veal_shank, name: Veal shank, category: protein, aliases: [osso buco, beef shank], profile: {}}
-  - {id: ham, name: Ham, category: protein, potency: 1.5, aliases: [jambon, cooked ham], profile: {}}
-  - {id: chickpeas, name: Chickpeas, category: legume, potency: 0.8, aliases: [chickpea, garbanzo beans], profile: {earthy: 0.6, creamy: 0.4, chewy: 0.2}}
-  - {id: duck, name: Duck, category: protein, aliases: [peking duck, duck breast], profile: {}}
-  - {id: mung_bean, name: Mung bean, category: legume, potency: 0.8, aliases: [mung beans, yellow bean], profile: {}}
-  - {id: red_bean, name: Red bean, category: legume, potency: 0.8, aliases: [azuki, adzuki, kidney bean], profile: {}}
-  - {id: cannellini_bean, name: Cannellini bean, category: legume, potency: 0.8, aliases: [white beans], profile: {}}
+- id: pork_belly
+  name: Pork belly
+  category: protein
+  potency: 1.2
+  profile:
+    rich: {v: 0.76, src: usda, note: 'fat 35.8 g/100g (fdc 2727576: Pork, belly, with skin, raw)'}
+    umami: {v: 0.5, src: team}
+    salty: {v: 0.03, src: usda, note: 'sodium 49.7 mg/100g (fdc 2727576: Pork, belly, with skin, raw)'}
+    chewy: {v: 0.3, src: team}
+    creamy: {v: 0.4, src: grok_reviewed}
+  reviewed_by: ishan
+- id: ground_pork
+  name: Ground pork
+  category: protein
+  profile:
+    rich: {v: 0.5, src: usda, note: 'fat 17.5 g/100g (fdc 2514745: Pork, ground, raw)'}
+    umami: {v: 0.5, src: team}
+    salty: {v: 0.04, src: usda, note: 'sodium 53.6 mg/100g (fdc 2514745: Pork, ground, raw)'}
+    chewy: {v: 0.2, src: grok_reviewed}
+  reviewed_by: ishan
+- id: pork_shoulder
+  name: Pork shoulder
+  category: protein
+  profile:
+    rich: {v: 0.39, src: usda, note: 'fat 12.4 g/100g (fdc 167849: Pork, fresh, shoulder, (Boston butt), blade
+      (steaks), separable lean and fat, raw) - re-matched from the lean "Shoulder breast" row, which is not the
+      braising cut any of these dishes use'}
+    umami: {v: 0.5, src: team}
+    chewy: {v: 0.3, src: team}
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 167849: Pork, fresh, shoulder, (Boston butt), raw)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 61.0 mg/100g (fdc 167849: Pork, fresh, shoulder, (Boston butt), raw)'}
+    creamy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
+- id: guanciale
+  name: Guanciale
+  category: protein
+  potency: 2.0
+  aliases: [pancetta]
+  profile:
+    rich: {v: 0.85, src: usda, note: 'cured pork jowl fat ~65-90g/100g, formula near-saturates'}
+    salty: {v: 0.75, src: team, note: 'cured product, sodium varies by cure, no fixed USDA entry'}
+    umami: {v: 0.6, src: team}
+    fermented: {v: 0.2, src: team}
+    chewy: {v: 0.4, src: grok_reviewed}
+  reviewed_by: ishan
+- id: chicken_thigh
+  name: Chicken thigh
+  category: protein
+  aliases: [chicken, chicken thighs]
+  profile:
+    umami: {v: 0.4, src: team}
+    rich: {v: 0.25, src: usda, note: boneless skinless thigh fat ~8-13g/100g}
+    chewy: {v: 0.2, src: team}
+- id: beef_sirloin
+  name: Beef sirloin
+  category: protein
+  aliases: [beef, steak]
+  profile:
+    umami: {v: 0.6, src: literature, note: high free glutamate/inosinate in red meat}
+    rich: {v: 0.2, src: usda, note: 'fat 5.71 g/100g (fdc 2727574: Beef, top sirloin steak, raw)'}
+    chewy: {v: 0.3, src: team}
+    salty: {v: 0.03, src: usda, note: 'sodium 42.8 mg/100g (fdc 2727574: Beef, top sirloin steak, raw)'}
+    roasted: {v: 0.35, src: grok_reviewed}
+    earthy: {v: 0.1, src: grok_reviewed}
+    brothy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
+- id: tofu
+  name: Tofu
+  category: legume
+  potency: 0.6
+  profile:
+    creamy: {v: 0.5, src: team}
+    earthy: {v: 0.2, src: team}
+- id: egg
+  name: Egg
+  category: protein
+  unit_weight_g: 50
+  aliases: [eggs, egg yolk, egg yolks]
+  profile:
+    rich: {v: 0.35, src: usda, note: whole egg fat ~10g/100g}
+    creamy: {v: 0.5, src: team}
+    umami: {v: 0.3, src: literature, note: 'yolk free glutamate, modest umami source'}
+- id: lamb
+  name: Lamb
+  category: protein
+  aliases: [lamb shoulder, mutton]
+  profile:
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 172617: Lamb, New Zealand, imported, ground lamb, raw)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 57.0 mg/100g (fdc 172617: Lamb, New Zealand, imported, ground lamb, raw)'}
+    rich: {v: 0.39, src: usda, note: 'fat 12.4 g/100g (fdc 172617: Lamb, New Zealand, imported, ground lamb, raw)'}
+    earthy: {v: 0.3, src: grok_reviewed}
+    chewy: {v: 0.3, src: grok_reviewed}
+  reviewed_by: ishan
+- id: veal_shank
+  name: Veal shank
+  category: protein
+  aliases: [osso buco, beef shank]
+  profile:
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 172648: Veal, shank, separable lean and fat, raw)'}
+    salty: {v: 0.07, src: usda, note: 'sodium 107 mg/100g (fdc 172648: Veal, shank, separable lean and fat, raw)'}
+    rich: {v: 0.12, src: usda, note: 'fat 3.3 g/100g (fdc 172648: Veal, shank, separable lean and fat, raw)'}
+    chewy: {v: 0.2, src: grok_reviewed}
+    brothy: {v: 0.5, src: grok_reviewed}
+  reviewed_by: ishan
+- id: ham
+  name: Ham
+  category: protein
+  potency: 1.5
+  aliases: [jambon, cooked ham]
+  profile:
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 173865: Ham, minced)'}
+    salty: {v: 0.56, src: usda, note: 'sodium 1240.0 mg/100g (fdc 173865: Ham, minced)'}
+    rich: {v: 0.56, src: usda, note: 'fat 20.7 g/100g (fdc 173865: Ham, minced)'}
+    smoky: {v: 0.3, src: grok_reviewed}
+    fermented: {v: 0.15, src: grok_reviewed}
+    chewy: {v: 0.25, src: grok_reviewed}
+  reviewed_by: ishan
+- id: chickpeas
+  name: Chickpeas
+  category: legume
+  potency: 0.8
+  aliases: [chickpea, garbanzo beans]
+  profile:
+    earthy: {v: 0.6, src: team}
+    creamy: {v: 0.4, src: team}
+    chewy: {v: 0.2, src: team}
+- id: duck
+  name: Duck
+  category: protein
+  aliases: [peking duck, duck breast]
+  profile:
+    rich: {v: 0.68, src: usda, note: 'fat 28.4 g/100g (fdc 172409: Duck, domesticated, meat and skin, cooked, roasted)'}
+    salty: {v: 0.04, src: usda, note: 'sodium 59 mg/100g (fdc 172409: Duck, domesticated, meat and skin, cooked, roasted)'}
+    umami: {v: 0.55, src: literature, note: inosinate-rich dark poultry meat}
+    chewy: {v: 0.3, src: team}
+    earthy: {v: 0.1, src: grok_reviewed}
+    creamy: {v: 0.2, src: grok_reviewed}
+  reviewed_by: ishan
+- id: mung_bean
+  name: Mung bean
+  category: legume
+  potency: 0.8
+  aliases: [mung beans, yellow bean]
+  profile:
+    sweet: {v: 0.15, src: usda, note: 'sugar 2.0 g/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 2 mg/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.38 g/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'}
+    earthy: {v: 0.5, src: team}
+    creamy: {v: 0.3, src: team}
+  reviewed_by: ishan
+- id: red_bean
+  name: Red bean
+  category: legume
+  potency: 0.8
+  aliases: [azuki, adzuki, kidney bean]
+  profile:
+    salty: {v: 0.01, src: usda, note: 'sodium 8 mg/100g (fdc 173728: Beans, adzuki, mature seeds, cooked, boiled, without salt)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.1 g/100g (fdc 173728: Beans, adzuki, mature seeds, cooked, boiled, without salt)'}
+    sweet: {v: 0.12, src: team, note: the USDA adzuki row carries no sugar figure; unsweetened cooked bean. Sweet red bean paste is a separate prepared form}
+    earthy: {v: 0.5, src: team}
+    creamy: {v: 0.4, src: team}
+    chewy: {v: 0.2, src: team}
+  reviewed_by: ishan
+- id: cannellini_bean
+  name: Cannellini bean
+  category: legume
+  potency: 0.8
+  aliases: [white beans]
+  profile:
+    sweet: {v: 0.03, src: usda, note: 'sugar 0.34 g/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 6 mg/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.35 g/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'}
+    earthy: {v: 0.45, src: team}
+    creamy: {v: 0.5, src: team}
+  reviewed_by: ishan

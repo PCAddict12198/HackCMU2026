@@ -6,9 +6,9 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Sour, spicy stew of aged kimchi, pork belly and tofu.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one pot serving"
     ingredients:
       - {ing: kimchi, g: 200, process: [simmered]}
       - {ing: pork_belly, g: 100, process: [simmered]}
@@ -25,7 +25,7 @@ dishes:
     course: savory
     format: rice_dish
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Rice bowl with seasoned vegetables, beef, fried egg and gochujang.
     recipe_basis: team estimate of one stone-bowl serving
     ingredients:
@@ -47,7 +47,7 @@ dishes:
     course: savory
     format: grilled_roasted
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Thinly sliced beef marinated in soy, sugar, garlic and sesame.
     recipe_basis: team estimate of one plated serving
     ingredients:
@@ -65,7 +65,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Chewy rice cakes simmered in spicy-sweet gochujang sauce.
     recipe_basis: team estimate of one street-stall serving
     ingredients:
@@ -85,7 +85,7 @@ dishes:
     course: savory
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Twice-fried chicken in a sticky gochujang-garlic glaze.
     recipe_basis: team estimate of a half-bird share
     ingredients:
@@ -104,7 +104,7 @@ dishes:
     course: savory
     format: noodles
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Glass noodles stir-fried with beef and vegetables in sesame-soy.
     recipe_basis: team estimate of one side-dish plate
     ingredients:
@@ -125,7 +125,7 @@ dishes:
     course: dessert
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Pan-fried stuffed pancake with brown sugar, cinnamon and nuts.
     recipe_basis: team estimate of two pancakes
     ingredients:

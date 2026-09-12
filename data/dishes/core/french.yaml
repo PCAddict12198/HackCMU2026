@@ -6,9 +6,9 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Deeply caramelized onions in beef broth under a gruyere crouton.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one gratinee bowl"
     ingredients:
       - {ing: onion, g: 400, process: [caramelized]}
       - {ing: beef_bone_broth, g: 600, process: [simmered]}
@@ -22,9 +22,9 @@ dishes:
     course: dessert
     format: custard_creamy
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Vanilla custard under a burnt-sugar crust.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one ramekin"
     ingredients:
       - {ing: heavy_cream, g: 250}
       - {ing: egg, g: 80}
@@ -37,7 +37,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Beef braised in red wine with mushrooms, onion and bacon.
     recipe_basis: team estimate of one serving
     ingredients:
@@ -58,7 +58,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Chicken braised in red wine with mushroom, onion and thyme.
     recipe_basis: team estimate of one serving
     ingredients:
@@ -78,7 +78,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Slow-cooked Provençal vegetables in olive oil and tomato.
     recipe_basis: team estimate of one side plate
     ingredients:
@@ -98,7 +98,7 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Provençal fish stew with fennel, tomato and saffron-like herbs.
     recipe_basis: team estimate of one bowl
     ingredients:
@@ -121,7 +121,7 @@ dishes:
     course: savory
     format: bread_sandwich
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Griddled ham-and-gruyere sandwich with bechamel.
     recipe_basis: team estimate of one sandwich
     ingredients:

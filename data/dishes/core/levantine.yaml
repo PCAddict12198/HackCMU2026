@@ -6,9 +6,9 @@ dishes:
     course: savory
     format: raw_salad
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Parsley-forward bulgur salad with lemon, mint and tomato.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one mezze plate, parsley-forward Levantine ratio"
     ingredients:
       - {ing: parsley, g: 100}
       - {ing: bulgur, g: 40, process: [boiled]}
@@ -24,7 +24,7 @@ dishes:
     course: savory
     format: raw_salad
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Chickpea and tahini dip with lemon, garlic and olive oil.
     recipe_basis: team estimate of one mezze bowl
     ingredients:
@@ -42,7 +42,7 @@ dishes:
     course: savory
     format: fried
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Deep-fried chickpea-herb fritters.
     recipe_basis: team estimate of five balls
     ingredients:
@@ -61,7 +61,7 @@ dishes:
     course: savory
     format: grilled_roasted
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Spiced spit-roasted meat in pita with tahini and pickle.
     recipe_basis: team estimate of one wrap
     ingredients:
@@ -82,7 +82,7 @@ dishes:
     course: savory
     format: raw_salad
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Mixed salad with fried pita, sumac and pomegranate molasses.
     recipe_basis: team estimate of one salad plate
     ingredients:
@@ -104,7 +104,7 @@ dishes:
     course: savory
     format: rice_dish
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Lentils and rice topped with deeply caramelized onions.
     recipe_basis: team estimate of one plate
     ingredients:
@@ -121,7 +121,7 @@ dishes:
     course: dessert
     format: baked_sweet
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Layered phyllo with nuts and rose-cardamom syrup.
     recipe_basis: team estimate of two pieces
     ingredients:

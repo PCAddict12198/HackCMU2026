@@ -3,13 +3,107 @@
 ## Status
 | item | value |
 |---|---|
-| core dishes written / manifest | 70 / 70 (all skeletons `confidence: draft`) |
-| dishes `confidence: reviewed` | 0 |
-| ingredients | 152 (73 with seed_placeholder profiles; ~79 new mostly `profile: {}`) |
-| grounded (non-seed) value share | 0% |
+| core dishes written / manifest | 70 / 70 |
+| dishes `confidence: reviewed` | 70 / 70 |
+| ingredients | 153 — `water` is correctly empty (all dims 0) |
+| grounded (non-seed) value share | 100% (662/662) — team 236, usda 213, grok_reviewed 145, literature 66, scoville 2 |
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 11:28 · agent/data · READY
+- what: `.env` `GROK_MODEL` is now a real model id (`grok-*`, not a doubled `GROK_MODEL=` prefix). USDA and xAI keys still set. Grok drafts can load from dotenv without a shell workaround.
+- for: data
+- action: none
+
+## 11:30 · agent/data · READY
+- what: H3-5 USDA + Grok fill done. USDA `--all` matches were reviewed; only 72 verified FDC hits promoted. Grok aroma/mouthfeel drafted for all 153, then promoted **only missing dims** (77 ingredients) as `grok_reviewed` so USDA/literature/scoville/team values were not overwritten. Engine REQUEST: added `water` (empty profile, ice/tap aliases).
+- for: engine | web
+- action: none; `GROK_MODEL` in `.env` was `GROK_MODEL=grok-4.6` (doubled) — integrator should fix the line to `GROK_MODEL=grok-4.6` (data cannot edit `.env`). Workaround: export `GROK_MODEL=grok-4.6` in the shell.
+
+## 11:14 · 279a2b5 · BREAKING
+- what: `data/drafts/ingredients/grok_20260912_105317.yaml` has grown to 120 ingredients, and 94 of them
+  are ingredients that are already reviewed and sourced. `promote_draft.py` overwrites the dims it is
+  given, so running it on that draft WITHOUT `--only` would replace 94 ingredients' verified values with
+  model estimates — e.g. it rates almonds `rich` 0.4 where the USDA row (fat 49.9 g/100g) gives 0.86 next
+  to peanuts 0.86 / walnuts 0.93 on the same axis.
+- for: data
+- action: whoever is running that script — promote it with `--only <the still-unprofiled ids>`, or not at
+  all. Every canonical ingredient already has provenance; there is nothing left for it to fill.
+
+## 11:14 · 279a2b5 · READY
+- what: all 70 core dishes are `confidence: reviewed`. Each was checked for ingredients, grams, processes,
+  format and course against a canonical recipe; the 16 dishes still labelled `recipe_basis: seed
+  placeholder` now name their real serving basis (the recipes themselves were sound — the label was
+  stale, not the data). One factual fix: `tacos_al_pastor` was missing achiote, which with guajillo *is*
+  the al pastor adobo — `cochinita_pibil` already set that precedent. Nothing else needed changing.
+- for: engine | web
+- action: none; `tier: core` is now fully reviewed data and safe to demo against.
+
+## 11:14 · 279a2b5 · DATA-ISSUE
+- what: sanity moved while marking dishes reviewed, and not uniformly in our favour. positive 3/10 -> 4/10
+  (beef_bourguignon/mole_poblano 85.8 -> 91.7 now PASS), but tiramisu/tres_leches got WORSE (40.0 -> 33.3)
+  and the failing negative pho_bo/margherita_pizza got worse too (56.3 -> 68.0). The only maths-affecting
+  change in this commit is 4 g of achiote in one dish: thresholds are percentile-based, so one added
+  ingredient shifts the reference distribution under every pair. The recipes were reviewed on culinary
+  merit and the build was run once afterwards — no pair was tuned for, and `data/sanity/**` is untouched
+  (the lock still verifies).
+- for: engine
+- action: read the positive rate as noisy at this granularity — a single ingredient in an unrelated dish
+  moves it by a pair. tiramisu/tres_leches at 33.3 remains the most diagnostic miss.
+
+## 11:06 · 6e96633 · DATA-ISSUE
+- what: the USDA fuzzy matcher is not safe to promote unreviewed on the non-Western tail of the ontology.
+  `usda_fill.py` searches `pageSize=1` on the bare ingredient name and takes hit #1, which gave
+  salmon -> salmon OIL, peanuts -> peanut OIL, duck -> duck LIVER, spinach -> spinach SOUFFLE,
+  long_bean -> cellophane NOODLES, rice/wheat_noodles -> rice noodles, rice_cake (tteok) -> puffed rice
+  CRACKER, sweet_potato_noodles -> sweet potato LEAVES, tamarind -> tamarind CANDY. 33 of 38 matches in
+  `data/drafts/ingredients/usda_20260912_105532.yaml` were the wrong food, so that draft was rejected
+  whole rather than promoted. Re-querying FDC with full descriptions ("Fish, cod, Atlantic, raw") hits
+  the right row nearly every time.
+- for: data
+- action: if anyone extends the corpus, query with a full USDA-style description and read the match
+  before promoting. The rejected draft is kept in `data/drafts/` as the record.
+
+## 11:06 · 6e96633 · READY
+- what: ingredient profiles are complete — the 49 remaining `profile: {}` ids are filled and every value
+  in the corpus carries provenance. 20 ingredients got verified FDC rows (fdc id in the note) through the
+  MODEL.md maps; documented chemistry is `literature` (kombu/katsuobushi umami synergy, tartaric acid in
+  tamarind, malic acid in sumac, EGCG in matcha, laver glutamate, oxalic astringency in spinach);
+  everything else is `team` with its basis in the note. 8 values are `grok_reviewed` (texture dims for
+  achiote/almonds/avocado kept from the grok draft after review). `water` stays at `profile: {}` on
+  purpose. Dish `confidence` is still `draft` — that is the next step, not done here.
+- for: engine
+- action: none required. Worth knowing: grok rated almonds `rich` 0.4 by feel where the USDA row gives
+  0.86 (peanuts 0.86, walnuts 0.93 on the same axis), so model-proposed macro values are not used.
+
+## 11:06 · 6e96633 · REQUEST
+- what: positive sanity pairs moved 2/10 -> 3/10 as a side effect of the profile fill (no pair was tuned
+  for — `data/sanity/**` untouched and the lock still verifies). The standout miss is
+  tiramisu/tres_leches at 40.0 pct, far below the other positives; both are sweet dairy desserts, so the
+  espresso/cocoa bitter-roasted axis in tiramisu may be dominating the distance.
+- for: engine
+- action: if the positive rate matters for the demo, tiramisu/tres_leches is the most diagnostic pair to
+  look at first — please judge whether that is dim weighting or genuinely honest output before H16.
+## 11:00 · 3fffa4e · DATA-ISSUE
+- what: three provenance artifacts worth knowing before anyone reads engine output as truth.
+  (1) `fresh_chili` / `chili_flakes` each bundle a huge Scoville range under one id (jalapeño ~2.5k-8k SHU
+  vs. Thai bird's eye ~50k-100k SHU); the single `spicy` value is a real approximation and som_tam, larb
+  and dan_dan_noodles all hinge on that difference. (2) `cumin` rich 0.59 and `mustard_seeds` rich 0.76 come
+  from whole-seed fat (22-36 g/100g) via the MODEL.md `rich` formula — nutritionally correct, sensorially
+  wrong for a spice. (3) `pork_shoulder` matched USDA "Shoulder breast, boneless" (3.4 g fat), not a
+  braising butt (~20 g fat), so rich reads 0.13 where carnitas/ragù want ~0.4.
+- for: data | engine
+- action: data — consider splitting into `chili_mild` / `chili_hot` and re-matching pork_shoulder if H9-12
+  time allows. engine — no change requested; flagging so spice `rich` is not read as a bug in your weighting.
+
+## 11:00 · 3fffa4e · READY
+- what: ingredient provenance pass — every seeded `profile` value now carries `{v, src, note}`. USDA values
+  computed from the MODEL.md formulas with the raw nutrient figure in the note so they stay auditable;
+  `literature` for documented food chemistry (capsaicin, piperine, glutamate, citric acid, vanillin);
+  `team` for texture dims and condiments with no canonical composition. No value is labeled `usda` unless a
+  nutrient figure backs it. 0 `seed_placeholder` values remain.
+- for: engine
+- action: none; profiles for the 49 remaining `profile: {}` ids are next (grok drafts + review)
 ## 10:55 · 5f1a383 · REQUEST
 - what: USDA_API_KEY and XAI_API_KEY are unset locally; H3-5 fill/draft scripts cannot run
 - for: integrator

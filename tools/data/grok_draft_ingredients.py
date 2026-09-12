@@ -26,7 +26,7 @@ from tastespace_contracts.taxonomy import DIM_GROUP, DIM_IDS, IngredientCategory
 from tastespace_contracts.validate import load_dataset
 
 ROOT = Path(__file__).resolve().parents[2]
-BATCH = 12
+BATCH = 8
 
 SYSTEM = """You are a food scientist helping build an interpretable flavor database.
 For each ingredient, rate each listed sensory dimension as tasted NEAT on a 0-1 scale:
@@ -71,26 +71,42 @@ def main() -> int:
     from xai_sdk import Client
     from xai_sdk.chat import system, user
 
-    client = Client(api_key=key, timeout=60)
+    client = Client(api_key=key, timeout=180)
     drafted = []
-    for start in range(0, len(targets), BATCH):
-        batch = targets[start:start + BATCH]
-        chat = client.chat.create(model=model, messages=[system(SYSTEM)])
-        lines = "\n".join(f"- id={i}; name={n}" + (f"; category={c}" if c else "") for i, n, c in batch)
-        chat.append(user(f"Dimensions: {', '.join(dims)}\nIngredients:\n{lines}\nKeep the given ids."))
-        _, result = chat.parse(shape)
-        for item in result.items:  # type: ignore[attr-defined]
-            prof = {d: {"v": round(v, 2), "src": "grok_draft"} for d, v in item.profile.model_dump().items() if v > 0}
-            drafted.append({"id": slug(item.id), "name": item.name, "category": item.category,
-                            "potency": round(item.potency, 2), "note": item.rationale, "profile": prof})
-        print(f"  drafted {len(batch)} ingredient(s)")
-
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     path = ROOT / "data" / "drafts" / "ingredients" / f"grok_{stamp}.yaml"
     header = ("# DRAFT from Grok (xAI). NOT canonical. Review every value (fix or delete lines), then:\n"
               f"#   uv run python tools/data/promote_draft.py {path.relative_to(ROOT)} --reviewer <you> [--new-into <file>]\n")
-    path.write_text(header + yaml.safe_dump({"source": "grok_draft", "generated": stamp, "ingredients": drafted},
-                                            sort_keys=False, allow_unicode=True, width=120))
+
+    def _flush() -> None:
+        path.write_text(header + yaml.safe_dump({"source": "grok_draft", "generated": stamp, "ingredients": drafted},
+                                                sort_keys=False, allow_unicode=True, width=120))
+
+    for start in range(0, len(targets), BATCH):
+        batch = targets[start:start + BATCH]
+        lines = "\n".join(f"- id={i}; name={n}" + (f"; category={c}" if c else "") for i, n, c in batch)
+        last_err: Exception | None = None
+        for attempt in range(3):
+            try:
+                chat = client.chat.create(model=model, messages=[system(SYSTEM)])
+                chat.append(user(f"Dimensions: {', '.join(dims)}\nIngredients:\n{lines}\nKeep the given ids."))
+                _, result = chat.parse(shape)
+                last_err = None
+                break
+            except Exception as exc:  # noqa: BLE001 - xAI SDK raises several transport errors
+                last_err = exc
+                print(f"  retry {attempt + 1}/3 after {type(exc).__name__}")
+        if last_err is not None:
+            _flush()
+            print(f"wrote partial {path.relative_to(ROOT)} ({len(drafted)} so far)")
+            raise last_err
+        for item in result.items:  # type: ignore[attr-defined]
+            prof = {d: {"v": round(v, 2), "src": "grok_draft"} for d, v in item.profile.model_dump().items() if v > 0}
+            drafted.append({"id": slug(item.id), "name": item.name, "category": item.category,
+                            "potency": round(item.potency, 2), "note": item.rationale, "profile": prof})
+        _flush()
+        print(f"  drafted {len(batch)} ingredient(s)  total={len(drafted)}")
+
     print(f"wrote {path.relative_to(ROOT)}")
     return 0
 

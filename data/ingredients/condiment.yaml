@@ -1,33 +1,374 @@
 # OWNER: data (P1). Condiments, broths and other liquids. See protein.yaml for the format.
 default_src: seed_placeholder
 ingredients:
-  - {id: soy_sauce, name: Soy sauce, category: condiment, potency: 6.0, density_g_per_ml: 1.2, aliases: [soy], profile: {salty: 0.95, umami: 0.8, fermented: 0.7, sweet: 0.1}}
-  - {id: fish_sauce, name: Fish sauce, category: condiment, potency: 7.0, density_g_per_ml: 1.2, profile: {salty: 0.95, umami: 0.9, fermented: 0.8}}
-  - {id: doubanjiang, name: Doubanjiang, category: condiment, potency: 5.0, aliases: [chili bean paste], profile: {salty: 0.8, spicy: 0.6, fermented: 0.8, umami: 0.7}}
-  - {id: gochujang, name: Gochujang, category: condiment, potency: 4.0, profile: {spicy: 0.6, sweet: 0.5, fermented: 0.7, umami: 0.5, salty: 0.5}}
-  - {id: kimchi, name: Kimchi, category: condiment, potency: 2.0, profile: {sour: 0.7, spicy: 0.5, fermented: 0.9, salty: 0.5, crispy: 0.4, umami: 0.3}}
-  - {id: salt, name: Salt, category: condiment, potency: 10.0, density_g_per_ml: 1.2, aliases: [kosher salt, sea salt], profile: {salty: 1.0}}
-  - {id: pork_bone_broth, name: Pork bone broth, category: liquid, aliases: [pork broth, tonkotsu broth], profile: {umami: 0.6, rich: 0.7, salty: 0.2, creamy: 0.4, brothy: 0.8}}
-  - {id: beef_bone_broth, name: Beef bone broth, category: liquid, aliases: [beef broth, beef stock], profile: {umami: 0.6, rich: 0.5, salty: 0.2, roasted: 0.3, brothy: 0.8}}
-  - {id: chicken_stock, name: Chicken stock, category: liquid, aliases: [chicken broth], profile: {umami: 0.4, salty: 0.2, rich: 0.2, brothy: 0.8}}
-  - {id: espresso, name: Espresso, category: liquid, potency: 3.0, aliases: [coffee, strong coffee], profile: {bitter: 0.9, roasted: 0.9, sour: 0.2}}
-  - {id: dashi, name: Dashi, category: liquid, potency: 2.0, aliases: [kombu dashi], profile: {}}
-  - {id: coconut_water, name: Coconut water, category: liquid, potency: 0.8, profile: {}}
-  - {id: miso, name: Miso, category: condiment, potency: 5.0, aliases: [white miso, red miso, miso paste], profile: {}}
-  - {id: mirin, name: Mirin, category: condiment, potency: 3.0, aliases: [hon mirin], profile: {}}
-  - {id: mayonnaise, name: Mayonnaise, category: condiment, potency: 2.0, aliases: [mayo, japanese mayo], profile: {}}
-  - {id: okonomiyaki_sauce, name: Okonomiyaki sauce, category: condiment, potency: 4.0, profile: {}}
-  - {id: rice_vinegar, name: Rice vinegar, category: condiment, potency: 4.0, aliases: [black vinegar, chinkiang vinegar], profile: {}}
-  - {id: hoisin, name: Hoisin sauce, category: condiment, potency: 4.0, aliases: [hoisin sauce], profile: {}}
-  - {id: sesame_paste, name: Sesame paste, category: condiment, potency: 3.0, aliases: [chinese sesame paste], profile: {}}
-  - {id: green_curry_paste, name: Green curry paste, category: condiment, potency: 6.0, profile: {}}
-  - {id: massaman_curry_paste, name: Massaman curry paste, category: condiment, potency: 5.0, profile: {}}
-  - {id: tamarind, name: Tamarind, category: condiment, potency: 4.0, aliases: [tamarind paste, tamarind water], profile: {}}
-  - {id: shrimp_paste, name: Shrimp paste, category: condiment, potency: 8.0, aliases: [belacan, mam tom], profile: {}}
-  - {id: tahini, name: Tahini, category: condiment, potency: 3.0, aliases: [sesame tahini], profile: {}}
-  - {id: pomegranate_molasses, name: Pomegranate molasses, category: condiment, potency: 4.0, profile: {}}
-  - {id: rose_water, name: Rose water, category: condiment, potency: 6.0, profile: {}}
-  - {id: red_wine, name: Red wine, category: liquid, potency: 2.0, aliases: [burgundy wine], profile: {}}
-  - {id: white_wine, name: White wine, category: liquid, potency: 2.0, profile: {}}
-  - {id: lentils, name: Lentils, category: legume, potency: 0.8, aliases: [brown lentils, green lentils], profile: {}}
-  - {id: urad_dal, name: Urad dal, category: legume, potency: 0.8, aliases: [black gram], profile: {}}
+- id: soy_sauce
+  name: Soy sauce
+  category: condiment
+  potency: 6.0
+  density_g_per_ml: 1.2
+  aliases: [soy]
+  profile:
+    salty: {v: 0.98, src: usda, note: 'sodium 5590.0 mg/100g (fdc 174278: Soy sauce made from soy (tamari))'}
+    sweet: {v: 0.13, src: usda, note: 'sugar 1.7 g/100g (fdc 174278: Soy sauce made from soy (tamari))'}
+    umami: {v: 0.8, src: literature, note: 'high free glutamate, well-documented umami source'}
+    fermented: {v: 0.7, src: literature, note: 'koji fermentation, weeks-months'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.1 g/100g (fdc 174278: Soy sauce made from soy (tamari))'}
+    roasted: {v: 0.25, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+    brothy: {v: 0.5, src: grok_reviewed}
+  reviewed_by: ishan
+- id: fish_sauce
+  name: Fish sauce
+  category: condiment
+  potency: 7.0
+  density_g_per_ml: 1.2
+  profile:
+    salty: {v: 0.99, src: usda, note: 'sodium 7850.0 mg/100g (fdc 174531: Sauce, fish, ready-to-serve)'}
+    umami: {v: 0.9, src: literature, note: very high free glutamate/histidine}
+    fermented: {v: 0.85, src: literature, note: 'anchovy fermentation, 6-18 months'}
+    sweet: {v: 0.26, src: usda, note: 'sugar 3.64 g/100g (fdc 174531: Sauce, fish, ready-to-serve)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.01 g/100g (fdc 174531: Sauce, fish, ready-to-serve)'}
+    brothy: {v: 0.55, src: grok_reviewed}
+  reviewed_by: ishan
+- id: doubanjiang
+  name: Doubanjiang
+  category: condiment
+  potency: 5.0
+  aliases: [chili bean paste]
+  profile:
+    salty: {v: 0.75, src: team, note: no USDA entry; est. from typical commercial labels ~4500mg/100g}
+    spicy: {v: 0.55, src: team, note: chili content varies by brand}
+    fermented: {v: 0.8, src: literature, note: 'broad bean fermentation, months-years'}
+    umami: {v: 0.65, src: team}
+    earthy: {v: 0.2, src: grok_reviewed}
+    rich: {v: 0.3, src: grok_reviewed}
+  reviewed_by: ishan
+- id: gochujang
+  name: Gochujang
+  category: condiment
+  potency: 4.0
+  profile:
+    salty: {v: 0.8, src: usda, note: USDA branded food avg ~2400mg sodium/100g}
+    sweet: {v: 0.85, src: usda, note: USDA branded food avg ~27g sugar/100g}
+    spicy: {v: 0.5, src: team, note: gochugaru content varies by brand}
+    fermented: {v: 0.6, src: literature, note: soybean + rice fermentation}
+    umami: {v: 0.5, src: team}
+    fruity: {v: 0.15, src: grok_reviewed}
+    earthy: {v: 0.2, src: grok_reviewed}
+    rich: {v: 0.35, src: grok_reviewed}
+    brothy: {v: 0.25, src: grok_reviewed}
+  reviewed_by: ishan
+- id: kimchi
+  name: Kimchi
+  category: condiment
+  potency: 2.0
+  profile:
+    sour: {v: 0.65, src: literature, note: 'lactic acid fermentation, pH ~4.0-4.5'}
+    spicy: {v: 0.45, src: team}
+    fermented: {v: 0.9, src: literature, note: 'lactic acid bacteria fermentation, extensively studied'}
+    salty: {v: 0.28, src: usda, note: 'sodium 498 mg/100g (fdc 170392: Cabbage, kimchi)'}
+    crispy: {v: 0.4, src: team}
+    umami: {v: 0.3, src: team}
+    sweet: {v: 0.08, src: usda, note: 'sugar 1.06 g/100g (fdc 170392: Cabbage, kimchi)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.5 g/100g (fdc 170392: Cabbage, kimchi)'}
+  reviewed_by: ishan
+- id: salt
+  name: Salt
+  category: condiment
+  potency: 10.0
+  density_g_per_ml: 1.2
+  aliases: [kosher salt, sea salt]
+  profile:
+    salty: {v: 1.0, src: usda, note: '~39% sodium by mass, saturates formula'}
+- id: pork_bone_broth
+  name: Pork bone broth
+  category: liquid
+  aliases: [pork broth, tonkotsu broth]
+  profile:
+    umami: {v: 0.5, src: team, note: 'homemade broth, no fixed USDA entry'}
+    rich: {v: 0.6, src: team}
+    salty: {v: 0.2, src: team, note: depends on added salt}
+    creamy: {v: 0.3, src: team}
+    brothy: {v: 0.8, src: team}
+    roasted: {v: 0.1, src: grok_reviewed}
+  reviewed_by: ishan
+- id: beef_bone_broth
+  name: Beef bone broth
+  category: liquid
+  aliases: [beef broth, beef stock]
+  profile:
+    umami: {v: 0.5, src: team}
+    rich: {v: 0.4, src: team}
+    salty: {v: 0.2, src: team}
+    roasted: {v: 0.2, src: team}
+    brothy: {v: 0.8, src: team}
+    earthy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
+- id: chicken_stock
+  name: Chicken stock
+  category: liquid
+  aliases: [chicken broth]
+  profile:
+    umami: {v: 0.35, src: team}
+    salty: {v: 0.09, src: usda, note: 'sodium 143 mg/100g (fdc 172884: Soup, stock, chicken, home-prepared)'}
+    rich: {v: 0.05, src: usda, note: 'fat 1.2 g/100g (fdc 172884: Soup, stock, chicken, home-prepared)'}
+    brothy: {v: 0.8, src: team}
+    sweet: {v: 0.12, src: usda, note: 'sugar 1.58 g/100g (fdc 172884: Soup, stock, chicken, home-prepared)'}
+  reviewed_by: ishan
+- id: espresso
+  name: Espresso
+  category: liquid
+  potency: 3.0
+  aliases: [coffee, strong coffee]
+  profile:
+    bitter: {v: 0.85, src: literature, note: chlorogenic acid degradation + roasting compounds}
+    roasted: {v: 0.9, src: literature}
+    sour: {v: 0.25, src: literature, note: acidity from chlorogenic/quinic acids}
+    sweet: {v: 0.0, src: usda, note: 'sugar 0.0 g/100g (fdc 171891: Beverages, coffee, brewed, espresso, restaurant-prepared)'}
+    salty: {v: 0.01, src: usda, note: 'sodium 14.0 mg/100g (fdc 171891: Beverages, coffee, brewed, espresso, restaurant-prepared)'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.18 g/100g (fdc 171891: Beverages, coffee, brewed, espresso, restaurant-prepared)'}
+    smoky: {v: 0.2, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
+- id: dashi
+  name: Dashi
+  category: liquid
+  potency: 2.0
+  aliases: [kombu dashi]
+  profile:
+    umami: {v: 0.55, src: literature, note: 'kombu glutamate + katsuobushi inosinate, the classic umami synergy pair'}
+    brothy: {v: 0.75, src: team}
+    salty: {v: 0.08, src: team, note: unsalted infusion; salt arrives with the dish seasoning}
+    smoky: {v: 0.2, src: grok_reviewed}
+  reviewed_by: ishan
+- id: coconut_water
+  name: Coconut water
+  category: liquid
+  potency: 0.8
+  profile:
+    sweet: {v: 0.2, src: usda, note: 'sugar 2.61 g/100g (fdc 170174: Nuts, coconut water (liquid from coconuts))'}
+    salty: {v: 0.07, src: usda, note: 'sodium 105 mg/100g (fdc 170174: Nuts, coconut water (liquid from coconuts))'}
+    rich: {v: 0.01, src: usda, note: 'fat 0.2 g/100g (fdc 170174: Nuts, coconut water (liquid from coconuts))'}
+    fruity: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
+- id: water
+  name: Water
+  category: liquid
+  potency: 0.5
+  density_g_per_ml: 1.0
+  aliases: [ice water, drinking water, tap water, ice]
+  profile: {}
+- id: miso
+  name: Miso
+  category: condiment
+  potency: 5.0
+  aliases: [white miso, red miso, miso paste]
+  profile:
+    sweet: {v: 0.4, src: usda, note: 'sugar 6.2 g/100g (fdc 172442: Miso)'}
+    salty: {v: 0.92, src: usda, note: 'sodium 3730.0 mg/100g (fdc 172442: Miso)'}
+    rich: {v: 0.21, src: usda, note: 'fat 6.01 g/100g (fdc 172442: Miso)'}
+    fermented: {v: 0.7, src: grok_reviewed}
+    earthy: {v: 0.35, src: grok_reviewed}
+    brothy: {v: 0.5, src: grok_reviewed}
+  reviewed_by: ishan
+- id: mirin
+  name: Mirin
+  category: condiment
+  potency: 3.0
+  aliases: [hon mirin]
+  profile:
+    sweet: {v: 0.96, src: team, note: hon mirin label sugar ~40 g/100g (glucose from rice starch); no canonical USDA entry}
+    umami: {v: 0.2, src: team}
+    fermented: {v: 0.35, src: literature, note: koji-fermented glutinous rice}
+    fruity: {v: 0.2, src: grok_reviewed}
+  reviewed_by: ishan
+- id: mayonnaise
+  name: Mayonnaise
+  category: condiment
+  potency: 2.0
+  aliases: [mayo, japanese mayo]
+  profile:
+    rich: {v: 0.95, src: usda, note: 'fat 74.8 g/100g (fdc 171009: Salad dressing, mayonnaise, regular)'}
+    salty: {v: 0.35, src: usda, note: 'sodium 635 mg/100g (fdc 171009: Salad dressing, mayonnaise, regular)'}
+    sweet: {v: 0.05, src: usda, note: 'sugar 0.57 g/100g (fdc 171009: Salad dressing, mayonnaise, regular)'}
+    creamy: {v: 0.85, src: team}
+    sour: {v: 0.25, src: literature, note: acetic acid from vinegar plus lemon citric acid}
+  reviewed_by: ishan
+- id: okonomiyaki_sauce
+  name: Okonomiyaki sauce
+  category: condiment
+  potency: 4.0
+  profile:
+    sweet: {v: 0.9, src: team, note: label sugar ~30 g/100g (fruit/vegetable base plus added sugar)}
+    salty: {v: 0.58, src: team, note: label sodium ~1300 mg/100g}
+    umami: {v: 0.5, src: team}
+    fruity: {v: 0.3, src: team, note: 'date, apple and tomato in the base'}
+    sour: {v: 0.25, src: team}
+    fermented: {v: 0.25, src: grok_reviewed}
+    rich: {v: 0.4, src: grok_reviewed}
+    brothy: {v: 0.2, src: grok_reviewed}
+  reviewed_by: ishan
+- id: rice_vinegar
+  name: Rice vinegar
+  category: condiment
+  potency: 4.0
+  aliases: [black vinegar, chinkiang vinegar]
+  profile:
+    sour: {v: 0.9, src: literature, note: 'acetic acid 4-5 g/100g, pH ~2.5'}
+    fermented: {v: 0.5, src: literature, note: rice wine oxidised by acetic acid bacteria}
+    umami: {v: 0.15, src: team, note: higher in the aged Chinkiang black vinegar carried as an alias here}
+    sweet: {v: 0.1, src: team}
+    fruity: {v: 0.1, src: grok_reviewed}
+  reviewed_by: ishan
+- id: hoisin
+  name: Hoisin sauce
+  category: condiment
+  potency: 4.0
+  aliases: [hoisin sauce]
+  profile:
+    sweet: {v: 0.9, src: usda, note: 'sugar 27.3 g/100g (fdc 172886: Sauce, hoisin, ready-to-serve)'}
+    salty: {v: 0.66, src: usda, note: 'sodium 1620.0 mg/100g (fdc 172886: Sauce, hoisin, ready-to-serve)'}
+    rich: {v: 0.13, src: usda, note: 'fat 3.39 g/100g (fdc 172886: Sauce, hoisin, ready-to-serve)'}
+    fermented: {v: 0.45, src: grok_reviewed}
+    fruity: {v: 0.2, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
+- id: sesame_paste
+  name: Sesame paste
+  category: condiment
+  potency: 3.0
+  aliases: [chinese sesame paste]
+  profile:
+    salty: {v: 0.01, src: usda, note: 'sodium 12.0 mg/100g (fdc 170191: Seeds, sesame butter, paste)'}
+    rich: {v: 0.87, src: usda, note: 'fat 50.9 g/100g (fdc 170191: Seeds, sesame butter, paste)'}
+    roasted: {v: 0.4, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+    creamy: {v: 0.65, src: grok_reviewed}
+  reviewed_by: ishan
+- id: green_curry_paste
+  name: Green curry paste
+  category: condiment
+  potency: 6.0
+  profile:
+    spicy: {v: 0.6, src: team, note: 'green bird chili base, brand-variable'}
+    herbal: {v: 0.7, src: team, note: 'lemongrass, galangal, makrut peel, coriander root'}
+    salty: {v: 0.75, src: team, note: label sodium ~2400 mg/100g}
+    umami: {v: 0.35, src: team}
+    fermented: {v: 0.25, src: team, note: contains shrimp paste}
+  reviewed_by: ishan
+- id: massaman_curry_paste
+  name: Massaman curry paste
+  category: condiment
+  potency: 5.0
+  profile:
+    spicy: {v: 0.4, src: team, note: milder than green curry; dried red chili}
+    herbal: {v: 0.5, src: team}
+    earthy: {v: 0.45, src: team, note: 'dry-roasted cumin, coriander, cinnamon, clove, cardamom'}
+    salty: {v: 0.7, src: team, note: label sodium ~2100 mg/100g}
+    umami: {v: 0.3, src: team}
+    fermented: {v: 0.2, src: team}
+    roasted: {v: 0.4, src: grok_reviewed}
+    rich: {v: 0.3, src: grok_reviewed}
+  reviewed_by: ishan
+- id: tamarind
+  name: Tamarind
+  category: condiment
+  potency: 4.0
+  aliases: [tamarind paste, tamarind water]
+  profile:
+    sweet: {v: 0.96, src: usda, note: 'sugar 38.8 g/100g (fdc 167763: Tamarinds, raw)'}
+    sour: {v: 0.8, src: literature, note: 'tartaric acid, the dominant organic acid in tamarind pulp'}
+    fruity: {v: 0.6, src: team, note: pulp basis; the paste and water aliases are dilutions of it}
+    earthy: {v: 0.15, src: grok_reviewed}
+  reviewed_by: ishan
+- id: shrimp_paste
+  name: Shrimp paste
+  category: condiment
+  potency: 8.0
+  aliases: [belacan, mam tom]
+  profile:
+    salty: {v: 0.95, src: team, note: 'no USDA entry; label sodium ~8000 mg/100g, formula saturates'}
+    umami: {v: 0.9, src: literature, note: 'fermented crustacean, very high free glutamate and nucleotides'}
+    fermented: {v: 0.95, src: literature, note: months-long salt fermentation}
+    earthy: {v: 0.2, src: grok_reviewed}
+    rich: {v: 0.6, src: grok_reviewed}
+    brothy: {v: 0.4, src: grok_reviewed}
+  reviewed_by: ishan
+- id: tahini
+  name: Tahini
+  category: condiment
+  potency: 3.0
+  aliases: [sesame tahini]
+  profile:
+    salty: {v: 0.02, src: usda, note: 'sodium 35.0 mg/100g (fdc 168604: Seeds, sesame butter, tahini, type of kernels unspecified)'}
+    rich: {v: 0.88, src: usda, note: 'fat 53.0 g/100g (fdc 168604: Seeds, sesame butter, tahini, type of kernels unspecified)'}
+    roasted: {v: 0.35, src: grok_reviewed}
+    earthy: {v: 0.2, src: grok_reviewed}
+    creamy: {v: 0.6, src: grok_reviewed}
+  reviewed_by: ishan
+- id: pomegranate_molasses
+  name: Pomegranate molasses
+  category: condiment
+  potency: 4.0
+  profile:
+    sweet: {v: 0.99, src: team, note: juice reduced ~5x; label sugar ~60 g/100g}
+    sour: {v: 0.85, src: literature, note: 'citric and malic acid concentrated by the reduction, pH ~2.5'}
+    fruity: {v: 0.8, src: team}
+    roasted: {v: 0.15, src: grok_reviewed}
+    rich: {v: 0.4, src: grok_reviewed}
+  reviewed_by: ishan
+- id: rose_water
+  name: Rose water
+  category: condiment
+  potency: 6.0
+  profile:
+    herbal: {v: 0.4, src: team, note: 'floral distillate; the dim set has no floral axis, so the aroma lands on herbal/fruity'}
+    fruity: {v: 0.3, src: team}
+  reviewed_by: ishan
+- id: red_wine
+  name: Red wine
+  category: liquid
+  potency: 2.0
+  aliases: [burgundy wine]
+  profile:
+    sour: {v: 0.45, src: literature, note: 'tartaric and malic acid, pH 3.3-3.6'}
+    bitter: {v: 0.35, src: literature, note: condensed tannins from skins and seeds}
+    fruity: {v: 0.5, src: team}
+    sweet: {v: 0.05, src: team, note: dry red residual sugar <1 g/100g}
+    fermented: {v: 0.4, src: grok_reviewed}
+    earthy: {v: 0.15, src: grok_reviewed}
+    rich: {v: 0.3, src: grok_reviewed}
+  reviewed_by: ishan
+- id: white_wine
+  name: White wine
+  category: liquid
+  potency: 2.0
+  profile:
+    sweet: {v: 0.08, src: usda, note: 'sugar 0.96 g/100g (fdc 174837: Alcoholic beverage, wine, table, white)'}
+    salty: {v: 0.0, src: usda, note: 'sodium 5.0 mg/100g (fdc 174837: Alcoholic beverage, wine, table, white)'}
+    rich: {v: 0.0, src: usda, note: 'fat 0.0 g/100g (fdc 174837: Alcoholic beverage, wine, table, white)'}
+    fermented: {v: 0.4, src: grok_reviewed}
+    fruity: {v: 0.4, src: grok_reviewed}
+  reviewed_by: ishan
+- id: lentils
+  name: Lentils
+  category: legume
+  potency: 0.8
+  aliases: [brown lentils, green lentils]
+  profile:
+    sweet: {v: 0.14, src: usda, note: 'sugar 1.8 g/100g (fdc 172421: Lentils, mature seeds, cooked, boiled, without salt)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.38 g/100g (fdc 172421: Lentils, mature seeds, cooked, boiled, without salt)'}
+    earthy: {v: 0.6, src: team}
+    chewy: {v: 0.25, src: team}
+  reviewed_by: ishan
+- id: urad_dal
+  name: Urad dal
+  category: legume
+  potency: 0.8
+  aliases: [black gram]
+  profile:
+    sweet: {v: 0.15, src: usda, note: 'sugar 2.01 g/100g (fdc 172427: Mungo beans, mature seeds, cooked, boiled, without salt)'}
+    rich: {v: 0.02, src: usda, note: 'fat 0.55 g/100g (fdc 172427: Mungo beans, mature seeds, cooked, boiled, without salt)'}
+    earthy: {v: 0.55, src: team}
+    creamy: {v: 0.35, src: team, note: cooks down to a smooth dal}
+  reviewed_by: ishan

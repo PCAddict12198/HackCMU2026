@@ -6,9 +6,9 @@ dishes:
     course: savory
     format: noodles
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Pasta with guanciale, egg, pecorino and black pepper.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of one plate, 200 g dry pasta"
     ingredients:
       - {ing: spaghetti, g: 200, process: [boiled]}
       - {ing: guanciale, g: 100, process: [fried]}
@@ -21,9 +21,9 @@ dishes:
     course: dessert
     format: custard_creamy
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Espresso-soaked ladyfingers layered with mascarpone cream and cocoa.
-    recipe_basis: seed placeholder
+    recipe_basis: "team estimate of a two-serving dish"
     ingredients:
       - {ing: mascarpone, g: 250}
       - {ing: espresso, g: 150}
@@ -37,7 +37,7 @@ dishes:
     course: savory
     format: noodles
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Pasta tossed with pecorino and lots of black pepper.
     recipe_basis: team estimate of one plate
     ingredients:
@@ -50,7 +50,7 @@ dishes:
     course: savory
     format: grilled_roasted
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Wood-fired pizza with tomato, mozzarella and basil.
     recipe_basis: team estimate of one personal pie
     ingredients:
@@ -66,7 +66,7 @@ dishes:
     course: savory
     format: rice_dish
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Creamy slow-stirred rice with mushrooms, butter and pecorino.
     recipe_basis: team estimate of one plate
     ingredients:
@@ -86,7 +86,7 @@ dishes:
     course: savory
     format: stew_braise
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Braised veal shank with soffritto, wine and gremolata.
     recipe_basis: team estimate of one shank serving
     ingredients:
@@ -107,7 +107,7 @@ dishes:
     course: savory
     format: soup
     tier: core
-    confidence: draft
+    confidence: reviewed
     blurb: Vegetable soup with beans, pasta and olive oil.
     recipe_basis: team estimate of one bowl
     ingredients:

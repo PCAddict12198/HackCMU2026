@@ -1,0 +1,783 @@
+# REVIEWED team draft: the 45 ingredients that still had `profile: {}` after the USDA pass.
+# Every value was authored and checked by hand. src: usda means a verified FoodData Central row
+# (fdc id in the note) run through the MODEL.md saturating maps; src: literature means documented
+# food chemistry; src: team means an honest estimate with its basis stated in the note.
+# NOT promoted from the usda_20260912_105532.yaml fuzzy-match draft - that draft's matches were
+# mostly the wrong food (salmon->salmon oil, peanuts->peanut oil, duck->duck liver, rice_cake->
+# puffed rice cracker, sweet_potato_noodles->sweet potato leaves) and was rejected wholesale.
+# `water` is deliberately left at `profile: {}`: zero on every dim is the correct profile.
+#   uv run python tools/data/promote_draft.py data/drafts/ingredients/team_20260912_110230.yaml --reviewer ishan
+source: team
+generated: '20260912_110230'
+ingredients:
+- id: dashi
+  profile:
+    umami:
+      v: 0.55
+      src: literature
+      note: kombu glutamate + katsuobushi inosinate, the classic umami synergy pair
+    brothy:
+      v: 0.75
+      src: team
+    salty:
+      v: 0.08
+      src: team
+      note: unsalted infusion; salt arrives with the dish seasoning
+- id: mirin
+  profile:
+    sweet:
+      v: 0.96
+      src: team
+      note: hon mirin label sugar ~40 g/100g (glucose from rice starch); no canonical USDA entry
+    umami:
+      v: 0.2
+      src: team
+    fermented:
+      v: 0.35
+      src: literature
+      note: koji-fermented glutinous rice
+- id: mayonnaise
+  profile:
+    rich:
+      v: 0.95
+      src: usda
+      note: 'fat 74.8 g/100g (fdc 171009: Salad dressing, mayonnaise, regular)'
+    salty:
+      v: 0.35
+      src: usda
+      note: 'sodium 635 mg/100g (fdc 171009: Salad dressing, mayonnaise, regular)'
+    sweet:
+      v: 0.05
+      src: usda
+      note: 'sugar 0.57 g/100g (fdc 171009: Salad dressing, mayonnaise, regular)'
+    creamy:
+      v: 0.85
+      src: team
+    sour:
+      v: 0.25
+      src: literature
+      note: acetic acid from vinegar plus lemon citric acid
+- id: okonomiyaki_sauce
+  profile:
+    sweet:
+      v: 0.9
+      src: team
+      note: label sugar ~30 g/100g (fruit/vegetable base plus added sugar)
+    salty:
+      v: 0.58
+      src: team
+      note: label sodium ~1300 mg/100g
+    umami:
+      v: 0.5
+      src: team
+    fruity:
+      v: 0.3
+      src: team
+      note: date, apple and tomato in the base
+    sour:
+      v: 0.25
+      src: team
+- id: rice_vinegar
+  profile:
+    sour:
+      v: 0.9
+      src: literature
+      note: acetic acid 4-5 g/100g, pH ~2.5
+    fermented:
+      v: 0.5
+      src: literature
+      note: rice wine oxidised by acetic acid bacteria
+    umami:
+      v: 0.15
+      src: team
+      note: higher in the aged Chinkiang black vinegar carried as an alias here
+    sweet:
+      v: 0.1
+      src: team
+- id: green_curry_paste
+  profile:
+    spicy:
+      v: 0.6
+      src: team
+      note: green bird chili base, brand-variable
+    herbal:
+      v: 0.7
+      src: team
+      note: lemongrass, galangal, makrut peel, coriander root
+    salty:
+      v: 0.75
+      src: team
+      note: label sodium ~2400 mg/100g
+    umami:
+      v: 0.35
+      src: team
+    fermented:
+      v: 0.25
+      src: team
+      note: contains shrimp paste
+- id: massaman_curry_paste
+  profile:
+    spicy:
+      v: 0.4
+      src: team
+      note: milder than green curry; dried red chili
+    herbal:
+      v: 0.5
+      src: team
+    earthy:
+      v: 0.45
+      src: team
+      note: dry-roasted cumin, coriander, cinnamon, clove, cardamom
+    salty:
+      v: 0.7
+      src: team
+      note: label sodium ~2100 mg/100g
+    umami:
+      v: 0.3
+      src: team
+    fermented:
+      v: 0.2
+      src: team
+- id: tamarind
+  profile:
+    sweet:
+      v: 0.96
+      src: usda
+      note: 'sugar 38.8 g/100g (fdc 167763: Tamarinds, raw)'
+    sour:
+      v: 0.8
+      src: literature
+      note: tartaric acid, the dominant organic acid in tamarind pulp
+    fruity:
+      v: 0.6
+      src: team
+      note: pulp basis; the paste and water aliases are dilutions of it
+- id: shrimp_paste
+  profile:
+    salty:
+      v: 0.95
+      src: team
+      note: no USDA entry; label sodium ~8000 mg/100g, formula saturates
+    umami:
+      v: 0.9
+      src: literature
+      note: fermented crustacean, very high free glutamate and nucleotides
+    fermented:
+      v: 0.95
+      src: literature
+      note: months-long salt fermentation
+- id: pomegranate_molasses
+  profile:
+    sweet:
+      v: 0.99
+      src: team
+      note: juice reduced ~5x; label sugar ~60 g/100g
+    sour:
+      v: 0.85
+      src: literature
+      note: citric and malic acid concentrated by the reduction, pH ~2.5
+    fruity:
+      v: 0.8
+      src: team
+- id: rose_water
+  profile:
+    herbal:
+      v: 0.4
+      src: team
+      note: floral distillate; the dim set has no floral axis, so the aroma lands on herbal/fruity
+    fruity:
+      v: 0.3
+      src: team
+- id: red_wine
+  profile:
+    sour:
+      v: 0.45
+      src: literature
+      note: tartaric and malic acid, pH 3.3-3.6
+    bitter:
+      v: 0.35
+      src: literature
+      note: condensed tannins from skins and seeds
+    fruity:
+      v: 0.5
+      src: team
+    sweet:
+      v: 0.05
+      src: team
+      note: dry red residual sugar <1 g/100g
+- id: lentils
+  profile:
+    sweet:
+      v: 0.14
+      src: usda
+      note: 'sugar 1.8 g/100g (fdc 172421: Lentils, mature seeds, cooked, boiled, without salt)'
+    rich:
+      v: 0.02
+      src: usda
+      note: 'fat 0.38 g/100g (fdc 172421: Lentils, mature seeds, cooked, boiled, without salt)'
+    earthy:
+      v: 0.6
+      src: team
+    chewy:
+      v: 0.25
+      src: team
+- id: urad_dal
+  profile:
+    sweet:
+      v: 0.15
+      src: usda
+      note: 'sugar 2.01 g/100g (fdc 172427: Mungo beans, mature seeds, cooked, boiled, without salt)'
+    rich:
+      v: 0.02
+      src: usda
+      note: 'fat 0.55 g/100g (fdc 172427: Mungo beans, mature seeds, cooked, boiled, without salt)'
+    earthy:
+      v: 0.55
+      src: team
+    creamy:
+      v: 0.35
+      src: team
+      note: cooks down to a smooth dal
+- id: paneer
+  profile:
+    rich:
+      v: 0.57
+      src: team
+      note: no USDA entry; whole-milk paneer label fat ~21 g/100g
+    creamy:
+      v: 0.5
+      src: team
+    chewy:
+      v: 0.3
+      src: team
+      note: firm squeaky curd, holds its shape in curry
+    sweet:
+      v: 0.1
+      src: team
+      note: residual lactose ~1 g/100g
+- id: yogurt
+  profile:
+    sweet:
+      v: 0.32
+      src: usda
+      note: 'sugar 4.66 g/100g (fdc 171284: Yogurt, plain, whole milk)'
+    rich:
+      v: 0.12
+      src: usda
+      note: 'fat 3.25 g/100g (fdc 171284: Yogurt, plain, whole milk)'
+    salty:
+      v: 0.03
+      src: usda
+      note: 'sodium 46 mg/100g (fdc 171284: Yogurt, plain, whole milk)'
+    sour:
+      v: 0.6
+      src: literature
+      note: lactic acid, pH ~4.4
+    fermented:
+      v: 0.8
+      src: literature
+      note: live lactic acid bacteria
+    creamy:
+      v: 0.7
+      src: team
+- id: mozzarella
+  profile:
+    rich:
+      v: 0.59
+      src: usda
+      note: 'fat 22.1 g/100g (fdc 170845: Cheese, mozzarella, whole milk)'
+    salty:
+      v: 0.28
+      src: usda
+      note: 'sodium 486 mg/100g (fdc 170845: Cheese, mozzarella, whole milk)'
+    creamy:
+      v: 0.55
+      src: team
+    chewy:
+      v: 0.45
+      src: team
+      note: pasta filata stretch
+    umami:
+      v: 0.3
+      src: team
+      note: young cheese; far lower free glutamate than an aged hard cheese
+- id: matcha
+  profile:
+    bitter:
+      v: 0.7
+      src: literature
+      note: catechins, chiefly EGCG
+    umami:
+      v: 0.45
+      src: literature
+      note: L-theanine and free glutamate, raised by shade-growing
+    earthy:
+      v: 0.6
+      src: team
+    herbal:
+      v: 0.4
+      src: team
+- id: five_spice
+  profile:
+    sweet:
+      v: 0.35
+      src: literature
+      note: anethole (star anise, fennel) plus cinnamaldehyde read as sweet-aromatic
+    earthy:
+      v: 0.5
+      src: team
+    spicy:
+      v: 0.3
+      src: team
+      note: clove eugenol and Sichuan pepper, blend-dependent
+    herbal:
+      v: 0.3
+      src: team
+- id: sumac
+  profile:
+    sour:
+      v: 0.7
+      src: literature
+      note: malic acid, the dominant acid in Rhus coriaria drupes
+    fruity:
+      v: 0.45
+      src: team
+    earthy:
+      v: 0.3
+      src: team
+      note: unsalted ground sumac; some commercial blends add salt
+- id: nori
+  profile:
+    umami:
+      v: 0.75
+      src: literature
+      note: laver free glutamate, among the highest of any plant food
+    salty:
+      v: 0.03
+      src: usda
+      note: 'sodium 48 mg/100g (fdc 168458: Seaweed, laver, raw)'
+    earthy:
+      v: 0.3
+      src: team
+    crispy:
+      v: 0.4
+      src: team
+      note: toasted sheet; the raw-laver row above is the nutrient basis
+    brothy:
+      v: 0.2
+      src: team
+- id: spinach
+  profile:
+    sweet:
+      v: 0.03
+      src: usda
+      note: 'sugar 0.42 g/100g (fdc 168462: Spinach, raw)'
+    salty:
+      v: 0.05
+      src: usda
+      note: 'sodium 79 mg/100g (fdc 168462: Spinach, raw)'
+    rich:
+      v: 0.02
+      src: usda
+      note: 'fat 0.39 g/100g (fdc 168462: Spinach, raw)'
+    bitter:
+      v: 0.3
+      src: literature
+      note: oxalic acid astringency
+    earthy:
+      v: 0.4
+      src: team
+    herbal:
+      v: 0.3
+      src: team
+- id: carrot
+  profile:
+    sweet:
+      v: 0.33
+      src: usda
+      note: 'sugar 4.74 g/100g (fdc 170393: Carrots, raw)'
+    salty:
+      v: 0.04
+      src: usda
+      note: 'sodium 69 mg/100g (fdc 170393: Carrots, raw)'
+    earthy:
+      v: 0.4
+      src: team
+    crispy:
+      v: 0.7
+      src: team
+- id: eggplant
+  profile:
+    sweet:
+      v: 0.25
+      src: usda
+      note: 'sugar 3.53 g/100g (fdc 169228: Eggplant, raw)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 2 mg/100g (fdc 169228: Eggplant, raw)'
+    bitter:
+      v: 0.25
+      src: literature
+      note: phenolics and glycoalkaloids in raw flesh, falls with cooking
+    earthy:
+      v: 0.3
+      src: team
+    creamy:
+      v: 0.3
+      src: team
+      note: raw flesh is spongy; it turns silky once cooked (see processes)
+- id: green_papaya
+  profile:
+    sweet:
+      v: 0.18
+      src: team
+      note: unripe fruit, ~2-3 g sugar/100g; USDA lists only ripe papaya at 7.82 g (fdc 169926)
+    crispy:
+      v: 0.8
+      src: team
+      note: shredded green papaya is the texture of som tam
+    herbal:
+      v: 0.2
+      src: team
+- id: long_bean
+  profile:
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 4 mg/100g (fdc 169222: Yardlong bean, raw)'
+    sweet:
+      v: 0.15
+      src: team
+      note: the USDA yardlong row carries no sugar figure; green-bean analogue ~2 g/100g
+    crispy:
+      v: 0.6
+      src: team
+    herbal:
+      v: 0.3
+      src: team
+- id: potato
+  profile:
+    sweet:
+      v: 0.07
+      src: usda
+      note: 'sugar 0.82 g/100g (fdc 170026: Potatoes, flesh and skin, raw)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 6 mg/100g (fdc 170026: Potatoes, flesh and skin, raw)'
+    rich:
+      v: 0.0
+      src: usda
+      note: 'fat 0.09 g/100g (fdc 170026: Potatoes, flesh and skin, raw)'
+    earthy:
+      v: 0.5
+      src: team
+    creamy:
+      v: 0.35
+      src: team
+      note: cooked flesh
+- id: daikon
+  profile:
+    sweet:
+      v: 0.19
+      src: usda
+      note: 'sugar 2.5 g/100g (fdc 168451: Radishes, oriental, raw)'
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 21 mg/100g (fdc 168451: Radishes, oriental, raw)'
+    crispy:
+      v: 0.7
+      src: team
+    spicy:
+      v: 0.25
+      src: team
+      note: isothiocyanate pungency, milder than red radish
+    herbal:
+      v: 0.2
+      src: team
+- id: orange_juice
+  profile:
+    sweet:
+      v: 0.5
+      src: usda
+      note: 'sugar 8.31 g/100g (fdc 169100: Orange juice, chilled, includes from concentrate)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 2 mg/100g (fdc 169100: Orange juice, chilled, includes from concentrate)'
+    sour:
+      v: 0.5
+      src: literature
+      note: citric acid ~1 g/100g, pH 3.3-4.2
+    fruity:
+      v: 0.85
+      src: team
+- id: duck
+  profile:
+    rich:
+      v: 0.68
+      src: usda
+      note: 'fat 28.4 g/100g (fdc 172409: Duck, domesticated, meat and skin, cooked, roasted)'
+    salty:
+      v: 0.04
+      src: usda
+      note: 'sodium 59 mg/100g (fdc 172409: Duck, domesticated, meat and skin, cooked, roasted)'
+    umami:
+      v: 0.55
+      src: literature
+      note: inosinate-rich dark poultry meat
+    chewy:
+      v: 0.3
+      src: team
+- id: mung_bean
+  profile:
+    sweet:
+      v: 0.15
+      src: usda
+      note: 'sugar 2.0 g/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 2 mg/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'
+    rich:
+      v: 0.02
+      src: usda
+      note: 'fat 0.38 g/100g (fdc 174257: Mung beans, mature seeds, cooked, boiled, without salt)'
+    earthy:
+      v: 0.5
+      src: team
+    creamy:
+      v: 0.3
+      src: team
+- id: red_bean
+  profile:
+    salty:
+      v: 0.01
+      src: usda
+      note: 'sodium 8 mg/100g (fdc 173728: Beans, adzuki, mature seeds, cooked, boiled, without salt)'
+    rich:
+      v: 0.0
+      src: usda
+      note: 'fat 0.1 g/100g (fdc 173728: Beans, adzuki, mature seeds, cooked, boiled, without salt)'
+    sweet:
+      v: 0.12
+      src: team
+      note: the USDA adzuki row carries no sugar figure; unsweetened cooked bean. Sweet red bean paste is a separate prepared
+        form
+    earthy:
+      v: 0.5
+      src: team
+    creamy:
+      v: 0.4
+      src: team
+    chewy:
+      v: 0.2
+      src: team
+- id: cannellini_bean
+  profile:
+    sweet:
+      v: 0.03
+      src: usda
+      note: 'sugar 0.34 g/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 6 mg/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'
+    rich:
+      v: 0.01
+      src: usda
+      note: 'fat 0.35 g/100g (fdc 175203: Beans, white, mature seeds, cooked, boiled, without salt)'
+    earthy:
+      v: 0.45
+      src: team
+    creamy:
+      v: 0.5
+      src: team
+- id: salmon
+  profile:
+    rich:
+      v: 0.41
+      src: usda
+      note: 'fat 13.4 g/100g (fdc 175167: Fish, salmon, Atlantic, farmed, raw)'
+    salty:
+      v: 0.04
+      src: usda
+      note: 'sodium 59 mg/100g (fdc 175167: Fish, salmon, Atlantic, farmed, raw)'
+    umami:
+      v: 0.5
+      src: literature
+      note: inosinate in fish muscle
+    chewy:
+      v: 0.25
+      src: team
+- id: fish_cake
+  profile:
+    salty:
+      v: 0.45
+      src: team
+      note: commercial eomuk label sodium ~800 mg/100g; USDA lists only the unseasoned surimi base at 143 mg (fdc 173702)
+    sweet:
+      v: 0.3
+      src: team
+      note: added sugar ~5 g/100g
+    umami:
+      v: 0.5
+      src: team
+    chewy:
+      v: 0.6
+      src: team
+    rich:
+      v: 0.2
+      src: team
+      note: pan-fried cake carries some frying oil
+- id: white_fish
+  profile:
+    rich:
+      v: 0.03
+      src: usda
+      note: 'fat 0.67 g/100g (fdc 171955: Fish, cod, Atlantic, raw)'
+    salty:
+      v: 0.04
+      src: usda
+      note: 'sodium 54 mg/100g (fdc 171955: Fish, cod, Atlantic, raw)'
+    umami:
+      v: 0.4
+      src: literature
+      note: free amino acids and nucleotides in lean white fish
+    sweet:
+      v: 0.15
+      src: team
+      note: perceived sweetness from free amino acids, not sugar
+    chewy:
+      v: 0.2
+      src: team
+- id: wheat_noodles
+  profile:
+    chewy:
+      v: 0.7
+      src: team
+      note: alkaline (kansui) wheat noodle
+    salty:
+      v: 0.05
+      src: team
+      note: fresh noodle, low sodium unless the water is salted
+- id: mandarin_pancake
+  profile:
+    chewy:
+      v: 0.5
+      src: team
+    earthy:
+      v: 0.15
+      src: team
+    roasted:
+      v: 0.1
+      src: team
+      note: dry-griddled surface
+- id: rice
+  profile:
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 0 mg/100g (fdc 168882: Rice, white, short-grain, enriched, cooked)'
+    rich:
+      v: 0.01
+      src: usda
+      note: 'fat 0.19 g/100g (fdc 168882: Rice, white, short-grain, enriched, cooked)'
+    chewy:
+      v: 0.35
+      src: team
+      note: 'near-blank by design: plain rice is the carrier, hence potency 0.5'
+- id: rice_cake
+  profile:
+    chewy:
+      v: 0.9
+      src: team
+      note: glutinous rice cake (tteok); the defining texture
+    sweet:
+      v: 0.06
+      src: team
+      note: plain garaetteok is unsweetened
+- id: rice_paper
+  profile:
+    chewy:
+      v: 0.6
+      src: team
+      note: rehydrated sheet
+    salty:
+      v: 0.08
+      src: team
+      note: rice and tapioca sheet with a little salt
+- id: sweet_potato_noodles
+  profile:
+    chewy:
+      v: 0.85
+      src: team
+      note: sweet potato starch, springy and slippery
+    sweet:
+      v: 0.1
+      src: team
+- id: pizza_dough
+  profile:
+    chewy:
+      v: 0.6
+      src: team
+    salty:
+      v: 0.3
+      src: team
+      note: dough at ~2% salt on flour, so sodium ~450 mg/100g
+    roasted:
+      v: 0.2
+      src: team
+      note: crust Maillard once baked
+    earthy:
+      v: 0.15
+      src: team
+- id: peanuts
+  profile:
+    rich:
+      v: 0.86
+      src: usda
+      note: 'fat 49.7 g/100g (fdc 173806: Peanuts, all types, dry-roasted, without salt)'
+    sweet:
+      v: 0.34
+      src: usda
+      note: 'sugar 4.9 g/100g (fdc 173806: Peanuts, all types, dry-roasted, without salt)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 6 mg/100g (fdc 173806: Peanuts, all types, dry-roasted, without salt)'
+    roasted:
+      v: 0.6
+      src: team
+    earthy:
+      v: 0.45
+      src: team
+    crispy:
+      v: 0.5
+      src: team
+- id: walnuts
+  profile:
+    rich:
+      v: 0.93
+      src: usda
+      note: 'fat 65.2 g/100g (fdc 170187: Nuts, walnuts, english)'
+    sweet:
+      v: 0.2
+      src: usda
+      note: 'sugar 2.61 g/100g (fdc 170187: Nuts, walnuts, english)'
+    salty:
+      v: 0.0
+      src: usda
+      note: 'sodium 2 mg/100g (fdc 170187: Nuts, walnuts, english)'
+    bitter:
+      v: 0.3
+      src: literature
+      note: tannins in the pellicle
+    earthy:
+      v: 0.5
+      src: team
+    crispy:
+      v: 0.45
+      src: team
