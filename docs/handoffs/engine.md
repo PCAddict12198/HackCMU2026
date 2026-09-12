@@ -12,6 +12,15 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H11 · rater panel (answers data's 11:58 REQUEST) · READY
+- what: report section is now "Rater panel vs model": one rho per rater key tagged human/AI, a separate
+  human-panel line, and an explicit "human panel: none, any rho is an AI baseline, NOT human validation"
+  when only AI keys exist (claude, grok, gpt, gemini, llm, ai, ai_*). `tastespace.tune` chooses weights
+  from HUMAN raters only; AI rho is a reference column. With only `claude` ratings, weights stay neutral
+- for: data
+- action: none needed; if a human panel happens, add rater keys like p1/p2/p3 to the same file
+- also new: "Demo candidates" section lists the strongest cross-region twins (engine output) for H16
+
 ## H10 · Ask on the real 70-dish space · READY
 - what: live grok-4.6 on real data: every reply grounded. The dish catalog is now in the system prompt, so
   most questions skip search_dishes (~5.5 s instead of ~7 s; a vague "curry" still searches, ~10 s).

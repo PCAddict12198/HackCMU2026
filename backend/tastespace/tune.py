@@ -17,7 +17,7 @@ from tastespace_contracts.validate import Dataset, load_dataset
 from .build import build_state
 from .config import get_settings
 from .engine.twins import find_twins
-from .report import pair_pct, sanity_results, spearman
+from .report import rater_panel, sanity_results
 
 MIN_RATED = 10
 GROUPS = ("taste", "aroma", "mouthfeel")
@@ -38,16 +38,12 @@ SCHEMES: dict[str, dict[str, float]] = {
 
 def evaluate(ds: Dataset, weights: dict[str, float]) -> dict:
     state = build_state(ds, weights=weights)
-    xs, ys = [], []
-    for p in (ds.ratings.pairs if ds.ratings else []):
-        pct = pair_pct(state, p.a, p.b)
-        if pct is not None and p.ratings:
-            xs.append(pct)
-            ys.append(sum(p.ratings.values()) / len(p.ratings))
+    panel = rater_panel(state, ds)
     s = sanity_results(state, ds)
     return {
-        "n_rated": len(xs),
-        "spearman": spearman(xs, ys) if len(xs) >= 3 else float("nan"),
+        "n_rated": panel["human"][0],  # only HUMAN raters can choose weights
+        "spearman": panel["human"][1],
+        "ai_rho": panel["ai"][1],  # reference only
         "sanity_pos": f"{sum(r['pass'] for r in s['positive'])}/{len(s['positive'])}",
         "sanity_neg": f"{sum(r['pass'] for r in s['negative'])}/{len(s['negative'])}",
         "strict_twins": sum(1 for d in state.model.ids if find_twins(state, d, 3).relaxation_level == 0),
@@ -60,13 +56,15 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
     ds = load_dataset(args.data_dir, "core")
     rows = {name: evaluate(ds, w) for name, w in SCHEMES.items()}
-    print(f"{'scheme':<16}{'rated':>6}{'spearman':>10}{'sanity+':>9}{'sanity-':>9}{'strict twins':>14}")
+    fmt = lambda x: "-" if math.isnan(x) else f"{x:.2f}"  # noqa: E731
+    print(f"{'scheme':<16}{'human':>6}{'human rho':>11}{'AI rho*':>9}{'sanity+':>9}{'sanity-':>9}{'strict twins':>14}")
     for name, r in rows.items():
-        rho = "-" if math.isnan(r["spearman"]) else f"{r['spearman']:.2f}"
-        print(f"{name:<16}{r['n_rated']:>6}{rho:>10}{r['sanity_pos']:>9}{r['sanity_neg']:>9}{r['strict_twins']:>14}")
+        print(f"{name:<16}{r['n_rated']:>6}{fmt(r['spearman']):>11}{fmt(r['ai_rho']):>9}{r['sanity_pos']:>9}"
+              f"{r['sanity_neg']:>9}{r['strict_twins']:>14}")
+    print("* AI-rater baseline: reference only, never used to choose weights.")
     rated = max(r["n_rated"] for r in rows.values())
     if rated < MIN_RATED:
-        print(f"\nOnly {rated} rated pairs (need >= {MIN_RATED}). Keep 'neutral' until the H15 rating study is in.")
+        print(f"\nOnly {rated} HUMAN-rated pairs (need >= {MIN_RATED}). Keep 'neutral'.")
     else:
         best = max(rows, key=lambda n: -math.inf if math.isnan(rows[n]["spearman"]) else rows[n]["spearman"])
         print(f"\nBest by human ratings: {best}. Sanity columns are informational only.")
