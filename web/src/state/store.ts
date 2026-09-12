@@ -12,6 +12,7 @@ interface Store extends UiSlice {
   focus: Vec3 | null;
   homeTick: number;
   chat: ChatMessage[];
+  placeRecipeTick: number;
   load(): Promise<void>;
   select(id: string | null): void;
   setPanel(p: Panel): void;
@@ -25,6 +26,7 @@ interface Store extends UiSlice {
   focusDish(id: string): void;
   setRecipeStar(r: RecipeResponse | null): void;
   resetView(): void;
+  bumpPlaceRecipe(): void;
   pushChat(m: ChatMessage): void;
   applyUiActions(actions: UiAction[]): void;
 }
@@ -51,6 +53,7 @@ export const useStore = create<Store>()((set, get) => ({
   focus: null,
   homeTick: 0,
   chat: [],
+  placeRecipeTick: 0,
 
   async load() {
     const [space, health] = await Promise.allSettled([api.space(), api.health()]);
@@ -94,6 +97,7 @@ export const useStore = create<Store>()((set, get) => ({
       highlightIds: recipeStar?.neighbors.map((n) => n.dish_id) ?? [],
     }),
   resetView: () => set((s) => ({ homeTick: s.homeTick + 1, focus: null })),
+  bumpPlaceRecipe: () => set((s) => ({ panel: "recipe", placeRecipeTick: s.placeRecipeTick + 1 })),
   pushChat: (m) => set((s) => ({ chat: [...s.chat, m] })),
   applyUiActions(actions) {
     const known = new Set(get().space?.dishes.map((d) => d.id) ?? []);
