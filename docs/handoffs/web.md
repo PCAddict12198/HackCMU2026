@@ -3,14 +3,19 @@
 ## Panel readiness (placeholder = wired to contract, baseline = usable, demo = polished)
 | feature | status | notes |
 |---|---|---|
-| galaxy | placeholder | spheres + click + target marker |
-| twins | placeholder | list + "Why?" |
-| shift | placeholder | 6 sliders, debounced |
-| explain | placeholder | table + top attributions |
-| recipe | placeholder | textarea + coverage |
-| ask | placeholder | chat + uiActions reducer |
+| galaxy | demo | instanced stars, fly-to, PCA axes, cuisine legend, recipe star, shift glide |
+| twins | demo | radar, fly-to twin, closer-than-N% copy, Why? |
+| shift | demo | 6 sliders, HOW formula, moved bits, L/S/M presets, target trail |
+| explain | demo | radar, attribution bars, provenance chips |
+| recipe | demo | coverage + line status colors, format/course, glowing star |
+| ask | demo | tool trace, grounded badge, suggestion chips, retry; hidden if grok off |
 
 ## Log
+## 10:20 · agent/web · READY
+- what: mock-mode UI through H8 TODOs (galaxy + all panels + demo keys 0/1–6/L/S/M)
+- for: integrator
+- action: merge at h8; web still uses fixtures until `make dev`
+
 ## H0 · scaffold · READY
 - what: mock + real API clients, store, uiActions reducer, six panel placeholders
 - for: web

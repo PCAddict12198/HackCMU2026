@@ -27,3 +27,9 @@ export type DimId = DimMeta["id"];
 export type Panel = NonNullable<S["AskContext"]["active_panel"]>;
 export type Vec3 = DishPoint["xyz"];
 export type Deltas = Partial<Record<DimId, number>>;
+export type Course = DishPoint["course"];
+export type DishFormat = DishPoint["format"];
+export type ProvenanceSrc = Contribution["src"];
+export type ToolTrace = AskResponse["tool_trace"][number];
+
+export const asTriple = (v: Vec3): [number, number, number] => [v[0], v[1], v[2]];
