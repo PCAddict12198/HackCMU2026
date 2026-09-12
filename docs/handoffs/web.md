@@ -11,7 +11,7 @@
 | ask | demo | tool trace, grounded badge, suggestion chips, retry; hidden if grok off |
 
 ## Log
-## 10:20 · agent/web · READY
+## 10:20 · c5c7026 · READY
 - what: mock-mode UI through H8 TODOs (galaxy + all panels + demo keys 0/1–6/L/S/M)
 - for: integrator
 - action: merge at h8; web still uses fixtures until `make dev`
