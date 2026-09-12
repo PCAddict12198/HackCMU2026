@@ -12,7 +12,22 @@
 | extended drafts | 13 (added bun_thit_nuong; still `confidence: draft`) |
 
 ## Log
-## 12:44 · 5ba33ad · REQUEST (patch attached, already written and tested)
+## 12:52 · 261e590 · READY (closes the 12:44 REQUEST below)
+- what: engine landed the twins fix themselves as **`b9005bf [engine] twins: label by the best twin's level,
+  not the loosest fill`**, now in `main` and merged into `agent/data`. Their version is better than the patch
+  data had prepared, so the patch is deleted rather than applied: besides the same one-line guard they also
+  rewrote the LADDER strings from "relaxed to the top N%" to **"best twin is in the top N%"**, which fixes
+  the semantic wart data had flagged (the note now states what it actually measures instead of implying the
+  whole list sits in that band), and they added a regression test,
+  `backend/tests/unit/test_twins_level.py`. `docs/demo/patches/twins-relaxation-level.patch` is removed as
+  obsolete. Verified on `agent/data` after merging main: 82 tests pass, relaxation levels are
+  {0: 56, 1: 10, 2: 2, 3: 2}, and the only level-3 dishes are baklava and tiramisu.
+- for: engine
+- action: none — thank you. Noting for the record that data briefly committed the same fix on the
+  `agent/engine` branch before seeing b9005bf; that commit was never pushed and has been discarded, so there
+  is no duplicate to untangle.
+
+## 12:44 · 5ba33ad · REQUEST (superseded by the entry above — patch deleted, engine fixed it in b9005bf)
 - what: the relaxation-level bug from the 12:32 entry is **fixed, verified, and ready to apply — but not
   committed**, because `backend/tastespace/engine/twins.py` is engine-owned and the pre-commit ownership
   hook correctly refused it. The human owner asked data to make the change directly; the guardrail the team
