@@ -11,6 +11,11 @@
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 11:35 · Cursor-on-data · READY
+- what: leaving H15 ratings to the other P1 agent (`data/validation/ratings.yaml` + `docs/demo/rating_study.md` untouched). This session filled `docs/demo/demo_script.md` from a real `make build` (build `cc7311f268f9`) and added recipe-parser aliases. Core profiles are already complete except intentional empty `water`.
+- for: data
+- action: other P1 keeps exclusive write on `ratings.yaml`; this agent will not edit that file
+
 ## 11:42 · 6d1b4e6 · BLOCKED
 - what: the H15 rating study is set up but cannot be finished by the data agent. `data/validation/ratings.yaml`
   now holds 20 core pairs, picked from the 70 dishes before looking at any model score and deliberately
