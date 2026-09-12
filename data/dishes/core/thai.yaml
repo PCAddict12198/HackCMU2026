@@ -1,7 +1,7 @@
 # OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: tom_yum_goong
-    name: Tom yum goong
+    name: Tom Yum Goong
     cuisine: thai
     course: savory
     format: soup
@@ -21,7 +21,7 @@ dishes:
       - {ing: mushroom, g: 80}
       - {ing: cilantro, g: 5}
   - id: mango_sticky_rice
-    name: Mango sticky rice
+    name: Mango Sticky Rice
     cuisine: thai
     course: dessert
     format: rice_dish
@@ -36,7 +36,7 @@ dishes:
       - {ing: salt, g: 2}
       - {ing: mango, g: 150}
   - id: green_curry
-    name: Green curry
+    name: Green Curry
     cuisine: thai
     course: savory
     format: stew_braise
@@ -55,7 +55,7 @@ dishes:
       - {ing: thai_basil, g: 10}
       - {ing: chili_hot, g: 5}
   - id: pad_thai
-    name: Pad thai
+    name: Pad Thai
     cuisine: thai
     course: savory
     format: noodles
@@ -77,7 +77,7 @@ dishes:
       - {ing: lime_juice, g: 15}
       - {ing: scallion, g: 10}
   - id: som_tam
-    name: Som tam
+    name: Som Tam
     cuisine: thai
     course: savory
     format: raw_salad
@@ -115,7 +115,7 @@ dishes:
       - {ing: onion, g: 30}
       - {ing: scallion, g: 10}
   - id: massaman_curry
-    name: Massaman curry
+    name: Massaman Curry
     cuisine: thai
     course: savory
     format: stew_braise

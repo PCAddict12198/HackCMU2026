@@ -1,7 +1,7 @@
 # OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: mapo_tofu
-    name: Mapo tofu
+    name: Mapo Tofu
     cuisine: chinese
     course: savory
     format: stew_braise
@@ -22,7 +22,7 @@ dishes:
       - {ing: soy_sauce, g: 10}
       - {ing: neutral_oil, g: 20}
   - id: kung_pao_chicken
-    name: Kung pao chicken
+    name: Kung Pao Chicken
     cuisine: chinese
     course: savory
     format: fried
@@ -43,7 +43,7 @@ dishes:
       - {ing: scallion, g: 20}
       - {ing: neutral_oil, g: 20}
   - id: char_siu
-    name: Char siu
+    name: Char Siu
     cuisine: chinese
     course: savory
     format: grilled_roasted
@@ -60,7 +60,7 @@ dishes:
       - {ing: garlic, g: 8}
       - {ing: sesame_oil, g: 5}
   - id: hot_and_sour_soup
-    name: Hot and sour soup
+    name: Hot And Sour Soup
     cuisine: chinese
     course: savory
     format: soup
@@ -79,7 +79,7 @@ dishes:
       - {ing: white_pepper, g: 2}
       - {ing: chili_flakes, g: 3}
   - id: dan_dan_noodles
-    name: Dan dan noodles
+    name: Dan Dan Noodles
     cuisine: chinese
     course: savory
     format: noodles
@@ -98,7 +98,7 @@ dishes:
       - {ing: scallion, g: 10}
       - {ing: sesame_oil, g: 8}
   - id: peking_duck
-    name: Peking duck
+    name: Peking Duck
     cuisine: chinese
     course: savory
     format: grilled_roasted
@@ -114,7 +114,7 @@ dishes:
       - {ing: hoisin, g: 20}
       - {ing: five_spice, g: 2}
   - id: egg_tart
-    name: Egg tart
+    name: Egg Tart
     cuisine: chinese
     course: dessert
     format: baked_sweet

@@ -1,7 +1,7 @@
 # OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: french_onion_soup
-    name: French onion soup
+    name: French Onion Soup
     cuisine: french
     course: savory
     format: soup
@@ -17,7 +17,7 @@ dishes:
       - {ing: gruyere, g: 80, process: [roasted]}
       - {ing: thyme, g: 2}
   - id: creme_brulee
-    name: Creme brulee
+    name: Creme Brulee
     cuisine: french
     course: dessert
     format: custard_creamy
@@ -32,7 +32,7 @@ dishes:
       - {ing: sugar, g: 15, process: [caramelized], note: the brulee crust}
       - {ing: vanilla, g: 3}
   - id: beef_bourguignon
-    name: Beef bourguignon
+    name: Beef Bourguignon
     cuisine: french
     course: savory
     format: stew_braise
@@ -53,7 +53,7 @@ dishes:
       - {ing: butter, g: 15}
       - {ing: wheat_flour, g: 10}
   - id: coq_au_vin
-    name: Coq au vin
+    name: Coq Au Vin
     cuisine: french
     course: savory
     format: stew_braise
@@ -116,7 +116,7 @@ dishes:
       - {ing: orange_juice, g: 10, note: "strip of orange peel approximated as juice"}
       - {ing: baguette, g: 40, process: [toasted]}
   - id: croque_monsieur
-    name: Croque monsieur
+    name: Croque Monsieur
     cuisine: french
     course: savory
     format: bread_sandwich

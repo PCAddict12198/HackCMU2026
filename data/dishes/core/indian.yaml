@@ -1,7 +1,7 @@
 # OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: chana_masala
-    name: Chana masala
+    name: Chana Masala
     cuisine: indian
     course: savory
     format: stew_braise
@@ -22,7 +22,7 @@ dishes:
       - {ing: cilantro, g: 5}
       - {ing: salt, g: 4}
   - id: butter_chicken
-    name: Butter chicken
+    name: Butter Chicken
     cuisine: indian
     course: savory
     format: stew_braise
@@ -44,7 +44,7 @@ dishes:
       - {ing: chili_mild, g: 4}
       - {ing: salt, g: 3}
   - id: palak_paneer
-    name: Palak paneer
+    name: Palak Paneer
     cuisine: indian
     course: savory
     format: stew_braise
@@ -65,7 +65,7 @@ dishes:
       - {ing: butter, g: 15}
       - {ing: salt, g: 3}
   - id: lamb_rogan_josh
-    name: Lamb rogan josh
+    name: Lamb Rogan Josh
     cuisine: indian
     course: savory
     format: stew_braise
@@ -87,7 +87,7 @@ dishes:
       - {ing: neutral_oil, g: 20}
       - {ing: salt, g: 4}
   - id: masala_dosa
-    name: Masala dosa
+    name: Masala Dosa
     cuisine: indian
     course: savory
     format: fried
@@ -107,7 +107,7 @@ dishes:
       - {ing: neutral_oil, g: 10, process: [fried]}
       - {ing: salt, g: 3}
   - id: chicken_biryani
-    name: Chicken biryani
+    name: Chicken Biryani
     cuisine: indian
     course: savory
     format: rice_dish
@@ -131,7 +131,7 @@ dishes:
       - {ing: butter, g: 15}
       - {ing: salt, g: 4}
   - id: gulab_jamun
-    name: Gulab jamun
+    name: Gulab Jamun
     cuisine: indian
     course: dessert
     format: fried

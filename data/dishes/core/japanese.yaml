@@ -2,7 +2,7 @@
 # ingredients/grams checked against a canonical recipe, recipe_basis names the serving basis.
 dishes:
   - id: tonkotsu_ramen
-    name: Tonkotsu ramen
+    name: Tonkotsu Ramen
     cuisine: japanese
     course: savory
     format: soup
@@ -20,7 +20,7 @@ dishes:
       - {ing: garlic, g: 5, process: [fried]}
       - {ing: sesame_oil, g: 5}
   - id: chicken_katsu
-    name: Chicken katsu
+    name: Chicken Katsu
     cuisine: japanese
     course: savory
     format: fried
@@ -38,7 +38,7 @@ dishes:
       - {ing: soy_sauce, g: 10}
       - {ing: sugar, g: 3}
   - id: shoyu_ramen
-    name: Shoyu ramen
+    name: Shoyu Ramen
     cuisine: japanese
     course: savory
     format: soup
@@ -57,7 +57,7 @@ dishes:
       - {ing: nori, g: 3, process: [toasted]}
       - {ing: garlic, g: 4}
   - id: miso_soup
-    name: Miso soup
+    name: Miso Soup
     cuisine: japanese
     course: savory
     format: soup
@@ -72,7 +72,7 @@ dishes:
       - {ing: wakame, g: 8}
       - {ing: scallion, g: 8}
   - id: teriyaki_salmon
-    name: Teriyaki salmon
+    name: Teriyaki Salmon
     cuisine: japanese
     course: savory
     format: grilled_roasted
@@ -108,7 +108,7 @@ dishes:
       - {ing: mayonnaise, g: 15}
       - {ing: neutral_oil, g: 10, process: [fried]}
   - id: matcha_ice_cream
-    name: Matcha ice cream
+    name: Matcha Ice Cream
     cuisine: japanese
     course: dessert
     format: frozen

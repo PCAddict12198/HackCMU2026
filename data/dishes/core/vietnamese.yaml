@@ -1,7 +1,7 @@
 # OWNER: data (P1). See japanese.yaml for the format. All dishes here are confidence: reviewed.
 dishes:
   - id: pho_bo
-    name: Pho bo
+    name: Pho Bo
     cuisine: vietnamese
     course: savory
     format: soup
@@ -23,7 +23,7 @@ dishes:
       - {ing: lime_juice, g: 10}
       - {ing: bean_sprouts, g: 40}
   - id: bun_cha
-    name: Bun cha
+    name: Bun Cha
     cuisine: vietnamese
     course: savory
     format: grilled_roasted
@@ -44,7 +44,7 @@ dishes:
       - {ing: mint, g: 8}
       - {ing: cilantro, g: 8}
   - id: banh_mi
-    name: Banh mi
+    name: Banh Mi
     cuisine: vietnamese
     course: savory
     format: bread_sandwich
@@ -63,7 +63,7 @@ dishes:
       - {ing: chili_mild, g: 5}
       - {ing: soy_sauce, g: 5}
   - id: goi_cuon
-    name: Goi cuon
+    name: Goi Cuon
     cuisine: vietnamese
     course: savory
     format: dumpling
@@ -82,7 +82,7 @@ dishes:
       - {ing: peanuts, g: 15}
       - {ing: hoisin, g: 15}
   - id: bun_bo_hue
-    name: Bun bo Hue
+    name: Bun Bo Hue
     cuisine: vietnamese
     course: savory
     format: soup
@@ -102,7 +102,7 @@ dishes:
       - {ing: scallion, g: 10}
       - {ing: lime_juice, g: 10}
   - id: ca_kho_to
-    name: Ca kho to
+    name: Ca Kho To
     cuisine: vietnamese
     course: savory
     format: stew_braise
@@ -120,7 +120,7 @@ dishes:
       - {ing: coconut_water, g: 80}
       - {ing: scallion, g: 8}
   - id: che_ba_mau
-    name: Che ba mau
+    name: Che Ba Mau
     cuisine: vietnamese
     course: dessert
     format: custard_creamy

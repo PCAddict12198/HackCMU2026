@@ -35,7 +35,7 @@ dishes:
       - {ing: scallion, g: 20, process: [grilled]}
       - {ing: sesame_oil, g: 3}
   - id: fried_rice
-    name: Fried rice
+    name: Fried Rice
     cuisine: chinese
     course: savory
     format: rice_dish
@@ -53,7 +53,7 @@ dishes:
       - {ing: sesame_oil, g: 8}
       - {ing: shrimp, g: 40, process: [fried]}
   - id: wonton_soup
-    name: Wonton soup
+    name: Wonton Soup
     cuisine: chinese
     course: savory
     format: soup
@@ -70,7 +70,7 @@ dishes:
       - {ing: soy_sauce, g: 10}
       - {ing: sesame_oil, g: 4}
   - id: sundubu_jjigae
-    name: Sundubu jjigae
+    name: Sundubu Jjigae
     cuisine: korean
     course: savory
     format: stew_braise
@@ -88,7 +88,7 @@ dishes:
       - {ing: garlic, g: 8}
       - {ing: scallion, g: 10}
   - id: pad_krapow
-    name: Pad krapow
+    name: Pad Krapow
     cuisine: thai
     course: savory
     format: fried
@@ -107,7 +107,7 @@ dishes:
       - {ing: rice, g: 200, process: [steamed]}
       - {ing: egg, g: 50, process: [fried]}
   - id: saag_aloo
-    name: Saag aloo
+    name: Saag Aloo
     cuisine: indian
     course: savory
     format: stew_braise
@@ -127,7 +127,7 @@ dishes:
       - {ing: butter, g: 15}
       - {ing: salt, g: 3}
   - id: baba_ganoush
-    name: Baba ganoush
+    name: Baba Ganoush
     cuisine: levantine
     course: savory
     format: raw_salad
@@ -144,7 +144,7 @@ dishes:
       - {ing: salt, g: 3}
       - {ing: cumin, g: 2}
   - id: panna_cotta
-    name: Panna cotta
+    name: Panna Cotta
     cuisine: italian
     course: dessert
     format: custard_creamy
@@ -207,7 +207,7 @@ dishes:
       - {ing: sugar, g: 40, process: [caramelized]}
       - {ing: vanilla, g: 3}
   - id: bun_thit_nuong
-    name: Bun thit nuong
+    name: Bun Thit Nuong
     cuisine: vietnamese
     course: savory
     format: noodles
@@ -245,7 +245,7 @@ dishes:
       - {ing: cocoa_powder, g: 4}
       - {ing: vanilla, g: 1}
   - id: opera_cake
-    name: Opera cake
+    name: Opera Cake
     cuisine: french
     course: dessert
     format: baked_sweet
