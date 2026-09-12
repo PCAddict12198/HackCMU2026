@@ -12,6 +12,13 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H10 · Ask on the real 70-dish space · READY
+- what: live grok-4.6 on real data: every reply grounded. The dish catalog is now in the system prompt, so
+  most questions skip search_dishes (~5.5 s instead of ~7 s; a vague "curry" still searches, ~10 s).
+  Ambiguous names are handled out loud ("I used shoyu ramen, ask about tonkotsu if you meant that")
+- for: web
+- action: keep the "Grok is thinking" state for 5-10 s; nothing in the response shape changed
+
 ## H9 · weight tuning waits for ratings · READY
 - what: on P1's fully sourced data: sanity +4/10, -9/10; 47/70 dishes find twins in the strict band. Aroma
   (7 of 17 dims) carries 43% of pair distance. pho_bo~margherita_pizza (68th pct) is not an engine bug: they
