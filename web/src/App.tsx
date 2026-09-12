@@ -5,6 +5,7 @@ import { AskPanel } from "./features/ask/AskPanel";
 import { ExplainPanel } from "./features/explain/ExplainPanel";
 import { CuisineLegend, Galaxy } from "./features/galaxy/Galaxy";
 import { RecipePanel } from "./features/recipe/RecipePanel";
+import { DishPhoto } from "./features/shared/DishPhoto";
 import { DEMO_SOURCE_ID, explainPairForDemo, partnerId } from "./features/shared/demo";
 import { ErrorState } from "./features/shared/Status";
 import { ShiftPanel } from "./features/shift/ShiftPanel";
@@ -159,9 +160,12 @@ export default function App() {
           <CuisineLegend />
           {selected && (
             <div className="dish-card">
-              <strong>{selected.name}</strong>
-              <span className="cuisine">{selected.cuisine}</span>
-              <div className="small muted">{selected.blurb}</div>
+              <DishPhoto id={selected.id} name={selected.name} />
+              <div className="dish-card-body">
+                <strong>{selected.name}</strong>
+                <span className="cuisine">{selected.cuisine}</span>
+                <div className="small muted">{selected.blurb}</div>
+              </div>
             </div>
           )}
         </section>

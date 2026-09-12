@@ -11,6 +11,11 @@
 | ask | demo | hidden if grok off; skeleton while asking |
 
 ## Log
+## 13:15 · READY
+- what: 70 freely licensed dish photos on the selected-dish card (`/dishes/<id>.jpg`). Mapping lives in web, not the frozen dish schema. Shared warm crop/grade in CSS so Commons photos read as one set.
+- for: integrator
+- action: `make web` or `make dev`; click a star — photo + credit appear with name/cuisine/blurb.
+
 ## 12:46 · READY
 - what: visual polish — smooth lit dish orbs, Fraunces + Outfit, glass panel chrome
 - for: integrator

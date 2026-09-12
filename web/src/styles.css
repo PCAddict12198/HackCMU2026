@@ -87,13 +87,55 @@ main { flex: 1; display: grid; grid-template-columns: 1fr minmax(340px, 420px); 
   position: absolute;
   left: 20px;
   bottom: 20px;
-  max-width: 380px;
-  background: rgba(14, 12, 18, 0.72);
+  width: min(340px, calc(100% - 40px));
+  background: rgba(14, 12, 18, 0.78);
   border: 1px solid var(--line-strong);
-  padding: 14px 16px 13px;
+  padding: 0;
   border-radius: 16px;
   backdrop-filter: blur(16px);
   box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.dish-photo {
+  margin: 0;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #1a1612;
+}
+.dish-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  filter: saturate(0.8) sepia(0.22) contrast(1.08) brightness(0.9);
+}
+.dish-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 8, 14, 0.05) 30%, rgba(10, 8, 14, 0.55) 100%);
+  pointer-events: none;
+}
+.dish-photo figcaption {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 7px;
+  z-index: 1;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: rgba(244, 239, 230, 0.72);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dish-photo figcaption a {
+  color: inherit;
+  text-decoration: none;
+}
+.dish-card-body {
+  padding: 12px 14px 13px;
 }
 .dish-card strong {
   font-family: var(--serif);
