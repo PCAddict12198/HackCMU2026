@@ -18,11 +18,13 @@ export function ShiftPanel() {
     useStore();
   const [error, setError] = useState<unknown>(null);
   const [tick, setTick] = useState(0);
+  const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     if (!selectedId) return;
     let live = true;
     const t = setTimeout(() => {
+      setBusy(true);
       api
         .shift({ dish_id: selectedId, deltas: shiftDeltas, k: 5 })
         .then((r) => {
@@ -31,7 +33,8 @@ export function ShiftPanel() {
           setHighlights(r.results.map((x) => x.dish_id));
           setError(null);
         })
-        .catch((e) => live && setError(e));
+        .catch((e) => live && setError(e))
+        .finally(() => live && setBusy(false));
     }, 120);
     return () => {
       live = false;
@@ -76,8 +79,9 @@ export function ShiftPanel() {
         ))}
       </div>
       {error != null && <ErrorState error={error} onRetry={() => setTick((n) => n + 1)} />}
-      {!error && !shiftResult && <Loading label="Shifting through flavor space..." />}
-      {shiftResult && (
+      {busy && !shiftResult && error == null && <Loading label="Shifting through flavor space..." />}
+      {busy && shiftResult && error == null && <p className="muted small">Updating neighbors…</p>}
+      {error == null && shiftResult && (
         <>
           {shiftResult.relaxation_level > 0 && <p className="muted small relax">{shiftResult.relaxation_note}</p>}
           <ol>

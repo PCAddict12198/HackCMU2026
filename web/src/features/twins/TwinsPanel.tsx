@@ -17,12 +17,13 @@ export function TwinsPanel() {
   const [data, setData] = useState<TwinsResponse | null>(null);
   const [error, setError] = useState<unknown>(null);
   const [tick, setTick] = useState(0);
+  const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     if (!selectedId) return;
     let live = true;
     setError(null);
-    setData(null);
+    setBusy(true);
     api
       .twins(selectedId, 3)
       .then((r) => {
@@ -30,7 +31,8 @@ export function TwinsPanel() {
         setData(r);
         setHighlights(r.twins.map((t) => t.dish_id));
       })
-      .catch((e) => live && setError(e));
+      .catch((e) => live && setError(e))
+      .finally(() => live && setBusy(false));
     return () => {
       live = false;
     };
@@ -46,12 +48,14 @@ export function TwinsPanel() {
   }, [source, twinDish, space]);
 
   if (!selectedId) return <p className="muted">Click a star to find its flavor twins.</p>;
-  if (error) return <ErrorState error={error} onRetry={() => setTick((n) => n + 1)} />;
-  if (!data) return <Loading label="Searching flavor twins..." />;
-
   return (
     <div>
-      <h3>Flavor twins of {name(data.source_id)}</h3>
+      <h3>Flavor twins{data ? ` of ${name(data.source_id)}` : selectedId ? ` of ${name(selectedId)}` : ""}</h3>
+      {error != null && <ErrorState error={error} onRetry={() => setTick((n) => n + 1)} />}
+      {busy && !data && <Loading label="Searching flavor twins..." />}
+      {busy && data && <p className="muted small">Updating twins…</p>}
+      {data && error == null && (
+        <>
       {data.relaxation_level > 0 && <p className="muted small relax">{data.relaxation_note}</p>}
       {source && twinDish && axes.length > 0 && (
         <Radar
@@ -88,6 +92,8 @@ export function TwinsPanel() {
           </div>
         </div>
       ))}
+        </>
+      )}
     </div>
   );
 }
