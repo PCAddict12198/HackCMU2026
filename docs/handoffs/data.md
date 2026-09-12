@@ -10,6 +10,11 @@
 | sanity set | frozen (`sanity-lock`); data agent does not edit `data/sanity/**` |
 
 ## Log
+## 10:55 · 5f1a383 · REQUEST
+- what: USDA_API_KEY and XAI_API_KEY are unset locally; H3-5 fill/draft scripts cannot run
+- for: integrator
+- action: put keys in `.env` (not committed) so P1 can run `usda_fill.py --all` and `grok_draft_ingredients.py`
+
 ## 10:50 · agent/data · READY
 - what: remaining 26 skeletons (indian, levantine, italian, french, mexican) — full 70-dish core present
 - for: engine
