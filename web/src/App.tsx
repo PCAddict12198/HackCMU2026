@@ -158,10 +158,10 @@ export default function App() {
     [space, searchQ],
   );
 
-  const openAsk = (seed?: string) => {
+  const openAsk = (seed?: string, stayOnPage = false) => {
     if (seed) setAskSeed(seed);
     setAskOpen(true);
-    setRoute("map");
+    if (!stayOnPage) setRoute("map");
   };
 
   return (
@@ -272,7 +272,7 @@ export default function App() {
         </div>
       )}
       {route === "discover" && (
-        <Discover onExplore={() => setRoute("map")} onAsk={(text) => openAsk(text)} />
+        <Discover onExplore={() => setRoute("map")} onAsk={(text) => openAsk(text, true)} />
       )}
       <div className="page" hidden={route !== "recipe"}>
         <RecipePanel />
@@ -350,7 +350,7 @@ export default function App() {
             <AskPanel
               seed={askSeed}
               onConsumedSeed={() => setAskSeed(null)}
-              onUsedEngine={() => setRoute("map")}
+              onUsedEngine={() => setRoute((r) => (r === "discover" ? r : "map"))}
             />
           </div>
         </>

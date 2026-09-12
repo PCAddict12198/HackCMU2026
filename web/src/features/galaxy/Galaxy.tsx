@@ -6,7 +6,7 @@ import type { DishPoint, RecipeResponse, Vec3 } from "../../contract";
 import { asTriple } from "../../contract";
 import { useDish, useStore } from "../../state/store";
 import { cuisineColor } from "./colors";
-import { topLabels } from "../dish/sensory";
+import { matchDishes, topLabels } from "../dish/sensory";
 
 const LIME = "#D8F25A";
 const TERRACOTTA = "#C45C3E";
@@ -451,7 +451,7 @@ export function MapFilters({
   onPick: (id: string) => void;
 }) {
   const space = useStore((s) => s.space);
-  const hits = space && query.trim() ? space.dishes.filter((d) => d.name.toLowerCase().includes(query.toLowerCase())).slice(0, 6) : [];
+  const hits = space && query.trim() ? matchDishes(query, space.dishes, 8) : [];
   return (
     <div className="map-filters">
       <input
@@ -462,10 +462,18 @@ export function MapFilters({
         aria-label="Find a dish"
       />
       {hits.length > 0 && (
-        <div className="filter-row">
+        <div className="find-hits">
           {hits.map((d) => (
-            <button key={d.id} type="button" onClick={() => onPick(d.id)}>
-              {d.name}
+            <button
+              key={d.id}
+              type="button"
+              className="search-hit"
+              onClick={() => onPick(d.id)}
+            >
+              <span>
+                <strong>{d.name}</strong>
+                <span className="muted small"> · {d.cuisine}</span>
+              </span>
             </button>
           ))}
         </div>

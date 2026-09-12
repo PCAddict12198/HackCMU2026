@@ -66,7 +66,12 @@ export function Discover({
 
   const submitCraving = () => {
     const text = q.trim();
-    if (!text || !space) return;
+    if (!text) return;
+    if (health?.grok_configured) {
+      onAsk(text);
+      return;
+    }
+    if (!space) return;
     const hits = matchDishes(text, space.dishes, 1);
     const lower = text.toLowerCase();
     if (hits[0]) {
@@ -74,10 +79,6 @@ export function Discover({
       if (/light/.test(lower)) setShiftDeltas({ rich: -0.8, sour: 1.2 });
       else if (/spic/.test(lower)) setShiftDeltas({ spicy: 1.4 });
       else if (/smok/.test(lower)) setShiftDeltas({ smoky: 1.2, roasted: 0.6 });
-      return;
-    }
-    if (health?.grok_configured) {
-      onAsk(text);
       return;
     }
     const craving = CRAVINGS.find((c) => lower.includes(c.label.toLowerCase()) || lower.includes(c.dim));

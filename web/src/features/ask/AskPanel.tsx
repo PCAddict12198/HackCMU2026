@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { api, ApiError } from "../../api/client";
 import type { AskResponse } from "../../contract";
 import { useDish, useStore } from "../../state/store";
 import { formatToolCall, formatToolStory } from "../shared/copy";
+import { AskReply } from "./AskReply";
 import { ErrorState, Loading } from "../shared/Status";
 
 export function AskPanel({
@@ -22,17 +23,12 @@ export function AskPanel({
   const [busy, setBusy] = useState(false);
   const [showTrace, setShowTrace] = useState(false);
 
-  useEffect(() => {
-    if (seed) {
-      setInput(seed);
-      onConsumedSeed?.();
-    }
-  }, [seed, onConsumedSeed]);
-
   const suggestions = useMemo(() => {
     const n = selected?.name ?? "this dish";
     return [`like pho bo but spicier`, `I love ${n} but want something lighter`, `flavor twin of ${n}`];
   }, [selected?.name]);
+
+  const lastSeedSent = useRef("");
 
   const send = async (text = input) => {
     if (!text.trim()) return;
@@ -54,6 +50,21 @@ export function AskPanel({
     }
   };
 
+  useEffect(() => {
+    if (!seed?.trim()) return;
+    const text = seed.trim();
+    if (lastSeedSent.current === text) {
+      onConsumedSeed?.();
+      return;
+    }
+    lastSeedSent.current = text;
+    setInput(text);
+    onConsumedSeed?.();
+    void send(text);
+    // Seed is consumed immediately so this should not re-fire.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [seed]);
+
   const retryable = error instanceof ApiError && (error.code === "grok_failed" || error.code === "network" || error.code === "internal");
 
   return (
@@ -68,11 +79,15 @@ export function AskPanel({
         ))}
       </div>
       <div className="chat">
-        {chat.map((m, i) => (
-          <p key={i} className={m.role}>
-            {m.content}
-          </p>
-        ))}
+        {chat.map((m, i) =>
+          m.role === "assistant" ? (
+            <AskReply key={i} text={m.content} />
+          ) : (
+            <p key={i} className="user">
+              {m.content}
+            </p>
+          ),
+        )}
       </div>
       {last && (
         <>

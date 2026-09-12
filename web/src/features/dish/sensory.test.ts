@@ -27,9 +27,11 @@ describe("sensory helpers", () => {
     expect(pickByDim([a, b], "spicy")?.id).toBe("b");
   });
 
-  it("matches dishes by name from the catalog", () => {
+  it("ranks closer name matches first", () => {
     const ramen = dish("tonkotsu_ramen", { rich: 1 }, "Tonkotsu ramen");
     const pho = dish("pho_bo", { brothy: 1 }, "Pho bo");
-    expect(matchDishes("ramen", [ramen, pho]).map((d) => d.id)).toEqual(["tonkotsu_ramen"]);
+    const pad = dish("pad_thai", { sour: 1 }, "Pad thai");
+    expect(matchDishes("pho", [ramen, pho, pad]).map((d) => d.id)[0]).toBe("pho_bo");
+    expect(matchDishes("thai", [ramen, pho, pad]).map((d) => d.id)).toEqual(["pad_thai"]);
   });
 });

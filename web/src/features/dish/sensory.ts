@@ -27,16 +27,21 @@ export function matchDishes(query: string, dishes: DishPoint[], limit = 8): Dish
   const tokens = q.split(/\s+/).filter((t) => t.length > 1);
   const scored = dishes
     .map((d) => {
-      const hay = `${d.name} ${d.id.replaceAll("_", " ")} ${d.cuisine} ${d.blurb} ${d.format.replaceAll("_", " ")}`.toLowerCase();
+      const name = d.name.toLowerCase();
+      const hay = `${name} ${d.id.replaceAll("_", " ")} ${d.cuisine} ${d.blurb} ${d.format.replaceAll("_", " ")}`.toLowerCase();
       let s = 0;
+      if (name === q || d.id.replaceAll("_", " ") === q) s += 20;
+      if (name.startsWith(q)) s += 12;
+      if (name.split(/\s+/).some((w) => w.startsWith(q))) s += 6;
       if (hay.includes(q)) s += 8;
       for (const t of tokens) {
-        if (hay.includes(t)) s += 2;
+        if (name.includes(t)) s += 3;
+        else if (hay.includes(t)) s += 2;
       }
       return { d, s };
     })
     .filter((x) => x.s > 0)
-    .sort((a, b) => b.s - a.s);
+    .sort((a, b) => b.s - a.s || a.d.name.localeCompare(b.d.name));
   return scored.slice(0, limit).map((x) => x.d);
 }
 
