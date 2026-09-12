@@ -12,6 +12,13 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H9 · build report: data gaps · READY
+- what: build/report.md now has "Data gaps (fill these first)": the 79 empty-profile ingredients ranked by
+  impact (recipe share x potency) plus dishes >= 50% unprofiled. Top today: dashi, red_wine, lamb, salmon,
+  rice, hoisin, duck; 18 dishes (peking_duck 85%, teriyaki_salmon 81%, masala_dosa 80%, miso_soup 79%, ...)
+- for: data
+- action: fill ingredients in that order (`make build`, then read the section); it re-ranks as you go
+
 ## H8 · integrator smoke · REQUEST
 - what: real mode (70 dishes): most galaxy stars render as large BLACK discs, only a few are colored.
   Mock mode (16 dishes) looked fine. Suspect the instanced Stars in Galaxy.tsx (instanceColor set after the
