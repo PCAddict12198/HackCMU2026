@@ -123,7 +123,7 @@ dishes:
     blurb: Flaky pastry cup filled with glossy baked egg custard.
     recipe_basis: team estimate of two tarts
     ingredients:
-      - {ing: wheat_flour, g: 80, process: [roasted]}
+      - {ing: wheat_flour, g: 80, process: [toasted]}
       - {ing: butter, g: 40}
       - {ing: egg, g: 80}
       - {ing: sugar, g: 40}

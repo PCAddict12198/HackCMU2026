@@ -125,7 +125,7 @@ dishes:
     blurb: Layered phyllo with nuts and rose-cardamom syrup.
     recipe_basis: team estimate of two pieces
     ingredients:
-      - {ing: phyllo, g: 80, process: [roasted]}
+      - {ing: phyllo, g: 80, process: [toasted]}
       - {ing: walnuts, g: 50}
       - {ing: almonds, g: 20}
       - {ing: butter, g: 40}
