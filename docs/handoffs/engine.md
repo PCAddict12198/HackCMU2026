@@ -12,6 +12,19 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H8 · integrator smoke · REQUEST
+- what: real mode (70 dishes): most galaxy stars render as large BLACK discs, only a few are colored.
+  Mock mode (16 dishes) looked fine. Suspect the instanced Stars in Galaxy.tsx (instanceColor set after the
+  material compiled, or per-instance scale). Repro: `make dev`, select any dish
+- for: web
+- action: fix on agent/web; mock-mode repro should be `?mockLarge=1` (80 dishes)
+
+## H8 · integrator smoke · READY
+- what: h8 merged all 3 branches; first build on real skeletons: sanity positive 2/10, negative 9/10
+  (several positives at the 76-85th pct). Expected: 79 ingredients have empty profiles, the rest are seed values
+- for: data
+- action: don't tune to the sanity set; fill real values (USDA + Grok drafts) and re-read build/report.md
+
 ## H0+ · Grok live · REQUEST
 - what: new optional env var GROK_REASONING_EFFORT (default "low"; "default" = don't send). Also: a
   pasted `GROK_MODEL=GROK_MODEL=grok-4.6` line broke every call; errors now say "Model not found: ..."
