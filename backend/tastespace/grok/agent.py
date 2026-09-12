@@ -14,6 +14,7 @@ from tastespace_contracts.taxonomy import DIM_IDS
 from ..errors import TasteSpaceError
 from ..state import EngineState
 from .client import ChatFactory, ToolCall
+from .errors import provider_error_message
 from .grounding import derive_ui_actions, template_reply, ungrounded_numbers
 from .tools import TOOLS, tool_specs
 
@@ -89,8 +90,8 @@ def run_ask(state: EngineState, req: AskRequest, chat_factory: ChatFactory) -> A
     except TasteSpaceError:
         raise
     except Exception as exc:  # network / provider errors
-        raise TasteSpaceError("grok_failed", f"Grok request failed ({type(exc).__name__})",
-                              {"reason": str(exc)[:300]}) from exc
+        reason = provider_error_message(exc)
+        raise TasteSpaceError("grok_failed", f"Grok request failed: {reason}", {"reason": reason}) from exc
 
     user_text = " ".join(m.content for m in req.messages if m.role == "user")
     grounded = bool(reply) and not ungrounded_numbers(reply, trace, user_text)

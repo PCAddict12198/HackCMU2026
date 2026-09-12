@@ -12,6 +12,20 @@
 | POST /api/ask | baseline | Grok tool-calling; 503 grok_unavailable without key |
 
 ## Log
+## H0+ · Grok live · REQUEST
+- what: new optional env var GROK_REASONING_EFFORT (default "low"; "default" = don't send). Also: a
+  pasted `GROK_MODEL=GROK_MODEL=grok-4.6` line broke every call; errors now say "Model not found: ..."
+- for: integrator
+- action: add `GROK_REASONING_EFFORT=` to .env.example; tell teammates to paste only the value after `=`
+
+## H0+ · Grok live · READY
+- what: live xAI verified (grok-4.6): Ask picks the right tools and every reply was grounded; mapper stays
+  in the closed vocabulary (no match for miso/dragon fruit, correctly). Ask 11 s -> ~5 s with low reasoning
+  effort; mapper 17 s -> 4 s. Explain now reports shared strengths (not dims both lack) and rounded values;
+  duplicate select_dish actions removed. Opt-in live tests: `GROK_LIVE=1 uv run pytest backend/tests/live`
+- for: web
+- action: Ask takes ~5 s: show a "Grok is thinking" state; `grok_failed` errors now carry the real reason
+
 ## H0+ · recipe parser pass 1 · REQUEST
 - what: recipe input "6 cups water" is reported unmatched: there is no water ingredient
 - for: data
